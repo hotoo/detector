@@ -1,0 +1,23 @@
+{
+    "name": "detector",
+    "version": "1.0.0",
+    "root": "arale",
+    "description": "客户端信息识别模块",
+    "homepage": "http://hotoo.me/",
+    "author": "冒顿",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:aralejs/detector.git"
+    },
+    "bugs": {
+        "url": "https://github.com/aralejs/detector/issues"
+    },
+    "license": "MIT",
+    "dependencies": {
+      "versioning": "arale/versioning/1.0.0/versioning"
+    },
+    "tests": ["detector"],
+    "output": {
+        "detector.js": "."
+    }
+}
