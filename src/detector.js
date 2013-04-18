@@ -45,18 +45,18 @@ define(function(require, exports, module) {
   var OS = [
     // TODO: identify windows ce/mobile
     ["windows", /windows nt ([0-9.]+)/],
-		["macosx", /mac os x ([0-9._]+)/],
-		["ios", /cpu(?: iphone)? os ([0-9._]+)/],
+    ["macosx", /mac os x ([0-9._]+)/],
+    ["ios", /cpu(?: iphone)? os ([0-9._]+)/],
     ["android", /android ([0-9.]+)/],
-		["chromeos", /cros i686 ([0-9.]+)/],
-		["linux", "linux"],
+    ["chromeos", /cros i686 ([0-9.]+)/],
+    ["linux", "linux"],
     // XXX: /windows ce(?: ([0-9.]+))?/
-		["windowsce", userAgent.indexOf('windows ce ') > 0 ? (/windows ce ([0-9.]+)/) : 'windows ce'],
-		["symbian", /symbianos\/([0-9.]+)/],
-		["blackberry", 'blackberry']
+    ["windowsce", userAgent.indexOf('windows ce ') > 0 ? (/windows ce ([0-9.]+)/) : 'windows ce'],
+    ["symbian", /symbianos\/([0-9.]+)/],
+    ["blackberry", 'blackberry']
   ];
   var ENGINE = [
-		["trident", function(ua){
+    ["trident", function(ua){
       // IE8 及其以上提供有 Trident 信息
       if(ua.indexOf("trident/") > 0){
         return /trident\/([0-9.]+)/;
@@ -68,9 +68,9 @@ define(function(require, exports, module) {
       return v;
     }],
     ["blink", /blink\/([0-9.+]+)/],
-		["webkit", /applewebkit\/([0-9.+]+)/],
-		["gecko", /gecko\/(\d+)/],
-		["presto", /presto\/([0-9.]+)/]
+    ["webkit", /applewebkit\/([0-9.+]+)/],
+    ["gecko", /gecko\/(\d+)/],
+    ["presto", /presto\/([0-9.]+)/]
   ];
   var BROWSER = [
     /**
