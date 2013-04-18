@@ -5,7 +5,7 @@
 <pre id="web-console"></pre>
 <script type="text/javascript">
 function log(){
-    //document.getElementById("web-console").innerHTML += Array.prototype.join.call(arguments, " ") + "\n";
+    document.getElementById("web-console").innerHTML += Array.prototype.join.call(arguments, " ") + "\n";
 }
 </script>
 
@@ -23,5 +23,6 @@ seajs.use('detector', function(detector){
     log("engine:", detector.engine.name, detector.engine.version);
     log(detector.browser.version >= 25);
     log(detector.engine.version.gt(537.3));
+    console.log(detector.browser.compatible);
 });
 ````
