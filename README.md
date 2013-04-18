@@ -56,7 +56,7 @@ detector.browser.name === "chrome" // true
 // 判断浏览器名方法 2.
 !!detector.browser.ie // false
 
-// 判断 IE6 浏览器
+// 判断老旧浏览器
 if(detector.browser.ie && detector.browser.version.lt(8)){
     alert("你的浏览器太老了。");
 }
