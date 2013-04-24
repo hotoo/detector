@@ -33,41 +33,97 @@ define(function(require, exports, module) {
   // 硬件设备信息识别表达式。
   // 使用数组可以按优先级排序。
   var DEVICES = [
+    ["wp", "windows phone os"],
     ["pc", "windows"],
     ["ipad", "ipad"],
     ["ipod", "ipod"],
     ["iphone", "iphone"],
     ["mac", "macintosh"],
+    ["nexus", /nexus ([0-9.]+)/],
     ["android", "android"],
-    ["nokia", /nokia([^\/ ])/]
+    ["nokia", /nokia([^\/ ])/],
+    ["blackberry", "blackberry"]
   ];
   // 操作系统信息识别表达式
   var OS = [
-    // TODO: identify windows ce/mobile
     ["windows", /windows nt ([0-9.]+)/],
     ["macosx", /mac os x ([0-9._]+)/],
     ["ios", /cpu(?: iphone)? os ([0-9._]+)/],
-    ["android", /android ([0-9.]+)/],
+    ["android", /android[ -]([0-9.]+)/],
+    // TODO: Firefox OS.
     ["chromeos", /cros i686 ([0-9.]+)/],
+    // TODO: Ubuntu, Arch...
     ["linux", "linux"],
-    // XXX: /windows ce(?: ([0-9.]+))?/
-    ["windowsce", userAgent.indexOf('windows ce ') > 0 ? (/windows ce ([0-9.]+)/) : 'windows ce'],
+    ["wp", function(ua){
+      if(ua.indexOf("windows phone os")){
+        return /windows phone os ([0-9.]+)/
+      }else if(ua.indexOf("xblwp")){
+        return /xblwp([0-9.]+)/;
+      }else if(ua.indexOf("zunewp")){
+        return /zunewp([0-9.]+)/;
+      }
+      return "windows phone";
+    }],
+    ["windowsce", function(ua){
+      if(ua.indexOf("windows mobile")){
+        return "windows mobile";
+      }else{
+        return /windows ce(?: ([0-9.]+))?/
+      }
+    }],
     ["symbian", /symbianos\/([0-9.]+)/],
     ["blackberry", 'blackberry']
   ];
-  var ENGINE = [
-    ["trident", function(ua){
-      // IE8 及其以上提供有 Trident 信息
-      if(ua.indexOf("trident/") > 0){
-        return /trident\/([0-9.]+)/;
+
+  /*
+   * 解析使用 Trident 内核的浏览器的 `浏览器模式` 和 `文档模式` 信息。
+   * @param {String} ua, userAgent string.
+   * @return {Object}
+   */
+  function IEMode(ua){
+    if(ua.indexOf("msie ") === -1){return null;}
+
+    var m,
+        engineMode, engineVersion,
+        browserMode, browserVersion,
+        compatible=false;
+
+    // IE8 及其以上提供有 Trident 信息，
+    // 默认的兼容模式，UA 中 Trident 版本不发生变化。
+    if(ua.indexOf("trident/") > 0){
+      m = /trident\/([0-9.]+)/.exec(ua);
+      if(m && m.length>=2){
+        // 真实引擎版本。
+        engineVersion = m[1];
+        v_version = m[1].split(".");
+        v_version[0] = parseInt(v_version[0], 10) + 4;
+        browserVersion = v_version.join(".");
       }
-      var m = /msie ([0-9.]+)/.exec(ua);
-      if(!m){return null;}
-      var v = m[1].split(".");
-      v[0] = parseInt(v[0], 10) - 4;
-      return v;
-    }],
-    ["blink", /blink\/([0-9.+]+)/],
+    }
+
+    m = /msie ([0-9.]+)/.exec(ua);
+    browserMode = m[1];
+    var v_mode = m[1].split(".");
+    if("undefined" === typeof browserVersion){
+      browserVersion = browserMode;
+    }
+    v_mode[0] = parseInt(v_mode[0], 10) - 4;
+    engineMode = v_mode.join(".");
+    if("undefined" === typeof engineVersion){
+      engineVersion = engineMode;
+    }
+
+    return {
+      browserVersion: browserVersion,
+      browserMode: browserMode,
+      engineVersion: engineVersion,
+      engineMode: engineMode,
+      compatible: engineVersion !== engineMode
+    };
+  }
+  var ENGINE = [
+    ["trident", /msie (\d+)\.(\d)/],
+    //["blink", /blink\/([0-9.+]+)/],
     ["webkit", /applewebkit\/([0-9.+]+)/],
     ["gecko", /gecko\/(\d+)/],
     ["presto", /presto\/([0-9.]+)/]
@@ -76,14 +132,15 @@ define(function(require, exports, module) {
     /**
      * 360SE (360安全浏览器)
      **/
-    ['360', function() {
+    ['360', function(ua) {
       //if(!detector.os.windows) return false;
       if(external) {
         try {
           return external.twGetVersion(external.twGetSecurityID(window));
         } catch(e) {
           try {
-            return external.twGetRunPath.toLowerCase().indexOf('360se') !== -1 || !!external.twGetSecurityID(window);
+            return external.twGetRunPath.toLowerCase().indexOf('360se') !== -1 ||
+              !!external.twGetSecurityID(window);
           } catch(e) {}
         }
       }
@@ -92,14 +149,14 @@ define(function(require, exports, module) {
     /**
      * Maxthon (傲游)
      **/
-    ["mx", function() {
+    ["mx", function(ua){
       //if(!detector.os.windows) return false;
-      if(external) {
-        try {
+      if(external){
+        try{
           return (external.mxVersion || external.max_version).split('.');
-        } catch(e) {}
+        }catch(e){}
       }
-      return userAgent.indexOf('maxthon ') !== -1 ? (/maxthon ([0-9.]+)/) : 'maxthon';
+      return ua.indexOf('maxthon ') !== -1 ? (/maxthon ([0-9.]+)/) : 'maxthon';
     }],
     /**
      * [Sogou (搜狗浏览器)](http://ie.sogou.com/)
@@ -109,12 +166,12 @@ define(function(require, exports, module) {
      * TheWorld (世界之窗)
      * NOTE: 由于裙带关系，TW API 与 360 高度重合。若 TW 不提供标准信息，则可能会被识别为 360
      **/
-    ["tw", function() {
+    ["tw", function(ua){
       //if(!detector.os.windows) return false;
       if(external) {
-        try {
+        try{
           return external.twGetRunPath.toLowerCase().indexOf('theworld') !== -1;
-        } catch(e) {}
+        }catch(e){}
       }
       return 'theworld';
     }],
@@ -123,14 +180,16 @@ define(function(require, exports, module) {
     ["tt", /tencenttraveler ([0-9.]+)/],
     ["lb", "lbbrowser"],
     ["tao", /taobrowser\/([0-9.]+)/],
+    ["fs", /coolnovo\/([0-9.]+)/],
+    ["sy", "saayaa"],
+    // 后面会做修复版本号，这里只要能识别是 IE 即可。
     ["ie", /msie ([0-9.]+)/],
-    ["chrome", / (?:chrome|crios)\/([0-9.]+)/],
-    ["safari", /version\/([0-9.]+( ?:beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\//],
+    ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
+    ["safari", /version\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\//],
     ["firefox", /firefox\/([0-9.ab]+)/],
-    ["opera", /opera.+version\/([0-9.ab]+)/]
+    ["opera", /opera.+version\/([0-9.ab]+)/],
+    ["uc", /ucweb([0-9.]+)/]
   ];
-
-  var detected = -1, notDetected = 0;
 
   /**
    * UserAgent Detector.
@@ -170,7 +229,11 @@ define(function(require, exports, module) {
     }else if(expr.exec){ // RegExp
       var m = expr.exec(ua);
       if(m){
-        info.version = m[1].replace(/_/g, ".");
+        if(m.length >= 2){
+          info.version = m[1].replace(/_/g, ".");
+        }else{
+          info.version = "-1";
+        }
         return info;
       }
     }
@@ -194,6 +257,7 @@ define(function(require, exports, module) {
   var parse = function(ua){
     ua = (ua || "").toLowerCase();
     var d = {};
+
     init(ua, DEVICES, function(name, version){
       var v = new versioning(version);
       d.device = {
@@ -202,6 +266,7 @@ define(function(require, exports, module) {
       };
       d.device[name] = v;
     }, d);
+
     init(ua, OS, function(name, version){
       var v = new versioning(version);
       d.os = {
@@ -210,23 +275,48 @@ define(function(require, exports, module) {
       };
       d.os[name] = v;
     }, d);
+
+    var ieCore = IEMode(ua);
+
     init(ua, ENGINE, function(name, version){
-      var v = new versioning(version);
+      var mode = version;
+      // IE 内核的浏览器，修复版本号及兼容模式。
+      if(ieCore){
+        version = ieCore.engineVersion || ieCore.engineMode;
+        mode = ieCore.engineMode;
+      }
+      var vv = new versioning(version);
+      var vm = new versioning(mode);
       d.engine = {
         name: name,
-        version: v
+        version: vv,
+        mode: vm,
+        compatible: ieCore ? ieCore.compatible : false
       };
-      d.engine[name] = v;
+      d.engine[name] = vv;
     }, d);
+
     init(ua, BROWSER, function(name, version){
-      var v = new versioning(version);
+      var mode = version;
+      // IE 内核的浏览器，修复浏览器版本及兼容模式。
+      if(ieCore){
+        // 仅修改 IE 浏览器的版本，其他 IE 内核的版本不修改。
+        if(name === "ie"){
+          version = ieCore.browserVersion;
+        }
+        mode = ieCore.browserMode;
+      }
+      var vv = new versioning(version);
+      var vm = new versioning(mode);
       d.browser = {
         name: name,
-        version: v
+        version: vv,
+        mode: vm,
+        compatible: ieCore ? ieCore.compatible : false
       };
-      d.browser[name] = v;
-      d.browser.compatible = !!d.engine.trident &&
-        !d.engine.version.eq(document.documentMode - 4);
+      d.browser[name] = vv;
+      //d.browser.compatible = !!d.engine.trident &&
+        //!d.engine.version.eq(document.documentMode - 4);
     }, d);
     return d;
   };
@@ -234,6 +324,5 @@ define(function(require, exports, module) {
   detector = parse(userAgent);
   detector.detect = parse;
 
-  window.detector = detector;
   module.exports = detector;
 });
