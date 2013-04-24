@@ -1,7 +1,7 @@
 
 define(function(require, exports, module) {
 
-  var versioning = require("versioning");
+  var versioning = require("./versioning");
 
   var detector = {};
 

@@ -14,9 +14,6 @@
     },
     "license": "MIT",
     "spm": {
-      "output": ["detector.js"],
-      "alias": {
-        "versioning": "arale/versioning/1.0.0/versioning"
-      }
+      "output": ["detector.js"]
     }
 }
