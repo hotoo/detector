@@ -2,6 +2,10 @@
 
 ---
 
+[![Build Status](https://secure.travis-ci.org/aralejs/detector.png?branch=master)](https://travis-ci.org/aralejs/detector)
+[![Coverage Status](https://coveralls.io/repos/aralejs/detector/badge.png?branch=master)](https://coveralls.io/r/aralejs/detector)
+
+
 客户端信息识别模块，用于自动识别用户使用的客户端环境。包括：
 
 1. 硬件设备。
