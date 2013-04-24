@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "root": "arale",
     "description": "客户端信息识别模块",
-    "homepage": "http://hotoo.me/",
-    "author": "冒顿",
+    "homepage": "",
+    "author": "闲耘 <hotoo.cn@gmail.com>",
     "repository": {
         "type": "git",
         "url": "git@github.com:aralejs/detector.git"
@@ -13,11 +13,10 @@
         "url": "https://github.com/aralejs/detector/issues"
     },
     "license": "MIT",
-    "dependencies": {
-      "versioning": "arale/versioning/1.0.0/versioning"
-    },
-    "tests": ["detector"],
-    "output": {
-        "detector.js": "."
+    "spm": {
+      "output": ["detector.js"],
+      "alias": {
+        "versioning": "arale/versioning/1.0.0/versioning"
+      }
     }
 }
