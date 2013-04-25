@@ -10,17 +10,17 @@ define(function(require, exports, module) {
   var vendor = navigator.vendor || "";
   var external = window.external;
 
-  function _type(object){
+  function toString(object){
     return Object.prototype.toString.call(object);
   }
   function isObject(object){
-    return Object.prototype.toString.call(object) === '[object Object]';
+    return toString(object) === '[object Object]';
   }
   function isFunction(object){
-    return Object.prototype.toString.call(object) === '[object Function]';
+    return toString(object) === '[object Function]';
   }
   function isArray(object){
-    return Object.prototype.toString.call(object) === '[object Array]';
+    return toString(object) === '[object Array]';
   }
   function each(object, factory, argument){
     if(isArray(object)){
@@ -229,7 +229,7 @@ define(function(require, exports, module) {
       version: "-1",
       codename: ""
     };
-    var t = _type(expr);
+    var t = toString(expr);
     if(expr === true){
       return info;
     }else if(t === "[object String]"){
