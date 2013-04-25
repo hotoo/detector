@@ -39,6 +39,15 @@ define(function(require, exports, module) {
     ["ipod", "ipod"],
     ["iphone", "iphone"],
     ["mac", "macintosh"],
+    ["mi", function(ua){
+      if(ua.indexOf("mi-one plus") >= 0){
+        return {
+          version: "1s"
+        };
+      }else{
+        return /\bmi ([0-9.as]+)/;
+      }
+    }],
     ["nexus", /nexus ([0-9.]+)/],
     ["android", "android"],
     ["nokia", /nokia([^\/ ])/],
