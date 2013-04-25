@@ -156,12 +156,12 @@ define(function(require, exports, module) {
           return (external.mxVersion || external.max_version).split('.');
         }catch(e){}
       }
-      return ua.indexOf('maxthon ') !== -1 ? (/maxthon ([0-9.]+)/) : 'maxthon';
+      return /maxthon(?:[ \/]([0-9.]+))?/;
     }],
     /**
      * [Sogou (搜狗浏览器)](http://ie.sogou.com/)
      **/
-    ["sg", / se (\d)\./],
+    ["sg", / se ([0-9.x]+)/],
     /**
      * TheWorld (世界之窗)
      * NOTE: 由于裙带关系，TW API 与 360 高度重合。若 TW 不提供标准信息，则可能会被识别为 360
@@ -182,13 +182,21 @@ define(function(require, exports, module) {
     ["tao", /taobrowser\/([0-9.]+)/],
     ["fs", /coolnovo\/([0-9.]+)/],
     ["sy", "saayaa"],
+    ["baidu", /bidubrowser[ \/]([0-9.x]+)/],
+    ["mi", /miuibrowser\/([0-9.]+)/],
     // 后面会做修复版本号，这里只要能识别是 IE 即可。
     ["ie", /msie ([0-9.]+)/],
     ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
     ["safari", /version\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\//],
     ["firefox", /firefox\/([0-9.ab]+)/],
     ["opera", /opera.+version\/([0-9.ab]+)/],
-    ["uc", /ucweb([0-9.]+)/]
+    ["uc", function(ua){
+      if(ua.indexOf("ucbrowser")){
+        return /ucbrowser\/([0-9.]+)/;
+      }else{
+        return /ucweb([0-9.]+)/;
+      }
+    }]
   ];
 
   /**
