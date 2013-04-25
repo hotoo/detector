@@ -48,7 +48,8 @@ detector = {
 
 1. 上面的 `[iphone]`, `[ios]`, `[chrome]`, `[webkit]` 是动态的，根据实际识别
     到的信息不同而有所不同。
-1. `{"-1"}` 等版本信息是一个特殊的对象，可以用来直接跟数值进行算术表达式比较，
+1. `{"-1"}` 等版本信息是一个特殊的 [versioning](https://github.com/hotoo/versioning)
+    对象，可以用来直接跟数值进行算术表达式比较，
     也可以使用 `eq`, `gt`, `gte`, `lt`, `lte` 方法进行比较。
 
 
@@ -69,7 +70,7 @@ if(detector.browser.ie && detector.browser.version < 8){
 }
 
 // 判断 Trident 4(IE8) 以下版本浏览器引擎
-if(detector.engine.trident && detector.engine.version.lt(4)){
+if(detector.engine.trident && detector.engine.mode.lt(4)){
     // hack code.
 }
 ```
@@ -162,7 +163,6 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `opera`: Opera.
 * `360`: 包括奇虎 360 安全浏览器和 360 极速浏览器。
 * `mx`: 傲游浏览器(Maxthon)。
-* `fs`: 枫树浏览器。
 * `sg`: 搜狗浏览器(Sogou)。
 * `tw`: 世界之窗浏览器(TheWorld)。
 * `green`: GreenBrowser.
