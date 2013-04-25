@@ -316,6 +316,26 @@ define(function(require) {
       browser: "ie/9.0;9.0;o",
       engine: "trident/5.0;5.0;o"
     }],
+    // Windows Phone, IE9
+    ["Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; XBLWP7; ZuneWP7)", {
+      device: "wp/-1",
+      os: "wp/7",
+      browser: "ie/7.0;7.0;o",
+      engine: "trident/3.0;3.0;o"
+    }],
+    // Windows CE
+    ["Mozilla/5.0 (Windows; U; Windows CE 5.1; rv:1.8.1a3) Gecko/20060610 Minimo/0.016", {
+      device: "wp/-1",
+      os: "windowsce/5.1",
+      browser: "na/-1;-1;o",
+      engine: "gecko/20060610;20060610;o"
+    }],
+    ["Mozilla/4.0 (compatible; MSIE 4.01; Windows CE; 176x220)", {
+      device: "wp/-1",
+      os: "windowsce/-1",
+      browser: "ie/4.01;4.01;o",
+      engine: "trident/0.01;0.01;o"
+    }],
     // Nexus 7
     ["Mozilla/5.0 (Linux; Android 4.2.2; Nexus 7 Build/JDQ39) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.169 Safari/537.22", {
       device: "nexus/7",

@@ -33,14 +33,19 @@ define(function(require, exports, module) {
   // 硬件设备信息识别表达式。
   // 使用数组可以按优先级排序。
   var DEVICES = [
-    ["wp", "windows phone os"],
+    ["wp", function(ua){
+      return ua.indexOf("windows phone os") !== -1 ||
+        ua.indexOf("xblwp") !== -1 ||
+        ua.indexOf("zunewp") !== -1 ||
+        ua.indexOf("windows ce") !== -1;
+    }],
     ["pc", "windows"],
     ["ipad", "ipad"],
     ["ipod", "ipod"],
     ["iphone", "iphone"],
     ["mac", "macintosh"],
     ["mi", function(ua){
-      if(ua.indexOf("mi-one plus") >= 0){
+      if(ua.indexOf("mi-one plus") !== -1){
         return {
           version: "1s"
         };
@@ -55,6 +60,16 @@ define(function(require, exports, module) {
   ];
   // 操作系统信息识别表达式
   var OS = [
+    ["wp", function(ua){
+      if(ua.indexOf("windows phone os") !== -1){
+        return /windows phone os ([0-9.]+)/;
+      }else if(ua.indexOf("xblwp") !== -1){
+        return /xblwp([0-9.]+)/;
+      }else if(ua.indexOf("zunewp") !== -1){
+        return /zunewp([0-9.]+)/;
+      }
+      return "windows phone";
+    }],
     ["windows", /windows nt ([0-9.]+)/],
     ["macosx", /mac os x ([0-9._]+)/],
     ["ios", /cpu(?: iphone)? os ([0-9._]+)/],
@@ -63,21 +78,11 @@ define(function(require, exports, module) {
     ["chromeos", /cros i686 ([0-9.]+)/],
     // TODO: Ubuntu, Arch...
     ["linux", "linux"],
-    ["wp", function(ua){
-      if(ua.indexOf("windows phone os")){
-        return /windows phone os ([0-9.]+)/
-      }else if(ua.indexOf("xblwp")){
-        return /xblwp([0-9.]+)/;
-      }else if(ua.indexOf("zunewp")){
-        return /zunewp([0-9.]+)/;
-      }
-      return "windows phone";
-    }],
     ["windowsce", function(ua){
-      if(ua.indexOf("windows mobile")){
+      if(ua.indexOf("windows mobile") !== -1){
         return "windows mobile";
       }else{
-        return /windows ce(?: ([0-9.]+))?/
+        return /windows ce(?: ([0-9.]+))?/;
       }
     }],
     ["symbian", /symbianos\/([0-9.]+)/],
@@ -99,7 +104,7 @@ define(function(require, exports, module) {
 
     // IE8 及其以上提供有 Trident 信息，
     // 默认的兼容模式，UA 中 Trident 版本不发生变化。
-    if(ua.indexOf("trident/") > 0){
+    if(ua.indexOf("trident/") !== -1){
       m = /trident\/([0-9.]+)/.exec(ua);
       if(m && m.length>=2){
         // 真实引擎版本。
@@ -200,11 +205,11 @@ define(function(require, exports, module) {
     ["firefox", /firefox\/([0-9.ab]+)/],
     ["opera", /opera.+version\/([0-9.ab]+)/],
     ["uc", function(ua){
-      if(ua.indexOf("ucbrowser")){
+      //if(ua.indexOf("ucbrowser") !== -1){
         return /ucbrowser\/([0-9.]+)/;
-      }else{
-        return /ucweb([0-9.]+)/;
-      }
+      //}else{
+        //return /ucweb([0-9.]+)/;
+      //}
     }]
   ];
 
@@ -232,13 +237,9 @@ define(function(require, exports, module) {
         return info;
       }
     }else if(t === "[object Array]"){
-      info.name = name;
       info.version = expr.join(".");
       return info;
     }else if(isObject(expr)){ // Object
-      if(expr.hasOwnProperty("name")){
-        info.name = expr.name || name;
-      }
       if(expr.hasOwnProperty("version")){
         info.version = expr.version;
       }
@@ -246,7 +247,7 @@ define(function(require, exports, module) {
     }else if(expr.exec){ // RegExp
       var m = expr.exec(ua);
       if(m){
-        if(m.length >= 2){
+        if(m.length >= 2 && m[1]){
           info.version = m[1].replace(/_/g, ".");
         }else{
           info.version = "-1";
