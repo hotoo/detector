@@ -76,13 +76,7 @@ define(function(require, exports, module) {
     ["android", /android[ -]([0-9.]+)/],
     ["chromeos", /cros i686 ([0-9.]+)/],
     ["linux", "linux"],
-    ["windowsce", function(ua){
-      if(ua.indexOf("windows mobile") !== -1){
-        return "windows mobile";
-      }else{
-        return /windows ce(?: ([0-9.]+))?/;
-      }
-    }],
+    ["windowsce", /windows ce(?: ([0-9.]+))?/],
     ["symbian", /symbianos\/([0-9.]+)/],
     ["blackberry", "blackberry"]
   ];
@@ -241,9 +235,6 @@ define(function(require, exports, module) {
       if(ua.indexOf(expr) !== -1){
         return info;
       }
-    }else if(t === "[object Array]"){
-      info.version = expr.join(".");
-      return info;
     }else if(isObject(expr)){ // Object
       if(expr.hasOwnProperty("version")){
         info.version = expr.version;
