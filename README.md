@@ -98,8 +98,11 @@ if(detector.engine.trident && detector.engine.mode.lt(4)){
 * `ipad`: iPad.
 * `ipod`: iPod.
 * `android`: Android.
-* `nokia`: Nokia.
 * `blackberry`: Blackberry.
+* `wp`: Windows Phone.
+* `mi`: 小米。
+* `nexus`: Nexus.
+* `nokia`: Nokia.
 
 
 ----
@@ -127,6 +130,7 @@ if(detector.engine.trident && detector.engine.mode.lt(4)){
 * `wp`: Windows Phone.
 * `windowsce`: Windows CE, 包括 Windows Mobile, Smartphone, PPC.
 * `symbian`: Symbian OS.
+* `blackberry`: Blackberry.
 
 
 ----
@@ -173,6 +177,8 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `fs`: 枫树浏览器。
 * `sy`: 闪游浏览器。
 * `uc`: UC 浏览器。
+* `mi`: 小米浏览器。
+* `baidu`: 百度浏览器。
 
 国产浏览器名称均使用缩写方式，`ie` 由于习俗也使用缩写。
 
