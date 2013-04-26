@@ -3,7 +3,7 @@
     "name": "detector",
     "version": "1.0.0",
     "description": "客户端信息识别模块",
-    "homepage": "",
+    "homepage": "http://aralejs.org/detector",
     "author": "闲耘 <hotoo.cn@gmail.com>",
     "repository": {
         "type": "git",
