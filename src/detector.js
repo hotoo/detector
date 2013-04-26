@@ -14,13 +14,13 @@ define(function(require, exports, module) {
     return Object.prototype.toString.call(object);
   }
   function isObject(object){
-    return toString(object) === '[object Object]';
+    return toString(object) === "[object Object]";
   }
   function isFunction(object){
-    return toString(object) === '[object Function]';
+    return toString(object) === "[object Function]";
   }
   function isArray(object){
-    return toString(object) === '[object Array]';
+    return toString(object) === "[object Array]";
   }
   function each(object, factory, argument){
     if(isArray(object)){
@@ -74,9 +74,7 @@ define(function(require, exports, module) {
     ["macosx", /mac os x ([0-9._]+)/],
     ["ios", /cpu(?: iphone)? os ([0-9._]+)/],
     ["android", /android[ -]([0-9.]+)/],
-    // TODO: Firefox OS.
     ["chromeos", /cros i686 ([0-9.]+)/],
-    // TODO: Ubuntu, Arch...
     ["linux", "linux"],
     ["windowsce", function(ua){
       if(ua.indexOf("windows mobile") !== -1){
@@ -86,7 +84,7 @@ define(function(require, exports, module) {
       }
     }],
     ["symbian", /symbianos\/([0-9.]+)/],
-    ["blackberry", 'blackberry']
+    ["blackberry", "blackberry"]
   ];
 
   /*
@@ -146,14 +144,14 @@ define(function(require, exports, module) {
     /**
      * 360SE (360安全浏览器)
      **/
-    ['360', function(ua) {
+    ["360", function(ua) {
       //if(!detector.os.windows) return false;
       if(external) {
         try {
           return external.twGetVersion(external.twGetSecurityID(window));
         } catch(e) {
           try {
-            return external.twGetRunPath.toLowerCase().indexOf('360se') !== -1 ||
+            return external.twGetRunPath.toLowerCase().indexOf("360se") !== -1 ||
               !!external.twGetSecurityID(window);
           } catch(e) {}
         }
@@ -167,7 +165,7 @@ define(function(require, exports, module) {
       //if(!detector.os.windows) return false;
       if(external){
         try{
-          return (external.mxVersion || external.max_version).split('.');
+          return (external.mxVersion || external.max_version).split(".");
         }catch(e){}
       }
       return /maxthon(?:[ \/]([0-9.]+))?/;
@@ -184,10 +182,10 @@ define(function(require, exports, module) {
       //if(!detector.os.windows) return false;
       if(external) {
         try{
-          return external.twGetRunPath.toLowerCase().indexOf('theworld') !== -1;
+          return external.twGetRunPath.toLowerCase().indexOf("theworld") !== -1;
         }catch(e){}
       }
-      return 'theworld';
+      return "theworld";
     }],
     ["green", "greenbrowser"],
     ["qq", /qqbrowser\/([0-9.]+)/],
@@ -205,11 +203,7 @@ define(function(require, exports, module) {
     ["firefox", /firefox\/([0-9.ab]+)/],
     ["opera", /opera.+version\/([0-9.ab]+)/],
     ["uc", function(ua){
-      //if(ua.indexOf("ucbrowser") !== -1){
-        return /ucbrowser\/([0-9.]+)/;
-      //}else{
-        //return /ucweb([0-9.]+)/;
-      //}
+      return ua.indexOf("ucbrowser") !== -1 ? /ucbrowser\/([0-9.]+)/ : /ucweb([0-9.]+)/;
     }]
   ];
 
@@ -257,10 +251,10 @@ define(function(require, exports, module) {
     }
   }
 
-  var unknow = {name:"na", version:"-1"};
+  var na = {name:"na", version:"-1"};
   // 初始化识别。
   function init(ua, patterns, factory, detector){
-    var detected = unknow;
+    var detected = na;
     each(patterns, function(pattern){
       var d = detect(pattern[0], pattern[1], ua);
       if(d){
@@ -271,7 +265,11 @@ define(function(require, exports, module) {
     factory.call(detector, detected.name, detected.version);
   }
 
-
+  /**
+   * 解析 UserAgent 字符串
+   * @param {String} ua, userAgent string.
+   * @return {Object}
+   */
   var parse = function(ua){
     ua = (ua || "").toLowerCase();
     var d = {};
@@ -333,8 +331,6 @@ define(function(require, exports, module) {
         compatible: ieCore ? ieCore.compatible : false
       };
       d.browser[name] = vv;
-      //d.browser.compatible = !!d.engine.trident &&
-        //!d.engine.version.eq(document.documentMode - 4);
     }, d);
     return d;
   };
