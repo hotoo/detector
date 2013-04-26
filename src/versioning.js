@@ -99,10 +99,15 @@ define(function(require, exports, module){
         10);
     },
 
-    // XXX: ""+ver 调用的转型方法是 valueOf，而不是 toString，这个有点悲剧。
-    // 只能使用 String(ver) 或 ver.toString() 方法。
-    toString: function(){
-      return this._version;
+    /**
+     * XXX: ""+ver 调用的转型方法是 valueOf，而不是 toString，这个有点悲剧。
+     * 只能使用 String(ver) 或 ver.toString() 方法。
+     * @param {Number} precision, 返回的版本号精度。默认返回完整版本号。
+     * @return {String}
+     */
+    toString: function(precision){
+      return "undefined"===typeof precision ? this._version :
+        this._version.split(delimiter).slice(0,precision).join(delimiter);
     }
   };
 
