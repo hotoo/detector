@@ -190,7 +190,18 @@ define(function(require, exports, module) {
     ["green", "greenbrowser"],
     ["qq", /qqbrowser\/([0-9.]+)/],
     ["tt", /tencenttraveler ([0-9.]+)/],
-    ["lb", "lbbrowser"],
+    ["lb", function(ua){
+      if(ua.indexOf("lbbrowser") === -1){return false;}
+      var version = "-1";
+      if(window.external && window.external.LiebaoGetVersion){
+        try{
+          version = window.external.LiebaoGetVersion();
+        }catch(ex){}
+      }
+      return {
+        version: version
+      };
+    }],
     ["tao", /taobrowser\/([0-9.]+)/],
     ["fs", /coolnovo\/([0-9.]+)/],
     ["sy", "saayaa"],
