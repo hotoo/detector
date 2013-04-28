@@ -52,6 +52,12 @@ detector = {
     对象，可以用来直接跟数值进行算术表达式比较，
     也可以使用 `eq`, `gt`, `gte`, `lt`, `lte` 方法进行比较。
 
+## 安装
+
+```
+spm install arale/detector
+```
+
 
 ## 使用说明
 
@@ -101,6 +107,7 @@ if(detector.engine.trident && detector.engine.mode.lt(4)){
 * `blackberry`: Blackberry.
 * `wp`: Windows Phone.
 * `mi`: 小米。
+* `meizu`: 魅族。
 * `nexus`: Nexus.
 * `nokia`: Nokia.
 

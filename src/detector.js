@@ -62,6 +62,7 @@ define(function(require, exports, module) {
         return /\bmi ([0-9.as]+)/;
       }
     }],
+    ["meizu", /\bm([0-9]+)/],
     ["nexus", /nexus ([0-9.]+)/],
     ["android", "android"],
     ["blackberry", "blackberry"]

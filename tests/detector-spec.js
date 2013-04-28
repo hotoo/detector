@@ -364,6 +364,13 @@ define(function(require) {
       browser: "safari/4.0;4.0;o",
       engine: "webkit/534.30;534.30;o"
     }],
+    // 魅族
+    ["Mozilla/5.0 (Linux; U; Android 4.0.3; zh-cn; M030 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 MicroMessenger/4.2.191", {
+      device: "meizu/030",
+      os: "android/4.0.3",
+      browser: "safari/4.0;4.0;o",
+      engine: "webkit/534.30;534.30;o"
+    }],
 
     // UC
     ["Mozilla/5.0 (Linux; U; Android 4.0.4; zh-CN; MI 1SC Build/IMM76D) AppleWebKit/534.31 (KHTML, like Gecko) UCBrowser/8.8.2.274 U3/0.8.0 Mobile Safari/534.31", {
