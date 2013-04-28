@@ -33,8 +33,17 @@ define(function(require, exports, module) {
   // 硬件设备信息识别表达式。
   // 使用数组可以按优先级排序。
   var DEVICES = [
+    ["nokia", function(ua){
+      if(ua.indexOf("nokia ") !== -1){
+        return /nokia ([0-9]+)?/;
+      }else if(/nokia[\d]/.test(ua)){
+        return /nokia(\d+)/;
+      }else{
+        return "nokia";
+      }
+    }],
     ["wp", function(ua){
-      return ua.indexOf("windows phone os") !== -1 ||
+      return ua.indexOf("windows phone ") !== -1 ||
         ua.indexOf("xblwp") !== -1 ||
         ua.indexOf("zunewp") !== -1 ||
         ua.indexOf("windows ce") !== -1;
@@ -55,14 +64,13 @@ define(function(require, exports, module) {
     }],
     ["nexus", /nexus ([0-9.]+)/],
     ["android", "android"],
-    ["nokia", /nokia([^\/ ])/],
     ["blackberry", "blackberry"]
   ];
   // 操作系统信息识别表达式
   var OS = [
     ["wp", function(ua){
-      if(ua.indexOf("windows phone os") !== -1){
-        return /windows phone os ([0-9.]+)/;
+      if(ua.indexOf("windows phone ") !== -1){
+        return /windows phone (?:os )?([0-9.]+)/;
       }else if(ua.indexOf("xblwp") !== -1){
         return /xblwp([0-9.]+)/;
       }else if(ua.indexOf("zunewp") !== -1){
