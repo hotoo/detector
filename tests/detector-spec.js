@@ -361,14 +361,20 @@ define(function(require) {
       device: "mi/1s",
       os: "android/4.0.1",
       // XXX: Android 默认浏览器怎么会是 Safari 浏览器？
-      browser: "safari/4.0;4.0;o",
+      browser: "android/4.0;4.0;o",
       engine: "webkit/534.30;534.30;o"
     }],
     // 魅族
     ["Mozilla/5.0 (Linux; U; Android 4.0.3; zh-cn; M030 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 MicroMessenger/4.2.191", {
       device: "meizu/030",
       os: "android/4.0.3",
-      browser: "safari/4.0;4.0;o",
+      browser: "android/4.0;4.0;o",
+      engine: "webkit/534.30;534.30;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 4.1.1; zh-cn; M040 Build/JRO03H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30", {
+      device: "meizu/040",
+      os: "android/4.1.1",
+      browser: "android/4.0;4.0;o",
       engine: "webkit/534.30;534.30;o"
     }],
 

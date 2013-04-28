@@ -335,6 +335,10 @@ define(function(require, exports, module) {
       }
       var vv = new versioning(version);
       var vm = new versioning(mode);
+      // Android 默认浏览器。
+      if(d.os.name === "android" && name==="safari"){
+        name = "android";
+      }
       d.browser = {
         name: name,
         version: vv,
