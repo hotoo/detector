@@ -310,6 +310,12 @@ define(function(require) {
       engine: "webkit/531.21.10;531.21.10;o"
     }],
     // Windows Phone, IE9
+    ["Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Nokia 620)", {
+      device: "nokia/620",
+      os: "wp/8.0",
+      browser: "ie/10.0;10.0;o",
+      engine: "trident/6.0;6.0;o"
+    }],
     ["Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG SGH-i917)", {
       device: "wp/-1",
       os: "wp/7.5",
