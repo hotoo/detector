@@ -38,6 +38,7 @@
       "windows/6.0":  "Windows Vista",
       "windows/6.1":  "Windows 7",
       "windows/6.2":  "Windows 8",
+      "windows/6.3":  "Windows Blue",
       "macosx/10.0": "Mac OS X Cheetah",
       "macosx/10.1": "Mac OS X Puma",
       "macosx/10.2": "Max OS X Jaguar",
@@ -46,7 +47,8 @@
       "macosx/10.5": "Max OS X Leopard",
       "macosx/10.6": "Mac OS X Snow Leopard",
       "macosx/10.7": "Mac OS X Lion",
-      "macosx/10.8": "Mac OS X Mountain Lion"
+      "macosx/10.8": "Mac OS X Mountain Lion",
+      "macosx/10.9": "Mac OS X Cabernet"
     };
 
     var detectedInfo = [];
