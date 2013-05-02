@@ -5,6 +5,7 @@
     "description": "客户端信息识别模块",
     "homepage": "http://aralejs.org/detector",
     "author": "闲耘 <hotoo.cn@gmail.com>",
+    "keywords": ["utility"],
     "repository": {
         "type": "git",
         "url": "https://github.com/aralejs/detector.git"
