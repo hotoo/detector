@@ -10,6 +10,8 @@ define(function(require, exports, module) {
   var vendor = navigator.vendor || "";
   var external = window.external;
 
+  var re_msie = /\b(?:msie|ie) ([0-9.]+)/;
+
   function toString(object){
     return Object.prototype.toString.call(object);
   }
@@ -62,8 +64,9 @@ define(function(require, exports, module) {
         return /\bmi ([0-9.as]+)/;
       }
     }],
+    ["aliyun", "aliyunos"],
     ["meizu", /\bm([0-9]+)\b/],
-    ["nexus", /nexus ([0-9.]+)/],
+    ["nexus", /\bnexus ([0-9.]+)/],
     ["android", "android"],
     ["blackberry", "blackberry"]
   ];
@@ -82,6 +85,7 @@ define(function(require, exports, module) {
     ["windows", /windows nt ([0-9.]+)/],
     ["macosx", /mac os x ([0-9._]+)/],
     ["ios", /cpu(?: iphone)? os ([0-9._]+)/],
+    ["yunos", /aliyunos ([0-9.]+)/],
     ["android", /android[ -]([0-9.]+)/],
     ["chromeos", /cros i686 ([0-9.]+)/],
     ["linux", "linux"],
@@ -89,6 +93,10 @@ define(function(require, exports, module) {
     ["symbian", /symbianos\/([0-9.]+)/],
     ["blackberry", "blackberry"]
   ];
+  //var OS_CORE = [
+    //["windows-mobile", ""]
+    //["windows", "windows"]
+  //];
 
   /*
    * 解析使用 Trident 内核的浏览器的 `浏览器模式` 和 `文档模式` 信息。
@@ -96,7 +104,8 @@ define(function(require, exports, module) {
    * @return {Object}
    */
   function IEMode(ua){
-    if(ua.indexOf("msie ") === -1){return null;}
+    if(!re_msie.test(ua)){return null;}
+    //if(ua.indexOf("msie ") === -1){return null;}
 
     var m,
         engineMode, engineVersion,
@@ -116,7 +125,7 @@ define(function(require, exports, module) {
       }
     }
 
-    m = /msie ([0-9.]+)/.exec(ua);
+    m = re_msie.exec(ua);
     browserMode = m[1];
     var v_mode = m[1].split(".");
     if("undefined" === typeof browserVersion){
@@ -137,7 +146,7 @@ define(function(require, exports, module) {
     };
   }
   var ENGINE = [
-    ["trident", /msie (\d+)\.(\d)/],
+    ["trident", re_msie],
     //["blink", /blink\/([0-9.+]+)/],
     ["webkit", /applewebkit\/([0-9.+]+)/],
     ["gecko", /gecko\/(\d+)/],
@@ -211,7 +220,7 @@ define(function(require, exports, module) {
     ["baidu", /bidubrowser[ \/]([0-9.x]+)/],
     ["mi", /miuibrowser\/([0-9.]+)/],
     // 后面会做修复版本号，这里只要能识别是 IE 即可。
-    ["ie", /msie ([0-9.]+)/],
+    ["ie", re_msie],
     ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
     ["safari", /version\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\//],
     ["firefox", /firefox\/([0-9.ab]+)/],
@@ -336,7 +345,7 @@ define(function(require, exports, module) {
       var vv = new versioning(version);
       var vm = new versioning(mode);
       // Android 默认浏览器。
-      if(d.os.name === "android" && name==="safari"){
+      if(ua.indexOf("android") !== -1 && name==="safari"){
         name = "android";
       }
       d.browser = {

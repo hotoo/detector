@@ -4,13 +4,26 @@ define(function(require) {
   var detector = require('detector');
 
   var UAs = [
+    // Windows Blue
+    ["Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko", {
+      device: "pc/-1",
+      os: "windows/6.3",
+      browser: "ie/11.0;11.0;o",
+      //      name/version;mode;compatible
+      //                        c: compatible; o: origin, not compatible.
+      engine: "trident/7.0;7.0;o"
+    }],
+    ["Mozilla/5.0 (IE 7.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko", {
+      device: "pc/-1",
+      os: "windows/6.3",
+      browser: "ie/11.0;7.0;c",
+      engine: "trident/7.0;3.0;c"
+    }],
     // Windows 7, IE10
     ["Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)", {
       device: "pc/-1",
       os: "windows/6.1",
       browser: "ie/10.0;10.0;o",
-      //      name/version;mode;compatible
-      //                        c: compatible; o: origin, not compatible.
       engine: "trident/6.0;6.0;o"
     }],
     // Windows 7, IE10(兼 容模式)
