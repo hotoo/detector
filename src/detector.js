@@ -37,9 +37,9 @@ define(function(require, exports, module) {
   var DEVICES = [
     ["nokia", function(ua){
       if(ua.indexOf("nokia ") !== -1){
-        return /nokia ([0-9]+)?/;
-      }else if(/nokia[\d]/.test(ua)){
-        return /nokia(\d+)/;
+        return /\bnokia ([0-9]+)?/;
+      }else if(/\bnokia[\d]/.test(ua)){
+        return /\bnokia(\d+)/;
       }else{
         return "nokia";
       }
@@ -74,23 +74,23 @@ define(function(require, exports, module) {
   var OS = [
     ["wp", function(ua){
       if(ua.indexOf("windows phone ") !== -1){
-        return /windows phone (?:os )?([0-9.]+)/;
+        return /\bwindows phone (?:os )?([0-9.]+)/;
       }else if(ua.indexOf("xblwp") !== -1){
-        return /xblwp([0-9.]+)/;
+        return /\bxblwp([0-9.]+)/;
       }else if(ua.indexOf("zunewp") !== -1){
-        return /zunewp([0-9.]+)/;
+        return /\bzunewp([0-9.]+)/;
       }
       return "windows phone";
     }],
-    ["windows", /windows nt ([0-9.]+)/],
-    ["macosx", /mac os x ([0-9._]+)/],
-    ["ios", /cpu(?: iphone)? os ([0-9._]+)/],
-    ["yunos", /aliyunos ([0-9.]+)/],
-    ["android", /android[ -]([0-9.]+)/],
-    ["chromeos", /cros i686 ([0-9.]+)/],
+    ["windows", /\bwindows nt ([0-9.]+)/],
+    ["macosx", /\bmac os x ([0-9._]+)/],
+    ["ios", /\bcpu(?: iphone)? os ([0-9._]+)/],
+    ["yunos", /\baliyunos ([0-9.]+)/],
+    ["android", /\bandroid[ -]([0-9.]+)/],
+    ["chromeos", /\bcros i686 ([0-9.]+)/],
     ["linux", "linux"],
-    ["windowsce", /windows ce(?: ([0-9.]+))?/],
-    ["symbian", /symbianos\/([0-9.]+)/],
+    ["windowsce", /\bwindows ce(?: ([0-9.]+))?/],
+    ["symbian", /\bsymbianos\/([0-9.]+)/],
     ["blackberry", "blackberry"]
   ];
   //var OS_CORE = [
@@ -105,7 +105,6 @@ define(function(require, exports, module) {
    */
   function IEMode(ua){
     if(!re_msie.test(ua)){return null;}
-    //if(ua.indexOf("msie ") === -1){return null;}
 
     var m,
         engineMode, engineVersion,
@@ -115,7 +114,7 @@ define(function(require, exports, module) {
     // IE8 及其以上提供有 Trident 信息，
     // 默认的兼容模式，UA 中 Trident 版本不发生变化。
     if(ua.indexOf("trident/") !== -1){
-      m = /trident\/([0-9.]+)/.exec(ua);
+      m = /\btrident\/([0-9.]+)/.exec(ua);
       if(m && m.length>=2){
         // 真实引擎版本。
         engineVersion = m[1];
@@ -148,9 +147,9 @@ define(function(require, exports, module) {
   var ENGINE = [
     ["trident", re_msie],
     //["blink", /blink\/([0-9.+]+)/],
-    ["webkit", /applewebkit\/([0-9.+]+)/],
-    ["gecko", /gecko\/(\d+)/],
-    ["presto", /presto\/([0-9.]+)/]
+    ["webkit", /\bapplewebkit\/([0-9.+]+)/],
+    ["gecko", /\bgecko\/(\d+)/],
+    ["presto", /\bpresto\/([0-9.]+)/]
   ];
   var BROWSER = [
     /**
@@ -168,7 +167,7 @@ define(function(require, exports, module) {
           } catch(e) {}
         }
       }
-      return (/360(?:se|ee|chrome)/);
+      return (/\b360(?:se|ee|chrome)/);
     }],
     /**
      * Maxthon (傲游)
@@ -180,7 +179,7 @@ define(function(require, exports, module) {
           return (external.mxVersion || external.max_version).split(".");
         }catch(e){}
       }
-      return /maxthon(?:[ \/]([0-9.]+))?/;
+      return /\bmaxthon(?:[ \/]([0-9.]+))?/;
     }],
     /**
      * [Sogou (搜狗浏览器)](http://ie.sogou.com/)
@@ -200,8 +199,8 @@ define(function(require, exports, module) {
       return "theworld";
     }],
     ["green", "greenbrowser"],
-    ["qq", /qqbrowser\/([0-9.]+)/],
-    ["tt", /tencenttraveler ([0-9.]+)/],
+    ["qq", /\bqqbrowser\/([0-9.]+)/],
+    ["tt", /\btencenttraveler ([0-9.]+)/],
     ["lb", function(ua){
       if(ua.indexOf("lbbrowser") === -1){return false;}
       var version = "-1";
@@ -214,19 +213,19 @@ define(function(require, exports, module) {
         version: version
       };
     }],
-    ["tao", /taobrowser\/([0-9.]+)/],
-    ["fs", /coolnovo\/([0-9.]+)/],
+    ["tao", /\btaobrowser\/([0-9.]+)/],
+    ["fs", /\bcoolnovo\/([0-9.]+)/],
     ["sy", "saayaa"],
-    ["baidu", /bidubrowser[ \/]([0-9.x]+)/],
-    ["mi", /miuibrowser\/([0-9.]+)/],
+    ["baidu", /\bbidubrowser[ \/]([0-9.x]+)/],
+    ["mi", /\bmiuibrowser\/([0-9.]+)/],
     // 后面会做修复版本号，这里只要能识别是 IE 即可。
     ["ie", re_msie],
     ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
-    ["safari", /version\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\//],
-    ["firefox", /firefox\/([0-9.ab]+)/],
-    ["opera", /opera.+version\/([0-9.ab]+)/],
+    ["safari", /\bversion\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\//],
+    ["firefox", /\bfirefox\/([0-9.ab]+)/],
+    ["opera", /\bopera.+version\/([0-9.ab]+)/],
     ["uc", function(ua){
-      return ua.indexOf("ucbrowser") !== -1 ? /ucbrowser\/([0-9.]+)/ : /ucweb([0-9.]+)/;
+      return ua.indexOf("ucbrowser") !== -1 ? /\bucbrowser\/([0-9.]+)/ : /\bucweb([0-9.]+)/;
     }]
   ];
 
