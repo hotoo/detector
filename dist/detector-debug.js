@@ -1,10 +1,11 @@
-define("arale/detector/1.0.0/detector-debug", [ "./versioning-debug" ], function(require, exports, module) {
+define("arale/detector/1.0.1/detector-debug", [ "./versioning-debug" ], function(require, exports, module) {
     var versioning = require("./versioning-debug");
     var detector = {};
     var userAgent = navigator.userAgent || "";
     var platform = navigator.platform || "";
     var vendor = navigator.vendor || "";
     var external = window.external;
+    var re_msie = /\b(?:msie|ie) ([0-9.]+)/;
     function toString(object) {
         return Object.prototype.toString.call(object);
     }
@@ -28,8 +29,16 @@ define("arale/detector/1.0.0/detector-debug", [ "./versioning-debug" ], function
     }
     // 硬件设备信息识别表达式。
     // 使用数组可以按优先级排序。
-    var DEVICES = [ [ "wp", function(ua) {
-        return ua.indexOf("windows phone os") !== -1 || ua.indexOf("xblwp") !== -1 || ua.indexOf("zunewp") !== -1 || ua.indexOf("windows ce") !== -1;
+    var DEVICES = [ [ "nokia", function(ua) {
+        if (ua.indexOf("nokia ") !== -1) {
+            return /\bnokia ([0-9]+)?/;
+        } else if (/\bnokia[\d]/.test(ua)) {
+            return /\bnokia(\d+)/;
+        } else {
+            return "nokia";
+        }
+    } ], [ "wp", function(ua) {
+        return ua.indexOf("windows phone ") !== -1 || ua.indexOf("xblwp") !== -1 || ua.indexOf("zunewp") !== -1 || ua.indexOf("windows ce") !== -1;
     } ], [ "pc", "windows" ], [ "ipad", "ipad" ], [ "ipod", "ipod" ], [ "iphone", "iphone" ], [ "mac", "macintosh" ], [ "mi", function(ua) {
         if (ua.indexOf("mi-one plus") !== -1) {
             return {
@@ -38,32 +47,36 @@ define("arale/detector/1.0.0/detector-debug", [ "./versioning-debug" ], function
         } else {
             return /\bmi ([0-9.as]+)/;
         }
-    } ], [ "nexus", /nexus ([0-9.]+)/ ], [ "android", "android" ], [ "nokia", /nokia([^\/ ])/ ], [ "blackberry", "blackberry" ] ];
+    } ], [ "aliyun", "aliyunos" ], [ "meizu", /\bm([0-9]+)\b/ ], [ "nexus", /\bnexus ([0-9.]+)/ ], [ "android", "android" ], [ "blackberry", "blackberry" ] ];
     // 操作系统信息识别表达式
     var OS = [ [ "wp", function(ua) {
-        if (ua.indexOf("windows phone os") !== -1) {
-            return /windows phone os ([0-9.]+)/;
+        if (ua.indexOf("windows phone ") !== -1) {
+            return /\bwindows phone (?:os )?([0-9.]+)/;
         } else if (ua.indexOf("xblwp") !== -1) {
-            return /xblwp([0-9.]+)/;
+            return /\bxblwp([0-9.]+)/;
         } else if (ua.indexOf("zunewp") !== -1) {
-            return /zunewp([0-9.]+)/;
+            return /\bzunewp([0-9.]+)/;
         }
         return "windows phone";
-    } ], [ "windows", /windows nt ([0-9.]+)/ ], [ "macosx", /mac os x ([0-9._]+)/ ], [ "ios", /cpu(?: iphone)? os ([0-9._]+)/ ], [ "android", /android[ -]([0-9.]+)/ ], [ "chromeos", /cros i686 ([0-9.]+)/ ], [ "linux", "linux" ], [ "windowsce", /windows ce(?: ([0-9.]+))?/ ], [ "symbian", /symbianos\/([0-9.]+)/ ], [ "blackberry", "blackberry" ] ];
+    } ], [ "windows", /\bwindows nt ([0-9.]+)/ ], [ "macosx", /\bmac os x ([0-9._]+)/ ], [ "ios", /\bcpu(?: iphone)? os ([0-9._]+)/ ], [ "yunos", /\baliyunos ([0-9.]+)/ ], [ "android", /\bandroid[ -]([0-9.]+)/ ], [ "chromeos", /\bcros i686 ([0-9.]+)/ ], [ "linux", "linux" ], [ "windowsce", /\bwindows ce(?: ([0-9.]+))?/ ], [ "symbian", /\bsymbianos\/([0-9.]+)/ ], [ "blackberry", "blackberry" ] ];
+    //var OS_CORE = [
+    //["windows-mobile", ""]
+    //["windows", "windows"]
+    //];
     /*
    * 解析使用 Trident 内核的浏览器的 `浏览器模式` 和 `文档模式` 信息。
    * @param {String} ua, userAgent string.
    * @return {Object}
    */
     function IEMode(ua) {
-        if (ua.indexOf("msie ") === -1) {
+        if (!re_msie.test(ua)) {
             return null;
         }
         var m, engineMode, engineVersion, browserMode, browserVersion, compatible = false;
         // IE8 及其以上提供有 Trident 信息，
         // 默认的兼容模式，UA 中 Trident 版本不发生变化。
         if (ua.indexOf("trident/") !== -1) {
-            m = /trident\/([0-9.]+)/.exec(ua);
+            m = /\btrident\/([0-9.]+)/.exec(ua);
             if (m && m.length >= 2) {
                 // 真实引擎版本。
                 engineVersion = m[1];
@@ -72,7 +85,7 @@ define("arale/detector/1.0.0/detector-debug", [ "./versioning-debug" ], function
                 browserVersion = v_version.join(".");
             }
         }
-        m = /msie ([0-9.]+)/.exec(ua);
+        m = re_msie.exec(ua);
         browserMode = m[1];
         var v_mode = m[1].split(".");
         if ("undefined" === typeof browserVersion) {
@@ -91,8 +104,8 @@ define("arale/detector/1.0.0/detector-debug", [ "./versioning-debug" ], function
             compatible: engineVersion !== engineMode
         };
     }
-    var ENGINE = [ [ "trident", /msie (\d+)\.(\d)/ ], //["blink", /blink\/([0-9.+]+)/],
-    [ "webkit", /applewebkit\/([0-9.+]+)/ ], [ "gecko", /gecko\/(\d+)/ ], [ "presto", /presto\/([0-9.]+)/ ] ];
+    var ENGINE = [ [ "trident", re_msie ], //["blink", /blink\/([0-9.+]+)/],
+    [ "webkit", /\bapplewebkit\/([0-9.+]+)/ ], [ "gecko", /\bgecko\/(\d+)/ ], [ "presto", /\bpresto\/([0-9.]+)/ ] ];
     var BROWSER = [ /**
      * 360SE (360安全浏览器)
      **/
@@ -107,7 +120,7 @@ define("arale/detector/1.0.0/detector-debug", [ "./versioning-debug" ], function
                 } catch (e) {}
             }
         }
-        return /360(?:se|ee|chrome)/;
+        return /\b360(?:se|ee|chrome)/;
     } ], /**
      * Maxthon (傲游)
      **/
@@ -118,7 +131,7 @@ define("arale/detector/1.0.0/detector-debug", [ "./versioning-debug" ], function
                 return (external.mxVersion || external.max_version).split(".");
             } catch (e) {}
         }
-        return /maxthon(?:[ \/]([0-9.]+))?/;
+        return /\bmaxthon(?:[ \/]([0-9.]+))?/;
     } ], /**
      * [Sogou (搜狗浏览器)](http://ie.sogou.com/)
      **/
@@ -134,7 +147,7 @@ define("arale/detector/1.0.0/detector-debug", [ "./versioning-debug" ], function
             } catch (e) {}
         }
         return "theworld";
-    } ], [ "green", "greenbrowser" ], [ "qq", /qqbrowser\/([0-9.]+)/ ], [ "tt", /tencenttraveler ([0-9.]+)/ ], [ "lb", function(ua) {
+    } ], [ "green", "greenbrowser" ], [ "qq", /\bqqbrowser\/([0-9.]+)/ ], [ "tt", /\btencenttraveler ([0-9.]+)/ ], [ "lb", function(ua) {
         if (ua.indexOf("lbbrowser") === -1) {
             return false;
         }
@@ -147,9 +160,9 @@ define("arale/detector/1.0.0/detector-debug", [ "./versioning-debug" ], function
         return {
             version: version
         };
-    } ], [ "tao", /taobrowser\/([0-9.]+)/ ], [ "fs", /coolnovo\/([0-9.]+)/ ], [ "sy", "saayaa" ], [ "baidu", /bidubrowser[ \/]([0-9.x]+)/ ], [ "mi", /miuibrowser\/([0-9.]+)/ ], // 后面会做修复版本号，这里只要能识别是 IE 即可。
-    [ "ie", /msie ([0-9.]+)/ ], [ "chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/ ], [ "safari", /version\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\// ], [ "firefox", /firefox\/([0-9.ab]+)/ ], [ "opera", /opera.+version\/([0-9.ab]+)/ ], [ "uc", function(ua) {
-        return ua.indexOf("ucbrowser") !== -1 ? /ucbrowser\/([0-9.]+)/ : /ucweb([0-9.]+)/;
+    } ], [ "tao", /\btaobrowser\/([0-9.]+)/ ], [ "fs", /\bcoolnovo\/([0-9.]+)/ ], [ "sy", "saayaa" ], [ "baidu", /\bbidubrowser[ \/]([0-9.x]+)/ ], [ "mi", /\bmiuibrowser\/([0-9.]+)/ ], // 后面会做修复版本号，这里只要能识别是 IE 即可。
+    [ "ie", re_msie ], [ "chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/ ], [ "safari", /\bversion\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\// ], [ "firefox", /\bfirefox\/([0-9.ab]+)/ ], [ "opera", /\bopera.+version\/([0-9.ab]+)/ ], [ "uc", function(ua) {
+        return ua.indexOf("ucbrowser") !== -1 ? /\bucbrowser\/([0-9.]+)/ : /\bucweb([0-9.]+)/;
     } ] ];
     /**
    * UserAgent Detector.
@@ -267,6 +280,10 @@ define("arale/detector/1.0.0/detector-debug", [ "./versioning-debug" ], function
             }
             var vv = new versioning(version);
             var vm = new versioning(mode);
+            // Android 默认浏览器。
+            if (ua.indexOf("android") !== -1 && name === "safari") {
+                name = "android";
+            }
             d.browser = {
                 name: name,
                 version: vv,
@@ -291,7 +308,7 @@ define("arale/detector/1.0.0/detector-debug", [ "./versioning-debug" ], function
  *    version > 1
  *    version.eq(1)
  */
-define("arale/detector/1.0.0/versioning-debug", [], function(require, exports, module) {
+define("arale/detector/1.0.1/versioning-debug", [], function(require, exports, module) {
     // Semantic Versioning Delimiter.
     var delimiter = ".";
     var Version = function(version) {
