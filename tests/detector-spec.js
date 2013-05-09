@@ -414,10 +414,10 @@ define(function(require) {
 
               var ext = "";
               if(k === "browser" || k === "engine"){
-                ext = ";"+String(detect[k].mode)+";"+(detect[k].compatible?"c":"o");
+                ext = ";"+detect[k].fullMode+";"+(detect[k].compatible?"c":"o");
               }
 
-              expect(detect[k].name+"/"+String(detect[k].version)+ext).to.equal(info[k]);
+              expect(detect[k].name+"/"+detect[k].fullVersion+ext).to.equal(info[k]);
 
             });
           })(ua, detect, info, k);

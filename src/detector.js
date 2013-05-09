@@ -1,8 +1,6 @@
 
 define(function(require, exports, module) {
 
-  var versioning = require("./versioning");
-
   var detector = {};
 
   var userAgent = navigator.userAgent || "";
@@ -294,19 +292,21 @@ define(function(require, exports, module) {
     var d = {};
 
     init(ua, DEVICES, function(name, version){
-      var v = new versioning(version);
+      var v = parseFloat(version);
       d.device = {
         name: name,
-        version: v
+        version: v,
+        fullVersion: version
       };
       d.device[name] = v;
     }, d);
 
     init(ua, OS, function(name, version){
-      var v = new versioning(version);
+      var v = parseFloat(version);
       d.os = {
         name: name,
-        version: v
+        version: v,
+        fullVersion: version
       };
       d.os[name] = v;
     }, d);
@@ -320,15 +320,16 @@ define(function(require, exports, module) {
         version = ieCore.engineVersion || ieCore.engineMode;
         mode = ieCore.engineMode;
       }
-      var vv = new versioning(version);
-      var vm = new versioning(mode);
+      var v = parseFloat(version);
       d.engine = {
         name: name,
-        version: vv,
-        mode: vm,
+        version: v,
+        fullVersion: version,
+        mode: parseFloat(mode),
+        fullMode: mode,
         compatible: ieCore ? ieCore.compatible : false
       };
-      d.engine[name] = vv;
+      d.engine[name] = v;
     }, d);
 
     init(ua, BROWSER, function(name, version){
@@ -341,19 +342,20 @@ define(function(require, exports, module) {
         }
         mode = ieCore.browserMode;
       }
-      var vv = new versioning(version);
-      var vm = new versioning(mode);
       // Android 默认浏览器。
       if(ua.indexOf("android") !== -1 && name==="safari"){
         name = "android";
       }
+      var v = parseFloat(version);
       d.browser = {
         name: name,
-        version: vv,
-        mode: vm,
+        version: v,
+        fullVersion: version,
+        mode: parseFloat(mode),
+        fullMode: mode,
         compatible: ieCore ? ieCore.compatible : false
       };
-      d.browser[name] = vv;
+      d.browser[name] = v;
     }, d);
     return d;
   };
