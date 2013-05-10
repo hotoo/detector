@@ -219,6 +219,11 @@ define(function(require, exports, module) {
     // 后面会做修复版本号，这里只要能识别是 IE 即可。
     ["ie", re_msie],
     ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
+    // Android 默认浏览器。该规则需要在 safari 之前。
+    ["android", function(ua){
+      if(ua.indexOf("android") === -1){return;}
+      return /\bversion\/([0-9.]+(?: beta)?)/;
+    }],
     ["safari", /\bversion\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\//],
     ["firefox", /\bfirefox\/([0-9.ab]+)/],
     ["opera", /\bopera.+version\/([0-9.ab]+)/],
@@ -341,10 +346,6 @@ define(function(require, exports, module) {
           version = ieCore.browserVersion;
         }
         mode = ieCore.browserMode;
-      }
-      // Android 默认浏览器。
-      if(ua.indexOf("android") !== -1 && name==="safari"){
-        name = "android";
       }
       var v = parseFloat(version);
       d.browser = {
