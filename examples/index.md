@@ -29,17 +29,21 @@
   seajs.use("detector", function(detector){
 
     var OS_ALIAS = {
-      "windows/4.0":  "Windows 95",
-      "windows/4.10": "Windows 98",
-      "windows/4.90": "Windows ME",
-      "windows/5.0":  "Windows 2000",
+      // 4.0
+      "windows/4":  "Windows 95",
+      "windows/4.1": "Windows 98",
+      "windows/4.9": "Windows ME",
+      // 5.0
+      "windows/5":  "Windows 2000",
       "windows/5.1":  "Windows XP",
       "windows/5.2":  "Windows Server 2003",
-      "windows/6.0":  "Windows Vista",
+      // 6.0
+      "windows/6":  "Windows Vista",
       "windows/6.1":  "Windows 7",
       "windows/6.2":  "Windows 8",
       "windows/6.3":  "Windows Blue",
-      "macosx/10.0": "Mac OS X Cheetah",
+      // 10.0
+      "macosx/10": "Mac OS X Cheetah",
       "macosx/10.1": "Mac OS X Puma",
       "macosx/10.2": "Max OS X Jaguar",
       "macosx/10.3": "Mac OS X Panther",
@@ -52,12 +56,12 @@
     };
 
     var detectedInfo = [];
-    detectedInfo.push("硬件设备(device)："+detector.device.name+" "+String(detector.device.version));
-    var osAlias = OS_ALIAS[detector.os.name+"/"+detector.os.version.toString(2)] || "N/A";
-    detectedInfo.push("操作系统(os)："+detector.os.name+" "+String(detector.os.version) + " ("+osAlias+")");
-    detectedInfo.push("浏览器(browser)："+detector.browser.name+" "+String(detector.browser.version)+
+    detectedInfo.push("硬件设备(device)："+detector.device.name+" "+detector.device.fullVersion);
+    var osAlias = OS_ALIAS[detector.os.name+"/"+detector.os.version] || "N/A";
+    detectedInfo.push("操作系统(os)："+detector.os.name+" "+detector.os.fullVersion + " ("+osAlias+")");
+    detectedInfo.push("浏览器(browser)："+detector.browser.name+" "+detector.browser.fullVersion+
         (detector.browser.compatible ? "(" + String(detector.browser.mode) + " 兼容模式)" : ""));
-    detectedInfo.push("渲染引擎(engine)：" + detector.engine.name + " " + String(detector.engine.version) +
+    detectedInfo.push("渲染引擎(engine)：" + detector.engine.name + " " + detector.engine.fullVersion +
         (detector.engine.compatible ? "(" + String(detector.engine.mode) + " 兼容模式)" : ""));
 
     document.getElementById("detector").innerHTML = detectedInfo.join("<br />");

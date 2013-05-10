@@ -1,10 +1,10 @@
 THEME = $(HOME)/.spm/themes/arale
 
 build-doc:
-	@nico build -v -C $(THEME)/nico.js
+	@nico build -C $(THEME)/nico.js
 
-debug:
-	@nico server -C $(THEME)/nico.js --watch debug
+publish-doc: clean build-doc
+	@spm publish --doc _site
 
 server:
 	@nico server -C $(THEME)/nico.js
@@ -12,32 +12,25 @@ server:
 watch:
 	@nico server -C $(THEME)/nico.js --watch
 
-publish-doc: clean build-doc
-	@rm -fr _site/sea-modules
-	@spm publish --doc _site
-
 clean:
 	@rm -fr _site
 
 
-reporter = spec
-url = tests/runner.html
-test-task:
-	@mocha-phantomjs --reporter=${reporter} http://127.0.0.1:8000/${url}
+runner = _site/tests/runner.html
+test-src:
+	@mocha-browser ${runner} -S
 
 test-dist:
-	@node $(THEME)/server.js _site $(MAKE) test-task
-
-test-src:
-	@$(MAKE) test-dist url=tests/runner.html?src
+	@mocha-browser ${runner}?dist -S
 
 test: test-src test-dist
 
-coverage:
+output = _site/coverage.html
+coverage: build-doc
 	@rm -fr _site/src-cov
 	@jscoverage --encoding=utf8 src _site/src-cov
-	@$(MAKE) test-dist reporter=json-cov url=tests/runner.html?cov | node $(THEME)/html-cov.js > _site/tests/coverage.html
-	@echo "Build coverage to tests/coverage.html"
+	@mocha-browser ${runner}?cov -S -R html-cov > ${output}
+	@echo "Build coverage to ${output}"
 
 
-.PHONY: build-doc debug server publish clean test coverage
+.PHONY: build-doc publish-doc server clean test coverage

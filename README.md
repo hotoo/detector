@@ -19,38 +19,39 @@
 detector = {
     device: {
         name: "iphone",
-        version: {"-1"},
-        [iphone]: {"-1"}
+        version: -1,
+        fullVersion: "-1",
+        [iphone]: -1
     },
     os: {
         name: "ios",
-        version: {"6.1"},
-        [ios]: {"6.1"}
+        version: 6.1,
+        fullVersion: "6.1",
+        [ios]: 6.1
     },
     browser: {
         name: "chrome":
-        version: {"26.0.1410.50"},
-        mode: {"26.0.1410.50"},
+        version: 26.0,
+        fullVersion: "26.0.1410.50",
+        mode: 26.0,
+        fullMode: "26.0.1410.50",
         compatible: false,
-        [chrome]: {"26.0.1410.50"}
+        [chrome]: 26.0
     },
     engine: {
         name: "webkit",
-        version: {"536.26"},
-        mode: {"523.26"},
+        version: 536.26,
+        fullVersion: "536.26",
+        mode: 523.26,
+        fullMode: "523.26",
         compatible: false,
-        [webkit]: {"536.26"}
+        [webkit]: 536.26
     }
 }
 ```
 
-备注：
-
-1. 上面的 `[iphone]`, `[ios]`, `[chrome]`, `[webkit]` 是动态的，根据实际识别
-    到的信息不同而有所不同。
-1. `{"-1"}` 等版本信息是一个特殊的 [versioning](https://github.com/hotoo/versioning)
-    对象，可以用来直接跟数值进行算术表达式比较，
-    也可以使用 `eq`, `gt`, `gte`, `lt`, `lte` 方法进行比较。
+备注：上面的 `[iphone]`, `[ios]`, `[chrome]`, `[webkit]` 是动态的，根据实际识别
+到的信息不同而有所不同。
 
 ## 安装
 
@@ -76,9 +77,12 @@ if(detector.browser.ie && detector.browser.version < 8){
 }
 
 // 判断 Trident 4(IE8) 以下版本浏览器引擎
-if(detector.engine.trident && detector.engine.mode.lt(4)){
+if(detector.engine.trident && detector.engine.mode < 4){
     // hack code.
 }
+
+// 收集客户端详细信息
+detector.browser.name + "/" + detector.browser.fullVersion;
 ```
 
 
@@ -88,11 +92,15 @@ if(detector.engine.trident && detector.engine.mode.lt(4)){
 
 设备名称。
 
-### {versioning} detector.device.version
+### {Number} detector.device.version
 
-设备版本。
+设备版本号。
 
-### {versioning} detector.device[device_name]
+### {String} detector.device.fullVersion
+
+设备完整版本号。
+
+### {Number} detector.device[device_name]
 
 直接判断设备名。
 
@@ -118,11 +126,15 @@ if(detector.engine.trident && detector.engine.mode.lt(4)){
 
 操作系统名。
 
-### {versioning} detector.os.version
+### {Number} detector.os.version
 
-操作系统版本。
+操作系统版本号。
 
-### {versioning} detector.os[os_name]
+### {String} detector.os.fullVersion
+
+操作系统完整版本号。
+
+### {Number} detector.os[os_name]
 
 直接判断操作系统。
 
@@ -146,7 +158,7 @@ if(detector.engine.trident && detector.engine.mode.lt(4)){
 
 浏览器名。
 
-### {versioning} detector.browser.version
+### {Number} detector.browser.version
 
 浏览器真实版本。兼容模式下浏览器声明自己是某老旧浏览器，但这个属性返回的是
 其真正的版本号。
@@ -157,11 +169,19 @@ if(detector.engine.trident && detector.engine.mode.lt(4)){
 
 IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `9.0`
 
-### {versioning} detector.browser.mode
+### {String} detector.browser.fullVersion
+
+浏览器完整的真实版本号。
+
+### {Number} detector.browser.mode
 
 浏览器模式。即浏览器当时使用的模式，IE 兼容模式时，version 和 mode 值不同。
 
-### {versioning} detector.browser[browser_name]
+### {String} detector.browser.fullMode
+
+浏览器模式的完整版本号。
+
+### {Number} detector.browser[browser_name]
 
 直接判断浏览器。
 
@@ -201,16 +221,24 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 
 渲染引擎名（又称排版引擎、浏览器内核）。
 
-### {versioning} detector.engine.version
+### {Number} detector.engine.version
 
-渲染引擎版本。
+渲染引擎版本号。
 
-### {versioning} detector.engine.mode
+### {String} detector.engine.fullVersion
+
+渲染引擎完整版本号。
+
+### {Number} detector.engine.mode
 
 渲染引擎模式，即 IE 浏览器的文档模式。
 
+### {String} detector.engine.fullMode
 
-### {versioning} detector.engine[engine_name]
+渲染引擎模式完整版本号。
+
+
+### {Number} detector.engine[engine_name]
 
 直接判断渲染引擎。
 
