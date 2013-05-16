@@ -4,8 +4,8 @@ define(function(require, exports, module) {
   var detector = {};
 
   var userAgent = navigator.userAgent || "";
-  var platform = navigator.platform || "";
-  var vendor = navigator.vendor || "";
+  //var platform = navigator.platform || "";
+  //var vendor = navigator.vendor || "";
   var external = window.external;
 
   var re_msie = /\b(?:msie|ie) ([0-9.]+)/;
@@ -19,14 +19,9 @@ define(function(require, exports, module) {
   function isFunction(object){
     return toString(object) === "[object Function]";
   }
-  function isArray(object){
-    return toString(object) === "[object Array]";
-  }
   function each(object, factory, argument){
-    if(isArray(object)){
-      for(var i=0,b,l=object.length; i<l; i++){
-        if(factory.call(object, object[i], i) === false){break;}
-      }
+    for(var i=0,b,l=object.length; i<l; i++){
+      if(factory.call(object, object[i], i) === false){break;}
     }
   }
 
@@ -116,7 +111,7 @@ define(function(require, exports, module) {
       if(m && m.length>=2){
         // 真实引擎版本。
         engineVersion = m[1];
-        v_version = m[1].split(".");
+        var v_version = m[1].split(".");
         v_version[0] = parseInt(v_version[0], 10) + 4;
         browserVersion = v_version.join(".");
       }
