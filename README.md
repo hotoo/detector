@@ -249,13 +249,21 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `gecko`: Gecko.
 * `presto`: Presto.
 
+### {detector} detector.detect(String ua)
+
+根据 userAgent 字符串识别客户端信息的接口。
+
+服务端程序可以使用这个接口识别客户端信息，由于服务端程序的特殊性，可以补充
+更完善的检测规则。
+
+
 ----
 
 对于不能识别的信息，统一如下：
 
-* 所有不能识别的信息均归类为 `na`，即 Not Available.
+* 所有不能识别的名称均归类为 `na`，即 Not Available.
 * 所有不能识别的版本号归类为 `-1`。
 
 ## 参考
 
-* [Detector Wiki](https://github.com/aralejs/detector/wiki)
+* [Detector Wiki](docs/index.md)
