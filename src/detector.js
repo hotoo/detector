@@ -86,10 +86,6 @@ define(function(require, exports, module) {
     ["symbian", /\bsymbianos\/([0-9.]+)/],
     ["blackberry", "blackberry"]
   ];
-  //var OS_CORE = [
-    //["windows-mobile", ""]
-    //["windows", "windows"]
-  //];
 
   /*
    * 解析使用 Trident 内核的浏览器的 `浏览器模式` 和 `文档模式` 信息。
@@ -150,14 +146,21 @@ define(function(require, exports, module) {
      **/
     ["360", function(ua) {
       //if(!detector.os.windows) return false;
-      if(external) {
-        try {
-          return external.twGetVersion(external.twGetSecurityID(window));
-        } catch(e) {
-          try {
+      var version = "-1";
+      if(external){
+        try{
+          // 360SE 3.x version.
+          version = window.external.twGetVersion(external.twGetSecurityID(window));
+          return {
+            version: version
+          };
+        }catch(e){
+          try{
+            //        360安装路径：
+            //        C:%5CPROGRA~1%5C360%5C360se3%5C360SE.exe
             return external.twGetRunPath.toLowerCase().indexOf("360se") !== -1 ||
               !!external.twGetSecurityID(window);
-          } catch(e) {}
+          }catch(e){}
         }
       }
       return (/\b360(?:se|ee|chrome)/);
@@ -209,10 +212,11 @@ define(function(require, exports, module) {
     ["tao", /\btaobrowser\/([0-9.]+)/],
     ["fs", /\bcoolnovo\/([0-9.]+)/],
     ["sy", "saayaa"],
+    // 有基于 Chromniun 的急速模式和基于 IE 的兼容模式。必须在 IE 的规则之前。
     ["baidu", /\bbidubrowser[ \/]([0-9.x]+)/],
-    ["mi", /\bmiuibrowser\/([0-9.]+)/],
     // 后面会做修复版本号，这里只要能识别是 IE 即可。
     ["ie", re_msie],
+    ["mi", /\bmiuibrowser\/([0-9.]+)/],
     ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
     // Android 默认浏览器。该规则需要在 safari 之前。
     ["android", function(ua){
