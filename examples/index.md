@@ -60,9 +60,9 @@
     var osAlias = OS_ALIAS[detector.os.name+"/"+detector.os.version] || "N/A";
     detectedInfo.push("操作系统(os)："+detector.os.name+" "+detector.os.fullVersion + " ("+osAlias+")");
     detectedInfo.push("浏览器(browser)："+detector.browser.name+" "+detector.browser.fullVersion+
-        (detector.browser.compatible ? "(" + String(detector.browser.mode) + " 兼容模式)" : ""));
+        (detector.browser.compatible ? "(" + String(detector.browser.fullMode) + " 兼容模式)" : ""));
     detectedInfo.push("渲染引擎(engine)：" + detector.engine.name + " " + detector.engine.fullVersion +
-        (detector.engine.compatible ? "(" + String(detector.engine.mode) + " 兼容模式)" : ""));
+        (detector.engine.compatible ? "(" + String(detector.engine.fullMode) + " 兼容模式)" : ""));
 
     document.getElementById("detector").innerHTML = detectedInfo.join("<br />");
 
