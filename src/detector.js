@@ -146,14 +146,17 @@ define(function(require, exports, module) {
      **/
     ["360", function(ua) {
       //if(!detector.os.windows) return false;
-      var version = "-1";
       if(external){
         try{
-          // 360SE 3.x version.
-          version = window.external.twGetVersion(external.twGetSecurityID(window));
-          return {
-            version: version
-          };
+          // 360SE 3.x, 5.x support.
+          // 未暴露 external.twGetVersion 和 external.twGetSecurityID 均为 undefined。
+          // 因此只能用 try/catch 而无法使用特性判断。
+          var version = external.twGetVersion(external.twGetSecurityID(window));
+          if(!!version){
+            return {
+              version: version
+            };
+          }
         }catch(e){
           try{
             //        360安装路径：
@@ -170,9 +173,11 @@ define(function(require, exports, module) {
      **/
     ["mx", function(ua){
       //if(!detector.os.windows) return false;
-      if(external){
+      if(external && (external.mxVersion || external.max_version)){
         try{
-          return (external.mxVersion || external.max_version).split(".");
+          return {
+            version: external.mxVersion || external.max_version
+          };
         }catch(e){}
       }
       return /\bmaxthon(?:[ \/]([0-9.]+))?/;
@@ -200,9 +205,9 @@ define(function(require, exports, module) {
     ["lb", function(ua){
       if(ua.indexOf("lbbrowser") === -1){return false;}
       var version = "-1";
-      if(window.external && window.external.LiebaoGetVersion){
+      if(external && external.LiebaoGetVersion){
         try{
-          version = window.external.LiebaoGetVersion();
+          version = external.LiebaoGetVersion();
         }catch(ex){}
       }
       return {
