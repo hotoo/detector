@@ -217,6 +217,12 @@ define(function(require, exports, module) {
     // 后面会做修复版本号，这里只要能识别是 IE 即可。
     ["ie", re_msie],
     ["mi", /\bmiuibrowser\/([0-9.]+)/],
+    // Opera 15 之后开始使用 Chromniun 内核，需要放在 Chrome 的规则之前。
+    ["opera", function(ua){
+      var re_opera_old = /\bopera.+version\/([0-9.ab]+)/;
+      var re_opera_new = /\bopr\/([0-9.]+)/;
+      return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
+    }],
     ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
     // Android 默认浏览器。该规则需要在 safari 之前。
     ["android", function(ua){
@@ -225,7 +231,6 @@ define(function(require, exports, module) {
     }],
     ["safari", /\bversion\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\//],
     ["firefox", /\bfirefox\/([0-9.ab]+)/],
-    ["opera", /\bopera.+version\/([0-9.ab]+)/],
     ["uc", function(ua){
       return ua.indexOf("ucbrowser") !== -1 ? /\bucbrowser\/([0-9.]+)/ : /\bucweb([0-9.]+)/;
     }]

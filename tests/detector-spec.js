@@ -136,6 +136,12 @@ define(function(require) {
       browser: "opera/12.15;12.15;o",
       engine: "presto/2.12.388;2.12.388;o"
     }],
+    ["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.20 Safari/537.36 OPR/15.0.1147.18 (Edition Next)", {
+      device: "mac/-1",
+      os: "macosx/10.8.3",
+      browser: "opera/15.0.1147.18;15.0.1147.18;o",
+      engine: "webkit/537.36;537.36;o"
+    }],
 
     // 360 安全浏览器，急速模式
     ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1 QIHU 360SE", {
