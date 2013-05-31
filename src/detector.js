@@ -142,65 +142,90 @@ define(function(require, exports, module) {
   ];
   var BROWSER = [
     /**
-     * 360SE (360安全浏览器)
-     **/
-    ["360", function(ua) {
-      //if(!detector.os.windows) return false;
-      if(external){
-        try{
-          // 360SE 3.x, 5.x support.
-          // 未暴露 external.twGetVersion 和 external.twGetSecurityID 均为 undefined。
-          // 因此只能用 try/catch 而无法使用特性判断。
-          var version = external.twGetVersion(external.twGetSecurityID(window));
-          if(!!version){
-            return {
-              version: version
-            };
-          }
-        }catch(e){
-          try{
-            //        360安装路径：
-            //        C:%5CPROGRA~1%5C360%5C360se3%5C360SE.exe
-            return external.twGetRunPath.toLowerCase().indexOf("360se") !== -1 ||
-              !!external.twGetSecurityID(window);
-          }catch(e){}
-        }
-      }
-      return (/\b360(?:se|ee|chrome)/);
-    }],
-    /**
-     * Maxthon (傲游)
-     **/
-    ["mx", function(ua){
-      //if(!detector.os.windows) return false;
-      if(external && (external.mxVersion || external.max_version)){
-        try{
-          return {
-            version: external.mxVersion || external.max_version
-          };
-        }catch(e){}
-      }
-      return /\bmaxthon(?:[ \/]([0-9.]+))?/;
-    }],
-    /**
      * [Sogou (搜狗浏览器)](http://ie.sogou.com/)
      **/
     ["sg", / se ([0-9.x]+)/],
     /**
+     * Maxthon (傲游)
+     * 在 360 规则中使用 mimeTypes 特性时，需要置于 360 规则之前。
+     **/
+    ["mx", function(ua){
+      if(external && (external.mxVersion || external.max_version)){
+        return {
+          version: external.mxVersion || external.max_version
+        };
+      }
+      return /\bmaxthon(?:[ \/]([0-9.]+))?/;
+    }],
+    /**
+     * 360SE (360安全浏览器)
+     **/
+    ["360", function(ua) {
+      if(external){
+        var runpath, version, security;
+
+        try{
+          //        360安装路径：
+          //        C:%5CPROGRA~1%5C360%5C360se3%5C360SE.exe
+          runpath = external.twGetRunPath.toLowerCase();
+          // 360SE 3.x ~ 5.x support.
+          // 暴露的 external.twGetVersion 和 external.twGetSecurityID 均为 undefined。
+          // 因此只能用 try/catch 而无法使用特性判断。
+          security = external.twGetSecurityID(window);
+          version = external.twGetVersion(security);
+        }catch(ex){}
+
+        if(runpath && runpath.indexOf("360se") === -1){
+          return false;
+        }
+        if(version){
+          return {
+            version: version
+          };
+        }
+
+        // 利用 360 急速模式的特性进行识别。
+        // Maxthon 4 也支持这个特性，并返回的对象与 360SE 类似，
+        // 但 Maxthon 有明显的特征，因此需要将 Maxthon 的规则前置。
+        //
+        // 360 v6: mimeTypes["application/x-shockwave-flash"] === "Adobe Flash movie"
+        // 360 v7: 修复了这个问题，但是有 2个 Flash 插件。
+        var mimeTypes = navigator.mimeTypes;
+        if(mimeTypes && mimeTypes.length){
+          for(var i=0,l=mimeTypes.length; i<l; i++){
+            if(mimeTypes[i].type === "application/x-shockwave-flash" &&
+                mimeTypes[i].description === "Adobe Flash movie"){
+              return true;
+            }
+          }
+        }
+      }
+      return (/\b360(?:se|ee|chrome)/);
+    }],
+    ["qq", /\bqqbrowser\/([0-9.]+)/],
+    /**
      * TheWorld (世界之窗)
-     * NOTE: 由于裙带关系，TW API 与 360 高度重合。若 TW 不提供标准信息，则可能会被识别为 360
+     * NOTE: 由于裙带关系，TW API 与 360 高度重合。
+     * 只能通过程序安装路径中的应用程序名来区分。
      **/
     ["tw", function(ua){
-      //if(!detector.os.windows) return false;
       if(external) {
         try{
-          return external.twGetRunPath.toLowerCase().indexOf("theworld") !== -1;
+          var runpath = external.twGetRunPath.toLowerCase();
+          var version = external.twGetVersion(external.twGetSecurityID(window));
+          if(!!version && runpath.indexOf("theworld")!== -1){
+            return {
+              version: version
+            };
+          }
+          if(external.twGetRunPath.toLowerCase().indexOf("theworld") !== -1){
+            return true;
+          }
         }catch(e){}
       }
       return "theworld";
     }],
     ["green", "greenbrowser"],
-    ["qq", /\bqqbrowser\/([0-9.]+)/],
     ["tt", /\btencenttraveler ([0-9.]+)/],
     ["lb", function(ua){
       if(ua.indexOf("lbbrowser") === -1){return false;}
