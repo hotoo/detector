@@ -133,6 +133,28 @@ define(function(require, exports, module) {
       compatible: engineVersion !== engineMode
     };
   }
+  /**
+   * 针对同源的 TheWorld 和 360 的 external 对象进行检测。
+   * @param {String} key, 关键字，用于检测浏览器的安装路径中出现的关键字。
+   * @return {Undefined,Boolean,Object} 返回 undefined 或 false 表示检测未命中。
+   */
+  function checkTW360External(key){
+    if(!external){return;} // return undefined.
+    try{
+      //        360安装路径：
+      //        C:%5CPROGRA~1%5C360%5C360se3%5C360SE.exe
+      var runpath = external.twGetRunPath.toLowerCase();
+      // 360SE 3.x ~ 5.x support.
+      // 暴露的 external.twGetVersion 和 external.twGetSecurityID 均为 undefined。
+      // 因此只能用 try/catch 而无法使用特性判断。
+      var security = external.twGetSecurityID(window);
+      var version = external.twGetVersion(security);
+
+      if(runpath && runpath.indexOf(key) === -1){return false;}
+      if(version){return {version: version};}
+    }catch(ex){}
+  }
+
   var ENGINE = [
     ["trident", re_msie],
     //["blink", /blink\/([0-9.+]+)/],
@@ -141,14 +163,9 @@ define(function(require, exports, module) {
     ["presto", /\bpresto\/([0-9.]+)/]
   ];
   var BROWSER = [
-    /**
-     * [Sogou (搜狗浏览器)](http://ie.sogou.com/)
-     **/
+    // Sogou.
     ["sg", / se ([0-9.x]+)/],
-    /**
-     * Maxthon (傲游)
-     * 在 360 规则中使用 mimeTypes 特性时，需要置于 360 规则之前。
-     **/
+    // 在 360 规则中使用 mimeTypes 特性时，需要置于 360 规则之前。
     ["mx", function(ua){
       if(external && (external.mxVersion || external.max_version)){
         return {
@@ -157,72 +174,35 @@ define(function(require, exports, module) {
       }
       return /\bmaxthon(?:[ \/]([0-9.]+))?/;
     }],
-    /**
-     * 360SE (360安全浏览器)
-     **/
+    // 360SE, 360EE.
     ["360", function(ua) {
-      if(external){
-        var runpath, version, security;
+      var x = checkTW360External("360se");
+      if(typeof x !== "undefined"){return x;}
 
-        try{
-          //        360安装路径：
-          //        C:%5CPROGRA~1%5C360%5C360se3%5C360SE.exe
-          runpath = external.twGetRunPath.toLowerCase();
-          // 360SE 3.x ~ 5.x support.
-          // 暴露的 external.twGetVersion 和 external.twGetSecurityID 均为 undefined。
-          // 因此只能用 try/catch 而无法使用特性判断。
-          security = external.twGetSecurityID(window);
-          version = external.twGetVersion(security);
-        }catch(ex){}
-
-        if(runpath && runpath.indexOf("360se") === -1){
-          return false;
-        }
-        if(version){
-          return {
-            version: version
-          };
-        }
-
-        // 利用 360 急速模式的特性进行识别。
-        // Maxthon 4 也支持这个特性，并返回的对象与 360SE 类似，
-        // 但 Maxthon 有明显的特征，因此需要将 Maxthon 的规则前置。
-        //
-        // 360 v6: mimeTypes["application/x-shockwave-flash"] === "Adobe Flash movie"
-        // 360 v7: 修复了这个问题，但是有 2个 Flash 插件。
-        var mimeTypes = navigator.mimeTypes;
-        if(mimeTypes && mimeTypes.length){
-          for(var i=0,l=mimeTypes.length; i<l; i++){
-            if(mimeTypes[i].type === "application/x-shockwave-flash" &&
-                mimeTypes[i].description === "Adobe Flash movie"){
-              return true;
-            }
+      // 利用 360 急速模式的特性进行识别。
+      // Maxthon 4 也支持这个特性，并返回的对象与 360SE 类似，
+      // 但 Maxthon 有明显的特征，因此需要将 Maxthon 的规则前置。
+      //
+      // 360 v6: mimeTypes["application/x-shockwave-flash"] === "Adobe Flash movie"
+      // 360 v7: 修复了这个问题，但是有 2个 Flash 插件。
+      var mimeTypes = navigator.mimeTypes;
+      if(mimeTypes && mimeTypes.length){
+        for(var i=0,l=mimeTypes.length; i<l; i++){
+          if(mimeTypes[i].type === "application/x-shockwave-flash" &&
+              mimeTypes[i].description === "Adobe Flash movie"){
+            return true;
           }
         }
       }
       return (/\b360(?:se|ee|chrome)/);
     }],
     ["qq", /\bqqbrowser\/([0-9.]+)/],
-    /**
-     * TheWorld (世界之窗)
-     * NOTE: 由于裙带关系，TW API 与 360 高度重合。
-     * 只能通过程序安装路径中的应用程序名来区分。
-     **/
+    // TheWorld (世界之窗)
+    // NOTE: 由于裙带关系，TW API 与 360 高度重合。
+    // 只能通过程序安装路径中的应用程序名来区分。
     ["tw", function(ua){
-      if(external) {
-        try{
-          var runpath = external.twGetRunPath.toLowerCase();
-          var version = external.twGetVersion(external.twGetSecurityID(window));
-          if(!!version && runpath.indexOf("theworld")!== -1){
-            return {
-              version: version
-            };
-          }
-          if(external.twGetRunPath.toLowerCase().indexOf("theworld") !== -1){
-            return true;
-          }
-        }catch(e){}
-      }
+      var x = checkTW360External("theworld");
+      if(typeof x !== "undefined"){return x;}
       return "theworld";
     }],
     ["green", "greenbrowser"],
