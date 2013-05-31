@@ -249,7 +249,7 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `gecko`: Gecko.
 * `presto`: Presto.
 
-### {detector} detector.detect(String ua)
+### {detector} detector.parse(String ua)
 
 根据 userAgent 字符串识别客户端信息的接口。
 

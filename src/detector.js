@@ -376,7 +376,7 @@ define(function(require, exports, module) {
   };
 
   detector = parse(userAgent);
-  detector.detect = parse;
+  detector.parse = parse;
 
   module.exports = detector;
 });

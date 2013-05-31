@@ -406,28 +406,28 @@ define(function(require) {
     }]
   ];
 
-  describe('detector', function() {
+  describe("detector", function() {
 
     var ua, info, detect;
     for(var i=0,l=UAs.length; i<l; i++){
-        ua = UAs[i][0];
-        info = UAs[i][1];
-        detect = detector.detect(ua);
-        for(var k in info){
-          if(!info.hasOwnProperty(k)){continue;}
-          (function(ua, detect, info, k){
-            it('detector '+k+": "+info[k], function() {
+      ua = UAs[i][0];
+      info = UAs[i][1];
+      detect = detector.parse(ua);
+      for(var k in info){
+        if(!info.hasOwnProperty(k)){continue;}
+        (function(ua, detect, info, k){
+          it("detector "+k+": "+info[k], function() {
 
-              var ext = "";
-              if(k === "browser" || k === "engine"){
-                ext = ";"+detect[k].fullMode+";"+(detect[k].compatible?"c":"o");
-              }
+            var ext = "";
+            if(k === "browser" || k === "engine"){
+              ext = ";"+detect[k].fullMode+";"+(detect[k].compatible?"c":"o");
+            }
 
-              expect(detect[k].name+"/"+detect[k].fullVersion+ext).to.equal(info[k]);
+            expect(detect[k].name+"/"+detect[k].fullVersion+ext).to.equal(info[k]);
 
-            });
-          })(ua, detect, info, k);
-        }
+          });
+        })(ua, detect, info, k);
+      }
     }
   });
 
