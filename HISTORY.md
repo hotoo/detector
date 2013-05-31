@@ -1,6 +1,10 @@
 
 # detector changelog
 
+### 1.1.1 2013-05-31
+    * `tag:fixed` #17, 修复并增加了 360, theworld, maxthon 等浏览器的识别。
+    * `tag:fixed` #19, 修复了 Opera Next 的识别问题。
+    * `tag:changed` 修改 `detector.detect()` 方法为 `detector.parse()`。
 
 ### 1.1.0 2013-05-10
     * `tag:fixed` #12, 简化版本号的设计。
