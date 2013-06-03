@@ -1,6 +1,8 @@
 
 # 搜狗浏览器
 
+----
+
 Windows 7, 搜狗浏览器 4.1.1.7598, 兼容模式
 
 | 字段         | 值                                                                                                                                                                         |
@@ -42,6 +44,17 @@ Windows 7, 搜狗浏览器 4.1.1.7598, 兼容模式
 | colorDepth   | 32                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | documentMode | undefined                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | compatMode   | CSS1Compat                                                                                                                                                                                                                                                                                                                                                                                                                  |
+
+----
+
+v3.2
+
+```javascript
+external: "[Sogou Explorer Object]"
+external.SEVersion
+external.security
+external.seapi
+```
 
 ## 参考
 

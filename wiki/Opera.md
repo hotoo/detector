@@ -1,6 +1,7 @@
 
 # Opera
 
+
 Macintosh Mountain Lion, Opera 9.80
 
     Opera/9.80 (Macintosh; Intel Mac OS X 10.8.3) Presto/2.12.388 Version/12.15
