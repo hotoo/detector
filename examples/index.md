@@ -6,7 +6,10 @@
 
 <pre id="detector"></pre>
 
-如果识别的不正确，请 <a id="email" href="mailto:hotoo.cn@gmail.com?subject=detector反馈&body="><strong>向我们反馈</strong></a> 。</div>
+如果识别的不正确，请 <a id="email" href="mailto:hotoo.cn@gmail.com"><strong>点击链接向我们反馈</strong></a> 。
+
+如果点击链接无法发送邮件，可以拷贝这个页面的内容发送邮件或提
+[Issues](https://github.com/aralejs/detector/issues) 反馈。
 
 <pre id="ua"></pre>
 
