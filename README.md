@@ -53,6 +53,9 @@ detector = {
 备注：上面的 `[iphone]`, `[ios]`, `[chrome]`, `[webkit]` 是动态的，根据实际识别
 到的信息不同而有所不同。
 
+注：这个是基于浏览器运行的版本，另外还提供了在服务端运行的
+[Node 版本](https://github.com/hotoo/node-detector)。
+
 ## 安装
 
 ```
