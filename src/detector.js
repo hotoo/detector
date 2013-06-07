@@ -182,11 +182,13 @@ define(function(require, exports, module) {
     }],
     // Maxthon
     ["mx", function(ua){
-      if(external && (external.mxVersion || external.max_version)){
-        return {
-          version: external.mxVersion || external.max_version
-        };
-      }
+      try{
+        if(external && (external.mxVersion || external.max_version)){
+          return {
+            version: external.mxVersion || external.max_version
+          };
+        }
+      }catch(ex){}
       return /\bmaxthon(?:[ \/]([0-9.]+))?/;
     }],
     ["qq", /\bqqbrowser\/([0-9.]+)/],
@@ -195,11 +197,11 @@ define(function(require, exports, module) {
     ["lb", function(ua){
       if(ua.indexOf("lbbrowser") === -1){return false;}
       var version = "-1";
-      if(external && external.LiebaoGetVersion){
-        try{
+      try{
+        if(external && external.LiebaoGetVersion){
           version = external.LiebaoGetVersion();
-        }catch(ex){}
-      }
+        }
+      }catch(ex){}
       return {
         version: version
       };
