@@ -4,7 +4,11 @@
     "version": "1.1.1",
     "description": "客户端信息识别模块",
     "homepage": "http://aralejs.org/detector",
-    "author": "闲耘 <hotoo.cn@gmail.com>",
+    "author": "冒顿 <hotoo.cn@gmail.com>",
+    "maintainers": [
+        "冒顿 <hotoo.cn@gmail.com>",
+        "南伯 <me@lepture.com>"
+    ],
     "keywords": ["utility"],
     "repository": {
         "type": "git",
