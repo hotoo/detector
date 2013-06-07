@@ -1,4 +1,4 @@
-define("arale/detector/1.1.1/detector-debug", [], function(require, exports, module) {
+define("arale/detector/1.1.2/detector-debug", [], function(require, exports, module) {
     var detector = {};
     var userAgent = navigator.userAgent || "";
     //var platform = navigator.platform || "";
@@ -145,22 +145,24 @@ define("arale/detector/1.1.1/detector-debug", [], function(require, exports, mod
         return /\b360(?:se|ee|chrome)/;
     } ], // Maxthon
     [ "mx", function(ua) {
-        if (external && (external.mxVersion || external.max_version)) {
-            return {
-                version: external.mxVersion || external.max_version
-            };
-        }
+        try {
+            if (external && (external.mxVersion || external.max_version)) {
+                return {
+                    version: external.mxVersion || external.max_version
+                };
+            }
+        } catch (ex) {}
         return /\bmaxthon(?:[ \/]([0-9.]+))?/;
     } ], [ "qq", /\bqqbrowser\/([0-9.]+)/ ], [ "green", "greenbrowser" ], [ "tt", /\btencenttraveler ([0-9.]+)/ ], [ "lb", function(ua) {
         if (ua.indexOf("lbbrowser") === -1) {
             return false;
         }
         var version = "-1";
-        if (external && external.LiebaoGetVersion) {
-            try {
+        try {
+            if (external && external.LiebaoGetVersion) {
                 version = external.LiebaoGetVersion();
-            } catch (ex) {}
-        }
+            }
+        } catch (ex) {}
         return {
             version: version
         };
