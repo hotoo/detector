@@ -48,14 +48,14 @@
       // 10.0
       "macosx/10": "Mac OS X Cheetah",
       "macosx/10.1": "Mac OS X Puma",
-      "macosx/10.2": "Max OS X Jaguar",
+      "macosx/10.2": "Mac OS X Jaguar",
       "macosx/10.3": "Mac OS X Panther",
-      "macosx/10.4": "Max OS X Tiger",
-      "macosx/10.5": "Max OS X Leopard",
+      "macosx/10.4": "Mac OS X Tiger",
+      "macosx/10.5": "Mac OS X Leopard",
       "macosx/10.6": "Mac OS X Snow Leopard",
       "macosx/10.7": "Mac OS X Lion",
       "macosx/10.8": "Mac OS X Mountain Lion",
-      "macosx/10.9": "Mac OS X Cabernet"
+      "macosx/10.9": "Mac OS X Mavericks"
     };
 
     var detectedInfo = [];
