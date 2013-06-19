@@ -221,6 +221,10 @@ define(function(require, exports, module) {
       return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
     }],
     ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
+    // UC 浏览器，k可能会被识别为 Android 浏览器，规则需要前置。
+    ["uc", function(ua){
+      return ua.indexOf("ucbrowser") !== -1 ? /\bucbrowser\/([0-9.]+)/ : /\bucweb([0-9.]+)/;
+    }],
     // Android 默认浏览器。该规则需要在 safari 之前。
     ["android", function(ua){
       if(ua.indexOf("android") === -1){return;}
@@ -229,10 +233,7 @@ define(function(require, exports, module) {
     ["safari", /\bversion\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\//],
     // 如果不能被识别为 Safari，则猜测是 WebView。
     ["webview", /\bcpu(?: iphone)? os (?:[0-9._]+).+\bapplewebkit\b/],
-    ["firefox", /\bfirefox\/([0-9.ab]+)/],
-    ["uc", function(ua){
-      return ua.indexOf("ucbrowser") !== -1 ? /\bucbrowser\/([0-9.]+)/ : /\bucweb([0-9.]+)/;
-    }]
+    ["firefox", /\bfirefox\/([0-9.ab]+)/]
   ];
 
   /**

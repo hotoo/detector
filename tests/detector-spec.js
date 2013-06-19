@@ -430,6 +430,13 @@ define(function(require) {
       os: "android/4.0.4",
       browser: "uc/8.8.2.274;8.8.2.274;o",
       engine: "webkit/534.31;534.31;o"
+    }],
+    // SAMSUNG Android Pad, UC HD.
+    ["Mozilla/5.0 (Linux; U; Android 3.2; zh-cn; GT-P6800 Build/HTJ85B) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13 UCBrowser/2.3.2.289", {
+      device: "android/-1",
+      os: "android/3.2",
+      browser: "uc/2.3.2.289;2.3.2.289;o",
+      engine: "webkit/534.13;534.13;o"
     }]
   ];
 
