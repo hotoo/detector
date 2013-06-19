@@ -319,14 +319,41 @@ define(function(require) {
       browser: "safari/6.0;6.0;o",
       engine: "webkit/536.26;536.26;o"
     }],
+    // iPad mini.
+    ["Mozilla/5.0 (iPad; CPU OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25", {
+      device: "ipad/-1",
+      os: "ios/6.1.3",
+      browser: "safari/6.0;6.0;o",
+      engine: "webkit/536.26;536.26;o"
+    }],
 
 
     // iPad, Safari. XXX: 实际是 Safari，但是没有 Safari 标识。
     ["Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405", {
       device: "ipad/-1",
       os: "ios/3.2.1",
-      browser: "na/-1;-1;o",
+      browser: "webview/-1;-1;o",
       engine: "webkit/531.21.10;531.21.10;o"
+    }],
+    // iPad mini, MIHtool. WebView.
+    ["Mozilla/5.0 (iPad; CPU OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329", {
+      device: "ipad/-1",
+      os: "ios/6.1.3",
+      browser: "webview/-1;-1;o",
+      engine: "webkit/536.26;536.26;o"
+    }],
+    ["Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_2 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B146", {
+      device: "iphone/-1",
+      os: "ios/6.1.2",
+      browser: "webview/-1;-1;o",
+      engine: "webkit/536.26;536.26;o"
+    }],
+    // iPhone 5, 微信。
+    ["Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.40 (KHTML, like Gecko) Mobile/11A4372q MicroMessenger/4.5", {
+      device: "iphone/-1",
+      os: "ios/7.0",
+      browser: "webview/-1;-1;o",
+      engine: "webkit/537.40;537.40;o"
     }],
     // Windows Phone, IE9
     ["Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Nokia 620)", {
