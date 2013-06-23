@@ -3,6 +3,12 @@
 
 ----
 
+## 1.1.3 (2013-06-19)
+
+`tag:fixed` #25, 支持 iOS 的 WebView。
+
+`tag:fixed` #26, 部分 UC 浏览器被识别为 Android 的问题。
+
 ## 1.1.2 (2013-06-07)
 
 `tag:fixed` #24, 规避 external 可能出现的异常。
