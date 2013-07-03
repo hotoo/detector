@@ -208,6 +208,72 @@ define(function(require) {
       browser: "qq/7.3.8126.400;8.0;o",
       engine: "trident/4.0;4.0;o"
     }],
+    ["MQQBrowser/3.7/Mozilla/5.0 (Linux; U; Android 2.3.3; zh-cn; HW-HUAWEI_C8650/C8650V100R001C92B825; 320*480; CTC/2.0) AppleWebKit/533.1 Mobile Safari/533.1", {
+      device: "huawei/c8650",
+      os: "android/2.3.3",
+      browser: "qq/3.7;3.7;o",
+      engine: "webkit/533.1;533.1;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.3.6; zh-cn; U8818 Build/HuaweiU8818) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "huawei/u8818",
+      os: "android/2.3.6",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["JUC (Linux; U; 4.1.2; zh-cn; Nexus S; 480*800) UCWEB8.7.2.214/145/800", {
+      device: "nexus/s",
+      os: "linux/-1",
+      browser: "uc/8.7.2.214;8.7.2.214;o",
+      engine: "na/-1;-1;o"
+    }],
+    ["Lenovo A356:Mozilla/5.0 (Linux; U;  Android 4.0.4; zh-cn; Lenovo A356/S030) AppleWebKit534.30 (KHTML%2C like Gecko) Version/4.0 Mobile Safari/534.30", {
+      device: "lenovo/a356",
+      os: "android/4.0.4",
+      browser: "android/4.0;4.0;o",
+      engine: "webkit/534.30;534.30;o"
+    }],
+    ["Lenovo-A60/S100 Linux/2.6.35.7 Android/2.3.3 Release/04.19.2011 Browser/AppleWebKit533.1 Profile/ Configuration/", {
+      device: "lenovo/a60",
+      os: "android/2.3.3",
+      browser: "na/-1;-1;o",
+      engine: "webkit/533.1;533.1;o"
+    }],
+    ["ZTE-TU960s_TD/1.0 Linux/2.6.35 Android/2.3 Release/9.25.2011 Browser/AppleWebKit533.1", {
+      device: "zte/tu960s",
+      os: "android/2.3",
+      browser: "na/-1;-1;o",
+      engine: "webkit/533.1;533.1;o"
+    }],
+    ["ZTEU880E_TD/1.0 Linux/2.6.35 Android/2.3 Release/12.15.2011 Browser/AppleWebKit533.1", {
+      device: "zte/u880e",
+      os: "android/2.3",
+      browser: "na/-1;-1;o",
+      engine: "webkit/533.1;533.1;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 4.0.3; zh-cn;generic-ZTE U930/Phone Build/IMM76D) AppleWebKit534.30(KHTML%2Clike Gecko)Version/4.0 Mobile Safari/534.30 Id/EA71A15E1E65D2518F09B2C659CA09E1 RV/4.0.1;gngouua1.3.0.g chl/anzhi", {
+      device: "zte/u930",
+      os: "android/4.0.3",
+      browser: "android/4.0;4.0;o",
+      engine: "webkit/534.30;534.30;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; vivo E1 Build/GRJ90) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "vivo/e1",
+      os: "android/2.3.5",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["NokiaC7-00/111.040.1511 (Symbian/3; Series60/5.3 Mozilla/5.0; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML%2C like Gecko) Version/3.0 NokiaBrowser/8.3.1.4", {
+      device: "nokia/c7",
+      os: "symbian/3",
+      browser: "nokia/8.3.1.4;8.3.1.4;o",
+      engine: "webkit/525;525;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 4.1.5; zh-cn; HTC_X315e Build/IML74K) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "htc/x315e",
+      os: "android/4.1.5",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
     // TT
     ["Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/4.0; TencentTraveler 4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)", {
       device: "pc/-1",
@@ -319,6 +385,12 @@ define(function(require) {
       browser: "safari/6.0;6.0;o",
       engine: "webkit/536.26;536.26;o"
     }],
+    //["UCWEB/2.0 (iOS; U; iPh OS 6_1_2; zh-CN; iPh4%2C1) U2/1.0.0 UCBrowser/9.0.1.284 U2/1.0.0 Mobile", {
+      //device: "iphone/4",
+      //os: "ios/6.1.2",
+      //browser: "uc/9.0.1.284;9.0.1.284;o",
+      //engine: "na/-1;-1;o"
+    //}],
     // iPad mini.
     ["Mozilla/5.0 (iPad; CPU OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25", {
       device: "ipad/-1",
@@ -342,6 +414,12 @@ define(function(require) {
       browser: "webview/-1;-1;o",
       engine: "webkit/536.26;536.26;o"
     }],
+    ["Mozilla/5.0 (iPad; CPU OS 5_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML%2C like Gecko) Mobile/9A405", {
+      device: "ipad/-1",
+      os: "ios/5.0.1",
+      browser: "webview/-1;-1;o",
+      engine: "webkit/534.46;534.46;o"
+    }],
     ["Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_2 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B146", {
       device: "iphone/-1",
       os: "ios/6.1.2",
@@ -363,7 +441,7 @@ define(function(require) {
       engine: "trident/6.0;6.0;o"
     }],
     ["Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG SGH-i917)", {
-      device: "wp/-1",
+      device: "samsung/sgh-i917",
       os: "wp/7.5",
       browser: "ie/9.0;9.0;o",
       engine: "trident/5.0;5.0;o"
@@ -404,7 +482,7 @@ define(function(require) {
     }],
     // 小米手机
     ["Mozilla/5.0 (Linux; U; Android 4.0.1; zh-cn; MI-ONE Plus Build/ITL41D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 ", {
-      device: "mi/1s",
+      device: "mi/one plus",
       os: "android/4.0.1",
       // XXX: Android 默认浏览器怎么会是 Safari 浏览器？
       browser: "android/4.0;4.0;o",
@@ -423,17 +501,65 @@ define(function(require) {
       browser: "android/4.0;4.0;o",
       engine: "webkit/534.30;534.30;o"
     }],
+    ["meizu/9|Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; M9 Build/GRJ90) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "meizu/9",
+      os: "android/2.3.5",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; MT15i Build/4.1.B.0.431) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "sonyericsson/15i",
+      os: "android/4.0.4",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["CoolPad8190_CMCC_TD/1.0 Linux/3.0.8 Android/4.0 Release/10.15.2012 Browser/AppleWebkit534.3", {
+      device: "coolpad/8190",
+      os: "android/4.0",
+      browser: "na/-1;-1;o",
+      engine: "webkit/534.3;534.3;o"
+    }],
+    ["OPPO_R815T/1.0 Linux/3.4.0 Android/4.2.1  Release/12.24.2012 Browser/AppleWebKit534.30 Mobile Safari/534.30 MBBMS/2.2 System/Android 4.2.1;", {
+      device: "oppo/r815t",
+      os: "android/4.2.1",
+      browser: "na/-1;-1;o",
+      engine: "webkit/534.30;534.30;o"
+    }],
+    ["KONKA_V926_TD/1.0 Android/2.3.5 MocorDroid/SpreadTrum Release/3.22.2012 Browser/AppleWebKit5333.1 baiduboxapp/4.3 (Baidu; P1 2.3.5)", {
+      device: "konka/v926",
+      os: "android/2.3.5",
+      browser: "na/-1;-1;o",
+      engine: "webkit/5333.1;5333.1;o"
+    }],
 
     // UC
     ["Mozilla/5.0 (Linux; U; Android 4.0.4; zh-CN; MI 1SC Build/IMM76D) AppleWebKit/534.31 (KHTML, like Gecko) UCBrowser/8.8.2.274 U3/0.8.0 Mobile Safari/534.31", {
-      device: "mi/1s",
+      device: "mi/1sc",
       os: "android/4.0.4",
       browser: "uc/8.8.2.274;8.8.2.274;o",
       engine: "webkit/534.31;534.31;o"
     }],
+    ["UCWEB/2.0 (Linux; U; Adr unknown; zh-CN; NOAIN A900) U2/1.0.0 UCBrowser/8.8.3.278 U2/1.0.0 Mobile", {
+      device: "nokia/a900",
+      os: "linux/-1",
+      browser: "uc/8.8.3.278;8.8.3.278;o",
+      engine: "na/-1;-1;o"
+    }],
+    ["UCWEB/2.0 (Linux; U; Adr 2.3.5; zh-CN; F-03D) U2/1.0.0 UCBrowser/8.8.3.278 U2/1.0.0 Mobile", {
+      device: "na/-1",
+      os: "linux/-1",
+      browser: "uc/8.8.3.278;8.8.3.278;o",
+      engine: "na/-1;-1;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; MI-ONE Plus Build/GINGERBREAD) UC AppleWebKit/530+ (KHTML%2C like Gecko) Mobile Safari/530", {
+      device: "mi/one plus",
+      os: "android/2.3.5",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/530+;530+;o"
+    }],
     // SAMSUNG Android Pad, UC HD.
     ["Mozilla/5.0 (Linux; U; Android 3.2; zh-cn; GT-P6800 Build/HTJ85B) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13 UCBrowser/2.3.2.289", {
-      device: "android/-1",
+      device: "samsung/p6800",
       os: "android/3.2",
       browser: "uc/2.3.2.289;2.3.2.289;o",
       engine: "webkit/534.13;534.13;o"

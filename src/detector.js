@@ -29,12 +29,22 @@ define(function(require, exports, module) {
   // 使用数组可以按优先级排序。
   var DEVICES = [
     ["nokia", function(ua){
+      // 不能将两个表达式合并，因为可能出现 "nokia; nokia 960"
+      // 这种情况下会优先识别出 nokia/-1
       if(ua.indexOf("nokia ") !== -1){
         return /\bnokia ([0-9]+)?/;
-      }else if(/\bnokia[\d]/.test(ua)){
-        return /\bnokia(\d+)/;
+      }else if(ua.indexOf("noain") !== -1){
+        return /\bnoain ([a-z0-9]+)/;
       }else{
-        return "nokia";
+        return /\bnokia([a-z0-9]+)?/;
+      }
+    }],
+    // 三星有 Android 和 WP 设备。
+    ["samsung", function(ua){
+      if(ua.indexOf("samsung") !== -1){
+        return /\bsamsung(?:\-gt)?[ \-]([a-z0-9\-]+)/;
+      }else{
+        return /\bgt[ \-]([a-z0-9\-]+)/;
       }
     }],
     ["wp", function(ua){
@@ -45,21 +55,24 @@ define(function(require, exports, module) {
     }],
     ["pc", "windows"],
     ["ipad", "ipad"],
+    // ipod 规则应置于 iphone 之前。
     ["ipod", "ipod"],
     ["iphone", "iphone"],
     ["mac", "macintosh"],
-    ["mi", function(ua){
-      if(ua.indexOf("mi-one plus") !== -1){
-        return {
-          version: "1s"
-        };
-      }else{
-        return /\bmi ([0-9.as]+)/;
-      }
-    }],
-    ["aliyun", "aliyunos"],
-    ["meizu", /\bm([0-9]+)\b/],
-    ["nexus", /\bnexus ([0-9.]+)/],
+    ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build))/],
+    ["aliyun", /\baliyunos\b(?:[\-](\d+))?/],
+    ["meizu", /\b(?:meizu\/|m)([0-9]+)\b/],
+    ["nexus", /\bnexus ([0-9s.]+)/],
+    ["huawei", /\b(?:hw\-)?huawei[ _]?([a-z0-9]+)/],
+    ["lenovo", /\blenovo[ \-]([a-z0-9]+)/],
+    ["zte", /\bzte(?:-u)?[ _\-]?([a-z0-9\+]+)/],
+    // 步步高
+    ["vivo", /\bvivo ([a-z0-9]+)/],
+    ["htc", /\htc[ _\-]?([a-z0-9]+)/],
+    ["oppo", /\boppo[_]([a-z0-9]+)/],
+    ["konka", /\bkonka[_\-]([a-z0-9]+)/],
+    ["sonyericsson", /mt([a-z0-9]+)/],
+    ["coolpad", /coolpad[_ ]?([a-z0-9]+)/],
     ["android", "android"],
     ["blackberry", "blackberry"]
   ];
@@ -79,11 +92,11 @@ define(function(require, exports, module) {
     ["macosx", /\bmac os x ([0-9._]+)/],
     ["ios", /\bcpu(?: iphone)? os ([0-9._]+)/],
     ["yunos", /\baliyunos ([0-9.]+)/],
-    ["android", /\bandroid[ -]([0-9.]+)/],
+    ["android", /\bandroid[\/\- ]?([0-9.x]+)/],
     ["chromeos", /\bcros i686 ([0-9.]+)/],
     ["linux", "linux"],
     ["windowsce", /\bwindows ce(?: ([0-9.]+))?/],
-    ["symbian", /\bsymbianos\/([0-9.]+)/],
+    ["symbian", /\bsymbian(?:os)?\/([0-9.]+)/],
     ["blackberry", "blackberry"]
   ];
 
@@ -158,7 +171,7 @@ define(function(require, exports, module) {
   var ENGINE = [
     ["trident", re_msie],
     //["blink", /blink\/([0-9.+]+)/],
-    ["webkit", /\bapplewebkit\/([0-9.+]+)/],
+    ["webkit", /\bapplewebkit[\/]?([0-9.+]+)/],
     ["gecko", /\bgecko\/(\d+)/],
     ["presto", /\bpresto\/([0-9.]+)/]
   ];
@@ -191,7 +204,7 @@ define(function(require, exports, module) {
       }catch(ex){}
       return /\bmaxthon(?:[ \/]([0-9.]+))?/;
     }],
-    ["qq", /\bqqbrowser\/([0-9.]+)/],
+    ["qq", /\bm?qqbrowser\/([0-9.]+)/],
     ["green", "greenbrowser"],
     ["tt", /\btencenttraveler ([0-9.]+)/],
     ["lb", function(ua){
@@ -221,9 +234,15 @@ define(function(require, exports, module) {
       return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
     }],
     ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
-    // UC 浏览器，k可能会被识别为 Android 浏览器，规则需要前置。
+    // UC 浏览器，可能会被识别为 Android 浏览器，规则需要前置。
     ["uc", function(ua){
-      return ua.indexOf("ucbrowser") !== -1 ? /\bucbrowser\/([0-9.]+)/ : /\bucweb([0-9.]+)/;
+      if(ua.indexOf("ucbrowser") >= 0){
+        return /\bucbrowser\/([0-9.]+)/;
+      }else if(ua.indexOf("ucweb") >= 0){
+        return /\bucweb[\/]?([0-9.]+)/;
+      }else{
+        return /\buc\b/;
+      }
     }],
     // Android 默认浏览器。该规则需要在 safari 之前。
     ["android", function(ua){
@@ -233,7 +252,8 @@ define(function(require, exports, module) {
     ["safari", /\bversion\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\//],
     // 如果不能被识别为 Safari，则猜测是 WebView。
     ["webview", /\bcpu(?: iphone)? os (?:[0-9._]+).+\bapplewebkit\b/],
-    ["firefox", /\bfirefox\/([0-9.ab]+)/]
+    ["firefox", /\bfirefox\/([0-9.ab]+)/],
+    ["nokia", /\bnokiabrowser\/([0-9.]+)/]
   ];
 
   /**
