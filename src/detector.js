@@ -63,7 +63,13 @@ define(function(require, exports, module) {
     ["aliyun", /\baliyunos\b(?:[\-](\d+))?/],
     ["meizu", /\b(?:meizu\/|m)([0-9]+)\b/],
     ["nexus", /\bnexus ([0-9s.]+)/],
-    ["huawei", /\b(?:hw\-)?huawei[ _]?([a-z0-9]+)/],
+    ["huawei", function(ua){
+      if(ua.indexOf("huawei-huawei") !== -1){
+        return /\bhuawei\-huawei\-([a-z0-9\-]+)/;
+      }else{
+        return /\bhuawei[ _\-]?([a-z0-9]+)/;
+      }
+    }],
     ["lenovo", /\blenovo[ \-]([a-z0-9]+)/],
     // 中兴
     ["zte", function(ua){

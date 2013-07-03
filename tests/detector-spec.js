@@ -214,6 +214,24 @@ define(function(require) {
       browser: "qq/3.7;3.7;o",
       engine: "webkit/533.1;533.1;o"
     }],
+    ["HUAWEI U8825D Build/HuaweiU8825D) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "huawei/u8825d",
+      os: "na/-1",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["HuaweiT8100_TD/1.0 Android/2.2 Release/12.25.2010 Browser/WAP2.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 AppleWebKit/533.1", {
+      device: "huawei/t8100",
+      os: "android/2.2",
+      browser: "na/-1;-1;o",
+      engine: "webkit/533.1;533.1;o"
+    }],
+    ["HUAWEI-HUAWEI-Y-220T/1.0 Linux/2.6.35.7 Android/2.3.5 Release/11.28.2012 Browser/AppleWebKit533.1 (KHTML%2C like Gecko) Mozilla/5.0 Mobile", {
+      device: "huawei/y-220t",
+      os: "android/2.3.5",
+      browser: "na/-1;-1;o",
+      engine: "webkit/533.1;533.1;o"
+    }],
     ["Mozilla/5.0 (Linux; U; Android 2.3.6; zh-cn; U8818 Build/HuaweiU8818) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
       device: "huawei/u8818",
       os: "android/2.3.6",
