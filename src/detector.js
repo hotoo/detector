@@ -65,7 +65,14 @@ define(function(require, exports, module) {
     ["nexus", /\bnexus ([0-9s.]+)/],
     ["huawei", /\b(?:hw\-)?huawei[ _]?([a-z0-9]+)/],
     ["lenovo", /\blenovo[ \-]([a-z0-9]+)/],
-    ["zte", /\bzte(?:-u)?[ _\-]?([a-z0-9\+]+)/],
+    // 中兴
+    ["zte", function(ua){
+      if(/\bzte\-[tu]/.test(ua)){
+        return /\bzte-[tu][ _\-]?([a-su-z0-9\+]+)/;
+      }else{
+        return /\bzte[ _\-]?([a-su-z0-9\+]+)/;
+      }
+    }],
     // 步步高
     ["vivo", /\bvivo ([a-z0-9]+)/],
     ["htc", /\htc[ _\-]?([a-z0-9]+)/],

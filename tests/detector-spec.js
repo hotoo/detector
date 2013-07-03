@@ -239,7 +239,7 @@ define(function(require) {
       engine: "webkit/533.1;533.1;o"
     }],
     ["ZTE-TU960s_TD/1.0 Linux/2.6.35 Android/2.3 Release/9.25.2011 Browser/AppleWebKit533.1", {
-      device: "zte/tu960s",
+      device: "zte/u960s",
       os: "android/2.3",
       browser: "na/-1;-1;o",
       engine: "webkit/533.1;533.1;o"
@@ -255,6 +255,30 @@ define(function(require) {
       os: "android/4.0.3",
       browser: "android/4.0;4.0;o",
       engine: "webkit/534.30;534.30;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.2.2; zh-cn; ZTE-T U880 Build/FRG83G) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "zte/u880",
+      os: "android/2.2.2",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; ZTE U795 Build/IMM76D) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "zte/u795",
+      os: "android/4.0.4",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["ZTEU795+_TD/1.0 Linux/3.0.13 Android/4.0 Release/7.10.2012 Browser/AppleWebKit534.30", {
+      device: "zte/u795+",
+      os: "android/4.0",
+      browser: "na/-1;-1;o",
+      engine: "webkit/534.30;534.30;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; ZTE-U V881 Build/GINGERBREAD) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "zte/v881",
+      os: "android/2.3.5",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
     }],
     ["Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; vivo E1 Build/GRJ90) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
       device: "vivo/e1",
