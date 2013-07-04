@@ -115,12 +115,24 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 * `ipad`: iPad.
 * `ipod`: iPod.
 * `android`: Android.
-* `blackberry`: Blackberry.
+* `blackberry`: 黑莓(Blackberry)手机。
 * `wp`: Windows Phone.
 * `mi`: 小米。
 * `meizu`: 魅族。
 * `nexus`: Nexus.
 * `nokia`: Nokia.
+* `samsung`: 三星手机。
+* `aliyun`: 阿里云手机。
+* `huawei`: 华为手机。
+* `lenovo`: 联想手机。
+* `zte`: 中兴手机。
+* `vivo`: 步步高手机。
+* `htc`: HTC。
+* `oppo`: OPPO 手机。
+* `konka`: 康佳手机。
+* `sonyericsson`: 索尼爱立信手机。
+* `coolpad`: 酷派手机。
+* `lg`: LG 手机。
 
 
 ----
@@ -153,6 +165,8 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 * `windowsce`: Windows CE, 包括 Windows Mobile, Smartphone, PPC.
 * `symbian`: Symbian OS.
 * `blackberry`: Blackberry.
+* `yunos`: 阿里云系统。
+* `meego`: Meego
 
 
 ----
@@ -209,6 +223,9 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `uc`: UC 浏览器。
 * `mi`: 小米浏览器。
 * `baidu`: 百度浏览器。
+* `mi`: 小米浏览器。
+* `nokia`: 诺基亚浏览器。
+* `webview`: iOS 系统的提供的 WebView。
 
 国产浏览器名称均使用缩写方式，`ie` 由于习俗也使用缩写。
 
@@ -251,6 +268,8 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `webkit`: Webkit.
 * `gecko`: Gecko.
 * `presto`: Presto.
+* `androidwebkit`: Android Webkit.
+* `coolpadwebkit`: Coolpad Webkit.
 
 ### {detector} detector.parse(String ua)
 
