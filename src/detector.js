@@ -131,6 +131,7 @@ define(function(require, exports, module) {
     ["linux", "linux"],
     ["windowsce", /\bwindows ce(?: ([0-9.]+))?/],
     ["symbian", /\bsymbian(?:os)?\/([0-9.]+)/],
+    ["meego", /\bmeego\b/],
     ["blackberry", "blackberry"]
   ];
 
