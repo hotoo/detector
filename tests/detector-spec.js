@@ -265,7 +265,7 @@ define(function(require) {
     ["LenovoS899t_TD/1.0 Android/4.0 Release/02.01.2012 Browser/WAP2.0 appleWebkit/534.30; 360browser(securitypay%2Csecurityinstalled); 360(android%2Cuppayplugin); 360 Aphone Browser (4.7.1)", {
       device: "lenovo/s899t",
       os: "android/4.0",
-      browser: "na/-1;-1;o",
+      browser: "360/4.7.1;4.7.1;o",
       engine: "webkit/534.30;534.30;o"
     }],
     ["ZTE-TU960s_TD/1.0 Linux/2.6.35 Android/2.3 Release/9.25.2011 Browser/AppleWebKit533.1", {

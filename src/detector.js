@@ -210,7 +210,10 @@ define(function(require, exports, module) {
     ["360", function(ua) {
       var x = checkTW360External("360se");
       if(typeof x !== "undefined"){return x;}
-      return (/\b360(?:se|ee|chrome)/);
+      if(ua.indexOf("360 aphone browser") !== -1){
+        return /\b360 aphone browser \(([^\)]+)\)/;
+      }
+      return /\b360(?:se|ee|chrome|browser)\b/;
     }],
     // Maxthon
     ["mx", function(ua){
