@@ -208,7 +208,9 @@ define(function(require, exports, module) {
     //["blink", /blink\/([0-9.+]+)/],
     ["webkit", /\bapplewebkit[\/]?([0-9.+]+)/],
     ["gecko", /\bgecko\/(\d+)/],
-    ["presto", /\bpresto\/([0-9.]+)/]
+    ["presto", /\bpresto\/([0-9.]+)/],
+    ["androidwebkit", /\bandroidwebkit\/([0-9.]+)/],
+    ["coolpadwebkit", /\bcoolpadwebkit\/([0-9.]+)/]
   ];
   var BROWSER = [
     // Sogou.

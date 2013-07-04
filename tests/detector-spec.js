@@ -344,7 +344,7 @@ define(function(require) {
       device: "htc/t329d",
       os: "android/4.0.4",
       browser: "android/4.0;4.0;o",
-      engine: "na/-1;-1;o"
+      engine: "androidwebkit/534.30;534.30;o"
     }],
     ["Mozilla/5.0 (Linux; U; Android 2.3.5; en-es; HTC Incredible S Build/GRJ90) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
       device: "htc/incredible s",
@@ -668,6 +668,12 @@ define(function(require) {
       os: "android/2.3",
       browser: "na/-1;-1;o",
       engine: "webkit/533.1;533.1;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn;YL-Coolpad_7260A/2.3.002.120217.7260+; 480*800; CUCC/3.0) CoolpadWebkit/533.1", {
+      device: "coolpad/7260a",
+      os: "android/2.3.5",
+      browser: "na/-1;-1;o",
+      engine: "coolpadwebkit/533.1;533.1;o"
     }],
     ["OPPO_R815T/1.0 Linux/3.4.0 Android/4.2.1  Release/12.24.2012 Browser/AppleWebKit534.30 Mobile Safari/534.30 MBBMS/2.2 System/Android 4.2.1;", {
       device: "oppo/r815t",
