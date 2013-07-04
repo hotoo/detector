@@ -70,7 +70,13 @@ define(function(require, exports, module) {
         return /\bhuawei[ _\-]?([a-z0-9]+)/;
       }
     }],
-    ["lenovo", /\blenovo[ \-]([a-z0-9]+)/],
+    ["lenovo", function(ua){
+      if(ua.indexOf("lenovo-lenovo") !== -1){
+        return /\blenovo\-lenovo[ \-]([a-z0-9]+)/;
+      }else{
+        return /\blenovo[ \-]?([a-z0-9]+)/;
+      }
+    }],
     // 中兴
     ["zte", function(ua){
       if(/\bzte\-[tu]/.test(ua)){

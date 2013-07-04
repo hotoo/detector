@@ -256,6 +256,18 @@ define(function(require) {
       browser: "na/-1;-1;o",
       engine: "webkit/533.1;533.1;o"
     }],
+    ["LENOVO-Lenovo-A288t/1.0 Linux/2.6.35.7 Android/2.3.5 Release/08.16.2012 Browser/AppleWebKit533.1 (KHTML%2C like Gecko) Mozilla/5.0 Mobile", {
+      device: "lenovo/a288t",
+      os: "android/2.3.5",
+      browser: "na/-1;-1;o",
+      engine: "webkit/533.1;533.1;o"
+    }],
+    ["LenovoS899t_TD/1.0 Android/4.0 Release/02.01.2012 Browser/WAP2.0 appleWebkit/534.30; 360browser(securitypay%2Csecurityinstalled); 360(android%2Cuppayplugin); 360 Aphone Browser (4.7.1)", {
+      device: "lenovo/s899t",
+      os: "android/4.0",
+      browser: "na/-1;-1;o",
+      engine: "webkit/534.30;534.30;o"
+    }],
     ["ZTE-TU960s_TD/1.0 Linux/2.6.35 Android/2.3 Release/9.25.2011 Browser/AppleWebKit533.1", {
       device: "zte/u960s",
       os: "android/2.3",
