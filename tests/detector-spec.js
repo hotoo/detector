@@ -695,6 +695,18 @@ define(function(require) {
       os: "android/3.2",
       browser: "uc/2.3.2.289;2.3.2.289;o",
       engine: "webkit/534.13;534.13;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; SAMSUNG-GT-S7568_TD/1.0 Android/4.0.4 Release/07.15.2012 Browser/AppleWebKit534.30 Build/IMM76D) ApplelWebkit/534.30 (KHTML%2Clike Gecko) Version/4.0 Mobile Safari/534.30", {
+      device: "samsung/s7568",
+      os: "android/4.0.4",
+      browser: "android/4.0;4.0;o",
+      engine: "webkit/534.30;534.30;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.3.6; zh-cn; SCH-I779 Build/GINGERBREAD) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "samsung/i779",
+      os: "android/2.3.6",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
     }]
   ];
 

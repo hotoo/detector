@@ -44,7 +44,7 @@ define(function(require, exports, module) {
       if(ua.indexOf("samsung") !== -1){
         return /\bsamsung(?:\-gt)?[ \-]([a-z0-9\-]+)/;
       }else{
-        return /\bgt[ \-]([a-z0-9\-]+)/;
+        return /\b(?:gt|sch)[ \-]([a-z0-9\-]+)/;
       }
     }],
     ["wp", function(ua){
@@ -93,7 +93,7 @@ define(function(require, exports, module) {
       }else{
         return /\bhtc[ _\-]?([a-z0-9 ]+)/;
       }
-    }, /\bhtc[ _\-]?([a-z0-9 ]+(?= build))/, /\bhtc[ _\-]?([a-z0-9]+)/],
+    }],
     ["oppo", /\boppo[_]([a-z0-9]+)/],
     ["konka", /\bkonka[_\-]([a-z0-9]+)/],
     ["sonyericsson", /mt([a-z0-9]+)/],
