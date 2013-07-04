@@ -2,6 +2,7 @@
 define(function(require, exports, module) {
 
   var detector = {};
+  var NA_VERSION = "-1";
 
   var userAgent = navigator.userAgent || "";
   //var platform = navigator.platform || "";
@@ -249,14 +250,14 @@ define(function(require, exports, module) {
     ["tt", /\btencenttraveler ([0-9.]+)/],
     ["lb", function(ua){
       if(ua.indexOf("lbbrowser") === -1){return false;}
-      var version = "-1";
+      var version;
       try{
         if(external && external.LiebaoGetVersion){
           version = external.LiebaoGetVersion();
         }
       }catch(ex){}
       return {
-        version: version
+        version: version || NA_VERSION
       };
     }],
     ["tao", /\btaobrowser\/([0-9.]+)/],
@@ -309,7 +310,7 @@ define(function(require, exports, module) {
     if(!expr){return null;}
     var info = {
       name: name,
-      version: "-1",
+      version: NA_VERSION,
       codename: ""
     };
     var t = toString(expr);
@@ -330,14 +331,14 @@ define(function(require, exports, module) {
         if(m.length >= 2 && m[1]){
           info.version = m[1].replace(/_/g, ".");
         }else{
-          info.version = "-1";
+          info.version = NA_VERSION;
         }
         return info;
       }
     }
   }
 
-  var na = {name:"na", version:"-1"};
+  var na = {name:"na", version:NA_VERSION};
   // 初始化识别。
   function init(ua, patterns, factory, detector){
     var detected = na;
