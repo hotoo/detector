@@ -9,7 +9,7 @@ define(function(require, exports, module) {
   //var vendor = navigator.vendor || "";
   var external = window.external;
 
-  var re_msie = /\b(?:msie |ie |trident\/[0-9\.].*rv[ :])([0-9.]+)/;
+  var re_msie = /\b(?:msie |ie |trident\/[0-9].*rv[ :])([0-9.]+)/;
 
   function toString(object){
     return Object.prototype.toString.call(object);
