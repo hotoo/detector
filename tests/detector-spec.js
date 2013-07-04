@@ -328,6 +328,84 @@ define(function(require) {
       browser: "uc/-1;-1;o",
       engine: "webkit/534.31;534.31;o"
     }],
+    ["Mozilla/5.0 (Linux; U; Android 4.0.3; zh-cn; HTC T328d Build/IML74K) UC AppleWebKit/530+ (KHTML%2C like Gecko) Mobile Safari/530", {
+      device: "htc/t328d",
+      os: "android/4.0.3",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/530+;530+;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; HTC-T329d/1.11.1401.1) AndroidWebKit/534.30 (KHTML%2C Like Gecko) Version/4.0 Mobile Safari/534.30", {
+      device: "htc/t329d",
+      os: "android/4.0.4",
+      browser: "android/4.0;4.0;o",
+      engine: "na/-1;-1;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.3.5; en-es; HTC Incredible S Build/GRJ90) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "htc/incredible s",
+      os: "android/2.3.5",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["JUC (Linux; U; 2.3.5; zh-cn; HTC Rhyme S510b; 480*800) UCWEB8.7.4.225/145/800", {
+      device: "htc/rhyme s510b",
+      os: "linux/2.3.5",
+      browser: "uc/8.7.4.225;8.7.4.225;o",
+      engine: "na/-1;-1;o"
+    }],
+    ["UCWEB/2.0 (Linux; U; Adr Android 4.0.8; zh-CN; HTC inspire4G(LTE)) U2/1.0.0 UCBrowser/8.8.3.278 U2/1.0.0 Mobile", {
+      device: "htc/inspire4g",
+      os: "android/4.0.8",
+      browser: "uc/8.8.3.278;8.8.3.278;o",
+      engine: "na/-1;-1;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.2.1; zh-cn; HTC Magic Build/FRG83) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "htc/magic",
+      os: "android/2.2.1",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 4.0.3; zh-cn; HTC Sensation Z710e Build/IML74K) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "htc/sensation z710e",
+      os: "android/4.0.3",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.3.3; zh-cn; HTC Wildfire S A510e Build/GRI40) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "htc/wildfire s a510e",
+      os: "android/2.3.3",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.2.1; en-sg; HTC Wildfire Build/FRG83D) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "htc/wildfire",
+      os: "android/2.2.1",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; HTC Desire S Build/GRJ90) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "htc/desire s",
+      os: "android/2.3.5",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 4.2.1; zh-cn; HTC Rezound Build/IML74K) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "htc/rezound",
+      os: "android/4.2.1",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; HTC One X Build/IMM76D) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "htc/one x",
+      os: "android/4.0.4",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["HTCT329t_TD/1.0 Android/4.0 release/2012 Browser/WAP2.0 Profile/MIDP-2.0 Configuration/CLDC-1.1", {
+      device: "htc/t329t",
+      os: "android/4.0",
+      browser: "na/-1;-1;o",
+      engine: "na/-1;-1;o"
+    }],
     // TT
     ["Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/4.0; TencentTraveler 4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)", {
       device: "pc/-1",

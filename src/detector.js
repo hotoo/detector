@@ -87,7 +87,13 @@ define(function(require, exports, module) {
     }],
     // 步步高
     ["vivo", /\bvivo ([a-z0-9]+)/],
-    ["htc", /\htc[ _\-]?([a-z0-9]+)/],
+    ["htc", function(ua){
+      if(/\bhtc[a-z0-9 _\-]+(?= build\b)/.test(ua)){
+        return /\bhtc[ _\-]?([a-z0-9 ]+(?= build))/;
+      }else{
+        return /\bhtc[ _\-]?([a-z0-9 ]+)/;
+      }
+    }, /\bhtc[ _\-]?([a-z0-9 ]+(?= build))/, /\bhtc[ _\-]?([a-z0-9]+)/],
     ["oppo", /\boppo[_]([a-z0-9]+)/],
     ["konka", /\bkonka[_\-]([a-z0-9]+)/],
     ["sonyericsson", /mt([a-z0-9]+)/],
