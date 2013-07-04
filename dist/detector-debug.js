@@ -1,10 +1,11 @@
-define("arale/detector/1.1.3/detector-debug", [], function(require, exports, module) {
+define("arale/detector/1.2.0/detector-debug", [], function(require, exports, module) {
     var detector = {};
+    var NA_VERSION = "-1";
     var userAgent = navigator.userAgent || "";
     //var platform = navigator.platform || "";
     //var vendor = navigator.vendor || "";
     var external = window.external;
-    var re_msie = /\b(?:msie|ie) ([0-9.]+)/;
+    var re_msie = /\b(?:msie |ie |trident\/[0-9].*rv[ :])([0-9.]+)/;
     function toString(object) {
         return Object.prototype.toString.call(object);
     }
@@ -24,24 +25,52 @@ define("arale/detector/1.1.3/detector-debug", [], function(require, exports, mod
     // 硬件设备信息识别表达式。
     // 使用数组可以按优先级排序。
     var DEVICES = [ [ "nokia", function(ua) {
+        // 不能将两个表达式合并，因为可能出现 "nokia; nokia 960"
+        // 这种情况下会优先识别出 nokia/-1
         if (ua.indexOf("nokia ") !== -1) {
             return /\bnokia ([0-9]+)?/;
-        } else if (/\bnokia[\d]/.test(ua)) {
-            return /\bnokia(\d+)/;
+        } else if (ua.indexOf("noain") !== -1) {
+            return /\bnoain ([a-z0-9]+)/;
         } else {
-            return "nokia";
+            return /\bnokia([a-z0-9]+)?/;
+        }
+    } ], // 三星有 Android 和 WP 设备。
+    [ "samsung", function(ua) {
+        if (ua.indexOf("samsung") !== -1) {
+            return /\bsamsung(?:\-gt)?[ \-]([a-z0-9\-]+)/;
+        } else {
+            return /\b(?:gt|sch)[ \-]([a-z0-9\-]+)/;
         }
     } ], [ "wp", function(ua) {
         return ua.indexOf("windows phone ") !== -1 || ua.indexOf("xblwp") !== -1 || ua.indexOf("zunewp") !== -1 || ua.indexOf("windows ce") !== -1;
-    } ], [ "pc", "windows" ], [ "ipad", "ipad" ], [ "ipod", "ipod" ], [ "iphone", "iphone" ], [ "mac", "macintosh" ], [ "mi", function(ua) {
-        if (ua.indexOf("mi-one plus") !== -1) {
-            return {
-                version: "1s"
-            };
+    } ], [ "pc", "windows" ], [ "ipad", "ipad" ], // ipod 规则应置于 iphone 之前。
+    [ "ipod", "ipod" ], [ "iphone", /\biphone\b|\biph(\d)/ ], [ "mac", "macintosh" ], [ "mi", /\bmi[ \-]?([a-z0-9 ]+(?= build))/ ], [ "aliyun", /\baliyunos\b(?:[\-](\d+))?/ ], [ "meizu", /\b(?:meizu\/|m)([0-9]+)\b/ ], [ "nexus", /\bnexus ([0-9s.]+)/ ], [ "huawei", function(ua) {
+        if (ua.indexOf("huawei-huawei") !== -1) {
+            return /\bhuawei\-huawei\-([a-z0-9\-]+)/;
         } else {
-            return /\bmi ([0-9.as]+)/;
+            return /\bhuawei[ _\-]?([a-z0-9]+)/;
         }
-    } ], [ "aliyun", "aliyunos" ], [ "meizu", /\bm([0-9]+)\b/ ], [ "nexus", /\bnexus ([0-9.]+)/ ], [ "android", "android" ], [ "blackberry", "blackberry" ] ];
+    } ], [ "lenovo", function(ua) {
+        if (ua.indexOf("lenovo-lenovo") !== -1) {
+            return /\blenovo\-lenovo[ \-]([a-z0-9]+)/;
+        } else {
+            return /\blenovo[ \-]?([a-z0-9]+)/;
+        }
+    } ], // 中兴
+    [ "zte", function(ua) {
+        if (/\bzte\-[tu]/.test(ua)) {
+            return /\bzte-[tu][ _\-]?([a-su-z0-9\+]+)/;
+        } else {
+            return /\bzte[ _\-]?([a-su-z0-9\+]+)/;
+        }
+    } ], // 步步高
+    [ "vivo", /\bvivo ([a-z0-9]+)/ ], [ "htc", function(ua) {
+        if (/\bhtc[a-z0-9 _\-]+(?= build\b)/.test(ua)) {
+            return /\bhtc[ _\-]?([a-z0-9 ]+(?= build))/;
+        } else {
+            return /\bhtc[ _\-]?([a-z0-9 ]+)/;
+        }
+    } ], [ "oppo", /\boppo[_]([a-z0-9]+)/ ], [ "konka", /\bkonka[_\-]([a-z0-9]+)/ ], [ "sonyericsson", /\bmt([a-z0-9]+)/ ], [ "coolpad", /\bcoolpad[_ ]?([a-z0-9]+)/ ], [ "lg", /\blg[\-]([a-z0-9]+)/ ], [ "android", "android" ], [ "blackberry", "blackberry" ] ];
     // 操作系统信息识别表达式
     var OS = [ [ "wp", function(ua) {
         if (ua.indexOf("windows phone ") !== -1) {
@@ -52,7 +81,15 @@ define("arale/detector/1.1.3/detector-debug", [], function(require, exports, mod
             return /\bzunewp([0-9.]+)/;
         }
         return "windows phone";
-    } ], [ "windows", /\bwindows nt ([0-9.]+)/ ], [ "macosx", /\bmac os x ([0-9._]+)/ ], [ "ios", /\bcpu(?: iphone)? os ([0-9._]+)/ ], [ "yunos", /\baliyunos ([0-9.]+)/ ], [ "android", /\bandroid[ -]([0-9.]+)/ ], [ "chromeos", /\bcros i686 ([0-9.]+)/ ], [ "linux", "linux" ], [ "windowsce", /\bwindows ce(?: ([0-9.]+))?/ ], [ "symbian", /\bsymbianos\/([0-9.]+)/ ], [ "blackberry", "blackberry" ] ];
+    } ], [ "windows", /\bwindows nt ([0-9.]+)/ ], [ "macosx", /\bmac os x ([0-9._]+)/ ], [ "ios", function(ua) {
+        if (/\bcpu(?: iphone)? os /.test(ua)) {
+            return /\bcpu(?: iphone)? os ([0-9._]+)/;
+        } else if (ua.indexOf("iph os ") !== -1) {
+            return /\biph os ([0-9_]+)/;
+        } else {
+            return /\bios\b/;
+        }
+    } ], [ "yunos", /\baliyunos ([0-9.]+)/ ], [ "android", /\bandroid[\/\- ]?([0-9.x]+)/ ], [ "chromeos", /\bcros i686 ([0-9.]+)/ ], [ "linux", "linux" ], [ "windowsce", /\bwindows ce(?: ([0-9.]+))?/ ], [ "symbian", /\bsymbian(?:os)?\/([0-9.]+)/ ], [ "meego", /\bmeego\b/ ], [ "blackberry", "blackberry" ] ];
     /*
    * 解析使用 Trident 内核的浏览器的 `浏览器模式` 和 `文档模式` 信息。
    * @param {String} ua, userAgent string.
@@ -124,7 +161,7 @@ define("arale/detector/1.1.3/detector-debug", [], function(require, exports, mod
         } catch (ex) {}
     }
     var ENGINE = [ [ "trident", re_msie ], //["blink", /blink\/([0-9.+]+)/],
-    [ "webkit", /\bapplewebkit\/([0-9.+]+)/ ], [ "gecko", /\bgecko\/(\d+)/ ], [ "presto", /\bpresto\/([0-9.]+)/ ] ];
+    [ "webkit", /\bapplewebkit[\/]?([0-9.+]+)/ ], [ "gecko", /\bgecko\/(\d+)/ ], [ "presto", /\bpresto\/([0-9.]+)/ ], [ "androidwebkit", /\bandroidwebkit\/([0-9.]+)/ ], [ "coolpadwebkit", /\bcoolpadwebkit\/([0-9.]+)/ ] ];
     var BROWSER = [ // Sogou.
     [ "sg", / se ([0-9.x]+)/ ], // TheWorld (世界之窗)
     // 由于裙带关系，TW API 与 360 高度重合。
@@ -142,7 +179,10 @@ define("arale/detector/1.1.3/detector-debug", [], function(require, exports, mod
         if (typeof x !== "undefined") {
             return x;
         }
-        return /\b360(?:se|ee|chrome)/;
+        if (ua.indexOf("360 aphone browser") !== -1) {
+            return /\b360 aphone browser \(([^\)]+)\)/;
+        }
+        return /\b360(?:se|ee|chrome|browser)\b/;
     } ], // Maxthon
     [ "mx", function(ua) {
         try {
@@ -153,18 +193,18 @@ define("arale/detector/1.1.3/detector-debug", [], function(require, exports, mod
             }
         } catch (ex) {}
         return /\bmaxthon(?:[ \/]([0-9.]+))?/;
-    } ], [ "qq", /\bqqbrowser\/([0-9.]+)/ ], [ "green", "greenbrowser" ], [ "tt", /\btencenttraveler ([0-9.]+)/ ], [ "lb", function(ua) {
+    } ], [ "qq", /\bm?qqbrowser\/([0-9.]+)/ ], [ "green", "greenbrowser" ], [ "tt", /\btencenttraveler ([0-9.]+)/ ], [ "lb", function(ua) {
         if (ua.indexOf("lbbrowser") === -1) {
             return false;
         }
-        var version = "-1";
+        var version;
         try {
             if (external && external.LiebaoGetVersion) {
                 version = external.LiebaoGetVersion();
             }
         } catch (ex) {}
         return {
-            version: version
+            version: version || NA_VERSION
         };
     } ], [ "tao", /\btaobrowser\/([0-9.]+)/ ], [ "fs", /\bcoolnovo\/([0-9.]+)/ ], [ "sy", "saayaa" ], // 有基于 Chromniun 的急速模式和基于 IE 的兼容模式。必须在 IE 的规则之前。
     [ "baidu", /\bbidubrowser[ \/]([0-9.x]+)/ ], // 后面会做修复版本号，这里只要能识别是 IE 即可。
@@ -173,9 +213,15 @@ define("arale/detector/1.1.3/detector-debug", [], function(require, exports, mod
         var re_opera_old = /\bopera.+version\/([0-9.ab]+)/;
         var re_opera_new = /\bopr\/([0-9.]+)/;
         return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
-    } ], [ "chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/ ], // UC 浏览器，k可能会被识别为 Android 浏览器，规则需要前置。
+    } ], [ "chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/ ], // UC 浏览器，可能会被识别为 Android 浏览器，规则需要前置。
     [ "uc", function(ua) {
-        return ua.indexOf("ucbrowser") !== -1 ? /\bucbrowser\/([0-9.]+)/ : /\bucweb([0-9.]+)/;
+        if (ua.indexOf("ucbrowser") >= 0) {
+            return /\bucbrowser\/([0-9.]+)/;
+        } else if (ua.indexOf("ucweb") >= 0) {
+            return /\bucweb[\/]?([0-9.]+)/;
+        } else {
+            return /\buc\b/;
+        }
     } ], // Android 默认浏览器。该规则需要在 safari 之前。
     [ "android", function(ua) {
         if (ua.indexOf("android") === -1) {
@@ -183,7 +229,7 @@ define("arale/detector/1.1.3/detector-debug", [], function(require, exports, mod
         }
         return /\bversion\/([0-9.]+(?: beta)?)/;
     } ], [ "safari", /\bversion\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\// ], // 如果不能被识别为 Safari，则猜测是 WebView。
-    [ "webview", /\bcpu(?: iphone)? os (?:[0-9._]+).+\bapplewebkit\b/ ], [ "firefox", /\bfirefox\/([0-9.ab]+)/ ] ];
+    [ "webview", /\bcpu(?: iphone)? os (?:[0-9._]+).+\bapplewebkit\b/ ], [ "firefox", /\bfirefox\/([0-9.ab]+)/ ], [ "nokia", /\bnokiabrowser\/([0-9.]+)/ ] ];
     /**
    * UserAgent Detector.
    * @param {String} ua, userAgent.
@@ -201,7 +247,7 @@ define("arale/detector/1.1.3/detector-debug", [], function(require, exports, mod
         }
         var info = {
             name: name,
-            version: "-1",
+            version: NA_VERSION,
             codename: ""
         };
         var t = toString(expr);
@@ -224,7 +270,7 @@ define("arale/detector/1.1.3/detector-debug", [], function(require, exports, mod
                 if (m.length >= 2 && m[1]) {
                     info.version = m[1].replace(/_/g, ".");
                 } else {
-                    info.version = "-1";
+                    info.version = NA_VERSION;
                 }
                 return info;
             }
@@ -232,7 +278,7 @@ define("arale/detector/1.1.3/detector-debug", [], function(require, exports, mod
     }
     var na = {
         name: "na",
-        version: "-1"
+        version: NA_VERSION
     };
     // 初始化识别。
     function init(ua, patterns, factory, detector) {
