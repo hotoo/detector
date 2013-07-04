@@ -5,12 +5,31 @@ define(function(require) {
 
   var UAs = [
     // Windows Blue
-    ["Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko", {
+    ["Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko", {
       device: "pc/-1",
       os: "windows/6.3",
       browser: "ie/11.0;11.0;o",
       //      name/version;mode;compatible
       //                        c: compatible; o: origin, not compatible.
+      engine: "trident/7.0;7.0;o"
+    }],
+    ["Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko", {
+      device: "pc/-1",
+      os: "windows/6.3",
+      browser: "ie/11.0;11.0;o",
+      engine: "trident/7.0;7.0;o"
+    }],
+    // 兼容模式
+    ["Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C)", {
+      device: "pc/-1",
+      os: "windows/6.3",
+      browser: "ie/11.0;7.0;c",
+      engine: "trident/7.0;3.0;c"
+    }],
+    ["Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko", {
+      device: "pc/-1",
+      os: "windows/6.3",
+      browser: "ie/11.0;11.0;o",
       engine: "trident/7.0;7.0;o"
     }],
     ["Mozilla/5.0 (IE 7.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko", {
