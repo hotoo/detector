@@ -663,6 +663,12 @@ define(function(require) {
       browser: "na/-1;-1;o",
       engine: "webkit/5333.1;5333.1;o"
     }],
+    ["KONKA-V926/1.0 Linux/2.6.35.7 Android/2.3.5 Release/07.30.2012 Browser/AppleWebKit533.1 (KHTML%2C like Gecko) Mozilla/5.0 Mobile", {
+      device: "konka/v926",
+      os: "android/2.3.5",
+      browser: "na/-1;-1;o",
+      engine: "webkit/533.1;533.1;o"
+    }],
 
     // UC
     ["Mozilla/5.0 (Linux; U; Android 4.0.4; zh-CN; MI 1SC Build/IMM76D) AppleWebKit/534.31 (KHTML, like Gecko) UCBrowser/8.8.2.274 U3/0.8.0 Mobile Safari/534.31", {
