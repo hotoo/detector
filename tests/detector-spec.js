@@ -348,7 +348,7 @@ define(function(require) {
     }],
     ["JUC (Linux; U; 2.3.5; zh-cn; HTC Rhyme S510b; 480*800) UCWEB8.7.4.225/145/800", {
       device: "htc/rhyme s510b",
-      os: "linux/2.3.5",
+      os: "linux/-1",
       browser: "uc/8.7.4.225;8.7.4.225;o",
       engine: "na/-1;-1;o"
     }],
