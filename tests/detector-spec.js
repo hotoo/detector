@@ -517,12 +517,18 @@ define(function(require) {
       browser: "safari/6.0;6.0;o",
       engine: "webkit/536.26;536.26;o"
     }],
-    //["UCWEB/2.0 (iOS; U; iPh OS 6_1_2; zh-CN; iPh4%2C1) U2/1.0.0 UCBrowser/9.0.1.284 U2/1.0.0 Mobile", {
-      //device: "iphone/4",
-      //os: "ios/6.1.2",
-      //browser: "uc/9.0.1.284;9.0.1.284;o",
-      //engine: "na/-1;-1;o"
-    //}],
+    ["UCWEB/2.0 (iOS; U; iPh OS 6_1_2; zh-CN; iPh4%2C1) U2/1.0.0 UCBrowser/9.0.1.284 U2/1.0.0 Mobile", {
+      device: "iphone/4",
+      os: "ios/6.1.2",
+      browser: "uc/9.0.1.284;9.0.1.284;o",
+      engine: "na/-1;-1;o"
+    }],
+    ["UCWEB/2.0 (iOS; U; iPh OS 5_1_1; zh-CN; iPh3%2C1) U2/1.0.0 UCBrowser/9.0.0.260 U2/1.0.0 Mobile", {
+      device: "iphone/3",
+      os: "ios/5.1.1",
+      browser: "uc/9.0.0.260;9.0.0.260;o",
+      engine: "na/-1;-1;o"
+    }],
     // iPad mini.
     ["Mozilla/5.0 (iPad; CPU OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25", {
       device: "ipad/-1",
@@ -717,6 +723,12 @@ define(function(require) {
     ["Mozilla/5.0 (Linux; U; Android 2.3.6; zh-cn; SCH-I779 Build/GINGERBREAD) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
       device: "samsung/i779",
       os: "android/2.3.6",
+      browser: "uc/-1;-1;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    ["Mozilla/5.0 (Linux; U; Android 2.3.7; zh-cn; LG-P500 Build/GRI40) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+      device: "lg/p500",
+      os: "android/2.3.7",
       browser: "uc/-1;-1;o",
       engine: "webkit/534.31;534.31;o"
     }]

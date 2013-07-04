@@ -57,7 +57,7 @@ define(function(require, exports, module) {
     ["ipad", "ipad"],
     // ipod 规则应置于 iphone 之前。
     ["ipod", "ipod"],
-    ["iphone", "iphone"],
+    ["iphone", /\biphone\b|\biph(\d)/],
     ["mac", "macintosh"],
     ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build))/],
     ["aliyun", /\baliyunos\b(?:[\-](\d+))?/],
@@ -98,6 +98,7 @@ define(function(require, exports, module) {
     ["konka", /\bkonka[_\-]([a-z0-9]+)/],
     ["sonyericsson", /\bmt([a-z0-9]+)/],
     ["coolpad", /\bcoolpad[_ ]?([a-z0-9]+)/],
+    ["lg", /\blg[\-]([a-z0-9]+)/],
     ["android", "android"],
     ["blackberry", "blackberry"]
   ];
@@ -115,7 +116,15 @@ define(function(require, exports, module) {
     }],
     ["windows", /\bwindows nt ([0-9.]+)/],
     ["macosx", /\bmac os x ([0-9._]+)/],
-    ["ios", /\bcpu(?: iphone)? os ([0-9._]+)/],
+    ["ios", function(ua){
+      if(/\bcpu(?: iphone)? os /.test(ua)){
+        return /\bcpu(?: iphone)? os ([0-9._]+)/;
+      }else if(ua.indexOf("iph os ") !== -1){
+        return /\biph os ([0-9_]+)/;
+      }else{
+        return /\bios\b/;
+      }
+    }],
     ["yunos", /\baliyunos ([0-9.]+)/],
     ["android", /\bandroid[\/\- ]?([0-9.x]+)/],
     ["chromeos", /\bcros i686 ([0-9.]+)/],
