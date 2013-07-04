@@ -651,6 +651,12 @@ define(function(require) {
       browser: "na/-1;-1;o",
       engine: "webkit/534.3;534.3;o"
     }],
+    ["CoolPad8060_CMCC_TD/1.0 Linux/2.6.35 Android/2.3 Release/8.30.2012 Browser/AppleWebkit533.1", {
+      device: "coolpad/8060",
+      os: "android/2.3",
+      browser: "na/-1;-1;o",
+      engine: "webkit/533.1;533.1;o"
+    }],
     ["OPPO_R815T/1.0 Linux/3.4.0 Android/4.2.1  Release/12.24.2012 Browser/AppleWebKit534.30 Mobile Safari/534.30 MBBMS/2.2 System/Android 4.2.1;", {
       device: "oppo/r815t",
       os: "android/4.2.1",

@@ -96,8 +96,8 @@ define(function(require, exports, module) {
     }],
     ["oppo", /\boppo[_]([a-z0-9]+)/],
     ["konka", /\bkonka[_\-]([a-z0-9]+)/],
-    ["sonyericsson", /mt([a-z0-9]+)/],
-    ["coolpad", /coolpad[_ ]?([a-z0-9]+)/],
+    ["sonyericsson", /\bmt([a-z0-9]+)/],
+    ["coolpad", /\bcoolpad[_ ]?([a-z0-9]+)/],
     ["android", "android"],
     ["blackberry", "blackberry"]
   ];
