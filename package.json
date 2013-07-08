@@ -1,7 +1,7 @@
 {
     "family": "arale",
     "name": "detector",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "客户端信息识别模块",
     "homepage": "http://aralejs.org/detector",
     "author": "冒顿 <hotoo.cn@gmail.com>",
