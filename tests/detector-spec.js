@@ -762,14 +762,42 @@ define(function(require) {
       os: "android/2.3.7",
       browser: "uc/-1;-1;o",
       engine: "webkit/534.31;534.31;o"
+    }],
+    [{
+      "userAgent": "Mozilla/5.0 (Linux; U; Android 3.2; zh-cn; GT-P6800 Build/HTJ85B) UC AppleWebKit/534.31 (KHTML, like Gecko) Mobile Safari/534.31",
+      "appVersion": "5.0 (Linux; U; Android 3.2; zh-cn; GT-P6800 Build/HTJ85B) UC AppleWebKit/534.31 (KHTML, like Gecko) Mobile Safari/534.31 UC/8.7.4.225",
+      "vendor": "UCWEB"
+    }, {
+      device: "samsung/p6800",
+      os: "android/3.2",
+      browser: "uc/8.7.4.225;8.7.4.225;o",
+      engine: "webkit/534.31;534.31;o"
+    }],
+    [{
+      "userAgent": "Mozilla/4.0 (compatible;Android;320x480)",
+      "appVersion": "4.0 (compatible;Android;320x480) UC/9.1.1.309",
+      "vendor": "UCWEB"
+    }, {
+      device: "android/-1",
+      os: "android/-1",
+      browser: "uc/9.1.1.309;9.1.1.309;o",
+      engine: "na/-1;-1;o"
     }]
   ];
 
   describe("detector", function() {
 
-    var ua, info, detect;
+    var nav, ua, info, detect;
     for(var i=0,l=UAs.length; i<l; i++){
-      ua = UAs[i][0];
+      nav = UAs[i][0];
+      type = Object.prototype.toString.call(nav);
+      if(type==="[object String]"){
+        ua = nav + " " + nav;
+      }else if(type === "[object Object]"){
+        ua = nav.userAgent + " " + nav.appVersion + " " + nav.vendor;
+      }else{
+        continue;
+      }
       info = UAs[i][1];
       detect = detector.parse(ua);
       for(var k in info){

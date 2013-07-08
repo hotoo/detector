@@ -6,7 +6,8 @@ define(function(require, exports, module) {
 
   var userAgent = navigator.userAgent || "";
   //var platform = navigator.platform || "";
-  //var vendor = navigator.vendor || "";
+  var appVersion = navigator.appVersion || "";
+  var vendor = navigator.vendor || "";
   var external = window.external;
 
   var re_msie = /\b(?:msie |ie |trident\/[0-9].*rv[ :])([0-9.]+)/;
@@ -127,7 +128,7 @@ define(function(require, exports, module) {
       }
     }],
     ["yunos", /\baliyunos ([0-9.]+)/],
-    ["android", /\bandroid[\/\- ]?([0-9.x]+)/],
+    ["android", /\bandroid[\/\- ]?([0-9.x]+)?/],
     ["chromeos", /\bcros i686 ([0-9.]+)/],
     ["linux", "linux"],
     ["windowsce", /\bwindows ce(?: ([0-9.]+))?/],
@@ -277,12 +278,14 @@ define(function(require, exports, module) {
     ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
     // UC 浏览器，可能会被识别为 Android 浏览器，规则需要前置。
     ["uc", function(ua){
-      if(ua.indexOf("ucbrowser") >= 0){
+      if(ua.indexOf("ucbrowser/") >= 0){
         return /\bucbrowser\/([0-9.]+)/;
+      }else if(/\buc\/[0-9]/.test(ua)){
+        return /\buc\/([0-9.]+)/;
       }else if(ua.indexOf("ucweb") >= 0){
-        return /\bucweb[\/]?([0-9.]+)/;
+        return /\bucweb[\/]?([0-9.]+)?/;
       }else{
-        return /\buc\b/;
+        return /\b(?:ucbrowser|uc)\b/;
       }
     }],
     // Android 默认浏览器。该规则需要在 safari 之前。
@@ -305,7 +308,6 @@ define(function(require, exports, module) {
    *    返回 null 表示当前表达式未匹配成功。
    */
   function detect(name, expression, ua){
-    if("undefined" === typeof ua){ua = userAgent;}
     var expr = isFunction(expression) ? expression.call(null, ua) : expression;
     if(!expr){return null;}
     var info = {
@@ -426,7 +428,7 @@ define(function(require, exports, module) {
     return d;
   };
 
-  detector = parse(userAgent);
+  detector = parse(userAgent + " " + appVersion + " " + vendor);
   detector.parse = parse;
 
   module.exports = detector;
