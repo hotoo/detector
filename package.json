@@ -9,6 +9,9 @@
         "冒顿 <hotoo.cn@gmail.com>",
         "南伯 <me@lepture.com>"
     ],
+    "scripts": {
+      "prepublish": "spm build"
+    },
     "keywords": ["utility"],
     "repository": {
         "type": "git",
