@@ -1,4 +1,4 @@
-define("arale/detector/1.2.0/detector-debug", [], function(require, exports, module) {
+define("arale/detector/1.2.1/detector-debug", [], function(require, exports, module) {
     var detector = {};
     var NA_VERSION = "-1";
     var userAgent = navigator.userAgent || "";
