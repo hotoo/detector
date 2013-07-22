@@ -228,7 +228,6 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `uc`: UC 浏览器。
 * `mi`: 小米浏览器。
 * `baidu`: 百度浏览器。
-* `mi`: 小米浏览器。
 * `nokia`: 诺基亚浏览器。
 * `webview`: iOS 系统的提供的 WebView。
 
