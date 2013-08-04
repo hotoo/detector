@@ -44,7 +44,7 @@
       "windows/6":  "Windows Vista",
       "windows/6.1":  "Windows 7",
       "windows/6.2":  "Windows 8",
-      "windows/6.3":  "Windows Blue",
+      "windows/6.3":  "Windows 8.1",
       // 10.0
       "macosx/10": "Mac OS X Cheetah",
       "macosx/10.1": "Mac OS X Puma",
