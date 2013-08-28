@@ -362,10 +362,10 @@
     };
     detector = parse(userAgent + " " + appVersion + " " + vendor);
     detector.parse = parse;
-    window.Detector = detector;
+    window.detector = detector;
     if (typeof define === "function") {
         define("arale/detector/1.2.2/detector-debug", [], function(require, exports, module) {
             module.exports = detector;
         });
     }
-})(window);
+})(this);
