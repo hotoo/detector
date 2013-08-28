@@ -431,12 +431,12 @@
   detector = parse(userAgent + " " + appVersion + " " + vendor);
   detector.parse = parse;
 
-  window.detector = detector;
-
   if(typeof define === "function"){
     define(function(require, exports, module){
       module.exports = detector;
     });
+  }else{
+    window.detector = detector;
   }
 
 })(this);
