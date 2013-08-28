@@ -1,5 +1,5 @@
 
-(function( window ){
+(function(window){
 
   var detector = {};
   var NA_VERSION = "-1";
@@ -430,13 +430,13 @@
 
   detector = parse(userAgent + " " + appVersion + " " + vendor);
   detector.parse = parse;
-  
-  window.Detector = detector;
-  
-  if ( typeof define === "function" ) {
-    define(function (require, exports, module) { 
+
+  window.detector = detector;
+
+  if(typeof define === "function"){
+    define(function(require, exports, module){
       module.exports = detector;
     });
   }
 
-})( window );
+})(this);
