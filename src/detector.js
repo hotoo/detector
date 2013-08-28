@@ -1,5 +1,5 @@
 
-define(function(require, exports, module) {
+(function( window ){
 
   var detector = {};
   var NA_VERSION = "-1";
@@ -430,6 +430,13 @@ define(function(require, exports, module) {
 
   detector = parse(userAgent + " " + appVersion + " " + vendor);
   detector.parse = parse;
+  
+  window.Detector = detector;
+  
+  if ( typeof define === "function" ) {
+    define(function (require, exports, module) { 
+      module.exports = detector;
+    });
+  }
 
-  module.exports = detector;
-});
+})( window );
