@@ -1,4 +1,4 @@
-define("arale/detector/1.2.1/detector-debug", [], function(require, exports, module) {
+(function(window) {
     var detector = {};
     var NA_VERSION = "-1";
     var userAgent = navigator.userAgent || "";
@@ -362,5 +362,10 @@ define("arale/detector/1.2.1/detector-debug", [], function(require, exports, mod
     };
     detector = parse(userAgent + " " + appVersion + " " + vendor);
     detector.parse = parse;
-    module.exports = detector;
-});
+    window.Detector = detector;
+    if (typeof define === "function") {
+        define("arale/detector/1.2.2/detector-debug", [], function(require, exports, module) {
+            module.exports = detector;
+        });
+    }
+})(window);
