@@ -1,10 +1,16 @@
 THEME = $(HOME)/.spm/themes/arale
 
+build:
+	@spm build
+
+publish: build
+	@spm publish -s arale
+
 build-doc:
 	@nico build -C $(THEME)/nico.js
 
 publish-doc: clean build-doc
-	@spm publish --doc _site
+	@spm publish -s arale --doc _site
 
 server:
 	@nico server -C $(THEME)/nico.js
