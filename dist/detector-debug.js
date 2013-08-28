@@ -362,10 +362,11 @@
     };
     detector = parse(userAgent + " " + appVersion + " " + vendor);
     detector.parse = parse;
-    window.detector = detector;
     if (typeof define === "function") {
-        define("arale/detector/1.2.2/detector-debug", [], function(require, exports, module) {
+        define("arale/detector/1.3.0/detector-debug", [], function(require, exports, module) {
             module.exports = detector;
         });
+    } else {
+        window.detector = detector;
     }
 })(this);
