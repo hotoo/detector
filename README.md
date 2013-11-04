@@ -289,3 +289,7 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 
 * 所有不能识别的名称均归类为 `na`，即 Not Available.
 * 所有不能识别的版本号归类为 `-1`。
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aralejs/detector/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
