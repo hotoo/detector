@@ -6,10 +6,12 @@
 
 <pre id="detector"></pre>
 
-如果识别的不正确，请 <a id="email" href="mailto:hotoo.cn@gmail.com"><strong>点击链接向我们反馈</strong></a> 。
-
-如果点击链接无法发送邮件，可以拷贝这个页面的内容发送邮件或提
-[Issues](https://github.com/aralejs/detector/issues) 反馈。
+* 如果上面识别的信息不正确，<a id="issues"
+  href="https://github.com/aralejs/detector/issues/new"
+  target="_blank"><strong>请给我们提 Issues 反馈</strong></a>。
+* 如果没有 Github 账户，请向我们 <a id="email" href="mailto:hotoo.cn@gmail.com"
+  target="_blank"><strong>发送 Email</strong></a>。
+* 如果点击链接无法发送 Email，请拷贝这个页面的内容手工发送 Email 给 `hotoo.cn@gmail.com`。
 
 <pre id="ua"></pre>
 
@@ -59,12 +61,12 @@
     };
 
     var detectedInfo = [];
-    detectedInfo.push("硬件设备(device)："+detector.device.name+" "+detector.device.fullVersion);
+    detectedInfo.push("* 硬件设备："+detector.device.name+" "+detector.device.fullVersion);
     var osAlias = OS_ALIAS[detector.os.name+"/"+detector.os.version] || "N/A";
-    detectedInfo.push("操作系统(os)："+detector.os.name+" "+detector.os.fullVersion + " ("+osAlias+")");
-    detectedInfo.push("浏览器(browser)："+detector.browser.name+" "+detector.browser.fullVersion+
+    detectedInfo.push("* 操作系统："+detector.os.name+" "+detector.os.fullVersion + " ("+osAlias+")");
+    detectedInfo.push("* 浏览器："+detector.browser.name+" "+detector.browser.fullVersion+
         (detector.browser.compatible ? "(" + String(detector.browser.fullMode) + " 兼容模式)" : ""));
-    detectedInfo.push("渲染引擎(engine)：" + detector.engine.name + " " + detector.engine.fullVersion +
+    detectedInfo.push("* 渲染引擎：" + detector.engine.name + " " + detector.engine.fullVersion +
         (detector.engine.compatible ? "(" + String(detector.engine.fullMode) + " 兼容模式)" : ""));
 
     document.getElementById("detector").innerHTML = detectedInfo.join("<br />");
@@ -115,12 +117,30 @@
 
     document.getElementById("ua").innerHTML = a.join("<br />");
     document.getElementById("email").setAttribute("href",
-      "mailto:hotoo.cn@gmail.com?subject="+encodeURIComponent("Detector 反馈")+"&body="+
+      "mailto:hotoo.cn@gmail.com?subject=" +
+        encodeURIComponent("Detector 识别信息") +
+      "&body="+
       encodeURIComponent(
         "请修正我们识别错误的信息：\n\n"+
+        "> 注：只需要修改识别错误的部分即可。\n\n"+
         detectedInfo.join("\n")+
         "\n\n=========================\n"+
         "自动识别的原始信息如下（请勿修改）：\n"+a.join("\n")));
+
+    document.getElementById("issues").href = "https://github.com/aralejs/detector/issues/new" +
+        "?title=detector%20识别信息"+
+        "&body=" +
+          encodeURIComponent(
+            "请修正我们识别错误的信息：\n\n"+
+            "> 注：只需要修改识别错误的部分即可。\n\n"+
+            detectedInfo.join("\n") +
+            "\n"+
+            "\n=========================\n"+
+            "自动识别的原始信息如下（请勿修改）：\n\n"+
+            detectedInfo.join("\n")+
+            "\n\n"+
+            a.join("\n")
+          );
   });
 /*]]>*/</script>
 
