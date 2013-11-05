@@ -10,7 +10,7 @@ build-doc:
 	@nico build -C $(THEME)/nico.js
 
 publish-doc: clean build-doc
-	@spm publish -s arale --doc _site
+	@spm publish -s spmjs --doc _site
 
 server:
 	@nico server -C $(THEME)/nico.js
