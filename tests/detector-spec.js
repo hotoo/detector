@@ -782,6 +782,47 @@ define(function(require) {
       os: "android/-1",
       browser: "uc/9.1.1.309;9.1.1.309;o",
       engine: "na/-1;-1;o"
+    }],
+
+    [{
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12597 Safari/537.36",
+      "appVersion": "5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12597 Safari/537.36",
+      "vendor": "Yandex"
+    }, {
+      device: "mac/-1",
+      os: "macosx/10.9.2",
+      browser: "yandex/14.2.1700.12597;14.2.1700.12597;o",
+      engine: "webkit/537.36;537.36;o"
+    }],
+    [{
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) YaBrowser/14.2.1700.0 Mobile/11D167 Safari/9537.53",
+      "appVersion": "5.0 (iPhone; CPU iPhone OS 7_1 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) YaBrowser/14.2.1700.0 Mobile/11D167 Safari/9537.53",
+      "vendor": "Apple Computer, Inc."
+    }, {
+      device: "iphone/-1",
+      os: "ios/7.1",
+      browser: "yandex/14.2.1700.0;14.2.1700.0;o",
+      engine: "webkit/537.51.1;537.51.1;o"
+    }],
+    [{
+      "userAgent": "Mozilla/5.0 (Linux; Android 4.1.1; MI 2 Build/JRO03L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12535.00 Mobile Safari/537.36",
+      "appVersion": "5.0 (Linux; Android 4.1.1; MI 2 Build/JRO03L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12535.00 Mobile Safari/537.36",
+      "vendor": "Yandex"
+    }, {
+      device: "mi/2",
+      os: "android/4.1.1",
+      browser: "yandex/14.2.1700.12535.00;14.2.1700.12535.00;o",
+      engine: "webkit/537.36;537.36;o"
+    }],
+    [{
+      "userAgent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1106.241 YaBrowser/1.5.1106.241 Safari/537.4",
+      "appVersion": "5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1106.241 YaBrowser/1.5.1106.241 Safari/537.4",
+      "vendor": "Yandex"
+    }, {
+      device: "pc/-1",
+      os: "windows/6.1",
+      browser: "yandex/1.5.1106.241;1.5.1106.241;o",
+      engine: "webkit/537.4;537.4;o"
     }]
   ];
 
