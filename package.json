@@ -1,13 +1,12 @@
 {
     "family": "arale",
     "name": "detector",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "description": "客户端信息识别模块",
     "homepage": "http://aralejs.org/detector",
     "author": "冒顿 <hotoo.cn@gmail.com>",
     "maintainers": [
-        "冒顿 <hotoo.cn@gmail.com>",
-        "南伯 <me@lepture.com>"
+        "冒顿 <hotoo.cn@gmail.com>"
     ],
     "scripts": {
       "prepublish": "spm build"
