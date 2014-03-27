@@ -815,6 +815,16 @@ define(function(require) {
       engine: "webkit/537.36;537.36;o"
     }],
     [{
+      "userAgent": "Mozilla/5.0 (Linux; Android 4.2.2; MediaPad X1 7.0 Build/HuaweiMediaPad) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12535.01 Safari/537.36",
+      "appVersion": "5.0 (Linux; Android 4.2.2; MediaPad X1 7.0 Build/HuaweiMediaPad) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12535.01 Safari/537.36",
+      "vendor": "Yandex"
+    }, {
+      device: "huawei/x1 7.0",
+      os: "android/4.2.2",
+      browser: "yandex/14.2.1700.12535.01;14.2.1700.12535.01;o",
+      engine: "webkit/537.36;537.36;o"
+    }],
+    [{
       "userAgent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1106.241 YaBrowser/1.5.1106.241 Safari/537.4",
       "appVersion": "5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1106.241 YaBrowser/1.5.1106.241 Safari/537.4",
       "vendor": "Yandex"

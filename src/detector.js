@@ -66,8 +66,11 @@
     ["meizu", /\b(?:meizu\/|m)([0-9]+)\b/],
     ["nexus", /\bnexus ([0-9s.]+)/],
     ["huawei", function(ua){
+      var re_mediapad = /\bmediapad (.+?)(?= build\/huaweimediapad\b)/;
       if(ua.indexOf("huawei-huawei") !== -1){
         return /\bhuawei\-huawei\-([a-z0-9\-]+)/;
+      }else if(re_mediapad.test(ua)){
+        return re_mediapad;
       }else{
         return /\bhuawei[ _\-]?([a-z0-9]+)/;
       }
