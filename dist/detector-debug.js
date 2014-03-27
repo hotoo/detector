@@ -46,8 +46,11 @@
         return ua.indexOf("windows phone ") !== -1 || ua.indexOf("xblwp") !== -1 || ua.indexOf("zunewp") !== -1 || ua.indexOf("windows ce") !== -1;
     } ], [ "pc", "windows" ], [ "ipad", "ipad" ], // ipod 规则应置于 iphone 之前。
     [ "ipod", "ipod" ], [ "iphone", /\biphone\b|\biph(\d)/ ], [ "mac", "macintosh" ], [ "mi", /\bmi[ \-]?([a-z0-9 ]+(?= build))/ ], [ "aliyun", /\baliyunos\b(?:[\-](\d+))?/ ], [ "meizu", /\b(?:meizu\/|m)([0-9]+)\b/ ], [ "nexus", /\bnexus ([0-9s.]+)/ ], [ "huawei", function(ua) {
+        var re_mediapad = /\bmediapad (.+?)(?= build\/huaweimediapad\b)/;
         if (ua.indexOf("huawei-huawei") !== -1) {
             return /\bhuawei\-huawei\-([a-z0-9\-]+)/;
+        } else if (re_mediapad.test(ua)) {
+            return re_mediapad;
         } else {
             return /\bhuawei[ _\-]?([a-z0-9]+)/;
         }
@@ -214,7 +217,7 @@
         var re_opera_old = /\bopera.+version\/([0-9.ab]+)/;
         var re_opera_new = /\bopr\/([0-9.]+)/;
         return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
-    } ], [ "chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/ ], // UC 浏览器，可能会被识别为 Android 浏览器，规则需要前置。
+    } ], [ "yandex", /yabrowser\/([0-9.]+)/ ], [ "chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/ ], // UC 浏览器，可能会被识别为 Android 浏览器，规则需要前置。
     [ "uc", function(ua) {
         if (ua.indexOf("ucbrowser/") >= 0) {
             return /\bucbrowser\/([0-9.]+)/;
@@ -362,11 +365,11 @@
     };
     detector = parse(userAgent + " " + appVersion + " " + vendor);
     detector.parse = parse;
+    window.detector = detector;
+    window.g_detector = detector;
     if (typeof define === "function") {
-        define("arale/detector/1.3.0/detector-debug", [], function(require, exports, module) {
+        define("arale/detector/1.4.0/detector-debug", [], function(require, exports, module) {
             module.exports = detector;
         });
-    } else {
-        window.detector = detector;
     }
 })(this);
