@@ -85,6 +85,26 @@
 | documentMode | undefined                                                                                                                                                           |
 | compatMode   | CSS1Compat                                                                                                                                                          |
 
+### huawei X1 7.0
+
+| 字段         | 值                                                                                                                                                                              |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ua           | Mozilla/5.0 (Linux; Android 4.2.2; MediaPad X1 7.0 Build/HuaweiMediaPad) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12535.01 Safari/537.36 |
+| vendor       | Yandex                                                                                                                                                                          |
+| vendorSub    |                                                                                                                                                                                 |
+| platform     | Linux armv7l                                                                                                                                                                    |
+| external     | {AddSearchProvider: function}                                                                                                                                                   |
+| appCodeName  | Mozilla                                                                                                                                                                         |
+| appName      | Netscape                                                                                                                                                                        |
+| appVersion   | 5.0 (Linux; Android 4.2.2; MediaPad X1 7.0 Build/HuaweiMediaPad) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12535.01 Safari/537.36         |
+| product      | Gecko                                                                                                                                                                           |
+| productSub   | 20030107                                                                                                                                                                        |
+| screenWidth  | 600                                                                                                                                                                             |
+| screenHeight | 912                                                                                                                                                                             |
+| colorDepth   | 32                                                                                                                                                                              |
+| documentMode | undefined                                                                                                                                                                       |
+| compatMode   | CSS1Compat                                                                                                                                                                      |
+
 ## 参考
 
 * [Yandex.Browser](http://browser.yandex.com/)
