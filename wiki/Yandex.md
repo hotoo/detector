@@ -5,6 +5,8 @@
 
 ## User-Agent
 
+### Windows
+
 | 字段         | 值                                                                                                                                 |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------|
 | ua           | Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1106.241 YaBrowser/1.5.1106.241 Safari/537.4 |
@@ -22,6 +24,66 @@
 | colorDepth   | 32                                                                                                                                 |
 | documentMode | undefined                                                                                                                          |
 | compatMode   | CSS1Compat                                                                                                                         |
+
+### Mac
+
+| 字段         | 值                                                                                                                                                 |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| ua           | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12597 Safari/537.36 |
+| vendor       | Yandex                                                                                                                                             |
+| vendorSub    |                                                                                                                                                    |
+| platform     | MacIntel                                                                                                                                           |
+| external     | {AddSearchProvider: function}                                                                                                                      |
+| appCodeName  | Mozilla                                                                                                                                            |
+| appName      | Netscape                                                                                                                                           |
+| appVersion   | 5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12597 Safari/537.36         |
+| product      | Gecko                                                                                                                                              |
+| productSub   | 20030107                                                                                                                                           |
+| screenWidth  | 1280                                                                                                                                               |
+| screenHeight | 800                                                                                                                                                |
+| colorDepth   | 24                                                                                                                                                 |
+| documentMode | undefined                                                                                                                                          |
+| compatMode   | CSS1Compat                                                                                                                                         |
+
+### iPhone 4S, iOS7
+
+| 字段         | 值                                                                                                                                                |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| ua           | Mozilla/5.0 (iPhone; CPU iPhone OS 7_1 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) YaBrowser/14.2.1700.0 Mobile/11D167 Safari/9537.53 |
+| vendor       | Apple Computer, Inc.                                                                                                                              |
+| vendorSub    |                                                                                                                                                   |
+| platform     | iPhone                                                                                                                                            |
+| external     | undefined[undefined]                                                                                                                              |
+| appCodeName  | Mozilla                                                                                                                                           |
+| appName      | Netscape                                                                                                                                          |
+| appVersion   | 5.0 (iPhone; CPU iPhone OS 7_1 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) YaBrowser/14.2.1700.0 Mobile/11D167 Safari/9537.53         |
+| product      | Gecko                                                                                                                                             |
+| productSub   | 20030107                                                                                                                                          |
+| screenWidth  | 320                                                                                                                                               |
+| screenHeight | 480                                                                                                                                               |
+| colorDepth   | 32                                                                                                                                                |
+| documentMode | undefined                                                                                                                                         |
+| compatMode   | CSS1Compat                                                                                                                                        |
+
+### 小米2手机
+
+| 字段         | 值                                                                                                                                                                  |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ua           | Mozilla/5.0 (Linux; Android 4.1.1; MI 2 Build/JRO03L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12535.00 Mobile Safari/537.36 |
+| vendor       | Yandex                                                                                                                                                              |
+| vendorSub    |                                                                                                                                                                     |
+| platform     | Linux armv7l                                                                                                                                                        |
+| external     | {AddSearchProvider: function}                                                                                                                                       |
+| appCodeName  | Mozilla                                                                                                                                                             |
+| appName      | Netscape                                                                                                                                                            |
+| appVersion   | 5.0 (Linux; Android 4.1.1; MI 2 Build/JRO03L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.102 YaBrowser/14.2.1700.12535.00 Mobile Safari/537.36         |
+| product      | Gecko                                                                                                                                                               |
+| productSub   | 20030107                                                                                                                                                            |
+| screenWidth  | 360                                                                                                                                                                 |
+| screenHeight | 640                                                                                                                                                                 |
+| colorDepth   | 32                                                                                                                                                                  |
+| documentMode | undefined                                                                                                                                                           |
+| compatMode   | CSS1Compat                                                                                                                                                          |
 
 ## 参考
 

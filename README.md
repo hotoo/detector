@@ -230,6 +230,7 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `baidu`: 百度浏览器。
 * `nokia`: 诺基亚浏览器。
 * `webview`: iOS 系统的提供的 WebView。
+* `yandex`: Yandex YaBrowser.
 
 国产浏览器名称均使用缩写方式，`ie` 由于习俗也使用缩写。
 
@@ -292,4 +293,3 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aralejs/detector/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

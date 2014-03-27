@@ -275,6 +275,7 @@
       var re_opera_new = /\bopr\/([0-9.]+)/;
       return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
     }],
+    ["yandex", /yabrowser\/([0-9.]+)/],
     ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
     // UC 浏览器，可能会被识别为 Android 浏览器，规则需要前置。
     ["uc", function(ua){
