@@ -4,7 +4,7 @@ build:
 	@spm build
 
 publish: build
-	@spm publish -s arale
+	@spm publish -s spmjs
 
 build-doc:
 	@nico build -C $(THEME)/nico.js
