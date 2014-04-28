@@ -833,6 +833,21 @@ define(function(require) {
       os: "windows/6.1",
       browser: "yandex/1.5.1106.241;1.5.1106.241;o",
       engine: "webkit/537.4;537.4;o"
+    }],
+
+    ["Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 AliApp(AP/2.3.4) AlipayClient/2.3.4",
+    {
+      device: "iphone/-1",
+      os: "ios/7.0",
+      browser: "ali-ap/2.3.4;2.3.4;o",
+      engine: "webkit/537.51.1;537.51.1;o"
+    }],
+    ["Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML,  like Gecko) Mobile/11D201 AlipayClient/8.0.0.0110",
+    {
+      device: "iphone/-1",
+      os: "ios/7.1.1",
+      browser: "ali-ap/8.0.0.0110;8.0.0.0110;o",
+      engine: "webkit/537.51.2;537.51.2;o"
     }]
   ];
 
