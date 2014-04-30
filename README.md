@@ -231,6 +231,14 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `nokia`: 诺基亚浏览器。
 * `webview`: iOS 系统的提供的 WebView。
 * `yandex`: Yandex YaBrowser.
+* `ali-ap`: 支付宝手机客户端。
+* `ali-ap-pd`: 支付宝平板客户端。
+* `ali-am`: 支付宝商户客户端。
+* `ali-tb`: 淘宝手机客户端。
+* `ali-tb-pd`: 淘宝平板客户端。
+* `ali-tm`: 天猫手机客户端。
+* `ali-tm-pd`: 天猫平板客户端。
+
 
 国产浏览器名称均使用缩写方式，`ie` 由于习俗也使用缩写。
 

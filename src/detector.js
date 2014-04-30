@@ -279,6 +279,26 @@
       return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
     }],
     ["yandex", /yabrowser\/([0-9.]+)/],
+    // 支付宝手机客户端
+    ["ali-ap", function(ua){
+      if(ua.indexOf("aliapp") > 0){
+        return /aliapp\(ap\/([0-9.]+)\)/;
+      }else{
+        return /\balipayclient\/([0-9.]+)\b/;
+      }
+    }],
+    // 支付宝平板客户端
+    ["ali-ap-pd", /aliapp\(ap-pd\/([0-9.]+)\)/],
+    // 支付宝商户客户端
+    ["ali-am", /aliapp\(am\/([0-9.]+)\)/],
+    // 淘宝手机客户端
+    ["ali-tb", /aliapp\(tb\/([0-9.]+)\)/],
+    // 淘宝平板客户端
+    ["ali-tb-pd", /aliapp\(tb-pd\/([0-9.]+)\)/],
+    // 天猫手机客户端
+    ["ali-tm", /aliapp\(tm\/([0-9.]+)\)/],
+    // 天猫平板客户端
+    ["ali-tm-pd", /aliapp\(tm-pd\/([0-9.]+)\)/],
     ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
     // UC 浏览器，可能会被识别为 Android 浏览器，规则需要前置。
     ["uc", function(ua){
