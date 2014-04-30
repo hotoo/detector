@@ -187,8 +187,9 @@ Windows Phone, IE9.
 
 Windows Blue, IE 11
 
-
-    Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko
+```
+Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko
+```
 
 ## 兼容模式
 
@@ -203,27 +204,27 @@ Windows Blue, IE 11
 但是实际浏览器是使用不同的渲染引擎，而不是浏览器。
 
 
+```
+// IE9
+// http://beamnote.com/2010/site-pinning-of-ie9.html
+//添加到开始菜单：window.external.msAddSiteMode;
+//是否第一次使用Site Pinning：window.external.msIsSiteModeFirstRun;
+//
+//external.menuarguments
+//window.external.msIsSiteMode()
+//external.msSiteModeShowJumpList()
+//external.msSiteModeClearJumpList()
+//external.msSiteModeCreateJumpList()
+//external.msSiteModeAddJumpListItem()
 
-      // IE9
-      // http://beamnote.com/2010/site-pinning-of-ie9.html
-      //添加到开始菜单：window.external.msAddSiteMode;
-      //是否第一次使用Site Pinning：window.external.msIsSiteModeFirstRun;
-      //
-      //external.menuarguments
-      //window.external.msIsSiteMode()
-      //external.msSiteModeShowJumpList()
-      //external.msSiteModeClearJumpList()
-      //external.msSiteModeCreateJumpList()
-      //external.msSiteModeAddJumpListItem()
-
-      //IE10
-      //http://blogs.msdn.com/b/ie/archive/2012/03/02/web-platform-features-in-windows-consumer-preview.aspx
-      //ArrayBuffer
-      //http://www.khronos.org/registry/typedarray/specs/latest/
-      //http://msdn.microsoft.com/en-us/library/ie/br212485(v=vs.94).aspx
-      //https://developer.mozilla.org/en-US/docs/JavaScript/Typed_arrays
-      //http://blog.csdn.net/hfahe/article/details/7421203
-
+//IE10
+//http://blogs.msdn.com/b/ie/archive/2012/03/02/web-platform-features-in-windows-consumer-preview.aspx
+//ArrayBuffer
+//http://www.khronos.org/registry/typedarray/specs/latest/
+//http://msdn.microsoft.com/en-us/library/ie/br212485(v=vs.94).aspx
+//https://developer.mozilla.org/en-US/docs/JavaScript/Typed_arrays
+//http://blog.csdn.net/hfahe/article/details/7421203
+```
 
 
 ## 延伸阅读

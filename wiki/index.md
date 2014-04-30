@@ -30,7 +30,7 @@
 * [UC](UC.md)
 * [PP 浏览器](http://e.25pp.com/)
 * [小米浏览器](MiuiBrowser.md)
-* [海豚浏览器](http://www.dolphin.com/)
+* [海豚浏览器](dolphin.md)
 * Android 默认浏览器 [参考](http://android.stackexchange.com/questions/4271/android-browser)
 * [Yandex](Yandex.md)
 * [WebView](webview.md)
