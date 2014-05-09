@@ -307,7 +307,7 @@
       }else if(/\buc\/[0-9]/.test(ua)){
         return /\buc\/([0-9.]+)/;
       }else if(ua.indexOf("ucweb") >= 0){
-        return /\bucweb[\/]?([0-9.]+)?/;
+        return /\bucweb\b/;
       }else{
         return /\b(?:ucbrowser|uc)\b/;
       }
