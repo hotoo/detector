@@ -283,6 +283,8 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `presto`: Presto.
 * `androidwebkit`: Android Webkit.
 * `coolpadwebkit`: Coolpad Webkit.
+* `u2`: UC 浏览器渲染引擎 v2
+* `u3`: UC 浏览器渲染引擎 v3
 
 ### {detector} detector.parse(String ua)
 
