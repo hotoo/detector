@@ -135,7 +135,11 @@
       if(ua.indexOf("android") >= 0){
         return /\bandroid[ \/-]?([0-9.x]+)?/;
       }else if(ua.indexOf("adr")){
-        return /\badr[ ]?([0-9.]+)?/;
+        if(ua.indexOf("mqqbrowser") >= 0){
+          return /\badr[ ]\(linux; u; ([0-9.]+)?/;
+        }else{
+          return /\badr(?:[ ]([0-9.]+))?/;
+        }
       }
       return "android";
       //return /\b(?:android|\badr)(?:[\/\- ](?:\(linux; u; )?)?([0-9.x]+)?/;
