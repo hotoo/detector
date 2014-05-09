@@ -132,7 +132,13 @@
     }],
     ["yunos", /\baliyunos ([0-9.]+)/],
     ["android", function(ua){
-      return /\b(?:android|\badr)(?:[\/\- ](?:\(linux; u; )?)?([0-9.x]+)?/;
+      if(ua.indexOf("android") >= 0){
+        return /\bandroid[ \/-]?([0-9.x]+)?/;
+      }else if(ua.indexOf("adr")){
+        return /\badr[ ]?([0-9.]+)?/;
+      }
+      return "android";
+      //return /\b(?:android|\badr)(?:[\/\- ](?:\(linux; u; )?)?([0-9.x]+)?/;
     }],
     ["chromeos", /\bcros i686 ([0-9.]+)/],
     ["linux", "linux"],
@@ -217,7 +223,9 @@
     ["gecko", /\bgecko\/(\d+)/],
     ["presto", /\bpresto\/([0-9.]+)/],
     ["androidwebkit", /\bandroidwebkit\/([0-9.]+)/],
-    ["coolpadwebkit", /\bcoolpadwebkit\/([0-9.]+)/]
+    ["coolpadwebkit", /\bcoolpadwebkit\/([0-9.]+)/],
+    ["u2", /\bu2\/([0-9.]+)/],
+    ["u3", /\bu3\/([0-9.]+)/]
   ];
   var BROWSER = [
     // Sogou.
