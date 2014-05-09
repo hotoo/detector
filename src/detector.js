@@ -91,7 +91,7 @@
       }
     }],
     // 步步高
-    ["vivo", /\bvivo ([a-z0-9]+)/],
+    ["vivo", /\bvivo(?: ([a-z0-9]+))?/],
     ["htc", function(ua){
       if(/\bhtc[a-z0-9 _\-]+(?= build\b)/.test(ua)){
         return /\bhtc[ _\-]?([a-z0-9 ]+(?= build))/;
