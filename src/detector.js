@@ -131,7 +131,9 @@
       }
     }],
     ["yunos", /\baliyunos ([0-9.]+)/],
-    ["android", /\b(?:android|\badr)(?:[\/\- ](?:\(linux; u; )?)?([0-9.x]+)?/],
+    ["android", function(ua){
+      return /\b(?:android|\badr)(?:[\/\- ](?:\(linux; u; )?)?([0-9.x]+)?/;
+    }],
     ["chromeos", /\bcros i686 ([0-9.]+)/],
     ["linux", "linux"],
     ["windowsce", /\bwindows ce(?: ([0-9.]+))?/],
@@ -307,7 +309,9 @@
       }else if(/\buc\/[0-9]/.test(ua)){
         return /\buc\/([0-9.]+)/;
       }else if(ua.indexOf("ucweb") >= 0){
-        return /\bucweb\b/;
+        // `ucweb/2.0` is compony info.
+        // `UCWEB8.7.2.214/145/800` is browser info.
+        return /\bucweb([0-9.]+)?/;
       }else{
         return /\b(?:ucbrowser|uc)\b/;
       }
