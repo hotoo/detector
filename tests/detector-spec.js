@@ -381,7 +381,7 @@ define(function(require) {
       device: "htc/inspire4g",
       os: "android/4.0.8",
       browser: "uc/8.8.3.278;8.8.3.278;o",
-      engine: "na/-1;-1;o"
+      engine: "u2/1.0.0;1.0.0;o"
     }],
     ["Mozilla/5.0 (Linux; U; Android 2.2.1; zh-cn; HTC Magic Build/FRG83) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
       device: "htc/magic",
@@ -546,13 +546,13 @@ define(function(require) {
       device: "iphone/4",
       os: "ios/6.1.2",
       browser: "uc/9.0.1.284;9.0.1.284;o",
-      engine: "na/-1;-1;o"
+      engine: "u2/1.0.0;1.0.0;o"
     }],
     ["UCWEB/2.0 (iOS; U; iPh OS 5_1_1; zh-CN; iPh3%2C1) U2/1.0.0 UCBrowser/9.0.0.260 U2/1.0.0 Mobile", {
       device: "iphone/3",
       os: "ios/5.1.1",
       browser: "uc/9.0.0.260;9.0.0.260;o",
-      engine: "na/-1;-1;o"
+      engine: "u2/1.0.0;1.0.0;o"
     }],
     // iPad mini.
     ["Mozilla/5.0 (iPad; CPU OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25", {
@@ -722,15 +722,15 @@ define(function(require) {
     }],
     ["UCWEB/2.0 (Linux; U; Adr unknown; zh-CN; NOAIN A900) U2/1.0.0 UCBrowser/8.8.3.278 U2/1.0.0 Mobile", {
       device: "nokia/a900",
-      os: "linux/-1",
+      os: "android/-1",
       browser: "uc/8.8.3.278;8.8.3.278;o",
-      engine: "na/-1;-1;o"
+      engine: "u2/1.0.0;1.0.0;o"
     }],
     ["UCWEB/2.0 (Linux; U; Adr 2.3.5; zh-CN; F-03D) U2/1.0.0 UCBrowser/8.8.3.278 U2/1.0.0 Mobile", {
-      device: "na/-1",
-      os: "linux/-1",
+      device: "android/-1",
+      os: "android/2.3.5",
       browser: "uc/8.8.3.278;8.8.3.278;o",
-      engine: "na/-1;-1;o"
+      engine: "u2/1.0.0;1.0.0;o"
     }],
     ["Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; MI-ONE Plus Build/GINGERBREAD) UC AppleWebKit/530+ (KHTML%2C like Gecko) Mobile Safari/530", {
       device: "mi/one plus",
@@ -858,9 +858,11 @@ define(function(require) {
       nav = UAs[i][0];
       type = Object.prototype.toString.call(nav);
       if(type==="[object String]"){
-        ua = nav + " " + nav;
+        ua = nav;
+        origin_ua = ua;
       }else if(type === "[object Object]"){
-        ua = nav.userAgent + " " + nav.appVersion + " " + nav.vendor;
+        ua = (nav.userAgent||"") + " " + (nav.appVersion||"") + " " + (nav.vendor||"");
+        origin_ua = nav.userAgent;
       }else{
         continue;
       }
@@ -869,7 +871,7 @@ define(function(require) {
       for(var k in info){
         if(!info.hasOwnProperty(k)){continue;}
         (function(ua, detect, info, k){
-          it("detector "+k+": "+info[k], function() {
+          it("ua: " + origin_ua + " » detector "+k+": "+info[k], function() {
 
             var ext = "";
             if(k === "browser" || k === "engine"){
