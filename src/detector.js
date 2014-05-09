@@ -104,7 +104,7 @@
     ["sonyericsson", /\bmt([a-z0-9]+)/],
     ["coolpad", /\bcoolpad[_ ]?([a-z0-9]+)/],
     ["lg", /\blg[\-]([a-z0-9]+)/],
-    ["android", "android"],
+    ["android", /\bandroid\b|\badr\b/],
     ["blackberry", "blackberry"]
   ];
   // 操作系统信息识别表达式
@@ -131,7 +131,19 @@
       }
     }],
     ["yunos", /\baliyunos ([0-9.]+)/],
-    ["android", /\bandroid[\/\- ]?([0-9.x]+)?/],
+    ["android", function(ua){
+      if(ua.indexOf("android") >= 0){
+        return /\bandroid[ \/-]?([0-9.x]+)?/;
+      }else if(ua.indexOf("adr")){
+        if(ua.indexOf("mqqbrowser") >= 0){
+          return /\badr[ ]\(linux; u; ([0-9.]+)?/;
+        }else{
+          return /\badr(?:[ ]([0-9.]+))?/;
+        }
+      }
+      return "android";
+      //return /\b(?:android|\badr)(?:[\/\- ](?:\(linux; u; )?)?([0-9.x]+)?/;
+    }],
     ["chromeos", /\bcros i686 ([0-9.]+)/],
     ["linux", "linux"],
     ["windowsce", /\bwindows ce(?: ([0-9.]+))?/],
@@ -215,7 +227,9 @@
     ["gecko", /\bgecko\/(\d+)/],
     ["presto", /\bpresto\/([0-9.]+)/],
     ["androidwebkit", /\bandroidwebkit\/([0-9.]+)/],
-    ["coolpadwebkit", /\bcoolpadwebkit\/([0-9.]+)/]
+    ["coolpadwebkit", /\bcoolpadwebkit\/([0-9.]+)/],
+    ["u2", /\bu2\/([0-9.]+)/],
+    ["u3", /\bu3\/([0-9.]+)/]
   ];
   var BROWSER = [
     // Sogou.
@@ -307,7 +321,9 @@
       }else if(/\buc\/[0-9]/.test(ua)){
         return /\buc\/([0-9.]+)/;
       }else if(ua.indexOf("ucweb") >= 0){
-        return /\bucweb[\/]?([0-9.]+)?/;
+        // `ucweb/2.0` is compony info.
+        // `UCWEB8.7.2.214/145/800` is browser info.
+        return /\bucweb([0-9.]+)?/;
       }else{
         return /\b(?:ucbrowser|uc)\b/;
       }
