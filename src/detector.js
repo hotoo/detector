@@ -134,7 +134,7 @@
     ["android", function(ua){
       if(ua.indexOf("android") >= 0){
         return /\bandroid[ \/-]?([0-9.x]+)?/;
-      }else if(ua.indexOf("adr")){
+      }else if(ua.indexOf("adr") >= 0){
         if(ua.indexOf("mqqbrowser") >= 0){
           return /\badr[ ]\(linux; u; ([0-9.]+)?/;
         }else{
