@@ -1,14 +1,18 @@
 THEME = $(HOME)/.spm/themes/arale
 version = $(shell cat package.json | grep version | awk -F'"' '{print $$4}')
 
+install:
+	@spm install
+	@npm install
+
 build:
 	@spm build
 
-publish: build
+publish: build publish-doc
 	@spm publish -s spmjs
+	@npm publish
 	@git tag $(version)
 	@git push origin $(version)
-	@make publish-doc
 
 build-doc:
 	@nico build -C $(THEME)/nico.js
@@ -34,6 +38,8 @@ test-dist:
 	@mocha-browser ${runner}?dist -S
 
 test: test-src test-dist
+	@mocha -R spec test/detector-spec.js
+	@node_modules/.bin/mocha -R spec tests/test.js
 
 output = _site/coverage.html
 coverage: build-doc
