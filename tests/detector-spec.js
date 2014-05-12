@@ -1,5 +1,11 @@
-var expect = require("expect");
-var detector = require('src/detector');
+var expect;
+
+if(typeof define === "function"){
+  expect = require("expect");
+}else{
+  expect = module["require"]("expect.js");
+}
+var detector = require('../src/detector');
 
 var UAs = [
   // Windows Blue
@@ -338,12 +344,6 @@ var UAs = [
     os: "symbian/3",
     browser: "nokia/8.3.1.4;8.3.1.4;o",
     engine: "webkit/525;525;o"
-  }],
-  ["Mozilla/5.0 (MeeGo; NokiaN9) AppleWebKit/534.13 (KHTML%2C like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13", {
-    device: "nokia/n9",
-    os: "meego/-1",
-    browser: "nokia/8.5.0;8.5.0;o",
-    engine: "webkit/534.13;534.13;o"
   }],
   ["Mozilla/5.0 (Linux; U; Android 4.1.5; zh-cn; HTC_X315e Build/IML74K) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
     device: "htc/x315e",

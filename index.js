@@ -1,2 +1,2 @@
 
-module.exports = require("src/detector");
+module.exports = require("./src/detector");

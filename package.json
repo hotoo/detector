@@ -9,7 +9,7 @@
     ],
   "scripts": {
     "prepublish": "spm build",
-    "test": "make test-npm"
+    "test": "make test"
   },
   "keywords": ["utility"],
   "repository": {
@@ -27,8 +27,12 @@
       "expect": "0.3.1"
     }
   },
+  "dependencies": {
+    "commander": "~1.1.1"
+  },
   "devDependencies": {
     "mocha": "1.17.1",
+    "expect.js": "0.3.1",
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-watch": "0.6.0"
