@@ -8,7 +8,6 @@
     "冒顿 <hotoo.cn@gmail.com>"
     ],
   "scripts": {
-    "prepublish": "spm build",
     "test": "make test"
   },
   "keywords": ["utility"],
