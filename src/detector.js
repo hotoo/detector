@@ -465,7 +465,7 @@ var parse = function(ua){
 if(typeof process === "object" && process.toString() === "[object process]"){
 
   // 加载更多的规则。
-  var morerule = global["require"]("morerule");
+  var morerule = module["require"]("./morerule");
   [].unshift.apply(DEVICES, morerule.DEVICES || []);
   [].unshift.apply(OS,      morerule.OS      || []);
   [].unshift.apply(BROWSER, morerule.BROWSER || []);

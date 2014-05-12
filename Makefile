@@ -33,7 +33,7 @@ clean:
 runner = _site/tests/runner.html
 test-npm:
 	@node_modules/.bin/mocha -R spec tests/detector-spec.js
-	@node_modules/.bin/mocha -R spec tests/test.js
+	@node_modules/.bin/mocha -R spec tests/morerule-test.js
 
 test-spm:
 	@mocha-browser ${runner} -S
