@@ -8,7 +8,8 @@
     "冒顿 <hotoo.cn@gmail.com>"
     ],
   "scripts": {
-    "prepublish": "spm build"
+    "prepublish": "spm build",
+    "test": "make test"
   },
   "keywords": ["utility"],
   "repository": {
@@ -20,12 +21,16 @@
   },
   "license": "MIT",
   "spm": {
-    "main": "index.js"
+    "main": "index.js",
+    "devDependencies": {
+      "jquery": "1.7.2",
+      "expect": "0.3.1"
+    }
   },
   "devDependencies": {
+    "mocha": "1.17.1",
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-watch": "0.6.0",
-    "expect": "0.3.1"
+    "grunt-contrib-watch": "0.6.0"
   }
 }
