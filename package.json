@@ -1,26 +1,31 @@
 {
-    "family": "arale",
-    "name": "detector",
-    "version": "1.5.0",
-    "description": "客户端信息识别模块",
-    "homepage": "http://aralejs.org/detector",
-    "author": "冒顿 <hotoo.cn@gmail.com>",
-    "maintainers": [
-        "冒顿 <hotoo.cn@gmail.com>"
+  "name": "detector",
+  "version": "1.6.0",
+  "description": "客户端信息识别模块",
+  "homepage": "http://aralejs.org/detector",
+  "author": "冒顿 <hotoo.cn@gmail.com>",
+  "maintainers": [
+    "冒顿 <hotoo.cn@gmail.com>"
     ],
-    "scripts": {
-      "prepublish": "spm build"
-    },
-    "keywords": ["utility"],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/aralejs/detector.git"
-    },
-    "bugs": {
-        "url": "https://github.com/aralejs/detector/issues"
-    },
-    "license": "MIT",
-    "spm": {
-      "output": ["detector.js"]
-    }
+  "scripts": {
+    "prepublish": "spm build"
+  },
+  "keywords": ["utility"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aralejs/detector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/detector/issues"
+  },
+  "license": "MIT",
+  "spm": {
+    "main": "index.js"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "0.6.0",
+    "expect": "0.3.1"
+  }
 }
