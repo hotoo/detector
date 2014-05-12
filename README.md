@@ -171,7 +171,7 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 * `symbian`: Symbian OS.
 * `blackberry`: Blackberry.
 * `yunos`: 阿里云系统。
-* `meego`: Meego
+* `meego`: Meego. `NODE ONLY`
 
 
 ----
