@@ -36,7 +36,7 @@ test-npm:
 	@node_modules/.bin/mocha -R spec tests/morerule-test.js
 
 test-spm:
-	@mocha-browser ${runner} -S
+	@node_modules/.bin/mocha-browser ${runner} -S
 
 test: test-npm test-spm
 
