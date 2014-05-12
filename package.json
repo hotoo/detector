@@ -6,7 +6,10 @@
   "author": "冒顿 <hotoo.cn@gmail.com>",
   "maintainers": [
     "冒顿 <hotoo.cn@gmail.com>"
-    ],
+  ],
+  "bin": {
+    "detector": "./bin/detector"
+  },
   "scripts": {
     "test": "make test"
   },
