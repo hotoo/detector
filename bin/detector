@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+var commander = require('commander');
+//require('colors');
+var detector = require("../src/detector");
+
+commander.
+  version(require('../package').version).
+  usage('[options] "user-agent string."').
+  option('-v, --version', 'output the version number').
+  parse(process.argv);
+
+if (commander.list) {
+  process.exit()
+}
+
+// output help and exit if no args found
+if (commander.args.length === 0) {
+  commander.help();
+}
+
+console.log(detector.parse(commander.args.join(" ")));
+
+ /*
+ vim:ft=javascript
+ */
