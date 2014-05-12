@@ -9,7 +9,7 @@
     ],
   "scripts": {
     "prepublish": "spm build",
-    "test": "make test"
+    "test": "make test-npm"
   },
   "keywords": ["utility"],
   "repository": {
