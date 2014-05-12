@@ -31,15 +31,14 @@ clean:
 
 
 runner = _site/tests/runner.html
-test-src:
+test-npm:
+	@node_modules/.bin/mocha -R spec tests/detector-spec.js
+	@node_modules/.bin/mocha -R spec tests/test.js
+
+test-spm:
 	@mocha-browser ${runner} -S
 
-test-dist:
-	@mocha-browser ${runner}?dist -S
-
-test: test-src test-dist
-	@mocha -R spec test/detector-spec.js
-	@node_modules/.bin/mocha -R spec tests/test.js
+test: test-npm test-spm
 
 output = _site/coverage.html
 coverage: build-doc
