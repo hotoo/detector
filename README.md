@@ -58,8 +58,7 @@ detector = {
 
 注：
 
-* 这个是基于浏览器运行的版本，另外还提供了在服务端运行的
-  [Node 版本](https://github.com/hotoo/node-detector)。
+* 这个版本遵循 CommonJS 规范，同时兼容基于 Node 环境和 Web 浏览器环境运行。
 * 有些场景只需要简单识别特定的信息，可以参考
   [识别特定浏览器最佳实践](https://github.com/aralejs/detector/issues/18)
   而无需使用 detector。
