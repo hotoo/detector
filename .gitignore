@@ -22,3 +22,4 @@ _site
 sea-modules
 .cache/
 .build/
+dist/
