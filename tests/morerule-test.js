@@ -1,7 +1,7 @@
 // more rule test.
 
 var expect = require("expect.js");
-var detector = require("../src/detector");
+var detector = require("../detector");
 
 var UAs = [
   ["Mozilla/5.0 (MeeGo; NokiaN9) AppleWebKit/534.13 (KHTML%2C like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13", {
