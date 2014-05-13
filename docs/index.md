@@ -5,5 +5,5 @@
 ----
 
 ````js
-location.href = "../wiki/index";
+location.href = "../wiki/";
 ````
