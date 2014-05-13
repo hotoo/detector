@@ -1,12 +1,13 @@
 {
   "name": "detector",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "客户端信息识别模块",
   "homepage": "http://spmjs.io/docs/detector/",
   "author": "冒顿 <hotoo.cn@gmail.com>",
   "maintainers": [
     "冒顿 <hotoo.cn@gmail.com>"
   ],
+  "main": "detector.js",
   "bin": {
     "detector": "./bin/detector"
   },
@@ -23,7 +24,7 @@
   },
   "license": "MIT",
   "spm": {
-    "main": "index.js",
+    "main": "detector.js",
     "devDependencies": {
       "jquery": "1.7.2",
       "expect.js": "0.3.1"
