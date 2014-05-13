@@ -24,7 +24,7 @@ server:
 	@nico server -C $(THEME)/nico.js
 
 watch:
-	@nico server -C $(THEME)/nico.js --watch
+	@spm doc watch
 
 clean:
 	@rm -fr _site
@@ -36,7 +36,7 @@ test-npm:
 	@node_modules/.bin/mocha -R spec tests/morerule-test.js
 
 test-spm:
-	@node_modules/.bin/mocha-browser ${runner} -S
+	@node_modules/spm/bin/spm-test
 
 test: test-npm test-spm
 
