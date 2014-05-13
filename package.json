@@ -26,8 +26,7 @@
     "main": "index.js",
     "devDependencies": {
       "jquery": "1.7.2",
-      "expect": "0.3.1",
-      "spm": "ninja"
+      "expect": "0.3.1"
     },
     "tests": "tests/*-spec.js"
   },
