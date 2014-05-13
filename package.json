@@ -26,7 +26,7 @@
     "main": "index.js",
     "devDependencies": {
       "jquery": "1.7.2",
-      "expect": "0.3.1"
+      "expect.js": "0.3.1"
     },
     "tests": "tests/*-spec.js"
   },

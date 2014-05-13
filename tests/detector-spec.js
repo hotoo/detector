@@ -1,10 +1,5 @@
-var expect;
 
-if(typeof define === "function"){
-  expect = require("expect");
-}else{
-  expect = module["require"]("expect.js");
-}
+var expect = require("expect.js");
 var detector = require('../src/detector');
 
 var UAs = [
