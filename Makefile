@@ -9,19 +9,16 @@ build:
 	@spm build
 
 publish: build publish-doc
-	@spm publish -s spmjs
+	@spm publish
 	@npm publish
 	@git tag $(version)
 	@git push origin $(version)
 
 build-doc:
-	@nico build -C $(THEME)/nico.js
+	@spm doc build
 
 publish-doc: clean build-doc
-	@spm publish -s spmjs --doc _site
-
-server:
-	@nico server -C $(THEME)/nico.js
+	@spm doc publish
 
 watch:
 	@spm doc watch
