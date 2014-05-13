@@ -1,6 +1,6 @@
 
 var expect = require("expect.js");
-var detector = require('../src/detector');
+var detector = require('../detector');
 
 var UAs = [
   // Windows Blue

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 var commander = require('commander');
 //require('colors');
-var detector = require("../src/detector");
+var detector = require("../detector");
 
 commander.
   version(require('../package').version).

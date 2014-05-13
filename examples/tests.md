@@ -29,7 +29,7 @@ Preview:
 </style>
 
 <script>
-seajs.use(['$', '../src/detector'], function($, detector){
+seajs.use(['jquery', '../detector'], function($, detector){
   var ua = navigator.userAgent;
   var ipt = $("#userAgents");
   var btn = $("#btn-analytics");

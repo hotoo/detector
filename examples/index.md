@@ -31,7 +31,7 @@
     return s;
   }
 
-  seajs.use("src/detector", function(detector){
+  seajs.use("../detector", function(detector){
 
     var OS_ALIAS = {
       // 4.0
