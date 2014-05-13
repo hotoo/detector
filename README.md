@@ -246,9 +246,13 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `ali-tb-pd`: 淘宝平板客户端。
 * `ali-tm`: 天猫手机客户端。
 * `ali-tm-pd`: 天猫平板客户端。
-
-
-国产浏览器名称均使用缩写方式，`ie` 由于习俗也使用缩写。
+* `googlebot`: [Googlebot](wiki/googlebot.md) 网络爬虫。`NODE ONLY`
+* `baiduspider`: [Baiduspider](wiki/baiduspider.md). `NODE ONLY`
+* `bingbot`: [Bingbot](wiki/bingbot.md) 网络爬虫。`NODE ONLY`
+* `msnbot`: [MSNBot](wiki/msnbot.md), `NODE ONLY`
+* `nuhkbot`: [Nuhkbot](wiki/nuhkbot.md), `NODE ONLY`
+* ~~`slurpbot`: Yahoo! [Slurp](wiki/slurpbot.md). `NODE ONLY`~~
+* `alexabot`: [Alexabot](wiki/alexabot.md). `NODE ONLY`
 
 
 ### {Boolean} detector.browser.compatible
