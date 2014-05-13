@@ -4,10 +4,11 @@ node_js:
   - "0.10"
 
 install:
-  - npm install spm@ninja mocha coveralls
+  - npm install spm@ninja coveralls
 
 before_script:
   - node_modules/spm/bin/spm-install
+  - npm install
 
 script:
   - node_modules/spm/bin/spm-test
