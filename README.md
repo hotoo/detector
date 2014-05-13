@@ -63,8 +63,16 @@ detector = {
 
 ## 安装
 
+for npm:
+
 ```
-spm install arale/detector
+npm install detector
+```
+
+for spm@3.x:
+
+```
+spm install detector
 ```
 
 
