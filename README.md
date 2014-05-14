@@ -67,9 +67,12 @@ detector = {
 
 for npm:
 
+全局安装(`-g`)时，可以在终端使用 `detector` 命令。
+
 ```
-npm install detector
+npm install detector [-g]
 ```
+
 
 for spm@3.x:
 
