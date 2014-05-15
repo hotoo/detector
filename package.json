@@ -36,7 +36,6 @@
     "colors": "0.6.2"
   },
   "devDependencies": {
-    "mocha": "1.17.1",
     "expect.js": "0.3.1",
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
