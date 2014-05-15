@@ -1,4 +1,3 @@
-THEME = $(HOME)/.spm/themes/arale
 version = $(shell cat package.json | grep version | awk -F'"' '{print $$4}')
 
 install:
@@ -29,8 +28,8 @@ clean:
 
 runner = _site/tests/runner.html
 test-npm:
-	@node_modules/.bin/mocha -R spec tests/detector-spec.js
-	@node_modules/.bin/mocha -R spec tests/morerule-test.js
+	@mocha -R spec tests/detector-spec.js
+	@mocha -R spec tests/morerule-test.js
 
 test-spm:
 	@spm test
