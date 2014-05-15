@@ -36,6 +36,7 @@
 * [WebView](webview.md)
 * [eZ browser](ezbrowser.md)
 * [Polaris](polaris.md)
+* [华为天天浏览器](http://browser.vmall.com/)
 
 ## 渲染引擎 (Layout Engine)
 
