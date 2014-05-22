@@ -3,6 +3,43 @@
 
 ----
 
+## 2.0.1 (2014-05-13)
+
+* 调整代码结构，层次更简单。
+* 优化命令行工具，输出更美观。
+
+## 2.0.0 (2014-05-13)
+
+* Update: 托 spm@3.x 的福，遵循 CommonJS 规范。同一份源码，不同一个世界。
+* Add: 增加了多个搜索引擎爬虫识别规则。
+* Fixed: 支持 UC 浏览器使用 adr 来标识 Android 设备的规则。
+* Delete: g_detector 全局变量。
+* Update: 更新或优化多个规则，提升了识别准确率。
+
+## 1.5.0 (2014-05-10)
+
+* Update: 猎豹浏览器 for iPhone 的识别。
+* Add: 海豚浏览器识别规则。
+* Add: 阿里巴巴系列移动设备客户端的识别。
+* Add: UC 浏览器的 u2, u3 渲染引擎。
+* Fixed: 修复并增强 UC 浏览器的的一些规则。
+* Fixed: vivo 无版本号的识别。
+
+## 1.4.0 (2014-03-27)
+
+* `Add` #11, Yandex browser support.
+* `Add` #43, window.detector and window.g_detector.
+
+
+## 1.3.0 (2013-08-28)
+
+* `Update` #37 同时支持 CMD 和非 CMD 模块。但我们强烈建议使用 CMD。
+
+## 1.2.1 (2013-07-11)
+
+* `Update` #27, 附加 navigator.appVersion 和 navigator.vendor 增强识别信息，
+  更好的支持 UC 浏览器这样特殊的场景。
+
 ## 1.2.0 (2013-07-04)
 
 `tag:improved` #28, 增强了移动设备的识别。
