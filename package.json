@@ -1,26 +1,44 @@
 {
-    "family": "arale",
-    "name": "detector",
-    "version": "1.5.0",
-    "description": "客户端信息识别模块",
-    "homepage": "http://aralejs.org/detector",
-    "author": "冒顿 <hotoo.cn@gmail.com>",
-    "maintainers": [
-        "冒顿 <hotoo.cn@gmail.com>"
-    ],
-    "scripts": {
-      "prepublish": "spm build"
+  "name": "detector",
+  "version": "2.0.1",
+  "description": "客户端信息识别模块",
+  "homepage": "http://spmjs.io/docs/detector/",
+  "author": "冒顿 <hotoo.cn@gmail.com>",
+  "maintainers": [
+    "冒顿 <hotoo.cn@gmail.com>"
+  ],
+  "main": "detector.js",
+  "bin": {
+    "detector": "./bin/detector"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "keywords": ["utility", "userAgent"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aralejs/detector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aralejs/detector/issues"
+  },
+  "license": "MIT",
+  "spm": {
+    "main": "detector.js",
+    "devDependencies": {
+      "jquery": "1.7.2",
+      "expect.js": "0.3.1"
     },
-    "keywords": ["utility"],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/aralejs/detector.git"
-    },
-    "bugs": {
-        "url": "https://github.com/aralejs/detector/issues"
-    },
-    "license": "MIT",
-    "spm": {
-      "output": ["detector.js"]
-    }
+    "tests": "tests/*-spec.js"
+  },
+  "dependencies": {
+    "commander": "~1.1.1",
+    "colors": "0.6.2"
+  },
+  "devDependencies": {
+    "expect.js": "0.3.1",
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "0.6.0"
+  }
 }

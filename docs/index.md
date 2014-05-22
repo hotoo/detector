@@ -5,5 +5,10 @@
 ----
 
 ````js
-location.href = "../wiki/index";
+location.href = "../wiki/";
 ````
+
+## 为什么不将 Wiki 直接放在 docs 目录？
+
+首页的边侧栏会将 docs 目录下的所有文档索引排列在边侧栏，文档太多甚至一页显示不完，
+所以只做了一个跳转到 Wiki 首页的文档。

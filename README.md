@@ -2,8 +2,11 @@
 
 ---
 
+[![NPM version](https://badge.fury.io/js/detector.png)](http://badge.fury.io/js/detector)
+[![spm package](http://spmjs.io/badge/detector)](http://spmjs.io/package/detector)
 [![Build Status](https://secure.travis-ci.org/aralejs/detector.png?branch=master)](https://travis-ci.org/aralejs/detector)
 [![Coverage Status](https://coveralls.io/repos/aralejs/detector/badge.png?branch=master)](https://coveralls.io/r/aralejs/detector)
+
 
 
 客户端信息识别模块，用于自动识别用户使用的客户端环境。包括：
@@ -55,16 +58,26 @@ detector = {
 
 注：
 
-* 这个是基于浏览器运行的版本，另外还提供了在服务端运行的
-  [Node 版本](https://github.com/hotoo/node-detector)。
+* 这个版本遵循 CommonJS 规范，同时兼容基于 Node 环境和 Web 浏览器环境运行。
 * 有些场景只需要简单识别特定的信息，可以参考
   [识别特定浏览器最佳实践](https://github.com/aralejs/detector/issues/18)
   而无需使用 detector。
 
 ## 安装
 
+via npm:
+
+全局安装(`-g`)时，可以在终端使用 `detector` 命令。
+
 ```
-spm install arale/detector
+npm install detector [-g]
+```
+
+
+via spm@3.x:
+
+```
+spm install detector
 ```
 
 
@@ -171,7 +184,7 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 * `symbian`: Symbian OS.
 * `blackberry`: Blackberry.
 * `yunos`: 阿里云系统。
-* `meego`: Meego
+* `meego`: Meego. `NODE ONLY`
 
 
 ----
@@ -238,9 +251,13 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `ali-tb-pd`: 淘宝平板客户端。
 * `ali-tm`: 天猫手机客户端。
 * `ali-tm-pd`: 天猫平板客户端。
-
-
-国产浏览器名称均使用缩写方式，`ie` 由于习俗也使用缩写。
+* `googlebot`: [Googlebot](wiki/googlebot.md) 网络爬虫。`NODE ONLY`
+* `baiduspider`: [Baiduspider](wiki/baiduspider.md). `NODE ONLY`
+* `bingbot`: [Bingbot](wiki/bingbot.md) 网络爬虫。`NODE ONLY`
+* `msnbot`: [MSNBot](wiki/msnbot.md), `NODE ONLY`
+* `nuhkbot`: [Nuhkbot](wiki/nuhkbot.md), `NODE ONLY`
+* ~~`slurpbot`: Yahoo! [Slurp](wiki/slurpbot.md). `NODE ONLY`~~
+* `alexabot`: [Alexabot](wiki/alexabot.md). `NODE ONLY`
 
 
 ### {Boolean} detector.browser.compatible
@@ -283,6 +300,8 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `presto`: Presto.
 * `androidwebkit`: Android Webkit.
 * `coolpadwebkit`: Coolpad Webkit.
+* `u2`: UC 浏览器渲染引擎 v2
+* `u3`: UC 浏览器渲染引擎 v3
 
 ### {detector} detector.parse(String ua)
 
@@ -298,6 +317,3 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 
 * 所有不能识别的名称均归类为 `na`，即 Not Available.
 * 所有不能识别的版本号归类为 `-1`。
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aralejs/detector/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

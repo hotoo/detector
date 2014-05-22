@@ -9,7 +9,7 @@
 
 <textarea id="userAgents" style="width:99%;height:200px"></textarea>
 
-<button type="button" id="btn-analytics">分析</button>
+<button type="button" id="btn-analytics" style="margin:10px 0; width:100%;">分析</button>
 
 
 ----
@@ -29,7 +29,7 @@ Preview:
 </style>
 
 <script>
-seajs.use(['$', 'detector'], function($, detector){
+seajs.use(['jquery', '../detector'], function($, detector){
   var ua = navigator.userAgent;
   var ipt = $("#userAgents");
   var btn = $("#btn-analytics");
