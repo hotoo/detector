@@ -28,7 +28,8 @@ module.exports = {
     //["slurpbot", /\bslurp\b/],
 
     // Alexa ia_archiver.
-    ["alexabot", /\bia_archiver\b|\balexabot\/([0-9.]+)/]
+    ["alexabot", /\bia_archiver\b|\balexabot\/([0-9.]+)/],
+    ["curl", /\bcurl\/([0-9.]+)/]
   ],
   ENGINE: []
 };

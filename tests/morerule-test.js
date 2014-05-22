@@ -75,6 +75,19 @@ var UAs = [
     browser: "alexabot/1.0;1.0;o",
     engine: "na/-1;-1;o"
   }],
+
+  ["curl/7.19.7 (universal-apple-darwin10.0) libcurl/7.19.7 OpenSSL/0.9.8l zlib/1.2.3", {
+    device: "na/-1",
+    os: "na/-1",
+    browser: "curl/7.19.7;7.19.7;o",
+    engine: "na/-1;-1;o"
+  }],
+  ["curl/7.30.0", {
+    device: "na/-1",
+    os: "na/-1",
+    browser: "curl/7.30.0;7.30.0;o",
+    engine: "na/-1;-1;o"
+  }]
 ];
 
 describe("detector", function() {
