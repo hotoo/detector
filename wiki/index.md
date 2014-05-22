@@ -83,6 +83,10 @@
 * [阿里云OS](http://yunos.com/)
 * [YlmfOS](http://www.ylmf.com/)
 
+----
+
+* [操作系统别名](os-alias.md)
+
 ## 硬件设备
 
 * Microsoft Windows PC
