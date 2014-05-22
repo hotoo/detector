@@ -37,6 +37,7 @@
 * [eZ browser](ezbrowser.md)
 * [Polaris](polaris.md)
 * [华为天天浏览器](http://browser.vmall.com/)
+* [千寻浏览器](http://www.qxllq.com/) - 百度推出，基于 Trident 内核。屎一样的 UA
 
 ## 渲染引擎 (Layout Engine)
 
