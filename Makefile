@@ -13,10 +13,10 @@ publish: build publish-doc
 	@git tag $(version)
 	@git push origin $(version)
 
-build-doc:
+build-doc: clean
 	@spm doc build
 
-publish-doc: clean build-doc
+publish-doc: clean
 	@spm doc publish
 
 watch:
