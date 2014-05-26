@@ -76,7 +76,7 @@
 
     var detectedInfo = [];
     detectedInfo.push("* 硬件设备："+detector.device.name+" "+detector.device.fullVersion);
-    var osAlias = OS_ALIAS[detector.os.name+"/"+detector.os.version] || "N/A";
+    var osAlias = OS_ALIAS[detector.os.name+"/"+(detector.os.fullVersion.split(".").slice(0,2).join("."))] || "N/A";
     detectedInfo.push("* 操作系统："+detector.os.name+" "+detector.os.fullVersion + " ("+osAlias+")");
     detectedInfo.push("* 浏览器："+detector.browser.name+" "+detector.browser.fullVersion+
         (detector.browser.compatible ? "(" + String(detector.browser.fullMode) + " 兼容模式)" : ""));
