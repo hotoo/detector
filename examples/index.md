@@ -56,7 +56,7 @@
       "macosx/10.7": "Mac OS X Lion",
       "macosx/10.8": "Mac OS X Mountain Lion",
       "macosx/10.9": "Mac OS X Mavericks",
-      "macosx/10.10": "Mac OS X Syrah",
+      "macosx/10.10": "Mac OS X Yosemite",
       // Android.
       "android/1.5": "Android Cupcake",
       "android/1.6": "Android Doughnut",
