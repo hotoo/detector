@@ -258,6 +258,7 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `nuhkbot`: [Nuhkbot](wiki/nuhkbot.md), `NODE ONLY`
 * ~~`slurpbot`: Yahoo! [Slurp](wiki/slurpbot.md). `NODE ONLY`~~
 * `alexabot`: [Alexabot](wiki/alexabot.md). `NODE ONLY`
+* `curl`: curl. `NODE ONLY`
 
 
 ### {Boolean} detector.browser.compatible
