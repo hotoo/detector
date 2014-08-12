@@ -4,8 +4,8 @@
 
 [![NPM version](https://badge.fury.io/js/detector.png)](http://badge.fury.io/js/detector)
 [![spm package](http://spmjs.io/badge/detector)](http://spmjs.io/package/detector)
-[![Build Status](https://secure.travis-ci.org/aralejs/detector.png?branch=master)](https://travis-ci.org/aralejs/detector)
-[![Coverage Status](https://coveralls.io/repos/aralejs/detector/badge.png?branch=master)](https://coveralls.io/r/aralejs/detector)
+[![Build Status](https://secure.travis-ci.org/hotoo/detector.png?branch=master)](https://travis-ci.org/hotoo/detector)
+[![Coverage Status](https://coveralls.io/repos/hotoo/detector/badge.png?branch=master)](https://coveralls.io/r/hotoo/detector)
 
 
 
@@ -60,7 +60,7 @@ detector = {
 
 * 这个版本遵循 CommonJS 规范，同时兼容基于 Node 环境和 Web 浏览器环境运行。
 * 有些场景只需要简单识别特定的信息，可以参考
-  [识别特定浏览器最佳实践](https://github.com/aralejs/detector/issues/18)
+  [识别特定浏览器最佳实践](https://github.com/hotoo/detector/issues/18)
   而无需使用 detector。
 
 ## 安装
