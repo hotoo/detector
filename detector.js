@@ -225,7 +225,7 @@ var ENGINE = [
 ];
 var BROWSER = [
   // Sogou.
-  ["sg", / se ([0-9.x]+)/],
+  ["sg", /(?:\bse|SogouMobileBrowser)[ \/]([0-9.x]+)/i],
   // TheWorld (世界之窗)
   // 由于裙带关系，TW API 与 360 高度重合。
   // 只能通过 UA 和程序安装路径中的应用程序名来区分。
@@ -253,35 +253,40 @@ var BROWSER = [
         };
       }
     }catch(ex){}
-    return /\bmaxthon(?:[ \/]([0-9.]+))?/;
+    return /(?:\bmaxthon|\bMxBrowser)(?:[ \/]([0-9.]+))?/i;
   }],
   ["qq", /\bm?qqbrowser\/([0-9.]+)/],
   ["green", "greenbrowser"],
   ["tt", /\btencenttraveler ([0-9.]+)/],
   ["lb", function(ua){
-    if(ua.indexOf("lbbrowser") === -1){return false;}
     var version;
-    try{
-      if(external && external.LiebaoGetVersion){
-        version = external.LiebaoGetVersion();
-      }
-    }catch(ex){}
+    var data = /(?:LBBROWSER|LieBaoFast)[ \/]?([0-9.]+)?/i.exec(ua);
+    if (!data) {
+        return false;
+    }
+    version = data[1];
+    try {
+        if (window.external && external.LiebaoGetVersion) {
+            //此方法被猎豹禁用了. 只有部分域名开放..shit.
+            version = version || external.LiebaoGetVersion();
+        }
+    } catch (ex) {}
     return {
-      version: version || NA_VERSION
+        version: version || NA_VERSION
     };
   }],
   ["tao", /\btaobrowser\/([0-9.]+)/],
   ["fs", /\bcoolnovo\/([0-9.]+)/],
   ["sy", "saayaa"],
   // 有基于 Chromniun 的急速模式和基于 IE 的兼容模式。必须在 IE 的规则之前。
-  ["baidu", /\bbidubrowser[ \/]([0-9.x]+)/],
+  ["baidu", /(?:\bbidubrowser|\bbaidubrowser)[ \/]([0-9.x]+)/i],
   // 后面会做修复版本号，这里只要能识别是 IE 即可。
   ["ie", re_msie],
   ["mi", /\bmiuibrowser\/([0-9.]+)/],
   // Opera 15 之后开始使用 Chromniun 内核，需要放在 Chrome 的规则之前。
   ["opera", function(ua){
     var re_opera_old = /\bopera.+version\/([0-9.ab]+)/;
-    var re_opera_new = /\bopr\/([0-9.]+)/;
+    var re_opera_new = /(?:\bopr|\bOupeng)\/([0-9.]+)/i;
     return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
   }],
   ["yandex", /yabrowser\/([0-9.]+)/],
@@ -305,7 +310,6 @@ var BROWSER = [
   ["ali-tm", /\baliapp\(tm\/([0-9.]+)\)/],
   // 天猫平板客户端
   ["ali-tm-pd", /\baliapp\(tm-pd\/([0-9.]+)\)/],
-  ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
   // UC 浏览器，可能会被识别为 Android 浏览器，规则需要前置。
   ["uc", function(ua){
     if(ua.indexOf("ucbrowser/") >= 0){
@@ -317,9 +321,11 @@ var BROWSER = [
       // `UCWEB8.7.2.214/145/800` is browser info.
       return /\bucweb([0-9.]+)?/;
     }else{
-      return /\b(?:ucbrowser|uc)\b/;
+      return /\b(?:UBrowser|ucbrowser|uc|ucweb)[ \/]?([0-9.]+)/i;
     }
   }],
+  //UC开始使用Chrome内核，所以chrome后置
+  ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
   // Android 默认浏览器。该规则需要在 safari 之前。
   ["android", function(ua){
     if(ua.indexOf("android") === -1){return;}
