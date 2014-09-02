@@ -54,7 +54,8 @@ var DEVICES = [
   ["ipod", "ipod"],
   ["iphone", /\biphone\b|\biph(\d)/],
   ["mac", "macintosh"],
-  ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build))/],
+  //安卓猎豹极速ua  mi 3w 后没有build
+  ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build|\)))/],
   ["aliyun", /\baliyunos\b(?:[\-](\d+))?/],
   ["meizu", /\b(?:meizu\/|m)([0-9]+)\b/],
   ["nexus", /\bnexus ([0-9s.]+)/],
@@ -225,7 +226,7 @@ var ENGINE = [
 ];
 var BROWSER = [
   // Sogou.
-  ["sg", /(?:\bse|SogouMobileBrowser)[ \/]([0-9.x]+)/i],
+  ["sg", /(?:\bse|sogoumobilebrowser)[ \/]([0-9.x]+)/],
   // TheWorld (世界之窗)
   // 由于裙带关系，TW API 与 360 高度重合。
   // 只能通过 UA 和程序安装路径中的应用程序名来区分。
@@ -253,40 +254,39 @@ var BROWSER = [
         };
       }
     }catch(ex){}
-    return /(?:\bmaxthon|\bMxBrowser)(?:[ \/]([0-9.]+))?/i;
+    return /(?:\bmaxthon|\bmxbrowser)(?:[ \/]([0-9.]+))?/;
   }],
   ["qq", /\bm?qqbrowser\/([0-9.]+)/],
   ["green", "greenbrowser"],
   ["tt", /\btencenttraveler ([0-9.]+)/],
   ["lb", function(ua){
     var version;
-    var data = /(?:LBBROWSER|LieBaoFast)[ \/]?([0-9.]+)?/i.exec(ua);
+    var data = /(?:lbbrowser|liebaofast)[ \/]?([0-9.]+)?/.exec(ua);
     if (!data) {
-        return false;
+      return false;
     }
     version = data[1];
     try {
-        if (window.external && external.LiebaoGetVersion) {
-            //此方法被猎豹禁用了. 只有部分域名开放..shit.
-            version = version || external.LiebaoGetVersion();
-        }
+      if (window.external && external.LiebaoGetVersion) {
+        version = version || external.LiebaoGetVersion();
+      }
     } catch (ex) {}
     return {
-        version: version || NA_VERSION
+      version: version || NA_VERSION
     };
   }],
   ["tao", /\btaobrowser\/([0-9.]+)/],
   ["fs", /\bcoolnovo\/([0-9.]+)/],
   ["sy", "saayaa"],
   // 有基于 Chromniun 的急速模式和基于 IE 的兼容模式。必须在 IE 的规则之前。
-  ["baidu", /(?:\bbidubrowser|\bbaidubrowser)[ \/]([0-9.x]+)/i],
+  ["baidu", /(?:\bbidubrowser|\bbaidubrowser)[ \/]([0-9.x]+)/],
   // 后面会做修复版本号，这里只要能识别是 IE 即可。
   ["ie", re_msie],
   ["mi", /\bmiuibrowser\/([0-9.]+)/],
   // Opera 15 之后开始使用 Chromniun 内核，需要放在 Chrome 的规则之前。
   ["opera", function(ua){
     var re_opera_old = /\bopera.+version\/([0-9.ab]+)/;
-    var re_opera_new = /(?:\bopr|\bOupeng)\/([0-9.]+)/i;
+    var re_opera_new = /(?:\bopr|\boupeng)\/([0-9.]+)/i;
     return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
   }],
   ["yandex", /yabrowser\/([0-9.]+)/],
@@ -321,7 +321,7 @@ var BROWSER = [
       // `UCWEB8.7.2.214/145/800` is browser info.
       return /\bucweb([0-9.]+)?/;
     }else{
-      return /\b(?:UBrowser|ucbrowser|uc|ucweb)[ \/]?([0-9.]+)/i;
+      return /\b(?:ubrowser|ucbrowser|uc|ucweb)[ \/]?([0-9.]+)/i;
     }
   }],
   //UC开始使用Chrome内核，所以chrome后置
