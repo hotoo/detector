@@ -286,7 +286,7 @@ var BROWSER = [
   // Opera 15 之后开始使用 Chromniun 内核，需要放在 Chrome 的规则之前。
   ["opera", function(ua){
     var re_opera_old = /\bopera.+version\/([0-9.ab]+)/;
-    var re_opera_new = /(?:\bopr|\boupeng)\/([0-9.]+)/i;
+    var re_opera_new = /(?:\bopr|\boupeng)\/([0-9.]+)/;
     return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
   }],
   ["yandex", /yabrowser\/([0-9.]+)/],
@@ -321,7 +321,7 @@ var BROWSER = [
       // `UCWEB8.7.2.214/145/800` is browser info.
       return /\bucweb([0-9.]+)?/;
     }else{
-      return /\b(?:ubrowser|ucbrowser|uc|ucweb)[ \/]?([0-9.]+)/i;
+      return /\b(?:ubrowser|ucbrowser|uc|ucweb)[ \/]?([0-9.]+)/;
     }
   }],
   //UC开始使用Chrome内核，所以chrome后置
