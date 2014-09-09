@@ -24,3 +24,4 @@ sea-modules
 .build/
 dist/
 npm-debug.log
+spm_modules/
