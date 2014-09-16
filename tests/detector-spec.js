@@ -193,7 +193,7 @@ var UAs = [
   ["Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; qihu theworld)", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "tw/-1;8.0;o",
+    browser: "theworld/-1;8.0;o",
     engine: "trident/4.0;4.0;o"
   }],
   // TheWorld 急速版。
@@ -202,14 +202,14 @@ var UAs = [
   ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.79 Safari/535.11 QIHU THEWORLD ", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "tw/-1;-1;o",
+    browser: "theworld/-1;-1;o",
     engine: "webkit/535.11;535.11;o"
   }],
   // TheWorld 急速版，兼容模式
   ["Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; QIHU THEWORLD)", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "tw/-1;8.0;o",
+    browser: "theworld/-1;8.0;o",
     engine: "trident/4.0;4.0;o"
   }],
   // Maxthon

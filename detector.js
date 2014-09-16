@@ -234,10 +234,10 @@ var BROWSER = [
     return / se ([0-9.x]+)/;
   }],
   // TheWorld (世界之窗)
-  // 由于裙带关系，TW API 与 360 高度重合。
+  // 由于裙带关系，TheWorld API 与 360 高度重合。
   // 只能通过 UA 和程序安装路径中的应用程序名来区分。
   // TheWorld 的 UA 比 360 更靠谱，所有将 TheWorld 的规则放置到 360 之前。
-  ["tw", function(ua){
+  ["theworld", function(ua){
     var x = checkTW360External("theworld");
     if(typeof x !== "undefined"){return x;}
     return "theworld";
