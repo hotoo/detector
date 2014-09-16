@@ -281,7 +281,7 @@ var BROWSER = [
     };
   }],
   ["tao", /\btaobrowser\/([0-9.]+)/],
-  ["fs", /\bcoolnovo\/([0-9.]+)/],
+  ["coolnovo", /\bcoolnovo\/([0-9.]+)/],
   ["sy", "saayaa"],
   // 有基于 Chromniun 的急速模式和基于 IE 的兼容模式。必须在 IE 的规则之前。
   ["baidu", /\bba?idubrowser[ \/]([0-9.x]+)/],

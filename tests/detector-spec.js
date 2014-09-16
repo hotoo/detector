@@ -454,7 +454,7 @@ var UAs = [
   ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.56 Safari/537.17 CoolNovo/2.0.6.12", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "fs/2.0.6.12;2.0.6.12;o",
+    browser: "coolnovo/2.0.6.12;2.0.6.12;o",
     engine: "webkit/537.17;537.17;o"
   }],
   // 枫树浏览器，兼容模式。XXX: 误识别。
