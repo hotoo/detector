@@ -225,7 +225,7 @@ var ENGINE = [
 ];
 var BROWSER = [
   // Sogou.
-  ["sg", function(ua){
+  ["sogou", function(ua){
     if (ua.indexOf("sogoumobilebrowser") >= 0) {
       return /sogoumobilebrowser\/([0-9.]+)/
     } else if (ua.indexOf("sogoumse") >= 0){

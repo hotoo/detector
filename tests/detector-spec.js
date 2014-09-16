@@ -510,14 +510,14 @@ var UAs = [
   ["Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; SE 2.X MetaSr 1.0)", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "sg/2.x;7.0;c",
+    browser: "sogou/2.x;7.0;c",
     engine: "trident/5.0;3.0;c"
   }],
   // 搜狗浏览器，兼容模式
   ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17 SE 2.X MetaSr 1.0", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "sg/2.x;2.x;o",
+    browser: "sogou/2.x;2.x;o",
     engine: "webkit/537.17;537.17;o"
   }],
 
@@ -856,7 +856,7 @@ var UAs = [
   {
     device: "mi/3w",
     os: "android/4.4.2",
-    browser: "sg/3.1.2;3.1.2;o",
+    browser: "sogou/3.1.2;3.1.2;o",
     engine: "webkit/534.30;534.30;o"
   }],
   //安卓猎豹极速
