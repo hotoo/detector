@@ -193,7 +193,7 @@ var UAs = [
   ["Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; qihu theworld)", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "tw/-1;8.0;o",
+    browser: "theworld/-1;8.0;o",
     engine: "trident/4.0;4.0;o"
   }],
   // TheWorld 急速版。
@@ -202,21 +202,21 @@ var UAs = [
   ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.79 Safari/535.11 QIHU THEWORLD ", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "tw/-1;-1;o",
+    browser: "theworld/-1;-1;o",
     engine: "webkit/535.11;535.11;o"
   }],
   // TheWorld 急速版，兼容模式
   ["Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; QIHU THEWORLD)", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "tw/-1;8.0;o",
+    browser: "theworld/-1;8.0;o",
     engine: "trident/4.0;4.0;o"
   }],
   // Maxthon
   ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/4.0.5.4000 Chrome/26.0.1410.43 Safari/537.1", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "mx/4.0.5.4000;4.0.5.4000;o",
+    browser: "maxthon/4.0.5.4000;4.0.5.4000;o",
     engine: "webkit/537.1;537.1;o"
   }],
   // QQBrowser
@@ -454,7 +454,7 @@ var UAs = [
   ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.56 Safari/537.17 CoolNovo/2.0.6.12", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "fs/2.0.6.12;2.0.6.12;o",
+    browser: "coolnovo/2.0.6.12;2.0.6.12;o",
     engine: "webkit/537.17;537.17;o"
   }],
   // 枫树浏览器，兼容模式。XXX: 误识别。
@@ -468,21 +468,21 @@ var UAs = [
   ["Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; SaaYaa)", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "sy/-1;7.0;c",
+    browser: "saayaa/-1;7.0;c",
     engine: "trident/4.0;3.0;c"
   }],
   // 猎豹浏览器。TODO: 识别非 IE 内核浏览的模式。
   ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1 LBBROWSER", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "lb/-1;-1;o",
+    browser: "liebao/-1;-1;o",
     engine: "webkit/537.1;537.1;o"
   }],
   // 闪游浏览器，兼容模式
   ["Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; SaaYaa)", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "sy/-1;7.0;c",
+    browser: "saayaa/-1;7.0;c",
     engine: "trident/4.0;3.0;c"
   }],
   // 淘宝浏览器
@@ -510,14 +510,14 @@ var UAs = [
   ["Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; SE 2.X MetaSr 1.0)", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "sg/2.x;7.0;c",
+    browser: "sogou/2.x;7.0;c",
     engine: "trident/5.0;3.0;c"
   }],
   // 搜狗浏览器，兼容模式
   ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17 SE 2.X MetaSr 1.0", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "sg/2.x;2.x;o",
+    browser: "sogou/2.x;2.x;o",
     engine: "webkit/537.17;537.17;o"
   }],
 
@@ -840,6 +840,47 @@ var UAs = [
     device: "iphone/-1",
     os: "ios/7.1.1",
     browser: "ali-ap/8.0.0.0110;8.0.0.0110;o",
+    engine: "webkit/537.51.2;537.51.2;o"
+  }],
+
+  //安卓opera
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-CN; MI 3W Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Oupeng/10.0.1.82018 Mobile Safari/537.36",
+  {
+    device: "mi/3w",
+    os: "android/4.4.2",
+    browser: "oupeng/10.0.1.82018;10.0.1.82018;o",
+    engine: "webkit/537.36;537.36;o"
+  }],
+  //安卓搜狗
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; MI 3W Build/KVT49L) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 SogouMSE,SogouMobileBrowser/3.1.2",
+  {
+    device: "mi/3w",
+    os: "android/4.4.2",
+    browser: "sogou/3.1.2;3.1.2;o",
+    engine: "webkit/534.30;534.30;o"
+  }],
+  //安卓猎豹极速
+  ["Mozilla/5.0 (Linux; Android 4.4.2; MI 3W) AppleWebKit/535.19 (KHTML, like Gecko) Version/4.0 LieBaoFast/2.10.0 Mobile Safari/535.19",
+  {
+    device: "mi/3w",
+    os: "android/4.4.2",
+    browser: "liebao/2.10.0;2.10.0;o",
+    engine: "webkit/535.19;535.19;o"
+  }],
+  //百度安卓
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; MI 3W Build/KVT49L) AppleWebKit/534.24 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.24 T5/2.0 baidubrowser/5.2.3.0 (Baidu; P1 4.4.2)",
+  {
+    device: "mi/3w",
+    os: "android/4.4.2",
+    browser: "baidu/5.2.3.0;5.2.3.0;o",
+    engine: "webkit/534.24;534.24;o"
+  }],
+  //小米3 遨游
+  ["Mozilla/5.0 (iPad; CPU OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D201 Safari/9537.53 MxBrowser/4.3.1.2000",
+  {
+    device: "ipad/-1",
+    os: "ios/7.1.1",
+    browser: "maxthon/4.3.1.2000;4.3.1.2000;o",
     engine: "webkit/537.51.2;537.51.2;o"
   }]
 ];

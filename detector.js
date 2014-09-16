@@ -54,7 +54,7 @@ var DEVICES = [
   ["ipod", "ipod"],
   ["iphone", /\biphone\b|\biph(\d)/],
   ["mac", "macintosh"],
-  ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build))/],
+  ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build|\)))/],
   ["aliyun", /\baliyunos\b(?:[\-](\d+))?/],
   ["meizu", /\b(?:meizu\/|m)([0-9]+)\b/],
   ["nexus", /\bnexus ([0-9s.]+)/],
@@ -225,12 +225,19 @@ var ENGINE = [
 ];
 var BROWSER = [
   // Sogou.
-  ["sg", / se ([0-9.x]+)/],
+  ["sogou", function(ua){
+    if (ua.indexOf("sogoumobilebrowser") >= 0) {
+      return /sogoumobilebrowser\/([0-9.]+)/
+    } else if (ua.indexOf("sogoumse") >= 0){
+      return true;
+    }
+    return / se ([0-9.x]+)/;
+  }],
   // TheWorld (世界之窗)
-  // 由于裙带关系，TW API 与 360 高度重合。
+  // 由于裙带关系，TheWorld API 与 360 高度重合。
   // 只能通过 UA 和程序安装路径中的应用程序名来区分。
   // TheWorld 的 UA 比 360 更靠谱，所有将 TheWorld 的规则放置到 360 之前。
-  ["tw", function(ua){
+  ["theworld", function(ua){
     var x = checkTW360External("theworld");
     if(typeof x !== "undefined"){return x;}
     return "theworld";
@@ -245,7 +252,7 @@ var BROWSER = [
     return /\b360(?:se|ee|chrome|browser)\b/;
   }],
   // Maxthon
-  ["mx", function(ua){
+  ["maxthon", function(ua){
     try{
       if(external && (external.mxVersion || external.max_version)){
         return {
@@ -253,12 +260,15 @@ var BROWSER = [
         };
       }
     }catch(ex){}
-    return /\bmaxthon(?:[ \/]([0-9.]+))?/;
+    return /\b(?:maxthon|mxbrowser)(?:[ \/]([0-9.]+))?/;
   }],
   ["qq", /\bm?qqbrowser\/([0-9.]+)/],
   ["green", "greenbrowser"],
   ["tt", /\btencenttraveler ([0-9.]+)/],
-  ["lb", function(ua){
+  ["liebao", function(ua){
+    if (ua.indexOf("liebaofast") >= 0){
+      return /\bliebaofast\/([0-9.]+)/;
+    }
     if(ua.indexOf("lbbrowser") === -1){return false;}
     var version;
     try{
@@ -271,10 +281,10 @@ var BROWSER = [
     };
   }],
   ["tao", /\btaobrowser\/([0-9.]+)/],
-  ["fs", /\bcoolnovo\/([0-9.]+)/],
-  ["sy", "saayaa"],
+  ["coolnovo", /\bcoolnovo\/([0-9.]+)/],
+  ["saayaa", "saayaa"],
   // 有基于 Chromniun 的急速模式和基于 IE 的兼容模式。必须在 IE 的规则之前。
-  ["baidu", /\bbidubrowser[ \/]([0-9.x]+)/],
+  ["baidu", /\bba?idubrowser[ \/]([0-9.x]+)/],
   // 后面会做修复版本号，这里只要能识别是 IE 即可。
   ["ie", re_msie],
   ["mi", /\bmiuibrowser\/([0-9.]+)/],
@@ -284,6 +294,7 @@ var BROWSER = [
     var re_opera_new = /\bopr\/([0-9.]+)/;
     return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
   }],
+  ["oupeng", /\boupeng\/([0-9.]+)/],
   ["yandex", /yabrowser\/([0-9.]+)/],
   // 支付宝手机客户端
   ["ali-ap", function(ua){
