@@ -841,6 +841,47 @@ var UAs = [
     os: "ios/7.1.1",
     browser: "ali-ap/8.0.0.0110;8.0.0.0110;o",
     engine: "webkit/537.51.2;537.51.2;o"
+  }],
+
+  //安卓opera
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-CN; MI 3W Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Oupeng/10.0.1.82018 Mobile Safari/537.36",
+  {
+    device: "mi/3w",
+    os: "android/4.4.2",
+    browser: "oupeng/10.0.1.82018;10.0.1.82018;o",
+    engine: "webkit/537.36;537.36;o"
+  }],
+  //安卓搜狗
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; MI 3W Build/KVT49L) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 SogouMSE,SogouMobileBrowser/3.1.2",
+  {
+    device: "mi/3w",
+    os: "android/4.4.2",
+    browser: "sg/3.1.2;3.1.2;o",
+    engine: "webkit/534.30;534.30;o"
+  }],
+  //安卓猎豹极速
+  ["Mozilla/5.0 (Linux; Android 4.4.2; MI 3W) AppleWebKit/535.19 (KHTML, like Gecko) Version/4.0 LieBaoFast/2.10.0 Mobile Safari/535.19",
+  {
+    device: "mi/3w",
+    os: "android/4.4.2",
+    browser: "lb/2.10.0;2.10.0;o",
+    engine: "webkit/535.19;535.19;o"
+  }],
+  //百度安卓
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; MI 3W Build/KVT49L) AppleWebKit/534.24 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.24 T5/2.0 baidubrowser/5.2.3.0 (Baidu; P1 4.4.2)",
+  {
+    device: "mi/3w",
+    os: "android/4.4.2",
+    browser: "baidu/5.2.3.0;5.2.3.0;o",
+    engine: "webkit/534.24;534.24;o"
+  }],
+  //小米3 遨游
+  ["Mozilla/5.0 (iPad; CPU OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D201 Safari/9537.53 MxBrowser/4.3.1.2000",
+  {
+    device: "ipad/-1",
+    os: "ios/7.1.1",
+    browser: "mx/4.3.1.2000;4.3.1.2000;o",
+    engine: "webkit/537.51.2;537.51.2;o"
   }]
 ];
 
