@@ -475,7 +475,7 @@ var UAs = [
   ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1 LBBROWSER", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "lb/-1;-1;o",
+    browser: "liebao/-1;-1;o",
     engine: "webkit/537.1;537.1;o"
   }],
   // 闪游浏览器，兼容模式
@@ -864,7 +864,7 @@ var UAs = [
   {
     device: "mi/3w",
     os: "android/4.4.2",
-    browser: "lb/2.10.0;2.10.0;o",
+    browser: "liebao/2.10.0;2.10.0;o",
     engine: "webkit/535.19;535.19;o"
   }],
   //百度安卓

@@ -265,7 +265,7 @@ var BROWSER = [
   ["qq", /\bm?qqbrowser\/([0-9.]+)/],
   ["green", "greenbrowser"],
   ["tt", /\btencenttraveler ([0-9.]+)/],
-  ["lb", function(ua){
+  ["liebao", function(ua){
     if (ua.indexOf("liebaofast") >= 0){
       return /\bliebaofast\/([0-9.]+)/;
     }
