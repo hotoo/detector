@@ -252,7 +252,7 @@ var BROWSER = [
     return /\b360(?:se|ee|chrome|browser)\b/;
   }],
   // Maxthon
-  ["mx", function(ua){
+  ["maxthon", function(ua){
     try{
       if(external && (external.mxVersion || external.max_version)){
         return {

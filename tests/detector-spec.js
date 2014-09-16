@@ -216,7 +216,7 @@ var UAs = [
   ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/4.0.5.4000 Chrome/26.0.1410.43 Safari/537.1", {
     device: "pc/-1",
     os: "windows/6.1",
-    browser: "mx/4.0.5.4000;4.0.5.4000;o",
+    browser: "maxthon/4.0.5.4000;4.0.5.4000;o",
     engine: "webkit/537.1;537.1;o"
   }],
   // QQBrowser
@@ -880,7 +880,7 @@ var UAs = [
   {
     device: "ipad/-1",
     os: "ios/7.1.1",
-    browser: "mx/4.3.1.2000;4.3.1.2000;o",
+    browser: "maxthon/4.3.1.2000;4.3.1.2000;o",
     engine: "webkit/537.51.2;537.51.2;o"
   }]
 ];
