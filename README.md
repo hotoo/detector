@@ -228,16 +228,16 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `safari`: Apple Safari.
 * `opera`: Opera.
 * `360`: 包括奇虎 360 安全浏览器和 360 极速浏览器。
-* `mx`: 傲游浏览器(Maxthon)。
-* `sg`: 搜狗浏览器(Sogou)。
-* `tw`: 世界之窗浏览器(TheWorld)。
+* `maxthon`: 傲游浏览器(Maxthon)。
+* `sogou`: 搜狗浏览器(Sogou)。
+* `theworld`: 世界之窗浏览器(TheWorld)。
 * `green`: GreenBrowser.
 * `qq`: QQ 浏览器。
 * `tt`: TencentTraveler.
-* `lb`: 猎豹浏览器。
+* `liebao`: 猎豹浏览器。
 * `tao`: 淘宝浏览器。
-* `fs`: 枫树浏览器。
-* `sy`: 闪游浏览器。
+* `coolnovo`: 枫树浏览器。
+* `saayaa`: 闪游浏览器。
 * `uc`: UC 浏览器。
 * `mi`: 小米浏览器。
 * `baidu`: 百度浏览器。
