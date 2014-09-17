@@ -17,10 +17,10 @@
   "keywords": ["utility", "userAgent"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/aralejs/detector.git"
+    "url": "https://github.com/hotoo/detector.git"
   },
   "bugs": {
-    "url": "https://github.com/aralejs/detector/issues"
+    "url": "https://github.com/hotoo/detector/issues"
   },
   "license": "MIT",
   "spm": {
