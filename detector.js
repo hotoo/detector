@@ -100,6 +100,7 @@ var DEVICES = [
   ["android", /\bandroid\b|\badr\b/],
   ["blackberry", "blackberry"]
 ];
+
 // 操作系统信息识别表达式
 var OS = [
   ["wp", function(ua){
@@ -144,11 +145,9 @@ var OS = [
   ["blackberry", "blackberry"]
 ];
 
-/*
- * 解析使用 Trident 内核的浏览器的 `浏览器模式` 和 `文档模式` 信息。
- * @param {String} ua, userAgent string.
- * @return {Object}
- */
+// 解析使用 Trident 内核的浏览器的 `浏览器模式` 和 `文档模式` 信息。
+// @param {String} ua, userAgent string.
+// @return {Object}
 function IEMode(ua){
   if(!re_msie.test(ua)){return null;}
 
@@ -190,11 +189,10 @@ function IEMode(ua){
     compatible: engineVersion !== engineMode
   };
 }
-/**
- * 针对同源的 TheWorld 和 360 的 external 对象进行检测。
- * @param {String} key, 关键字，用于检测浏览器的安装路径中出现的关键字。
- * @return {Undefined,Boolean,Object} 返回 undefined 或 false 表示检测未命中。
- */
+
+// 针对同源的 TheWorld 和 360 的 external 对象进行检测。
+// @param {String} key, 关键字，用于检测浏览器的安装路径中出现的关键字。
+// @return {Undefined,Boolean,Object} 返回 undefined 或 false 表示检测未命中。
 function checkTW360External(key){
   if(!external){return;} // return undefined.
   try{
@@ -346,13 +344,11 @@ var BROWSER = [
   ["nokia", /\bnokiabrowser\/([0-9.]+)/]
 ];
 
-/**
- * UserAgent Detector.
- * @param {String} ua, userAgent.
- * @param {Object} expression
- * @return {Object}
- *    返回 null 表示当前表达式未匹配成功。
- */
+// UserAgent Detector.
+// @param {String} ua, userAgent.
+// @param {Object} expression
+// @return {Object}
+//    返回 null 表示当前表达式未匹配成功。
 function detect(name, expression, ua){
   var expr = isFunction(expression) ? expression.call(null, ua) : expression;
   if(!expr){return null;}
@@ -400,11 +396,9 @@ function init(ua, patterns, factory, detector){
   factory.call(detector, detected.name, detected.version);
 }
 
-/**
- * 解析 UserAgent 字符串
- * @param {String} ua, userAgent string.
- * @return {Object}
- */
+// 解析 UserAgent 字符串
+// @param {String} ua, userAgent string.
+// @return {Object}
 var parse = function(ua){
   ua = (ua || "").toLowerCase();
   var d = {};
