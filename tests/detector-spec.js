@@ -882,6 +882,21 @@ var UAs = [
     os: "ios/7.1.1",
     browser: "maxthon/4.3.1.2000;4.3.1.2000;o",
     engine: "webkit/537.51.2;537.51.2;o"
+  }],
+  // UC桌面浏览器
+  ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 UBrowser/2.0.1288.1 Safari/537.36",
+  {
+    device: "pc/-1",
+    os: "windows/6.1",
+    browser: "uc/2.0.1288.1;2.0.1288.1;o",
+    engine: "webkit/537.36;537.36;o"
+  }],
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-CN; MI 3W Build/KVT49L) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 UCBrowser/9.9.2.467 U3/0.8.0 Mobile Safari/533.1",
+  {
+    device: "mi/3w",
+    os: "android/4.4.2",
+    browser: "uc/9.9.2.467;9.9.2.467;o",
+    engine: "webkit/533.1;533.1;o"
   }]
 ];
 

@@ -316,11 +316,13 @@ var BROWSER = [
   ["ali-tm", /\baliapp\(tm\/([0-9.]+)\)/],
   // 天猫平板客户端
   ["ali-tm-pd", /\baliapp\(tm-pd\/([0-9.]+)\)/],
-  ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
   // UC 浏览器，可能会被识别为 Android 浏览器，规则需要前置。
+  // UC 桌面版浏览器携带 Chrome 信息，需要放在 Chrome 之前。
   ["uc", function(ua){
     if(ua.indexOf("ucbrowser/") >= 0){
       return /\bucbrowser\/([0-9.]+)/;
+    } else if(ua.indexOf("ubrowser/") >= 0){
+      return /\bubrowser\/([0-9.]+)/;
     }else if(/\buc\/[0-9]/.test(ua)){
       return /\buc\/([0-9.]+)/;
     }else if(ua.indexOf("ucweb") >= 0){
@@ -331,6 +333,7 @@ var BROWSER = [
       return /\b(?:ucbrowser|uc)\b/;
     }
   }],
+  ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
   // Android 默认浏览器。该规则需要在 safari 之前。
   ["android", function(ua){
     if(ua.indexOf("android") === -1){return;}
