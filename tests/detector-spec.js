@@ -897,6 +897,13 @@ var UAs = [
     os: "android/4.4.2",
     browser: "uc/9.9.2.467;9.9.2.467;o",
     engine: "webkit/533.1;533.1;o"
+  }],
+  ["Mozilla/5.0 (iPad; CPU OS 7_1_2 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) BaiduHD/2.6.2 Mobile/10A406 Safari/8536.25",
+  {
+    device: "ipad/-1",
+    os: "ios/7.1.2",
+    browser: "baidu/2.6.2;2.6.2;o",
+    engine: "webkit/534.46;534.46;o"
   }]
 ];
 

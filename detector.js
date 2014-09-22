@@ -282,7 +282,7 @@ var BROWSER = [
   ["coolnovo", /\bcoolnovo\/([0-9.]+)/],
   ["saayaa", "saayaa"],
   // 有基于 Chromniun 的急速模式和基于 IE 的兼容模式。必须在 IE 的规则之前。
-  ["baidu", /\bba?idubrowser[ \/]([0-9.x]+)/],
+  ["baidu", /\b(?:ba?idubrowser|baiduhd)[ \/]([0-9.x]+)/],
   // 后面会做修复版本号，这里只要能识别是 IE 即可。
   ["ie", re_msie],
   ["mi", /\bmiuibrowser\/([0-9.]+)/],
