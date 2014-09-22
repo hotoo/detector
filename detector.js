@@ -1,7 +1,7 @@
 
 var detector = {};
 var NA_VERSION = "-1";
-var window = this;
+var win = this;
 var external;
 var re_msie = /\b(?:msie |ie |trident\/[0-9].*rv[ :])([0-9.]+)/;
 
@@ -202,7 +202,7 @@ function checkTW360External(key){
     // 360SE 3.x ~ 5.x support.
     // 暴露的 external.twGetVersion 和 external.twGetSecurityID 均为 undefined。
     // 因此只能用 try/catch 而无法使用特性判断。
-    var security = external.twGetSecurityID(window);
+    var security = external.twGetSecurityID(win);
     var version = external.twGetVersion(security);
 
     if(runpath && runpath.indexOf(key) === -1){return false;}
@@ -485,10 +485,10 @@ if(typeof process === "object" && process.toString() === "[object process]"){
   //var platform = navigator.platform || "";
   var appVersion = navigator.appVersion || "";
   var vendor = navigator.vendor || "";
-  external = window.external;
+  external = win.external;
 
   detector = parse(userAgent + " " + appVersion + " " + vendor);
-  window.detector = detector;
+  win.detector = detector;
 
 }
 
