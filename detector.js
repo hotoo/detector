@@ -1,7 +1,7 @@
 
 var detector = {};
 var NA_VERSION = "-1";
-var window = this;
+var win = this;
 var external;
 var re_msie = /\b(?:msie |ie |trident\/[0-9].*rv[ :])([0-9.]+)/;
 
@@ -54,7 +54,7 @@ var DEVICES = [
   ["ipod", "ipod"],
   ["iphone", /\biphone\b|\biph(\d)/],
   ["mac", "macintosh"],
-  ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build))/],
+  ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build|\)))/],
   ["aliyun", /\baliyunos\b(?:[\-](\d+))?/],
   ["meizu", /\b(?:meizu\/|m)([0-9]+)\b/],
   ["nexus", /\bnexus ([0-9s.]+)/],
@@ -100,6 +100,7 @@ var DEVICES = [
   ["android", /\bandroid\b|\badr\b/],
   ["blackberry", "blackberry"]
 ];
+
 // 操作系统信息识别表达式
 var OS = [
   ["wp", function(ua){
@@ -144,11 +145,9 @@ var OS = [
   ["blackberry", "blackberry"]
 ];
 
-/*
- * 解析使用 Trident 内核的浏览器的 `浏览器模式` 和 `文档模式` 信息。
- * @param {String} ua, userAgent string.
- * @return {Object}
- */
+// 解析使用 Trident 内核的浏览器的 `浏览器模式` 和 `文档模式` 信息。
+// @param {String} ua, userAgent string.
+// @return {Object}
 function IEMode(ua){
   if(!re_msie.test(ua)){return null;}
 
@@ -190,11 +189,10 @@ function IEMode(ua){
     compatible: engineVersion !== engineMode
   };
 }
-/**
- * 针对同源的 TheWorld 和 360 的 external 对象进行检测。
- * @param {String} key, 关键字，用于检测浏览器的安装路径中出现的关键字。
- * @return {Undefined,Boolean,Object} 返回 undefined 或 false 表示检测未命中。
- */
+
+// 针对同源的 TheWorld 和 360 的 external 对象进行检测。
+// @param {String} key, 关键字，用于检测浏览器的安装路径中出现的关键字。
+// @return {Undefined,Boolean,Object} 返回 undefined 或 false 表示检测未命中。
 function checkTW360External(key){
   if(!external){return;} // return undefined.
   try{
@@ -204,7 +202,7 @@ function checkTW360External(key){
     // 360SE 3.x ~ 5.x support.
     // 暴露的 external.twGetVersion 和 external.twGetSecurityID 均为 undefined。
     // 因此只能用 try/catch 而无法使用特性判断。
-    var security = external.twGetSecurityID(window);
+    var security = external.twGetSecurityID(win);
     var version = external.twGetVersion(security);
 
     if(runpath && runpath.indexOf(key) === -1){return false;}
@@ -225,12 +223,19 @@ var ENGINE = [
 ];
 var BROWSER = [
   // Sogou.
-  ["sg", / se ([0-9.x]+)/],
+  ["sogou", function(ua){
+    if (ua.indexOf("sogoumobilebrowser") >= 0) {
+      return /sogoumobilebrowser\/([0-9.]+)/
+    } else if (ua.indexOf("sogoumse") >= 0){
+      return true;
+    }
+    return / se ([0-9.x]+)/;
+  }],
   // TheWorld (世界之窗)
-  // 由于裙带关系，TW API 与 360 高度重合。
+  // 由于裙带关系，TheWorld API 与 360 高度重合。
   // 只能通过 UA 和程序安装路径中的应用程序名来区分。
   // TheWorld 的 UA 比 360 更靠谱，所有将 TheWorld 的规则放置到 360 之前。
-  ["tw", function(ua){
+  ["theworld", function(ua){
     var x = checkTW360External("theworld");
     if(typeof x !== "undefined"){return x;}
     return "theworld";
@@ -245,7 +250,7 @@ var BROWSER = [
     return /\b360(?:se|ee|chrome|browser)\b/;
   }],
   // Maxthon
-  ["mx", function(ua){
+  ["maxthon", function(ua){
     try{
       if(external && (external.mxVersion || external.max_version)){
         return {
@@ -253,12 +258,15 @@ var BROWSER = [
         };
       }
     }catch(ex){}
-    return /\bmaxthon(?:[ \/]([0-9.]+))?/;
+    return /\b(?:maxthon|mxbrowser)(?:[ \/]([0-9.]+))?/;
   }],
   ["qq", /\bm?qqbrowser\/([0-9.]+)/],
   ["green", "greenbrowser"],
   ["tt", /\btencenttraveler ([0-9.]+)/],
-  ["lb", function(ua){
+  ["liebao", function(ua){
+    if (ua.indexOf("liebaofast") >= 0){
+      return /\bliebaofast\/([0-9.]+)/;
+    }
     if(ua.indexOf("lbbrowser") === -1){return false;}
     var version;
     try{
@@ -271,10 +279,10 @@ var BROWSER = [
     };
   }],
   ["tao", /\btaobrowser\/([0-9.]+)/],
-  ["fs", /\bcoolnovo\/([0-9.]+)/],
-  ["sy", "saayaa"],
+  ["coolnovo", /\bcoolnovo\/([0-9.]+)/],
+  ["saayaa", "saayaa"],
   // 有基于 Chromniun 的急速模式和基于 IE 的兼容模式。必须在 IE 的规则之前。
-  ["baidu", /\bbidubrowser[ \/]([0-9.x]+)/],
+  ["baidu", /\b(?:ba?idubrowser|baiduhd)[ \/]([0-9.x]+)/],
   // 后面会做修复版本号，这里只要能识别是 IE 即可。
   ["ie", re_msie],
   ["mi", /\bmiuibrowser\/([0-9.]+)/],
@@ -284,6 +292,7 @@ var BROWSER = [
     var re_opera_new = /\bopr\/([0-9.]+)/;
     return re_opera_old.test(ua) ? re_opera_old : re_opera_new;
   }],
+  ["oupeng", /\boupeng\/([0-9.]+)/],
   ["yandex", /yabrowser\/([0-9.]+)/],
   // 支付宝手机客户端
   ["ali-ap", function(ua){
@@ -305,11 +314,13 @@ var BROWSER = [
   ["ali-tm", /\baliapp\(tm\/([0-9.]+)\)/],
   // 天猫平板客户端
   ["ali-tm-pd", /\baliapp\(tm-pd\/([0-9.]+)\)/],
-  ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
   // UC 浏览器，可能会被识别为 Android 浏览器，规则需要前置。
+  // UC 桌面版浏览器携带 Chrome 信息，需要放在 Chrome 之前。
   ["uc", function(ua){
     if(ua.indexOf("ucbrowser/") >= 0){
       return /\bucbrowser\/([0-9.]+)/;
+    } else if(ua.indexOf("ubrowser/") >= 0){
+      return /\bubrowser\/([0-9.]+)/;
     }else if(/\buc\/[0-9]/.test(ua)){
       return /\buc\/([0-9.]+)/;
     }else if(ua.indexOf("ucweb") >= 0){
@@ -320,6 +331,7 @@ var BROWSER = [
       return /\b(?:ucbrowser|uc)\b/;
     }
   }],
+  ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
   // Android 默认浏览器。该规则需要在 safari 之前。
   ["android", function(ua){
     if(ua.indexOf("android") === -1){return;}
@@ -332,13 +344,11 @@ var BROWSER = [
   ["nokia", /\bnokiabrowser\/([0-9.]+)/]
 ];
 
-/**
- * UserAgent Detector.
- * @param {String} ua, userAgent.
- * @param {Object} expression
- * @return {Object}
- *    返回 null 表示当前表达式未匹配成功。
- */
+// UserAgent Detector.
+// @param {String} ua, userAgent.
+// @param {Object} expression
+// @return {Object}
+//    返回 null 表示当前表达式未匹配成功。
 function detect(name, expression, ua){
   var expr = isFunction(expression) ? expression.call(null, ua) : expression;
   if(!expr){return null;}
@@ -386,11 +396,9 @@ function init(ua, patterns, factory, detector){
   factory.call(detector, detected.name, detected.version);
 }
 
-/**
- * 解析 UserAgent 字符串
- * @param {String} ua, userAgent string.
- * @return {Object}
- */
+// 解析 UserAgent 字符串
+// @param {String} ua, userAgent string.
+// @return {Object}
 var parse = function(ua){
   ua = (ua || "").toLowerCase();
   var d = {};
@@ -477,10 +485,10 @@ if(typeof process === "object" && process.toString() === "[object process]"){
   //var platform = navigator.platform || "";
   var appVersion = navigator.appVersion || "";
   var vendor = navigator.vendor || "";
-  external = window.external;
+  external = win.external;
 
   detector = parse(userAgent + " " + appVersion + " " + vendor);
-  window.detector = detector;
+  win.detector = detector;
 
 }
 

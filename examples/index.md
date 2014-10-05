@@ -31,7 +31,7 @@
     return s;
   }
 
-  seajs.use("../detector", function(detector){
+  seajs.use(["jquery", "../detector"], function($, detector){
 
     var OS_ALIAS = {
       // Windows.
@@ -129,7 +129,12 @@
       }catch(ex){window.console && console.log("2. "+k+":"+ex.message);}
     }
 
-    document.getElementById("ua").innerHTML = a.join("<br />");
+    var detector_version = $("p.sidebar-version > a").text();
+
+    document.getElementById("ua").innerHTML =
+      "detector 版本：" + detector_version + "<br /><br/>" +
+      a.join("<br />");
+
     document.getElementById("email").setAttribute("href",
       "mailto:hotoo.cn@gmail.com?subject=" +
         encodeURIComponent("Detector 识别信息") +
@@ -139,7 +144,10 @@
         "> 注：只需要修改识别错误的部分即可。\n\n"+
         detectedInfo.join("\n")+
         "\n\n=========================\n"+
-        "自动识别的原始信息如下（请勿修改）：\n"+a.join("\n")));
+        "自动识别的原始信息如下（请勿修改）：\n\n" +
+        "detector 版本：" + detector_version + "\n\n" +
+        a.join("\n")
+      ));
 
     document.getElementById("issues").href = "https://github.com/aralejs/detector/issues/new" +
         "?title=detector%20识别信息"+
@@ -151,6 +159,7 @@
             "\n"+
             "\n=========================\n"+
             "自动识别的原始信息如下（请勿修改）：\n\n"+
+            "detector 版本：" + detector_version + "\n\n" +
             detectedInfo.join("\n")+
             "\n\n"+
             a.join("\n")

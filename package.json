@@ -1,6 +1,6 @@
 {
   "name": "detector",
-  "version": "2.0.1",
+  "version": "2.1.1",
   "description": "客户端信息识别模块",
   "homepage": "http://spmjs.io/docs/detector/",
   "author": "冒顿 <hotoo.cn@gmail.com>",
@@ -17,10 +17,10 @@
   "keywords": ["utility", "userAgent"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/aralejs/detector.git"
+    "url": "https://github.com/hotoo/detector.git"
   },
   "bugs": {
-    "url": "https://github.com/aralejs/detector/issues"
+    "url": "https://github.com/hotoo/detector/issues"
   },
   "license": "MIT",
   "spm": {
