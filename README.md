@@ -2,7 +2,7 @@
 
 ---
 
-**这是暗影行者项目专用的，不定期更新**，推荐使用：http://spmjs.io/docs/detector/
+**这是stalker项目专用的，不定期更新**，推荐使用：http://spmjs.io/docs/detector/
 
 
 客户端信息识别模块，用于自动识别用户使用的客户端环境。包括：
