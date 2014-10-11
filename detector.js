@@ -238,7 +238,7 @@ var BROWSER = [
           version: back
         };
       }
-      return
+      return false;
   }],
   // Sogou.
   ["sogou", function(ua){
