@@ -222,6 +222,24 @@ var ENGINE = [
   ["u3", /\bu3\/([0-9.]+)/]
 ];
 var BROWSER = [
+  //手机百度
+  ['baidusearch', function(ua){
+      var back = 0;
+      var a;
+      if(/ baiduboxapp\//i.test(ua)){
+        if (a = /([\d+.]+)_(?:diordna|enohpi)_/.exec(ua)) {
+          a = a[1].split('.');
+          back = a.reverse().join('.');
+        } else if (a = /baiduboxapp\/([\d+.]+)/.exec(ua)) {
+          back = a[1];
+        }
+
+        return {
+          version: back
+        };
+      }
+      return
+  }],
   // Sogou.
   ["sogou", function(ua){
     if (ua.indexOf("sogoumobilebrowser") >= 0) {
