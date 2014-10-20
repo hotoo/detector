@@ -60,7 +60,7 @@ var DEVICES = [
   ],
   ['海信', /\bhs[ \-]+([a-z0-9]+)/],
   ["金立", /\b(?:gn|gionee)[ \-_]?([a-z0-9]+)[ \/]+/],
-  ['锤子',/\b(sm701) build/],
+  ['锤子', /\b(sm701) build/],
   ["pc", "windows"],
   ["ipad", "ipad"],
   // ipod 规则应置于 iphone 之前。
@@ -137,8 +137,15 @@ var DEVICES = [
     }
   ],
   ["konka", /\bkonka[_\-]([a-z0-9]+)/],
-  ["sony", /\b(lt26ii)/],
-  ["sonyericsson", /\bmt([a-z0-9]+)/],
+  ["sony",
+    function(ua) {
+      if (/\b(lt26ii)/.test(ua)) {
+        return /\b(lt26ii)/;
+      } else if (/\bmt([a-z0-9]+)/.test(ua)) {
+        return /\bmt([a-z0-9]+)/;
+      }
+    }
+  ],
   ["coolpad", /\bcoolpad[_ ]?([a-z0-9]+)/],
   ["lg", /\blg[\-]([a-z0-9]+)/],
   ["android", /\bandroid\b|\badr\b/],
