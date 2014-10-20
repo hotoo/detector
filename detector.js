@@ -45,10 +45,8 @@ var DEVICES = [
     function(ua) {
       if (ua.indexOf("samsung") !== -1) {
         return /\bsamsung(?:\-gt)?[ \-]([a-z0-9\-]+)/;
-      } else if (ua.indexOf('gm-') !== -1 || ua.indexOf('sm-') !== -1) {
-        return /(?:gm|sm)-([a-z0-9\-]+)/;
       } else {
-        return /\b(?:gt|sch)[ \-]([a-z0-9\-]+)/;
+        return /\b(?:gt|sch|gm|sm)[ \-]([a-z0-9\-]+)/;
       }
     }
   ],
@@ -60,7 +58,8 @@ var DEVICES = [
         ua.indexOf("windows ce") !== -1;
     }
   ],
-  ["金立", /(?:gn|gionee)[ \-_]?([a-z0-9]+)[ \/]+/],
+  ['海信', /\bhs[ \-]+([a-z0-9]+)/],
+  ["金立", /\b(?:gn|gionee)[ \-_]?([a-z0-9]+)[ \/]+/],
   ["pc", "windows"],
   ["ipad", "ipad"],
   // ipod 规则应置于 iphone 之前。
@@ -118,26 +117,26 @@ var DEVICES = [
   ['天语',
     function(ua) {
       if (ua.indexOf('k-touch ') !== -1) {
-        return /k\-touch ([a-z0-9 ]+)(?:build|\))/
+        return /\bk\-touch ([a-z0-9 ]+)(?:build|\))/
       } else if (ua.indexOf('k-touch_') !== -1) {
-        return /k-touch_(a-z0-9)+/;
+        return /\bk-touch_(a-z0-9)+/;
       }
       return;
     }
   ],
-  ['doov', /doov[ _]([a-z0-9]+)/],
+  ['doov', /\bdoov[ _]([a-z0-9]+)/],
   ["oppo",
     function(ua) {
       if (/\boppo[_]([a-z0-9]+)/.test(ua)) {
         return /\boppo[_]([a-z0-9]+)/;
       }
-      if (/([xru]\d{3,4}[ts]?)/i.test(ua)) {
-        return /([xru]\d{3,4}[ts]?)/i;
+      if (/\b([xru]\d{3,4}[ts]?)/i.test(ua)) {
+        return /\b([xru]\d{3,4}[ts]?)/i;
       }
     }
   ],
   ["konka", /\bkonka[_\-]([a-z0-9]+)/],
-  ["sony", /(lt26ii)/],
+  ["sony", /\b(lt26ii)/],
   ["sonyericsson", /\bmt([a-z0-9]+)/],
   ["coolpad", /\bcoolpad[_ ]?([a-z0-9]+)/],
   ["lg", /\blg[\-]([a-z0-9]+)/],
