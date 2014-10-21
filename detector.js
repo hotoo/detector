@@ -46,10 +46,11 @@ var DEVICES = [
       if (ua.indexOf("samsung") !== -1) {
         return /\bsamsung(?:\-gt)?[ \-]([a-z0-9\-]+)/;
       } else {
-        return /\b(?:gt|sch|gm|sm)[ \-]([a-z0-9\-]+)/;
+        return /\b(?:gt|sch|gm|sm|shv|sph)[ \-]([a-z0-9\-]+)/;
       }
     }
   ],
+  ['asuv', /\basus_(a-z0-9)+\b/],
   ["wp",
     function(ua) {
       return ua.indexOf("windows phone ") !== -1 ||
@@ -58,9 +59,7 @@ var DEVICES = [
         ua.indexOf("windows ce") !== -1;
     }
   ],
-  ['海信', /\bhs[ \-]+([a-z0-9]+)/],
-  ["金立", /\b(?:gn|gionee)[ \-_]?([a-z0-9]+)[ \/]+/],
-  ['锤子', /\b(sm701) build/],
+
   ["pc", "windows"],
   ["ipad", "ipad"],
   // ipod 规则应置于 iphone 之前。
@@ -70,7 +69,7 @@ var DEVICES = [
   ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build|\)))/],
   ['红米', /\bhm[ \-]?([a-z0-9]+)/],
   ["aliyun", /\baliyunos\b(?:[\-](\d+))?/],
-  ["meizu", /\b(?:meizu\/|m|MX)([0-9]+)\b/i],
+  ["meizu", /\b(?:meizu\/|m|mx)([0-9]+)\b/i],
   ["nexus", /\bnexus ([0-9s.]+)/],
   ["huawei",
     function(ua) {
@@ -79,6 +78,10 @@ var DEVICES = [
         return /\bhuawei\-huawei\-([a-z0-9\-]+)/;
       } else if (re_mediapad.test(ua)) {
         return re_mediapad;
+      } else if (/\bhonor/.test(ua)) {
+        return /\b(honor)[ ]([a-z0-9]+)-([a-z0-9]+)\b/;
+      } else if (/\bh\d+-l\d+/.test(ua)) {
+        return /\b(h\d+-l\d+)/;
       } else {
         return /\bhuawei[ _\-]?([a-z0-9]+)/;
       }
@@ -93,16 +96,55 @@ var DEVICES = [
       }
     }
   ],
+
   // 中兴
   ["zte",
     function(ua) {
       if (/\bzte\-[tu]/.test(ua)) {
         return /\bzte-[tu][ _\-]?([a-su-z0-9\+]+)/;
+      } else if (/\bn909\b/.test(ua)) {
+        return /\b(n909)\b/;
       } else {
         return /\bzte[ _\-]?([a-su-z0-9\+]+)/;
       }
     }
   ],
+  //杂牌手机
+  ['haier', /\bhaier_([a-z0-9\-]+)\b/],
+  ['优米', /\bumi[\-]?([a-z0-9]+)/],
+  ['嘉源', /\bcayon ([a-z0-9]+)/],
+  ['海派', /\bhaipai ([a-z0-9 ]+) build/],
+  ['moto', / (xt390) build/],
+  ['神州', /\bhasee ([a-z0-9 ]+) build\b/],
+  ['海信', /\bhs[ \-]+([a-z0-9]+)/],
+  ["金立",
+    function(ua) {
+      if (/\b(?:gn|gionee)[ \-_]?([a-z0-9]+)[ \/]+/.test(ua)) {
+        return /\b(?:gn|gionee)[ \-_]?([a-z0-9]+)[ \/]+/;
+      } else if (/; a5 build/.test(ua)) {
+        return /; (a5) build/;
+      } else if (/; e6 build/.test(ua)) {
+        return /; (e6) build/;
+      }
+    }
+  ],
+  ["konka", /\bkonka[_\-]([a-z0-9]+)/],
+  ["eton", /\beton ([a-z0-9]+)/],
+  ['小杨树', /; (mm1101) build/],
+  ['语信',
+    function(ua) {
+      if (/\byusun ([a-z0-9]+)/.test(ua)) {
+        return /\byusun ([a-z0-9]+)/;
+      } else if (/\bla\d-([a-z0-9]+) build/.test(ua)) {
+        return /\b(la\d-([a-z0-9]+)) build/;
+      }
+    }
+  ],
+  ['邦华', /\bboway ([a-z0-9]+)/],
+  ['iusai', /\biusai ([a-z0-9]+)/],
+  ['德赛', /\bdesay ([a-z0-9]+)/],
+  ['蓝魔', /\bramos([a-z0-9]+)/],
+  ['锤子', /; (sm701) build/],
   // 步步高
   ["vivo", /\bvivo(?: ([a-z0-9]+))?/],
   ['TCL', /\btcl ([a-z0-9]+)/],
@@ -118,36 +160,48 @@ var DEVICES = [
   ['天语',
     function(ua) {
       if (ua.indexOf('k-touch ') !== -1) {
-        return /\bk\-touch ([a-z0-9 ]+)(?:build|\))/
+        return /\bk\-touch ([a-z0-9 +]+)(?:build|\))/
       } else if (ua.indexOf('k-touch_') !== -1) {
         return /\bk-touch_(a-z0-9)+/;
       }
       return;
     }
   ],
-  ['doov', /\bdoov[ _]([a-z0-9]+)/],
-  ["oppo",
-    function(ua) {
-      if (/\boppo[_]([a-z0-9]+)/.test(ua)) {
-        return /\boppo[_]([a-z0-9]+)/;
-      }
-      if (/\b([xru]\d{3,4}[ts]?)/i.test(ua)) {
-        return /\b([xru]\d{3,4}[ts]?)/i;
-      }
-    }
-  ],
-  ["konka", /\bkonka[_\-]([a-z0-9]+)/],
+
+
   ["sony",
     function(ua) {
-      if (/\b(lt26ii)/.test(ua)) {
-        return /\b(lt26ii)/;
+      if (/\b(lt\d{2}[i]{1,2}|[s|l]\d{2}h)/.test(ua)) {
+        return /\b(lt\d{2}[i]{1,2}|[s|l]\d{2}h)/;
       } else if (/\bmt([a-z0-9]+)/.test(ua)) {
         return /\bmt([a-z0-9]+)/;
       }
     }
   ],
-  ["coolpad", /\bcoolpad[_ ]?([a-z0-9]+)/],
+  ["coolpad",
+    function(ua) {
+      if (/\bcoolpad[_ ]?([a-z0-9]+)/.test(ua)) {
+        return /\bcoolpad[_ ]?([a-z0-9]+)/;
+      } else if (/ (5910) build/.test(ua)) {
+        return / (5910) build/;
+      }
+    }
+  ],
   ["lg", /\blg[\-]([a-z0-9]+)/],
+  ['doov', /\bdoov[ _]([a-z0-9]+)/],
+  ["oppo",
+    function(ua) {
+      if (/\boppo[_]([a-z0-9]+)/.test(ua)) {
+        return /\boppo[_]([a-z0-9]+)/;
+      } else if (/\b([xrun]{1}\d{1,4}[ts]?) build/i.test(ua)) {
+        return /\b([xrun]{1}\d{1,4}[ts]?)\b/i;
+      } else if (/\br\d\sbuild\b/.test(ua)) {
+        return /\b(r\d)\sbuild\b/
+      }else if(/ t29 build/.test(ua)){
+        return / (t29) build/;
+      }
+    }
+  ],
   ["android", /\bandroid\b|\badr\b/],
   ["blackberry", "blackberry"]
 ];
