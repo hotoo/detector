@@ -118,9 +118,21 @@ var DEVICES = [
   ['优米', /\bumi[\-]?([a-z0-9]+)/],
   ['嘉源', /\bcayon ([a-z0-9]+)/],
   ['海派', /\bhaipai ([a-z0-9 ]+) build/],
-  ['moto', / (xt390) build/],
+  ['moto', function(ua){
+    if(/\bmot[\-]([a-z0-9]+)/.test(ua)){
+      return /\bmot[\-]([a-z0-9]+)/;
+    }else if(/ (xt390) build/.test(ua)){
+      return / (xt390) build/;
+    }
+  }],
   ['神州', /\bhasee ([a-z0-9 ]+) build\b/],
-  ['海信', /\bhs[ \-]+([a-z0-9]+)/],
+  ['海信', function(ua){
+    if(/\bhs[ \-]+([a-z0-9]+)/.test(ua)){
+      return /\bhs[ \-]+([a-z0-9]+)/;
+    }else if(/ e601m build/){
+      return / (e601m) build/;
+    }
+  }],
   ["金立",
     function(ua) {
       if (/\b(?:gn|gionee)[ \-_]?([a-z0-9]+)[ \/]+/.test(ua)) {
@@ -145,15 +157,18 @@ var DEVICES = [
     }
   ],
   ['邦华', /\bboway ([a-z0-9]+)/],
+  ['博瑞', /\bbror ([a-z0-9]+)/],
   ['iusai', /\biusai ([a-z0-9]+)/],
+  ['bird', /\bbird ([a-z0-9]+)/],
   ['德赛', /\bdesay ([a-z0-9]+)/],
   ['蓝魔', /\bramos([a-z0-9]+)/],
   ['opsson', /\bopsson ([a-z0-9]+)/],
   ['benwee', /\bbenwee ([a-z0-9]+)/],
+  ['hosin', /\bhosin ([a-z0-9]+)/],
   ['锤子', /; (sm701) build/],
   // 步步高
   ["vivo", /\bvivo(?: ([a-z0-9]+))?/],
-  ['TCL', /\btcl ([a-z0-9]+)/],
+  ['TCL', /\btcl[ \-]([a-z0-9]+)/],
   ["htc",
     function(ua) {
       if (/\bhtc[a-z0-9 _\-]+(?= build\b)/.test(ua)) {
@@ -177,10 +192,12 @@ var DEVICES = [
 
   ["sony",
     function(ua) {
-      if (/\b(lt\d{2}[i]{1,2}|[s|l]\d{2}h)/.test(ua)) {
-        return /\b(lt\d{2}[i]{1,2}|[s|l]\d{2}h)/;
+      if (/\b([l|s]t\d{2}[i]{1,2}|[s|l]\d{2}h|m\d{2}c) build/.test(ua)) {
+        return /\b([l|s]t\d{2}[i]{1,2}|[s|l]\d{2}h|m\d{2}c)/;
       } else if (/\bmt([a-z0-9]+)/.test(ua)) {
         return /\bmt([a-z0-9]+)/;
+      }else if(/ l\d{2}t build/.test(ua)){
+        return / (l\d{2}t) build/;
       }
     }
   ],
@@ -208,6 +225,7 @@ var DEVICES = [
       }
     }
   ],
+  ['天时达',/\bts(\d+)/],
   ["android", /\bandroid\b|\badr\b/],
   ["blackberry", "blackberry"]
 ];
