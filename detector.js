@@ -46,11 +46,11 @@ var DEVICES = [
       if (ua.indexOf("samsung") !== -1) {
         return /\bsamsung(?:\-gt)?[ \-]([a-z0-9\-]+)/;
       } else {
-        return /\b(?:gt|sch|gm|sm|shv|sph)[ \-]([a-z0-9\-]+)/;
+        return /\b(?:gt|sch|gm|sm|shv|sph|galaxy)[ \-]([a-z0-9\-]+)/;
       }
     }
   ],
-  ['asuv', /\basus_(a-z0-9)+\b/],
+
   ["wp",
     function(ua) {
       return ua.indexOf("windows phone ") !== -1 ||
@@ -91,6 +91,8 @@ var DEVICES = [
     function(ua) {
       if (ua.indexOf("lenovo-lenovo") !== -1) {
         return /\blenovo\-lenovo[ \-]([a-z0-9]+)/;
+      }else if(ua.indexOf("lephone") !== -1){
+        return /\b(lephone)[_\- ]+([a-z0-9]+)/;
       } else {
         return /\blenovo[ \-]?([a-z0-9]+)/;
       }
@@ -110,6 +112,8 @@ var DEVICES = [
     }
   ],
   //杂牌手机
+  ['asuv', /\basus_(a-z0-9)+\b/],
+  ['alcatel', /\balcatel /],
   ['haier', /\bhaier_([a-z0-9\-]+)\b/],
   ['优米', /\bumi[\-]?([a-z0-9]+)/],
   ['嘉源', /\bcayon ([a-z0-9]+)/],
@@ -144,6 +148,8 @@ var DEVICES = [
   ['iusai', /\biusai ([a-z0-9]+)/],
   ['德赛', /\bdesay ([a-z0-9]+)/],
   ['蓝魔', /\bramos([a-z0-9]+)/],
+  ['opsson', /\bopsson ([a-z0-9]+)/],
+  ['benwee', /\bbenwee ([a-z0-9]+)/],
   ['锤子', /; (sm701) build/],
   // 步步高
   ["vivo", /\bvivo(?: ([a-z0-9]+))?/],
