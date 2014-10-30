@@ -212,12 +212,14 @@ var DEVICES = [
   ['天迈', /\bt\-smart ([a-z0-9]+)/],
   ['大显', /\bht7100/],
   ['博瑞', /\bbror ([a-z0-9]+)/],
-  ['lingwin', function(ua){
-    if(/\blingwin ([a-z0-9]+)/.test(ua)){
-      return /\blingwin ([a-z0-9]+)/;
+  ['lingwin',
+    function(ua) {
+      if (/\blingwin ([a-z0-9]+)/.test(ua)) {
+        return /\blingwin ([a-z0-9]+)/;
+      }
+      return /lingwin /;
     }
-    return /lingwin /;
-  }],
+  ],
   ['iusai', /\biusai ([a-z0-9]+)/],
   ['波导',
     function(ua) {
@@ -338,13 +340,15 @@ var DEVICES = [
       }
     }
   ],
-  ['天时达', function(ua){
-    if(/\bts(\d+)/.test(ua)){
-      return /\bts(\d+)/;
-    }else if(/\b(t5688) /.test(ua)){
-      return /\b(t5688) /;
+  ['天时达',
+    function(ua) {
+      if (/\bts(\d+)/.test(ua)) {
+        return /\bts(\d+)/;
+      } else if (/\b(t5688) /.test(ua)) {
+        return /\b(t5688) /;
+      }
     }
-  }],
+  ],
   ["android", /\bandroid\b|\badr\b/],
   ["blackberry", "blackberry"]
 ];
@@ -718,72 +722,75 @@ function init(ua, patterns, factory, detector) {
 // 解析 UserAgent 字符串
 // @param {String} ua, userAgent string.
 // @return {Object}
-var parse = function(ua) {
+var parse = function(ua, types) {
   ua = (ua || "").toLowerCase();
   var d = {};
+  types = types || ['device', 'os', 'engine', 'browser'];
 
-  init(ua, DEVICES, function(name, version) {
-    var v = parseFloat(version);
-    d.device = {
-      name: name,
-      version: v,
-      fullVersion: version
-    };
-    d.device[name] = v;
-  }, d);
+  if (types.indexOf('device') !== -1) {
+    init(ua, DEVICES, function(name, version) {
+      var v = parseFloat(version);
+      d.os = {
+        name: name,
+        version: v,
+        fullVersion: version
+      };
+    }, d);
+  }
 
-  init(ua, OS, function(name, version) {
-    var v = parseFloat(version);
-    d.os = {
-      name: name,
-      version: v,
-      fullVersion: version
-    };
-    d.os[name] = v;
-  }, d);
+  if (types.indexOf('os') !== -1) {
+    init(ua, OS, function(name, version) {
+      var v = parseFloat(version);
+      d.os = {
+        name: name,
+        version: v,
+        fullVersion: version
+      };
+    }, d);
+  }
+  if (types.indexOf('engine') !== -1) {
+    var ieCore = IEMode(ua);
 
-  var ieCore = IEMode(ua);
-
-  init(ua, ENGINE, function(name, version) {
-    var mode = version;
-    // IE 内核的浏览器，修复版本号及兼容模式。
-    if (ieCore) {
-      version = ieCore.engineVersion || ieCore.engineMode;
-      mode = ieCore.engineMode;
-    }
-    var v = parseFloat(version);
-    d.engine = {
-      name: name,
-      version: v,
-      fullVersion: version,
-      mode: parseFloat(mode),
-      fullMode: mode,
-      compatible: ieCore ? ieCore.compatible : false
-    };
-    d.engine[name] = v;
-  }, d);
-
-  init(ua, BROWSER, function(name, version) {
-    var mode = version;
-    // IE 内核的浏览器，修复浏览器版本及兼容模式。
-    if (ieCore) {
-      // 仅修改 IE 浏览器的版本，其他 IE 内核的版本不修改。
-      if (name === "ie") {
-        version = ieCore.browserVersion;
+    init(ua, ENGINE, function(name, version) {
+      var mode = version;
+      // IE 内核的浏览器，修复版本号及兼容模式。
+      if (ieCore) {
+        version = ieCore.engineVersion || ieCore.engineMode;
+        mode = ieCore.engineMode;
       }
-      mode = ieCore.browserMode;
-    }
-    var v = parseFloat(version);
-    d.browser = {
-      name: name,
-      version: v,
-      fullVersion: version,
-      mode: parseFloat(mode),
-      fullMode: mode,
-      compatible: ieCore ? ieCore.compatible : false
-    };
-    d.browser[name] = v;
-  }, d);
+      var v = parseFloat(version);
+      d.engine = {
+        name: name,
+        version: v,
+        fullVersion: version,
+        mode: parseFloat(mode),
+        fullMode: mode,
+        compatible: ieCore ? ieCore.compatible : false
+      };
+    }, d);
+  }
+  if (types.indexOf('browser') !== -1) {
+    init(ua, BROWSER, function(name, version) {
+      var mode = version;
+      // IE 内核的浏览器，修复浏览器版本及兼容模式。
+      if (ieCore) {
+        // 仅修改 IE 浏览器的版本，其他 IE 内核的版本不修改。
+        if (name === "ie") {
+          version = ieCore.browserVersion;
+        }
+        mode = ieCore.browserMode;
+      }
+      var v = parseFloat(version);
+      d.browser = {
+        name: name,
+        version: v,
+        fullVersion: version,
+        mode: parseFloat(mode),
+        fullMode: mode,
+        compatible: ieCore ? ieCore.compatible : false
+      };
+    }, d);
+  }
   return d;
 };
 
