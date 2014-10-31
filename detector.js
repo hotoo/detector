@@ -730,7 +730,7 @@ var parse = function(ua, types) {
   if (types.indexOf('device') !== -1) {
     init(ua, DEVICES, function(name, version) {
       var v = parseFloat(version);
-      d.os = {
+      d.device = {
         name: name,
         version: v,
         fullVersion: version
