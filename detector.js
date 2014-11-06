@@ -349,6 +349,7 @@ var DEVICES = [
       }
     }
   ],
+  ['other', /zh\-cn; ([a-z0-9\_\-\s]+) build\//],
   ["android", /\bandroid\b|\badr\b/],
   ["blackberry", "blackberry"]
 ];
@@ -730,6 +731,11 @@ var parse = function(ua, types) {
   if (types.indexOf('device') !== -1) {
     init(ua, DEVICES, function(name, version) {
       var v = parseFloat(version);
+      if (name === 'other' && version.indexOf(' ') !== -1) {
+        name = version.split(/\s+/);
+        version = name[1] || '';
+        name = name[0];
+      }
       d.device = {
         name: name,
         version: v,
