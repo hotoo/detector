@@ -3,6 +3,16 @@ var expect = require("expect.js");
 var detector = require('../detector');
 
 var UAs = [
+  //OPPO
+  ['Mozilla/5.0 (Linux; U; Android 4.2.2; zh-cn; R831T Build/JDQ39) AppleWebKit/534.24 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.24 T5/2.0 baiduboxapp/5.5 (Baidu; P1 4.2.2)',
+  {
+    device:'oppo/R831T',
+    os:"android/4.2.2",
+    browser:"baidusearch/5.5",
+    engine:"webkit/534.24"
+  }
+  ],
+
   // Windows Blue
   ["Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko", {
     device: "pc/-1",
@@ -875,6 +885,8 @@ var UAs = [
     browser: "baidu/5.2.3.0;5.2.3.0;o",
     engine: "webkit/534.24;534.24;o"
   }],
+
+
   //小米3 遨游
   ["Mozilla/5.0 (iPad; CPU OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D201 Safari/9537.53 MxBrowser/4.3.1.2000",
   {
@@ -907,8 +919,8 @@ var UAs = [
   }]
 ];
 
-describe("detector", function() {
-
+describe("detector", function(it) {
+  console.log(it);
   var nav, ua, info, detect;
   for(var i=0,l=UAs.length; i<l; i++){
     nav = UAs[i][0];

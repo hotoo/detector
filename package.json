@@ -1,11 +1,12 @@
 {
-  "name": "detector",
-  "version": "2.1.1",
+  "name": "stalker-detector",
+  "version": "2.1.4",
   "description": "客户端信息识别模块",
-  "homepage": "http://spmjs.io/docs/detector/",
-  "author": "冒顿 <hotoo.cn@gmail.com>",
+  "homepage": "https://github.com/ksky521/detector",
+  "author": "三水清",
   "maintainers": [
-    "冒顿 <hotoo.cn@gmail.com>"
+    "冒顿 <hotoo.cn@gmail.com>",
+    "三水清 <ksky521@gmail.com>"
   ],
   "main": "detector.js",
   "bin": {
