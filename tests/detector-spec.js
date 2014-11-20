@@ -904,6 +904,38 @@ var UAs = [
     os: "ios/7.1.2",
     browser: "baidu/2.6.2;2.6.2;o",
     engine: "webkit/534.46;534.46;o"
+  }],
+
+  // Blackberry
+  ["Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+",
+  {
+    device: "blackberry/-1",
+    os: "blackberry/10.1.0.4633",
+    browser: "blackberry/10.1.0.4633;10.1.0.4633;o",
+    engine: "webkit/537.10+;537.10+;o"
+  }],
+  ["Mozilla/5.0 (BlackBerry; U; BlackBerry 9810; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.912 Mobile Safari/534.11+",
+  {
+    device: "blackberry/9810",
+    os: "blackberry/7.1.0.912",
+    browser: "blackberry/7.1.0.912;7.1.0.912;o",
+    engine: "webkit/534.11+;534.11+;o"
+  }],
+  ["BlackBerry9000/5.0.0.93 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/179",
+  {
+    device: "blackberry/9000",
+    os: "blackberry/5.0.0.93",
+    browser: "blackberry/5.0.0.93;5.0.0.93;o",
+    engine: "na/-1;-1;o"
+  }],
+
+  // NA
+  ["",
+  {
+    device: "na/-1",
+    os: "na/-1",
+    browser: "na/-1;-1;o",
+    engine: "na/-1;-1;o"
   }]
 ];
 

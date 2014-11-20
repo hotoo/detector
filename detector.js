@@ -4,6 +4,9 @@ var NA_VERSION = "-1";
 var win = this;
 var external;
 var re_msie = /\b(?:msie |ie |trident\/[0-9].*rv[ :])([0-9.]+)/;
+var re_blackberry_10 = /\bbb10\b.+?\bversion\/([\d.]+)/;
+var re_blackberry_6_7 = /\bblackberry\b.+\bversion\/([\d.]+)/;
+var re_blackberry_4_5 = /\bblackberry\d+\/([\d.]+)/;
 
 function toString(object){
   return Object.prototype.toString.call(object);
@@ -98,7 +101,12 @@ var DEVICES = [
   ["coolpad", /\bcoolpad[_ ]?([a-z0-9]+)/],
   ["lg", /\blg[\-]([a-z0-9]+)/],
   ["android", /\bandroid\b|\badr\b/],
-  ["blackberry", "blackberry"]
+  ["blackberry", function(ua){
+    if (ua.indexOf("blackberry") >= 0) {
+      return /\bblackberry\s?(\d+)/;
+    }
+    return "bb10";
+  }]
 ];
 
 // 操作系统信息识别表达式
@@ -142,7 +150,12 @@ var OS = [
   ["linux", "linux"],
   ["windowsce", /\bwindows ce(?: ([0-9.]+))?/],
   ["symbian", /\bsymbian(?:os)?\/([0-9.]+)/],
-  ["blackberry", "blackberry"]
+  ["blackberry", function(ua){
+    var m = ua.match(re_blackberry_10) ||
+      ua.match(re_blackberry_6_7) ||
+      ua.match(re_blackberry_4_5);
+    return m ? {version: m[1]} : "blackberry";
+  }]
 ];
 
 // 解析使用 Trident 内核的浏览器的 `浏览器模式` 和 `文档模式` 信息。
@@ -336,6 +349,12 @@ var BROWSER = [
   ["android", function(ua){
     if(ua.indexOf("android") === -1){return;}
     return /\bversion\/([0-9.]+(?: beta)?)/;
+  }],
+  ["blackberry", function(ua){
+    var m = ua.match(re_blackberry_10) ||
+      ua.match(re_blackberry_6_7) ||
+      ua.match(re_blackberry_4_5);
+    return m ? {version: m[1]} : "blackberry";
   }],
   ["safari", /\bversion\/([0-9.]+(?: beta)?)(?: mobile(?:\/[a-z0-9]+)?)? safari\//],
   // 如果不能被识别为 Safari，则猜测是 WebView。
