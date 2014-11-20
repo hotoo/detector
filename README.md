@@ -182,7 +182,7 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 * `wp`: Windows Phone.
 * `windowsce`: Windows CE, 包括 Windows Mobile, Smartphone, PPC.
 * `symbian`: Symbian OS.
-* `blackberry`: Blackberry.
+* `blackberry`: Blackberry 操作系统。
 * `yunos`: 阿里云系统。
 * `meego`: Meego. `NODE ONLY`
 
@@ -242,6 +242,7 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `mi`: 小米浏览器。
 * `baidu`: 百度浏览器。
 * `nokia`: 诺基亚浏览器。
+* `blackberry`: 黑莓默认浏览器，版本号与系统版本相同。
 * `webview`: iOS 系统的提供的 WebView。
 * `yandex`: Yandex YaBrowser.
 * `ali-ap`: 支付宝手机客户端。
