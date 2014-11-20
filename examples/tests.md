@@ -3,6 +3,10 @@
 
 ----
 
+<style>
+table,th,td{border: 1px solid #ccc;}
+</style>
+
 ## 输入
 
 请将 userAgent 字符串粘贴到下面的输入框中，每行一个 userAgent 字符串。
