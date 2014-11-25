@@ -7,7 +7,7 @@
 <pre id="detector"></pre>
 
 * 如果上面识别的信息不正确，<a id="issues"
-  href="https://github.com/aralejs/detector/issues/new"
+  href="https://github.com/hotoo/detector/issues/new"
   target="_blank"><strong>请给我们提 Issues 反馈</strong></a>。
 * 如果没有 Github 账户，请向我们 <a id="email" href="mailto:hotoo.cn@gmail.com"
   target="_blank"><strong>发送 Email</strong></a>。
@@ -149,7 +149,7 @@
         a.join("\n")
       ));
 
-    document.getElementById("issues").href = "https://github.com/aralejs/detector/issues/new" +
+    document.getElementById("issues").href = "https://github.com/hotoo/detector/issues/new" +
         "?title=detector%20识别信息"+
         "&body=" +
           encodeURIComponent(
