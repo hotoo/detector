@@ -145,7 +145,7 @@ var UAs = [
     device: "mac/-1",
     os: "macosx/10.8",
     browser: "firefox/19.0;19.0;o",
-    engine: "gecko/20100101;20100101;o"
+    engine: "gecko/19.0.20100101;19.0.20100101;o"
   }],
   // Macintosh Opera.
   ["Opera/9.80 (Macintosh; Intel Mac OS X 10.8.3) Presto/2.12.388 Version/12.15", {
@@ -614,7 +614,7 @@ var UAs = [
     device: "wp/-1",
     os: "windowsce/5.1",
     browser: "na/-1;-1;o",
-    engine: "gecko/20060610;20060610;o"
+    engine: "gecko/1.8.1a3.20060610;1.8.1a3.20060610;o"
   }],
   ["Mozilla/4.0 (compatible; MSIE 4.01; Windows CE; 176x220)", {
     device: "wp/-1",

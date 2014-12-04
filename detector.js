@@ -227,7 +227,14 @@ var ENGINE = [
   ["trident", re_msie],
   //["blink", /blink\/([0-9.+]+)/],
   ["webkit", /\bapplewebkit[\/]?([0-9.+]+)/],
-  ["gecko", /\bgecko\/(\d+)/],
+  ["gecko", function(ua){
+    var match;
+    if (match = ua.match(/\brv:([\d\w.]+).*\bgecko\/(\d+)/)) {
+      return {
+        version: match[1] + "." + match[2]
+      }
+    }
+  }],
   ["presto", /\bpresto\/([0-9.]+)/],
   ["androidwebkit", /\bandroidwebkit\/([0-9.]+)/],
   ["coolpadwebkit", /\bcoolpadwebkit\/([0-9.]+)/],
