@@ -30,7 +30,8 @@ module.exports = {
         }
       }
     ],
-    ['HIKe', /\bhike[_\- ]([a-z0-9]+)\b/],
+    // HIKe
+    ['hike', /\bhike[_\- ]([a-z0-9]+)\b/],
     ['qmi', /\bqmi build/],
     ['友信达', /\bq7 build/],
     ['优米', /\bumi[\-]?([a-z0-9]+)/],
@@ -89,7 +90,8 @@ module.exports = {
     ['爱讯达', /\bik build/],
     ['寰宇通', /\bxy\-a3/],
     ['mofut', /\bmofut ([a-z0-9]+) build/],
-    ['InFocus', /\binfocus ([a-z0-9]+) build/],
+    // InFocus
+    ['infocus', /\binfocus ([a-z0-9]+) build/],
     ['大唐',
       function(ua) {
         if (/\b(i318)_t3 build/.test(ua)) {
@@ -157,7 +159,8 @@ module.exports = {
         }
       }
     ],
-    ['TCL',
+    // TCL
+    ['tcl',
       function(ua) {
         if (/\btcl[ \-]([a-z0-9]+)/.test(ua)) {
           return /\btcl[ \-]([a-z0-9]+)/;
