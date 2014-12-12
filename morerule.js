@@ -1,7 +1,17 @@
 module.exports = {
   DEVICES: [
     // [诺亚信](http://www.noain.com.cn/)
-    "noain": /\bnoain ([a-z0-9]+)/
+    ["noain", /\bnoain ([a-z0-9]+)/],
+    // TODO: [华为荣耀](http://www.honor.cn/)
+    ["huawei-honor", function(ua){
+      if (/\bhonor/.test(ua)) {
+        return /\b(honor)[ ]([a-z0-9]+)-([a-z0-9]+)\b/;
+      } else if (/\bh\d+-l\d+/.test(ua)) {
+        return /\b(h\d+-l\d+)/;
+      }
+    }],
+    // [乐Phone](http://www.lephonemall.com/)
+    ["lephone", /\blephone[_\- ]+([a-z0-9]+)/]
   ],
   OS: [
     ["meego", /\bmeego\b/]
