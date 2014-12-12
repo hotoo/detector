@@ -1,5 +1,8 @@
 module.exports = {
-  DEVICES: [],
+  DEVICES: [
+    // [诺亚信](http://www.noain.com.cn/)
+    "noain": /\bnoain ([a-z0-9]+)/
+  ],
   OS: [
     ["meego", /\bmeego\b/]
   ],

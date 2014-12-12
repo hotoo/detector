@@ -713,12 +713,6 @@ var UAs = [
     browser: "uc/8.8.2.274;8.8.2.274;o",
     engine: "webkit/534.31;534.31;o"
   }],
-  ["UCWEB/2.0 (Linux; U; Adr unknown; zh-CN; NOAIN A900) U2/1.0.0 UCBrowser/8.8.3.278 U2/1.0.0 Mobile", {
-    device: "nokia/a900",
-    os: "android/-1",
-    browser: "uc/8.8.3.278;8.8.3.278;o",
-    engine: "u2/1.0.0;1.0.0;o"
-  }],
   ["UCWEB/2.0 (Linux; U; Adr 2.3.5; zh-CN; F-03D) U2/1.0.0 UCBrowser/8.8.3.278 U2/1.0.0 Mobile", {
     device: "android/-1",
     os: "android/2.3.5",

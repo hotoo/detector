@@ -31,8 +31,6 @@ var DEVICES = [
     // 这种情况下会优先识别出 nokia/-1
     if(ua.indexOf("nokia ") !== -1){
       return /\bnokia ([0-9]+)?/;
-    }else if(ua.indexOf("noain") !== -1){
-      return /\bnoain ([a-z0-9]+)/;
     }else{
       return /\bnokia([a-z0-9]+)?/;
     }

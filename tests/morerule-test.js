@@ -11,6 +11,14 @@ var UAs = [
     engine: "webkit/534.13;534.13;o"
   }],
 
+  // [诺亚信](http://www.noain.com.cn/)
+  ["UCWEB/2.0 (Linux; U; Adr unknown; zh-CN; NOAIN A900) U2/1.0.0 UCBrowser/8.8.3.278 U2/1.0.0 Mobile", {
+    device: "nokia/a900",
+    os: "android/-1",
+    browser: "uc/8.8.3.278;8.8.3.278;o",
+    engine: "u2/1.0.0;1.0.0;o"
+  }],
+
   // Search Engine Bots.
   ["Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)", {
     device: "na/-1",
