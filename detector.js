@@ -225,7 +225,9 @@ function checkTW360External(key){
 
 var ENGINE = [
   ["trident", re_msie],
-  //["blink", /blink\/([0-9.+]+)/],
+  ["blink", function(ua){
+    return "chrome" in win && "CSS" in win && /\bapplewebkit[\/]?([0-9.+]+)/;
+  }],
   ["webkit", /\bapplewebkit[\/]?([0-9.+]+)/],
   ["gecko", function(ua){
     var match;
