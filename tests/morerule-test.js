@@ -11,6 +11,21 @@ var UAs = [
     engine: "webkit/534.13;534.13;o"
   }],
 
+  ["KONKA_V926_TD/1.0 Android/2.3.5 MocorDroid/SpreadTrum Release/3.22.2012 Browser/AppleWebKit5333.1 baiduboxapp/4.3 (Baidu; P1 2.3.5)", {
+    device: "konka/v926",
+    os: "android/2.3.5",
+    browser: "baiduboxapp/4.3;4.3;o",
+    engine: "webkit/5333.1;5333.1;o"
+  }],
+
+  // [诺亚信](http://www.noain.com.cn/)
+  ["UCWEB/2.0 (Linux; U; Adr unknown; zh-CN; NOAIN A900) U2/1.0.0 UCBrowser/8.8.3.278 U2/1.0.0 Mobile", {
+    device: "noain/a900",
+    os: "android/-1",
+    browser: "uc/8.8.3.278;8.8.3.278;o",
+    engine: "u2/1.0.0;1.0.0;o"
+  }],
+
   // Search Engine Bots.
   ["Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)", {
     device: "na/-1",

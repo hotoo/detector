@@ -31,8 +31,6 @@ var DEVICES = [
     // 这种情况下会优先识别出 nokia/-1
     if(ua.indexOf("nokia ") !== -1){
       return /\bnokia ([0-9]+)?/;
-    }else if(ua.indexOf("noain") !== -1){
-      return /\bnoain ([a-z0-9]+)/;
     }else{
       return /\bnokia([a-z0-9]+)?/;
     }
@@ -57,7 +55,10 @@ var DEVICES = [
   ["ipod", "ipod"],
   ["iphone", /\biphone\b|\biph(\d)/],
   ["mac", "macintosh"],
+  // 小米
   ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build|\)))/],
+  // 红米
+  ['hongmi', /\bhm[ \-]?([a-z0-9]+)/],
   ["aliyun", /\baliyunos\b(?:[\-](\d+))?/],
   ["meizu", /\b(?:meizu\/|m)([0-9]+)\b/],
   ["nexus", /\bnexus ([0-9s.]+)/],
