@@ -131,7 +131,8 @@ module.exports = {
     ['ephone', /ephone ([a-z0-9]+)/],
     ['佰事讯', /\b(wx9) build/],
     ['newman', /; newman ([a-z0-9]+) build/],
-    ['康佳',
+    // 康佳
+    ['konka',
       function(ua) {
         if (/ (l823) build/.test(ua)) {
           return / (l823) build/;
@@ -176,7 +177,8 @@ module.exports = {
         }
       }
     ],
-    ["sony",
+    // sony.
+    ["sonyericsson",
       function(ua) {
         if (/\b([l|s]t\d{2}[i]{1,2}|[s|l]\d{2}h|m\d{2}c) build/.test(ua)) {
           return /\b([l|s]t\d{2}[i]{1,2}|[s|l]\d{2}h|m\d{2}c)/;
