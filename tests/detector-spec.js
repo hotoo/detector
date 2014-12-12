@@ -582,13 +582,6 @@ var UAs = [
     browser: "webview/-1;-1;o",
     engine: "webkit/536.26;536.26;o"
   }],
-  // iPhone 5, 微信。
-  ["Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.40 (KHTML, like Gecko) Mobile/11A4372q MicroMessenger/4.5", {
-    device: "iphone/-1",
-    os: "ios/7.0",
-    browser: "webview/-1;-1;o",
-    engine: "webkit/537.40;537.40;o"
-  }],
   // Windows Phone, IE9
   ["Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Nokia 620)", {
     device: "nokia/620",
@@ -641,13 +634,6 @@ var UAs = [
     device: "mi/one plus",
     os: "android/4.0.1",
     // XXX: Android 默认浏览器怎么会是 Safari 浏览器？
-    browser: "android/4.0;4.0;o",
-    engine: "webkit/534.30;534.30;o"
-  }],
-  // 魅族
-  ["Mozilla/5.0 (Linux; U; Android 4.0.3; zh-cn; M030 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 MicroMessenger/4.2.191", {
-    device: "meizu/030",
-    os: "android/4.0.3",
     browser: "android/4.0;4.0;o",
     engine: "webkit/534.30;534.30;o"
   }],

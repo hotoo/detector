@@ -212,6 +212,7 @@ module.exports = {
     ["meego", /\bmeego\b/]
   ],
   BROWSER: [
+    ['micromessenger', /\bmicromessenger\/([\d.]+)/],
     ['baiduboxapp',
       function(ua) {
         var back = 0;
