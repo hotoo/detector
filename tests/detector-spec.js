@@ -693,12 +693,6 @@ var UAs = [
     browser: "na/-1;-1;o",
     engine: "webkit/534.30;534.30;o"
   }],
-  ["KONKA_V926_TD/1.0 Android/2.3.5 MocorDroid/SpreadTrum Release/3.22.2012 Browser/AppleWebKit5333.1 baiduboxapp/4.3 (Baidu; P1 2.3.5)", {
-    device: "konka/v926",
-    os: "android/2.3.5",
-    browser: "na/-1;-1;o",
-    engine: "webkit/5333.1;5333.1;o"
-  }],
   ["KONKA-V926/1.0 Linux/2.6.35.7 Android/2.3.5 Release/07.30.2012 Browser/AppleWebKit533.1 (KHTML%2C like Gecko) Mozilla/5.0 Mobile", {
     device: "konka/v926",
     os: "android/2.3.5",

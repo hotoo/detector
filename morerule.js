@@ -212,7 +212,7 @@ module.exports = {
     ["meego", /\bmeego\b/]
   ],
   BROWSER: [
-    ['baidusearch',
+    ['baiduboxapp',
       function(ua) {
         var back = 0;
         var a;
