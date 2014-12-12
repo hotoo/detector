@@ -212,6 +212,25 @@ module.exports = {
     ["meego", /\bmeego\b/]
   ],
   BROWSER: [
+    ['baidusearch',
+      function(ua) {
+        var back = 0;
+        var a;
+        if (/ baiduboxapp\//i.test(ua)) {
+          if (a = /([\d+.]+)_(?:diordna|enohpi)_/.exec(ua)) {
+            a = a[1].split('.');
+            back = a.reverse().join('.');
+          } else if (a = /baiduboxapp\/([\d+.]+)/.exec(ua)) {
+            back = a[1];
+          }
+
+          return {
+            version: back
+          };
+        }
+        return false;
+      }
+    ],
     ["googlebot", /\bgooglebot\/([0-9.]+)/],
     // 百度搜索引擎爬虫：无线、网页搜索
     // http://help.baidu.com/question?prod_en=master&class=498&id=1000550
