@@ -55,7 +55,10 @@ var DEVICES = [
   ["ipod", "ipod"],
   ["iphone", /\biphone\b|\biph(\d)/],
   ["mac", "macintosh"],
+  // 小米
   ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build|\)))/],
+  // 红米
+  ['hongmi', /\bhm[ \-]?([a-z0-9]+)/],
   ["aliyun", /\baliyunos\b(?:[\-](\d+))?/],
   ["meizu", /\b(?:meizu\/|m)([0-9]+)\b/],
   ["nexus", /\bnexus ([0-9s.]+)/],
