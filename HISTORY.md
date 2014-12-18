@@ -3,6 +3,34 @@
 
 ----
 
+## 2.2.0 (2014-12-18)
+
+* #15, Add `Blink` engine.
+* #64, Add 增加了大量的杂牌手机设备 (Node)
+* Fixed nokia rule.
+* #37, #43, Delete `window.detector` global variable.
+
+## 2.1.2 (2014-12-04)
+
+* Fixed BlackBerry device, os, and browser rule.
+* Fixed Gecko render engine version number.
+
+## 2.1.1 (2014-09-22)
+
+* Update `var window` to `var win` for jscoverage.
+* Fixed BaiduHD browser rule.
+
+## 2.1.0 (2014-09-17)
+
+* 由于 2.0.2 版修改了部分浏览器名称，可能会有不兼容影响，因此升级次版本号。
+
+## 2.0.2 (2014-09-17)
+
+* Add #59 欧朋浏览器(oupeng)
+* Fixed #56 sogou, liebao, maxthon, baidu 浏览器规则
+* Fixed #60 UC 浏览器规则，支持 UC 桌面版。
+* Update #58 修改 sg, mx, fs, sy 浏览器名称。
+
 ## 2.0.1 (2014-05-13)
 
 * 调整代码结构，层次更简单。
