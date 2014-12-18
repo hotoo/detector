@@ -152,7 +152,7 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 * `coolpad`: 酷派手机。
 * `lg`: LG 手机。
 
-### NODE ONLY
+##### NODE ONLY
 
 * `noain`: [诺亚信](http://www.noain.com.cn/)
 * `huawei-honor`: [华为荣耀](http://www.honor.cn/)
@@ -244,7 +244,10 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 * `symbian`: Symbian OS.
 * `blackberry`: Blackberry 操作系统。
 * `yunos`: 阿里云系统。
-* `meego`: Meego. `NODE ONLY`
+
+##### NODE ONLY
+
+* `meego`: Meego.
 
 
 ----
@@ -313,7 +316,7 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `ali-tm`: 天猫手机客户端。
 * `ali-tm-pd`: 天猫平板客户端。
 
-### NODE ONLY
+##### NODE ONLY
 
 * `googlebot`: [Googlebot](wiki/googlebot.md) 网络爬虫。
 * `baiduspider`: [Baiduspider](wiki/baiduspider.md) ，百度无线、网页搜索
