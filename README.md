@@ -296,10 +296,11 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 
 可以识别的渲染引擎为：
 
-* `trident`: Trident.
-* `webkit`: Webkit.
-* `gecko`: Gecko.
-* `presto`: Presto.
+* `trident`: Microsoft Trident.
+* `blink`: Google Blink.
+* `webkit`: Apple Webkit.
+* `gecko`: Mozilla Gecko.
+* `presto`: Opera Presto.
 * `androidwebkit`: Android Webkit.
 * `coolpadwebkit`: Coolpad Webkit.
 * `u2`: UC 浏览器渲染引擎 v2
