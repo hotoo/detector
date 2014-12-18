@@ -152,6 +152,66 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 * `coolpad`: 酷派手机。
 * `lg`: LG 手机。
 
+### NODE ONLY
+
+* `noain`: [诺亚信](http://www.noain.com.cn/)
+* `huawei-honor`: [华为荣耀](http://www.honor.cn/)
+* `lephone`: [乐Phone](http://www.lephonemall.com/)
+* `asus`: [华硕](https://www.asus.com.cn/Phones/)
+* `alcatel`
+* `一加`
+* `蓝米`
+* `E派`
+* `hike`
+* `qmi`
+* ~~`友信达`: [友信达](http://www.iunistar.com/)~~
+* `优米`
+* `嘉源`
+* `intki`
+* `星语`
+* `欧奇`
+* `海派`
+* `广信`: [广信](http://www.szkingsun.com/)
+* ~~`nibiru`: [nibiru](http://www.nbru.cn/)~~
+* `神州`
+* `青橙`
+* `海信`
+* `金立`
+* `eton`
+* `bohp`
+* `小杨树`
+* `语信`
+* `nubia`
+* `爱讯达`
+* `寰宇通`
+* `mofut`
+* `infocus`
+* `大唐`
+* `邦华`
+* `天迈`
+* `大显`
+* `博瑞`
+* `lingwin`
+* `iusai`
+* `波导`
+* `德赛`
+* `蓝魔`
+* `美图`
+* `opsson`
+* `benwee`
+* `hosin`
+* `锤子`
+* `ephone`
+* `佰事讯`
+* `newman`
+* `konka`
+* `haier`
+* `moto`
+* `tcl`
+* `天语`
+* `doov`
+* `天时达`
+
 
 ----
 

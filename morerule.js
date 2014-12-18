@@ -14,26 +14,13 @@ module.exports = {
     ["lephone", /\blephone[_\- ]+([a-z0-9]+)/],
     // [华硕](https://www.asus.com.cn/Phones/)
     ['asus', /\basus_([a-z0-9]+)\b/],
-    ['欧博信', /\b(a19)/],
-    ['埃立特', /\b(s588)/],
-    ['优思', /\b(t350)/],
-    ['华凌', /\b(v015c)/],
-    ['alcatel', /\balcatel /],
+    ['alcatel', /\balcatel\b/],
     ['一加', /\ba0001 build/],
     ['蓝米', /\blanmi[_\-]([a-z0-9]+)\b/],
-    ['E派',
-      function(ua) {
-        if (/\bebest[_\- ]([a-z0-9]+)\b/.test(ua)) {
-          return /\bebest[_\- ]([a-z0-9]+)\b/;
-        } else if (/t314803 build/.test(ua)) {
-          return /(t314803)/;
-        }
-      }
-    ],
+    ['E派', /\bebest[_\- ]([a-z0-9]+)\b/],
     // HIKe
     ['hike', /\bhike[_\- ]([a-z0-9]+)\b/],
     ['qmi', /\bqmi build/],
-    ['友信达', /\bq7 build/],
     ['优米', /\bumi[\-]?([a-z0-9]+)/],
     ['嘉源', /\bcayon ([a-z0-9]+)/],
     ['intki', /\bintki[_\- ]([a-z0-9]+)/],
@@ -48,7 +35,6 @@ module.exports = {
         return /\bkingsun[_\- ]([a-z0-9]+)\b/;
       }
     ],
-    ['nibiru', /\bh1 build/],
 
     ['神州', /\bhasee ([a-z0-9 ]+) build\b/],
     ['青橙', /\bgo ([a-z0-9\-]+) build\b/],
