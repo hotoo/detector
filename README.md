@@ -252,14 +252,25 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `ali-tb-pd`: 淘宝平板客户端。
 * `ali-tm`: 天猫手机客户端。
 * `ali-tm-pd`: 天猫平板客户端。
-* `googlebot`: [Googlebot](wiki/googlebot.md) 网络爬虫。`NODE ONLY`
-* `baiduspider`: [Baiduspider](wiki/baiduspider.md). `NODE ONLY`
-* `bingbot`: [Bingbot](wiki/bingbot.md) 网络爬虫。`NODE ONLY`
-* `msnbot`: [MSNBot](wiki/msnbot.md), `NODE ONLY`
-* `nuhkbot`: [Nuhkbot](wiki/nuhkbot.md), `NODE ONLY`
-* ~~`slurpbot`: Yahoo! [Slurp](wiki/slurpbot.md). `NODE ONLY`~~
-* `alexabot`: [Alexabot](wiki/alexabot.md). `NODE ONLY`
-* `curl`: curl. `NODE ONLY`
+
+### NODE ONLY
+
+* `googlebot`: [Googlebot](wiki/googlebot.md) 网络爬虫。
+* `baiduspider`: [Baiduspider](wiki/baiduspider.md) ，百度无线、网页搜索
+* `baiduspider-image`: 百度图片搜索
+* `baiduspider-video`: 百度视频搜索
+* `baiduspider-news`: 百度新闻搜索
+* `baiduspider-favo`: 百度收藏搜索
+* `baiduspider-cpro`: 百度联盟
+* `baiduspider-ads`: 百度商务搜索
+* `baiduboxapp`: 百度手机搜索客户端
+* `bingbot`: [Bingbot](wiki/bingbot.md) 网络爬虫。
+* `msnbot`: [MSNBot](wiki/msnbot.md)
+* `nuhkbot`: [Nuhkbot](wiki/nuhkbot.md)
+* `alexabot`: [Alexabot](wiki/alexabot.md).
+* `curl`: curl.
+* `micromessenger` 微信
+* ~~`slurpbot`: Yahoo! [Slurp](wiki/slurpbot.md)~~
 
 
 ### {Boolean} detector.browser.compatible
