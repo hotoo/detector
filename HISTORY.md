@@ -7,7 +7,7 @@
 
 * #15, Add `Blink` engine.
 * #64, Add 增加了大量的杂牌手机设备 (Node)
-* Fixed nokia rule.
+* Fixed `nokia` and some rules.
 * #37, #43, Delete `window.detector` global variable.
 
 ## 2.1.2 (2014-12-04)
