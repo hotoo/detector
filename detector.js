@@ -517,7 +517,6 @@ if(typeof process === "object" && process.toString() === "[object process]"){
   external = win.external;
 
   detector = parse(userAgent + " " + appVersion + " " + vendor);
-  win.detector = detector;
 
 }
 
