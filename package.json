@@ -14,7 +14,7 @@
   "scripts": {
     "test": "make test"
   },
-  "keywords": ["utility", "userAgent"],
+  "keywords": ["utility", "userAgent", "arale"],
   "repository": {
     "type": "git",
     "url": "https://github.com/hotoo/detector.git"
