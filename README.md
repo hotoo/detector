@@ -248,6 +248,7 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 ##### NODE ONLY
 
 * `meego`: Meego.
+* `smartisan`: 锤子, Smartisan.
 
 
 ----
