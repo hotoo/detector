@@ -123,6 +123,13 @@ var UAs = [
     os: "na/-1",
     browser: "curl/7.30.0;7.30.0;o",
     engine: "na/-1;-1;o"
+  }],
+
+  ["Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; Smartisan OS - 4.1.1 - API 16 - 720x1280 Build/JRO03S) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30", {
+    device: "smartisan/-1",
+    os: "smartisanos/4.1.1",
+    browser: "android/4.0;4.0;o",
+    engine: "webkit/534.30;534.30;o"
   }]
 ];
 

@@ -115,7 +115,7 @@ module.exports = {
     ['opsson', /\bopsson ([a-z0-9]+)/],
     ['benwee', /\bbenwee ([a-z0-9]+)/],
     ['hosin', /\bhosin ([a-z0-9]+)/],
-    ['锤子', /; (sm701) build/],
+    ['smartisan', /\bsmartisan\b/],
     ['ephone', /ephone ([a-z0-9]+)/],
     ['佰事讯', /\b(wx9) build/],
     ['newman', /; newman ([a-z0-9]+) build/],
@@ -195,6 +195,7 @@ module.exports = {
     ]
   ],
   OS: [
+    ['smartisanos', /\bsmartisan os \- ([\d.]+)/],
     ["meego", /\bmeego\b/]
   ],
   BROWSER: [

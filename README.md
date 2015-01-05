@@ -200,7 +200,7 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 * `opsson`
 * `benwee`
 * `hosin`
-* `锤子`
+* `smartisan`: [锤子](http://www.smartisan.com/), Smartisan.
 * `ephone`
 * `佰事讯`
 * `newman`
