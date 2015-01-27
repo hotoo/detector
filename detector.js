@@ -64,7 +64,7 @@ var DEVICES = [
     return ua.indexOf("meizu") >= 0 ?
       /\bmeizu[\/ ]([a-z0-9]+)\b/
       :
-      /\bm(\d{1,3})\b/
+      /\bm([0-9x]{1,3})\b/
   }],
   ["nexus", /\bnexus ([0-9s.]+)/],
   ["huawei", function(ua){

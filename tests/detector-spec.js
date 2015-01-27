@@ -661,6 +661,12 @@ var UAs = [
     browser: "android/4.0;4.0;o",
     engine: "webkit/533.1;533.1;o"
   }],
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; MX4 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36", {
+    device: "meizu/x4",
+    os: "android/4.4.2",
+    browser: "android/4.0;4.0;o",
+    engine: "webkit/537.36;537.36;o"
+  }],
   ["Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; MT15i Build/4.1.B.0.431) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
     device: "sonyericsson/15i",
     os: "android/4.0.4",
