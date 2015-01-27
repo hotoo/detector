@@ -649,6 +649,24 @@ var UAs = [
     browser: "uc/-1;-1;o",
     engine: "webkit/534.31;534.31;o"
   }],
+  ["Mozilla/5.0 (Linux; U; Android 4.2.1; zh-cn; M040 Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30", {
+    device: "meizu/040",
+    os: "android/4.2.1",
+    browser: "android/4.0;4.0;o",
+    engine: "webkit/534.30;534.30;o"
+  }],
+  ["Mozilla/5.0 (Linux; U; Android 4.0.3; zh-cn; M030 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safa ri/534.30 MicroMessenger/4.2.191", {
+    device: "meizu/030",
+    os: "android/4.0.3",
+    browser: "android/4.0;4.0;o",
+    engine: "webkit/534.30;534.30;o"
+  }],
+  ["Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; MEIZU MX Build/GRJ90) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobiile Safari/533.1", {
+    device: "meizu/mx",
+    os: "android/2.3.5",
+    browser: "android/4.0;4.0;o",
+    engine: "webkit/533.1;533.1;o"
+  }],
   ["Mozilla/5.0 (Linux; U; Android 4.0.4; zh-cn; MT15i Build/4.1.B.0.431) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
     device: "sonyericsson/15i",
     os: "android/4.0.4",

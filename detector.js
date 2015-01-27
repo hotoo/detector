@@ -60,7 +60,12 @@ var DEVICES = [
   // 红米
   ['hongmi', /\bhm[ \-]?([a-z0-9]+)/],
   ["aliyun", /\baliyunos\b(?:[\-](\d+))?/],
-  ["meizu", /\b(?:meizu\/|m)([0-9]+)\b/],
+  ["meizu", function(ua) {
+    return ua.indexOf("meizu") >= 0 ?
+      /\bmeizu[\/ ]([a-z0-9]+)\b/
+      :
+      /\bm(\d{1,3})\b/
+  }],
   ["nexus", /\bnexus ([0-9s.]+)/],
   ["huawei", function(ua){
     var re_mediapad = /\bmediapad (.+?)(?= build\/huaweimediapad\b)/;
