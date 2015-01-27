@@ -133,7 +133,7 @@ var UAs = [
   }]
 ];
 
-describe("detector", function() {
+describe("detector more rule", function() {
 
   var nav, ua, info, detect;
   for(var i=0,l=UAs.length; i<l; i++){
