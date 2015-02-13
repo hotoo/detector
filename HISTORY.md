@@ -3,6 +3,13 @@
 
 ----
 
+## 2.2.1 (2015-02-13)
+
+* Fixed #75, meizu device rule.
+* Fixed smartisan device and os rules.
+* Update blink engine test case, both available in blink engine and others.
+* Add arale keyword.
+
 ## 2.2.0 (2014-12-18)
 
 * #15, Add `Blink` engine.

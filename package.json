@@ -1,6 +1,6 @@
 {
   "name": "detector",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "客户端信息识别模块",
   "homepage": "http://spmjs.io/docs/detector/",
   "author": "冒顿 <hotoo.cn@gmail.com>",
