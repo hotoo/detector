@@ -595,7 +595,7 @@ var UAs = [
     engine: "trident/6.0;6.0;o"
   }],
   ["Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; SAMSUNG SGH-i917)", {
-    device: "samsung/sgh-i917",
+    device: "samsung/i917",
     os: "wp/7.5",
     browser: "ie/9.0;9.0;o",
     engine: "trident/5.0;5.0;o"
@@ -747,12 +747,6 @@ var UAs = [
     browser: "uc/-1;-1;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/534.31;534.31;o"
   }],
-  ["Mozilla/5.0 (Linux; U; Android 2.3.7; zh-cn; LG-P500 Build/GRI40) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
-    device: "lg/p500",
-    os: "android/2.3.7",
-    browser: "uc/-1;-1;o",
-    engine: (isBlinkEngine() ? "blink" : "webkit") + "/534.31;534.31;o"
-  }],
   [{
     "userAgent": "Mozilla/5.0 (Linux; U; Android 3.2; zh-cn; GT-P6800 Build/HTJ85B) UC AppleWebKit/534.31 (KHTML, like Gecko) Mobile Safari/534.31",
     "appVersion": "5.0 (Linux; U; Android 3.2; zh-cn; GT-P6800 Build/HTJ85B) UC AppleWebKit/534.31 (KHTML, like Gecko) Mobile Safari/534.31 UC/8.7.4.225",
@@ -761,6 +755,30 @@ var UAs = [
     device: "samsung/p6800",
     os: "android/3.2",
     browser: "uc/8.7.4.225;8.7.4.225;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/534.31;534.31;o"
+  }],
+  ["Mozilla/5.0 (Linux; U; Android 4.2.2; zh-cn; SM-T311 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30", {
+    device: "samsung/t311",
+    os: "android/4.2.2",
+    browser: "android/4.0;4.0;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/534.30;534.30;o"
+  }],
+  ["Mozilla/5.0 (Linux; Android 4.4.2; zh-cn; SAMSUNG-SM-N9009 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36", {
+    device: "samsung/n9009",
+    os: "android/4.4.2",
+    browser: "chrome/28.0.1500.94;28.0.1500.94;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.36;537.36;o"
+  }],
+  ["(Linux; Android 4.3; zh-cn; SAMSUNG SM-N9002 Build/JSS15J) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36", {
+    device: "samsung/n9002",
+    os: "android/4.3",
+    browser: "chrome/28.0.1500.94;28.0.1500.94;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.36;537.36;o"
+  }],
+  ["Mozilla/5.0 (Linux; U; Android 2.3.7; zh-cn; LG-P500 Build/GRI40) UC AppleWebKit/534.31 (KHTML%2C like Gecko) Mobile Safari/534.31", {
+    device: "lg/p500",
+    os: "android/2.3.7",
+    browser: "uc/-1;-1;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/534.31;534.31;o"
   }],
   [{

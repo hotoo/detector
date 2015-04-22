@@ -38,9 +38,9 @@ var DEVICES = [
   // 三星有 Android 和 WP 设备。
   ["samsung", function(ua){
     if(ua.indexOf("samsung") !== -1){
-      return /\bsamsung(?:\-gt)?[ \-]([a-z0-9\-]+)/;
+      return /\bsamsung(?:[ \-](?:sgh|gt|sm))?-([a-z0-9]+)/;
     }else{
-      return /\b(?:gt|sch)[ \-]([a-z0-9\-]+)/;
+      return /\b(?:sgh|sch|gt|sm)-([a-z0-9]+)/;
     }
   }],
   ["wp", function(ua){

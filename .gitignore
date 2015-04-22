@@ -25,3 +25,4 @@ sea-modules
 dist/
 npm-debug.log
 spm_modules/
+coverage/
