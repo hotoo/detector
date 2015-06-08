@@ -65,6 +65,8 @@ var OS_ALIAS = {
   "macosx/10.8": "Mac OS X Mountain Lion",
   "macosx/10.9": "Mac OS X Mavericks",
   "macosx/10.10": "Mac OS X Yosemite",
+  // iOS.
+  "ios/9.0": "iOS 9.0 (Monarch)",
   // Android.
   "android/1.5": "Android Cupcake",
   "android/1.6": "Android Doughnut",
