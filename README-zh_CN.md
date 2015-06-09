@@ -8,14 +8,15 @@
 [![Coverage Status](https://coveralls.io/repos/hotoo/detector/badge.png?branch=master)](https://coveralls.io/r/hotoo/detector)
 
 
-Client information detector, for auto detect user agent, include:
 
-1. Device.
-2. Operation System (OS).
-3. Browser.
-4. Rendering Engine.
+客户端信息识别模块，用于自动识别用户使用的客户端环境。包括：
 
-Detected information data structure like:
+1. 硬件设备。
+2. 操作系统。
+3. 浏览器。
+4. 浏览器渲染引擎。
+
+识别到的信息结构如下：
 
 ```javascript
 detector = {
@@ -52,58 +53,56 @@ detector = {
 }
 ```
 
-**Note**: Above `[iphone]`, `[ios]`, `[chrome]`, `[webkit]` is dynamically from
-actual environment, different device, operation system, browser and rendering
-engine is different.
+备注：上面的 `[iphone]`, `[ios]`, `[chrome]`, `[webkit]` 是动态的，根据实际识别
+到的信息不同而有所不同。
 
-Note:
+注：
 
-* This version of detector's code is follow CommonJS sepcification, and support
-  NodeJS and Web Browser environment at the same time.
-* Some times, you just need simple detect a litter information, please reference
-  to [#18](https://github.com/hotoo/detector/issues/18), without `detector`.
+* 这个版本遵循 CommonJS 规范，同时兼容基于 Node 环境和 Web 浏览器环境运行。
+* 有些场景只需要简单识别特定的信息，可以参考
+  [识别特定浏览器最佳实践](https://github.com/hotoo/detector/issues/18)
+  而无需使用 detector。
 
-## Installation
+## 安装
 
 via npm:
 
-Installation to global (with `-g` argument), you can use `detector` command in
-terminal.
+全局安装(`-g`)时，可以在终端使用 `detector` 命令。
 
 ```
 npm install detector [-g]
 ```
 
 
-via spm:
+via spm@3.x:
 
 ```
 spm install detector
 ```
 
 
-## Usage
+## 使用说明
 
-Some examples in common use:
+一般情况下，常见使用范例：
 
 ```javascript
-// Detect browser name.
+// 判断浏览器名
 detector.browser.name === "chrome" // true
 
-// An other example for detect browser name.
+// 判断浏览器名方法 2.
 !!detector.browser.ie // false
 
-// Detect the old browseres.
+// 判断老旧浏览器
 if(detector.browser.ie && detector.browser.version < 8){
-    alert("You browser is too old.");
+    alert("你的浏览器太老了。");
 }
 
-// Detect rendering engine below Trident 4 (IE8).
+// 判断 Trident 4(IE8) 以下版本浏览器引擎
 if(detector.engine.trident && detector.engine.mode < 4){
     // hack code.
 }
 
-// Collect client detail informations.
+// 收集客户端详细信息
 detector.browser.name + "/" + detector.browser.fullVersion;
 ```
 
@@ -112,21 +111,21 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 
 ### {String} detector.device.name
 
-Name of hardware device.
+设备名称。
 
 ### {Number} detector.device.version
 
-Version of hardware device.
+设备版本号。
 
 ### {String} detector.device.fullVersion
 
-Full version of hardware device.
+设备完整版本号。
 
 ### {Number} detector.device[device_name]
 
-Detect name of hardware device.
+直接判断设备名。
 
-Support hardware devices:
+可以识别的设备名称为：
 
 * `pc`: Windows PC.
 * `mac`: Macintosh PC.
@@ -134,37 +133,35 @@ Support hardware devices:
 * `ipad`: iPad.
 * `ipod`: iPod.
 * `android`: Android.
-* `blackberry`: Blackberry mobile.
+* `blackberry`: 黑莓(Blackberry)手机。
 * `wp`: Windows Phone.
-* `mi`: Xiaomi.
-* `meizu`: meizu.
+* `mi`: 小米。
+* `meizu`: 魅族。
 * `nexus`: Nexus.
 * `nokia`: Nokia.
-* `samsung`: samsung.
-* `aliyun`: Aliyun.
-* `huawei`: Huawei (华为)
-* `lenovo`: lenovo.
-* `zte`: ZTE Corporation (中兴)
-* `vivo`: vivo (步步高)
-* `htc`: HTC.
-* `oppo`: OPPO.
-* `konka`: konka (康佳)
-* `sonyericsson`: sonyericsson (索尼爱立信)
-* `coolpad`: coolpad (酷派)
-* `lg`: LG.
+* `samsung`: 三星手机。
+* `aliyun`: 阿里云手机。
+* `huawei`: 华为手机。
+* `lenovo`: 联想手机。
+* `zte`: 中兴手机。
+* `vivo`: 步步高手机。
+* `htc`: HTC。
+* `oppo`: OPPO 手机。
+* `konka`: 康佳手机。
+* `sonyericsson`: 索尼爱立信手机。
+* `coolpad`: 酷派手机。
+* `lg`: LG 手机。
 
 ##### NODE ONLY
 
-Following hardware device support in NodeJS version of `detector`:
-
 * `noain`: [诺亚信](http://www.noain.com.cn/)
 * `huawei-honor`: [华为荣耀](http://www.honor.cn/)
-* `lephone`: [乐 Phone](http://www.lephonemall.com/)
+* `lephone`: [乐Phone](http://www.lephonemall.com/)
 * `asus`: [华硕](https://www.asus.com.cn/Phones/)
 * `alcatel`
 * `一加`
 * `蓝米`
-* `E 派`
+* `E派`
 * `hike`
 * `qmi`
 * ~~`友信达`: [友信达](http://www.iunistar.com/)~~
@@ -220,21 +217,21 @@ Following hardware device support in NodeJS version of `detector`:
 
 ### {String} detector.os.name
 
-Name of operation system.
+操作系统名。
 
 ### {Number} detector.os.version
 
-Version of operation system.
+操作系统版本号。
 
 ### {String} detector.os.fullVersion
 
-Full version of operation system.
+操作系统完整版本号。
 
 ### {Number} detector.os[os_name]
 
-Detect name of operation system.
+直接判断操作系统。
 
-Support operation system list:
+可以识别的操作系统包括：
 
 * `windows`: Windows.
 * `macosx`: Macintosh.
@@ -243,80 +240,76 @@ Support operation system list:
 * `chromeos`: Chrome OS.
 * `linux`: Linux.
 * `wp`: Windows Phone.
-* `windowsce`: Windows CE, include Windows Mobile, Smartphone, PPC.
+* `windowsce`: Windows CE, 包括 Windows Mobile, Smartphone, PPC.
 * `symbian`: Symbian OS.
-* `blackberry`: Blackberry OS.
-* `yunos`: Aliyun OS.
+* `blackberry`: Blackberry 操作系统。
+* `yunos`: 阿里云系统。
 
 ##### NODE ONLY
 
-Following operation system support in NodeJS version of `detector`:
-
 * `meego`: Meego.
-* `smartisan`: Smartisan.
+* `smartisan`: 锤子, Smartisan.
 
 
 ----
 
 ### {String} detector.browser.name
 
-Name of browser.
+浏览器名。
 
 ### {Number} detector.browser.version
 
-Real version of browser.
+浏览器真实版本。兼容模式下浏览器声明自己是某老旧浏览器，但这个属性返回的是
+其真正的版本号。
 
-In compatibility-mode, Internet Explorer declare it is a old browser.
-but `detector.browser.version` return the real version of browser.
+适用于收集统计分析客户端信息。
 
-For example:
+例如：
 
-IE9 declare it is a IE7 in compatibility-mode, but `detector.browser.version`
-return `9.0`.
+IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `9.0`
 
 ### {String} detector.browser.fullVersion
 
-Full (real) version of browser.
+浏览器完整的真实版本号。
 
 ### {Number} detector.browser.mode
 
-Browser-mode. In Internet Explorer's compatibility-mode, version and mode
-is different.
+浏览器模式。即浏览器当时使用的模式，IE 兼容模式时，version 和 mode 值不同。
 
 ### {String} detector.browser.fullMode
 
-Full mode of browser.
+浏览器模式的完整版本号。
 
 ### {Number} detector.browser[browser_name]
 
-Detect name of browser.
+直接判断浏览器。
 
-Support browser list:
+可以识别的浏览器为：
 
 * `ie`: Microsoft Internet Explorer.
 * `chrome`: Google Chrome.
 * `firefox`: Mozilla Firefox.
 * `safari`: Apple Safari.
 * `opera`: Opera.
-* `360`: Qihu 360 browser.
-* `maxthon`: Maxthon.
-* `sogou`: Sogou.
-* `theworld`: TheWorld.
+* `360`: 包括奇虎 360 安全浏览器和 360 极速浏览器。
+* `maxthon`: 傲游浏览器(Maxthon)。
+* `sogou`: 搜狗浏览器(Sogou)。
+* `theworld`: 世界之窗浏览器(TheWorld)。
 * `green`: GreenBrowser.
-* `qq`: QQ Browser.
+* `qq`: QQ 浏览器。
 * `tt`: TencentTraveler.
-* `liebao`: Cheetah Mobile Inc. (猎豹) Browser.
-* `tao`: Taobao (淘宝) Browser.
-* `coolnovo`: coolnovo (枫树)
-* `saayaa`: Saayaa (闪游)
-* `uc`: UC Browser.
-* `mi`: Build-in browser in Xiaomi (小米).
-* `baidu`: Baidu (百度) browser.
-* `nokia`: Build-in Browser in Nokia (诺基亚)
+* `liebao`: 猎豹浏览器。
+* `tao`: 淘宝浏览器。
+* `coolnovo`: 枫树浏览器。
+* `saayaa`: 闪游浏览器。
+* `uc`: UC 浏览器。
+* `mi`: 小米浏览器。
+* `baidu`: 百度浏览器。
+* `nokia`: 诺基亚浏览器。
 * `blackberry`: 黑莓默认浏览器，版本号与系统版本相同。
-* `webview`: iOS WebView.
+* `webview`: iOS 系统的提供的 WebView。
 * `yandex`: Yandex YaBrowser.
-* `ali-ap`: 支付宝手机钱包。
+* `ali-ap`: 支付宝手机客户端。
 * `ali-ap-pd`: 支付宝平板客户端。
 * `ali-am`: 支付宝商户客户端。
 * `ali-tb`: 淘宝手机客户端。
@@ -326,7 +319,7 @@ Support browser list:
 
 ##### NODE ONLY
 
-* `googlebot`: [Googlebot](wiki/googlebot.md)
+* `googlebot`: [Googlebot](wiki/googlebot.md) 网络爬虫。
 * `baiduspider`: [Baiduspider](wiki/baiduspider.md) ，百度无线、网页搜索
 * `baiduspider-image`: 百度图片搜索
 * `baiduspider-video`: 百度视频搜索
@@ -340,43 +333,43 @@ Support browser list:
 * `nuhkbot`: [Nuhkbot](wiki/nuhkbot.md)
 * `alexabot`: [Alexabot](wiki/alexabot.md).
 * `curl`: curl.
-* `micromessenger` WeChat (微信)
+* `micromessenger` 微信
 * ~~`slurpbot`: Yahoo! [Slurp](wiki/slurpbot.md)~~
 
 
 ### {Boolean} detector.browser.compatible
 
-Judge is browser in compatibility-mode.
+浏览器是否处于兼容模式。
 
 
 ----
 
 ### {String} detector.engine.name
 
-Name of rendering engine.
+渲染引擎名（又称排版引擎、浏览器内核）。
 
 ### {Number} detector.engine.version
 
-Version of rendering engine.
+渲染引擎版本号。
 
 ### {String} detector.engine.fullVersion
 
-Full version of rendering engine.
+渲染引擎完整版本号。
 
 ### {Number} detector.engine.mode
 
-Mode of rendering engine.
+渲染引擎模式，即 IE 浏览器的文档模式。
 
 ### {String} detector.engine.fullMode
 
-Full-mode of rendering engine.
+渲染引擎模式完整版本号。
 
 
 ### {Number} detector.engine[engine_name]
 
-Detect name of rendering engine.
+直接判断渲染引擎。
 
-Support rendering engine list:
+可以识别的渲染引擎为：
 
 * `trident`: Microsoft Trident.
 * `blink`: Google Blink.
@@ -385,17 +378,20 @@ Support rendering engine list:
 * `presto`: Opera Presto.
 * `androidwebkit`: Android Webkit.
 * `coolpadwebkit`: Coolpad Webkit.
-* `u2`: UC browser rendering engine `v2`.
-* `u3`: UC browser rendering engine `v3`.
+* `u2`: UC 浏览器渲染引擎 v2
+* `u3`: UC 浏览器渲染引擎 v3
 
 ### {detector} detector.parse(String ua)
 
-Parse user agent string, return a `detector` object.
+根据 userAgent 字符串识别客户端信息的接口。
+
+服务端程序可以使用这个接口识别客户端信息，由于服务端程序的特殊性，可以补充
+更完善的检测规则。
 
 
 ----
 
-Not Available information:
+对于不能识别的信息，统一如下：
 
-* Not Available name will be `na`.
-* Not Available version will be `-1`.
+* 所有不能识别的名称均归类为 `na`，即 Not Available.
+* 所有不能识别的版本号归类为 `-1`。
