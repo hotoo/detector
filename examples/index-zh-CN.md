@@ -1,20 +1,17 @@
-# Example
+# 演示文档
 
 ---
 
-You're using:
+您正在使用：
 
 <pre id="detector-info"></pre>
 
-* If detected information incorrect, <a id="issues"
+* 如果上面识别的信息不正确，<a id="issues"
   href="https://github.com/hotoo/detector/issues/new"
-  target="_blank"><strong>Please put new issue for feedback</strong></a>.
-* If you without Github account, <a id="email" href="mailto:hotoo.cn@gmail.com"
-  target="_blank"><strong>Please send Email to us</strong></a>.
-* if click Email link can'nt send Email, Please copy this page's information,
-  and send email to `hotoo.cn@gmail.com`.
-
-Thank you!
+  target="_blank"><strong>请给我们提 Issues 反馈</strong></a>。
+* 如果没有 Github 账户，请向我们 <a id="email" href="mailto:hotoo.cn@gmail.com"
+  target="_blank"><strong>发送 Email</strong></a>。
+* 如果点击链接无法发送 Email，请拷贝这个页面的内容手工发送 Email 给 `hotoo.cn@gmail.com`。
 
 <pre id="ua"></pre>
 
@@ -89,13 +86,13 @@ var OS_ALIAS = {
 };
 
 var detectedInfo = [];
-detectedInfo.push("* Hardware Device: "+detector.device.name+" "+detector.device.fullVersion);
+detectedInfo.push("* 硬件设备："+detector.device.name+" "+detector.device.fullVersion);
 var osAlias = OS_ALIAS[detector.os.name+"/"+(detector.os.fullVersion.split(".").slice(0,2).join("."))] || "N/A";
-detectedInfo.push("* Operation System: "+detector.os.name+" "+detector.os.fullVersion + " ("+osAlias+")");
-detectedInfo.push("* Browser："+detector.browser.name+" "+detector.browser.fullVersion+
-    (detector.browser.compatible ? "(" + String(detector.browser.fullMode) + " compatible）" : ""));
-detectedInfo.push("* Rendering Engine: " + detector.engine.name + " " + detector.engine.fullVersion +
-    (detector.engine.compatible ? "(" + String(detector.engine.fullMode) + " compatible）" : ""));
+detectedInfo.push("* 操作系统："+detector.os.name+" "+detector.os.fullVersion + " ("+osAlias+")");
+detectedInfo.push("* 浏览器："+detector.browser.name+" "+detector.browser.fullVersion+
+    (detector.browser.compatible ? "(" + String(detector.browser.fullMode) + " 兼容模式）" : ""));
+detectedInfo.push("* 渲染引擎：" + detector.engine.name + " " + detector.engine.fullVersion +
+    (detector.engine.compatible ? "(" + String(detector.engine.fullMode) + " 兼容模式）" : ""));
 
 document.getElementById("detector-info").innerHTML = detectedInfo.join("<br />");
 
@@ -133,7 +130,7 @@ var info = {
 };
 
 var a = [
-  "| Field | Value |",
+  "| 字段 | 值 |",
   "|------|----|"
 ];
 for(var k in info){
@@ -146,40 +143,40 @@ for(var k in info){
 var detector_version = $("p.sidebar-version > a").text();
 
 document.getElementById("ua").innerHTML =
-  "detector version: " + detector_version + "<br /><br/>" +
+  "detector 版本：" + detector_version + "<br /><br/>" +
   a.join("<br />");
 
 document.getElementById("email").setAttribute("href",
   "mailto:hotoo.cn@gmail.com?subject=" +
-    encodeURIComponent("detector: detected information") +
+    encodeURIComponent("Detector 识别信息") +
   "&body="+
   encodeURIComponent(
-    "Help us for fix incorrect detected information: \n\n"+
-    "> Note: You just need to fix the part of incorrect information.\n\n"+
+    "请修正我们识别错误的信息：\n\n"+
+    "> 注：只需要修改识别错误的部分即可。\n\n"+
     detectedInfo.join("\n")+
     "\n\n=========================\n"+
-    "REFERENCE INFORMATION BY AUTO DETECTED (DO'NT MODIFY):\n\n" +
-    "detector version: " + detector_version + "\n\n" +
+    "自动识别的原始信息如下（请勿修改）：\n\n" +
+    "detector 版本：" + detector_version + "\n\n" +
     a.join("\n")
   ));
 
 document.getElementById("issues").href = "https://github.com/hotoo/detector/issues/new" +
-    "?title=detector%20 detected information"+
+    "?title=detector%20 识别信息"+
     "&body=" +
       encodeURIComponent(
-        "Help us for fix incorrect detected information:\n\n"+
-        "> Note: You just need to fix the part of incorrect information.\n\n"+
+        "请修正我们识别错误的信息：\n\n"+
+        "> 注：只需要修改识别错误的部分即可。\n\n"+
         detectedInfo.join("\n") +
         "\n"+
         "\n=========================\n"+
-        "REFERENCE INFORMATION BY AUTO DETECTED (DO'NT MODIFY):\N\N"+
-        "detector version: " + detector_version + "\n\n" +
+        "自动识别的原始信息如下（请勿修改）：\n\n"+
+        "detector 版本：" + detector_version + "\n\n" +
         detectedInfo.join("\n")+
         "\n\n"+
         a.join("\n")
       );
 </script>
 
-Scan QR code for vist this page.
+扫描下面的二维码直接访问当前页面。
 
-![QR code](code.png)
+![二维码](code.png)

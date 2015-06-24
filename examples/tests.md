@@ -1,5 +1,5 @@
 
-# 测试工具
+# Detector Parser
 
 ----
 
@@ -7,18 +7,19 @@
 table,th,td{border: 1px solid #ccc;}
 </style>
 
-## 输入
+## INPUT
 
-请将 userAgent 字符串粘贴到下面的输入框中，每行一个 userAgent 字符串。
+Put userAgent strings into following input textarea:
+(per-line an userAgent string.)
 
 <textarea id="userAgents" style="width:99%;height:200px"></textarea>
 
-<button type="button" id="btn-analytics" style="margin:10px 0; width:100%;">分析</button>
+<button type="button" id="btn-analytics" style="margin:10px 0; width:100%;">Parse</button>
 
 
 ----
 
-## 结果
+## OUTPUT
 
 Markdown:
 
@@ -32,8 +33,14 @@ Preview:
 .error{background-color:#f33; color:#0f0;}
 </style>
 
+````javascript
+var $ = require('jquery');
+var detector = require('detector');
+```
+
 <script>
-seajs.use(['jquery', '../detector'], function($, detector){
+  var $ = window['jquery']; // require('jquery');
+  var detector = window['detector']; // require('detector');
   var ua = navigator.userAgent;
   var ipt = $("#userAgents");
   var btn = $("#btn-analytics");
@@ -106,6 +113,4 @@ seajs.use(['jquery', '../detector'], function($, detector){
       markdown: md
     };
   }
-
-});
 </script>
