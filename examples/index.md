@@ -65,6 +65,7 @@ var OS_ALIAS = {
   "macosx/10.8": "Mac OS X Mountain Lion",
   "macosx/10.9": "Mac OS X Mavericks",
   "macosx/10.10": "Mac OS X Yosemite",
+  "macosx/10.11": "Mac OS X El Capitan",
   // iOS.
   "ios/9.0": "iOS 9.0 (Monarch)",
   // Android.
@@ -134,7 +135,7 @@ var a = [
 ];
 for(var k in info){
   if(!info.hasOwnProperty(k)){continue;}
-  try{ // IE10 不支持此属性或方法。。。
+  try{ // IE10 不支持此属性或方法。
     a.push("| "+k+" | "+String(info[k])+" |");
   }catch(ex){window.console && console.log("2. "+k+":"+ex.message);}
 }
