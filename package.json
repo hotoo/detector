@@ -1,6 +1,6 @@
 {
   "name": "detector",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "The module for detect client-side information.",
   "homepage": "http://spmjs.io/docs/detector/",
   "author": "冒顿 <hotoo.cn@gmail.com>",
@@ -40,5 +40,9 @@
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-watch": "0.6.0"
+  },
+  "browser": {
+    "commander": false,
+    "colors": false
   }
 }
