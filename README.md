@@ -2,11 +2,19 @@
 
 ---
 
-[![NPM version](https://badge.fury.io/js/detector.png)](http://badge.fury.io/js/detector)
-[![spm package](http://spmjs.io/badge/detector)](http://spmjs.io/package/detector)
-[![Build Status](https://secure.travis-ci.org/hotoo/detector.png?branch=master)](https://travis-ci.org/hotoo/detector)
-[![Coverage Status](https://coveralls.io/repos/hotoo/detector/badge.png?branch=master)](https://coveralls.io/r/hotoo/detector)
+[![NPM version][npm-badge]][npm-url]
+[![spm version][spm-badge]][spm-url]
+[![Build Status][travis-badge]][travis-url]
+[![Coverage Status][coveralls-badge]][coveralls-url]
 
+[npm-badge]: https://img.shields.io/npm/v/detector.svg?style=flat
+[npm-url]: https://www.npmjs.com/package/detector
+[spm-badge]: http://spmjs.io/badge/detector
+[spm-url]: http://spmjs.io/package/detector
+[travis-badge]: https://travis-ci.org/hotoo/detector.svg
+[travis-url]: https://travis-ci.org/hotoo/detector
+[coveralls-badge]: https://coveralls.io/repos/hotoo/detector/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/r/hotoo/detector
 
 Client information detector, for auto detect user agent, include:
 
@@ -142,15 +150,15 @@ Support hardware devices:
 * `nokia`: Nokia.
 * `samsung`: samsung.
 * `aliyun`: Aliyun.
-* `huawei`: Huawei (华为)
+* `huawei`: Huawei （华为）
 * `lenovo`: lenovo.
-* `zte`: ZTE Corporation (中兴)
-* `vivo`: vivo (步步高)
+* `zte`: ZTE Corporation （中兴）
+* `vivo`: vivo （步步高）
 * `htc`: HTC.
 * `oppo`: OPPO.
-* `konka`: konka (康佳)
-* `sonyericsson`: sonyericsson (索尼爱立信)
-* `coolpad`: coolpad (酷派)
+* `konka`: konka （康佳）
+* `sonyericsson`: sonyericsson （索尼爱立信）
+* `coolpad`: coolpad （酷派）
 * `lg`: LG.
 
 ##### NODE ONLY
@@ -305,14 +313,14 @@ Support browser list:
 * `green`: GreenBrowser.
 * `qq`: QQ Browser.
 * `tt`: TencentTraveler.
-* `liebao`: Cheetah Mobile Inc. (猎豹) Browser.
-* `tao`: Taobao (淘宝) Browser.
-* `coolnovo`: coolnovo (枫树)
-* `saayaa`: Saayaa (闪游)
+* `liebao`: Cheetah Mobile Inc. （猎豹） Browser.
+* `tao`: Taobao （淘宝） Browser.
+* `coolnovo`: coolnovo （枫树）
+* `saayaa`: Saayaa （闪游）
 * `uc`: UC Browser.
-* `mi`: Build-in browser in Xiaomi (小米).
-* `baidu`: Baidu (百度) browser.
-* `nokia`: Build-in Browser in Nokia (诺基亚)
+* `mi`: Build-in browser in Xiaomi （小米）.
+* `baidu`: Baidu （百度） browser.
+* `nokia`: Build-in Browser in Nokia （诺基亚）
 * `blackberry`: 黑莓默认浏览器，版本号与系统版本相同。
 * `webview`: iOS WebView.
 * `yandex`: Yandex YaBrowser.
@@ -340,7 +348,7 @@ Support browser list:
 * `nuhkbot`: [Nuhkbot](wiki/nuhkbot.md)
 * `alexabot`: [Alexabot](wiki/alexabot.md).
 * `curl`: curl.
-* `micromessenger` WeChat (微信)
+* `micromessenger` WeChat （微信）
 * ~~`slurpbot`: Yahoo! [Slurp](wiki/slurpbot.md)~~
 
 
