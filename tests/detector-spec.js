@@ -8,6 +8,23 @@ function isBlinkEngine(){
 }
 
 var UAs = [
+  // Windows 10, Edge browser.
+  ["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10162", {
+    device: "pc/-1",
+    os: "windows/10.0",
+    browser: "edge/12.10162;12.10162;o",
+    //      name/version;mode;compatible
+    //                        c: compatible; o: origin, not compatible.
+    engine: "edgehtml/12.10162;12.10162;o"
+  }],
+  ["Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; rv:11.0) like Gecko", {
+    device: "pc/-1",
+    os: "windows/10.0",
+    browser: "ie/11.0;11.0;o",
+    //      name/version;mode;compatible
+    //                        c: compatible; o: origin, not compatible.
+    engine: "trident/7.0;7.0;o"
+  }],
   // Windows Blue
   ["Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko", {
     device: "pc/-1",

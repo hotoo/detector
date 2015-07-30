@@ -230,6 +230,7 @@ function checkTW360External(key){
 }
 
 var ENGINE = [
+  ["edgehtml", /edge\/([0-9.]+)/],
   ["trident", re_msie],
   ["blink", function(ua){
     return "chrome" in win && "CSS" in win && /\bapplewebkit[\/]?([0-9.+]+)/;
@@ -250,6 +251,8 @@ var ENGINE = [
   ["u3", /\bu3\/([0-9.]+)/]
 ];
 var BROWSER = [
+  // Microsoft Edge Browser, Default browser in Windows 10.
+  ["edge", /edge\/([0-9.]+)/],
   // Sogou.
   ["sogou", function(ua){
     if (ua.indexOf("sogoumobilebrowser") >= 0) {

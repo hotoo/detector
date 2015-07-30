@@ -33,15 +33,10 @@ Preview:
 .error{background-color:#f33; color:#0f0;}
 </style>
 
-````javascript
-var $ = require('jquery');
-var detector = require('detector');
-```
-
-<script>
-  var $ = window['jquery']; // require('jquery');
-  var detector = window['detector']; // require('detector');
-  var ua = navigator.userAgent;
+<script type="text/spm">
+  var $ = require('jquery');
+  var detector = require('detector');
+  var ua = navigator.userAgent + '\nMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10162';
   var ipt = $("#userAgents");
   var btn = $("#btn-analytics");
   var opt_html = $("#output-html");

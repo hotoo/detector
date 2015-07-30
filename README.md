@@ -301,6 +301,7 @@ Detect name of browser.
 
 Support browser list:
 
+* `edge`: Microsoft Edge browser.
 * `ie`: Microsoft Internet Explorer.
 * `chrome`: Google Chrome.
 * `firefox`: Mozilla Firefox.
@@ -386,6 +387,7 @@ Detect name of rendering engine.
 
 Support rendering engine list:
 
+* `edgehtml`: Microsoft Edge browser's rendering engine. (Note: version same browser version now.)
 * `trident`: Microsoft Trident.
 * `blink`: Google Blink.
 * `webkit`: Apple Webkit.
