@@ -166,7 +166,7 @@ document.getElementById("issues").href = "https://github.com/hotoo/detector/issu
         detectedInfo.join("\n") +
         "\n"+
         "\n=========================\n"+
-        "REFERENCE INFORMATION BY AUTO DETECTED (DO'NT MODIFY):\N\N"+
+        "REFERENCE INFORMATION BY AUTO DETECTED (DO'NT MODIFY):\n\n"+
         "detector version: " + detector_version + "\n\n" +
         detectedInfo.join("\n")+
         "\n\n"+
