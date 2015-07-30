@@ -33,14 +33,9 @@ Preview:
 .error{background-color:#f33; color:#0f0;}
 </style>
 
-````javascript
-var $ = require('jquery');
-var detector = require('detector');
-```
-
-<script>
-  var $ = window['jquery']; // require('jquery');
-  var detector = window['detector']; // require('detector');
+<script type="text/spm">
+  var $ = require('jquery');
+  var detector = require('detector');
   var ua = navigator.userAgent;
   var ipt = $("#userAgents");
   var btn = $("#btn-analytics");

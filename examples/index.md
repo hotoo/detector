@@ -18,14 +18,7 @@ Thank you!
 
 <pre id="ua"></pre>
 
-<div style="display:none;">
-````javascript
-require('jquery');
-require('detector');
-````
-</div>
-
-<script>
+<script type='text/spm'>
 function isObject(obj){
   return Object.prototype.toString.call(obj) === "[object Object]";
 }
@@ -41,8 +34,9 @@ function expandObject(obj){
   return s;
 }
 
-var $ = window['jquery']; // require('jquery');
-var detector = window['detector']; // require('detector');
+var $ = require('jquery');
+var detector = require('detector');
+
 
 var OS_ALIAS = {
   // Windows.
