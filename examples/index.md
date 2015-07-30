@@ -11,7 +11,7 @@ You're using:
   target="_blank"><strong>Please put new issue for feedback</strong></a>.
 * If you without Github account, <a id="email" href="mailto:hotoo.cn@gmail.com"
   target="_blank"><strong>Please send Email to us</strong></a>.
-* if click Email link can'nt send Email, Please copy this page's information,
+* if click Email link can't send Email, Please copy this page's information,
   and send email to `hotoo.cn@gmail.com`.
 
 Thank you!
