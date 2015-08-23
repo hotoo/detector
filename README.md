@@ -16,6 +16,8 @@
 [coveralls-badge]: https://coveralls.io/repos/hotoo/detector/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/r/hotoo/detector
 
+[中文文档](./README-zh_CN.md)
+
 Client information detector, for auto detect user agent, include:
 
 1. Device.
@@ -325,6 +327,7 @@ Support browser list:
 * `blackberry`: 黑莓默认浏览器，版本号与系统版本相同。
 * `webview`: iOS WebView.
 * `yandex`: Yandex YaBrowser.
+* `micromessenger` WeChat （微信）
 * `ali-ap`: 支付宝手机钱包。
 * `ali-ap-pd`: 支付宝平板客户端。
 * `ali-am`: 支付宝商户客户端。
@@ -349,7 +352,6 @@ Support browser list:
 * `nuhkbot`: [Nuhkbot](wiki/nuhkbot.md)
 * `alexabot`: [Alexabot](wiki/alexabot.md).
 * `curl`: curl.
-* `micromessenger` WeChat （微信）
 * ~~`slurpbot`: Yahoo! [Slurp](wiki/slurpbot.md)~~
 
 

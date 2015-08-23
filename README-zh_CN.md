@@ -67,7 +67,7 @@ detector = {
 
 via npm:
 
-全局安装(`-g`)时，可以在终端使用 `detector` 命令。
+全局安装 (`-g`) 时，可以在终端使用 `detector` 命令。
 
 ```
 npm install detector [-g]
@@ -133,7 +133,7 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 * `ipad`: iPad.
 * `ipod`: iPod.
 * `android`: Android.
-* `blackberry`: 黑莓(Blackberry)手机。
+* `blackberry`: 黑莓 (Blackberry) 手机。
 * `wp`: Windows Phone.
 * `mi`: 小米。
 * `meizu`: 魅族。
@@ -156,12 +156,12 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 
 * `noain`: [诺亚信](http://www.noain.com.cn/)
 * `huawei-honor`: [华为荣耀](http://www.honor.cn/)
-* `lephone`: [乐Phone](http://www.lephonemall.com/)
+* `lephone`: [乐 Phone](http://www.lephonemall.com/)
 * `asus`: [华硕](https://www.asus.com.cn/Phones/)
 * `alcatel`
 * `一加`
 * `蓝米`
-* `E派`
+* `E 派`
 * `hike`
 * `qmi`
 * ~~`友信达`: [友信达](http://www.iunistar.com/)~~
@@ -248,7 +248,7 @@ detector.browser.name + "/" + detector.browser.fullVersion;
 ##### NODE ONLY
 
 * `meego`: Meego.
-* `smartisan`: 锤子, Smartisan.
+* `smartisan`: 锤子，Smartisan.
 
 
 ----
@@ -292,9 +292,9 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `safari`: Apple Safari.
 * `opera`: Opera.
 * `360`: 包括奇虎 360 安全浏览器和 360 极速浏览器。
-* `maxthon`: 傲游浏览器(Maxthon)。
-* `sogou`: 搜狗浏览器(Sogou)。
-* `theworld`: 世界之窗浏览器(TheWorld)。
+* `maxthon`: 傲游浏览器 (Maxthon)。
+* `sogou`: 搜狗浏览器 (Sogou)。
+* `theworld`: 世界之窗浏览器 (TheWorld)。
 * `green`: GreenBrowser.
 * `qq`: QQ 浏览器。
 * `tt`: TencentTraveler.
@@ -309,6 +309,7 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `blackberry`: 黑莓默认浏览器，版本号与系统版本相同。
 * `webview`: iOS 系统的提供的 WebView。
 * `yandex`: Yandex YaBrowser.
+* `micromessenger` 微信
 * `ali-ap`: 支付宝手机客户端。
 * `ali-ap-pd`: 支付宝平板客户端。
 * `ali-am`: 支付宝商户客户端。
@@ -333,7 +334,6 @@ IE9 兼容模式声明自己是 IE7，但是 `detector.browser.version` 返回 `
 * `nuhkbot`: [Nuhkbot](wiki/nuhkbot.md)
 * `alexabot`: [Alexabot](wiki/alexabot.md).
 * `curl`: curl.
-* `micromessenger` 微信
 * ~~`slurpbot`: Yahoo! [Slurp](wiki/slurpbot.md)~~
 
 
