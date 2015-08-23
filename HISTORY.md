@@ -3,6 +3,25 @@
 
 ----
 
+## 2.4.0 (2015-08-23)
+
+* feat(micromessenger): move wechat support from node to web. #83
+
+## 2.3.0 (2015-07-30)
+
+* feat(edge): Add Microsoft Edge browser support. #79 #80
+
+## 2.2.3 (2015-07-01)
+
+* feat(browser): package.browser filed.
+* doc(ios): Add iOS code name.
+* doc(alias): Add Mac OS X 10.11 code name.
+* doc(english): Use english document.
+
+## 2.2.2 (2015-04-22)
+
+* Fixed #76, 增强了三星手机识别问题。
+
 ## 2.2.1 (2015-02-13)
 
 * Fixed #75, meizu device rule.
@@ -33,7 +52,7 @@
 
 ## 2.0.2 (2014-09-17)
 
-* Add #59 欧朋浏览器(oupeng)
+* Add #59 欧朋浏览器 (oupeng)
 * Fixed #56 sogou, liebao, maxthon, baidu 浏览器规则
 * Fixed #60 UC 浏览器规则，支持 UC 桌面版。
 * Update #58 修改 sg, mx, fs, sy 浏览器名称。
