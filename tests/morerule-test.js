@@ -11,27 +11,6 @@ var UAs = [
     engine: "webkit/534.13;534.13;o",
   }],
 
-  // iPhone 5, 微信。
-  ["Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.40 (KHTML, like Gecko) Mobile/11A4372q MicroMessenger/4.5", {
-    device: "iphone/-1",
-    os: "ios/7.0",
-    browser: "micromessenger/4.5;4.5;o",
-    engine: "webkit/537.40;537.40;o",
-  }],
-  // 魅族
-  ["Mozilla/5.0 (Linux; U; Android 4.0.3; zh-cn; M030 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 MicroMessenger/4.2.191", {
-    device: "meizu/030",
-    os: "android/4.0.3",
-    browser: "micromessenger/4.2.191;4.2.191;o",
-    engine: "webkit/534.30;534.30;o",
-  }],
-  ["Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12B435 MicroMessenger/6.0.1 NetType/WIFI", {
-    device: "iphone/-1",
-    os: "ios/8.1.1",
-    browser: "micromessenger/6.0.1;6.0.1;o",
-    engine: "webkit/600.1.4;600.1.4;o",
-  }],
-
   ["KONKA_V926_TD/1.0 Android/2.3.5 MocorDroid/SpreadTrum Release/3.22.2012 Browser/AppleWebKit5333.1 baiduboxapp/4.3 (Baidu; P1 2.3.5)", {
     device: "konka/v926",
     os: "android/2.3.5",
