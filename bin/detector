@@ -1,21 +1,21 @@
 #!/usr/bin/env node
-var commander = require('commander');
-var colors = require('colors');
+var commander = require("commander");
+var colors = require("colors");
 var detector = require("../detector");
 
 colors.setTheme({
-  label: 'white',
-  info: 'green'
+  label: "white",
+  info: "green",
 });
 
 commander.
-  version(require('../package').version).
-  usage('[options] "user-agent string."').
-  option('-v, --version', 'output the version number').
+  version(require("../package").version).
+  usage("[options] \"user-agent string.\"").
+  option("-v, --version", "output the version number").
   parse(process.argv);
 
 if (commander.list) {
-  process.exit()
+  process.exit();
 }
 
 // output help and exit if no args found
@@ -30,12 +30,8 @@ var browser = tan.browser.name.info + "@".red + tan.browser.fullVersion.info;
 var engine = tan.engine.name.info + "@".red + tan.engine.fullVersion.info;
 
 console.log();
-console.log('   Device: '.label, device);
-console.log('       OS: '.label, os);
-console.log('  Browser: '.label, browser);
-console.log('   Engine: '.label, engine);
+console.log("   Device: ".label, device);
+console.log("       OS: ".label, os);
+console.log("  Browser: ".label, browser);
+console.log("   Engine: ".label, engine);
 console.log();
-
- /*
- vim:ft=javascript
- */

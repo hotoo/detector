@@ -17,9 +17,11 @@ function isObject(object){
 function isFunction(object){
   return toString(object) === "[object Function]";
 }
-function each(object, factory, argument){
-  for(var i=0,b,l=object.length; i<l; i++){
-    if(factory.call(object, object[i], i) === false){break;}
+function each(object, factory){
+  for(var i = 0, l = object.length; i < l; i++){
+    if(factory.call(object, object[i], i) === false){
+      break;
+    }
   }
 }
 
@@ -58,13 +60,13 @@ var DEVICES = [
   // 小米
   ["mi", /\bmi[ \-]?([a-z0-9 ]+(?= build|\)))/],
   // 红米
-  ['hongmi', /\bhm[ \-]?([a-z0-9]+)/],
+  ["hongmi", /\bhm[ \-]?([a-z0-9]+)/],
   ["aliyun", /\baliyunos\b(?:[\-](\d+))?/],
   ["meizu", function(ua) {
     return ua.indexOf("meizu") >= 0 ?
       /\bmeizu[\/ ]([a-z0-9]+)\b/
       :
-      /\bm([0-9x]{1,3})\b/
+      /\bm([0-9x]{1,3})\b/;
   }],
   ["nexus", /\bnexus ([0-9s.]+)/],
   ["huawei", function(ua){
@@ -112,7 +114,7 @@ var DEVICES = [
       return /\bblackberry\s?(\d+)/;
     }
     return "bb10";
-  }]
+  }],
 ];
 
 // 操作系统信息识别表达式
@@ -161,25 +163,24 @@ var OS = [
       ua.match(re_blackberry_6_7) ||
       ua.match(re_blackberry_4_5);
     return m ? {version: m[1]} : "blackberry";
-  }]
+  }],
 ];
 
 // 解析使用 Trident 内核的浏览器的 `浏览器模式` 和 `文档模式` 信息。
 // @param {String} ua, userAgent string.
 // @return {Object}
 function IEMode(ua){
-  if(!re_msie.test(ua)){return null;}
+  if(!re_msie.test(ua)){ return null; }
 
   var m,
       engineMode, engineVersion,
-      browserMode, browserVersion,
-      compatible=false;
+      browserMode, browserVersion;
 
   // IE8 及其以上提供有 Trident 信息，
   // 默认的兼容模式，UA 中 Trident 版本不发生变化。
   if(ua.indexOf("trident/") !== -1){
     m = /\btrident\/([0-9.]+)/.exec(ua);
-    if(m && m.length>=2){
+    if (m && m.length >= 2) {
       // 真实引擎版本。
       engineVersion = m[1];
       var v_version = m[1].split(".");
@@ -191,12 +192,12 @@ function IEMode(ua){
   m = re_msie.exec(ua);
   browserMode = m[1];
   var v_mode = m[1].split(".");
-  if("undefined" === typeof browserVersion){
+  if (typeof browserVersion === "undefined") {
     browserVersion = browserMode;
   }
   v_mode[0] = parseInt(v_mode[0], 10) - 4;
   engineMode = v_mode.join(".");
-  if("undefined" === typeof engineVersion){
+  if (typeof engineVersion === "undefined") {
     engineVersion = engineMode;
   }
 
@@ -205,7 +206,7 @@ function IEMode(ua){
     browserMode: browserMode,
     engineVersion: engineVersion,
     engineMode: engineMode,
-    compatible: engineVersion !== engineMode
+    compatible: engineVersion !== engineMode,
   };
 }
 
@@ -213,7 +214,7 @@ function IEMode(ua){
 // @param {String} key, 关键字，用于检测浏览器的安装路径中出现的关键字。
 // @return {Undefined,Boolean,Object} 返回 undefined 或 false 表示检测未命中。
 function checkTW360External(key){
-  if(!external){return;} // return undefined.
+  if(!external){ return; } // return undefined.
   try{
     //        360安装路径：
     //        C:%5CPROGRA~1%5C360%5C360se3%5C360SE.exe
@@ -224,31 +225,31 @@ function checkTW360External(key){
     var security = external.twGetSecurityID(win);
     var version = external.twGetVersion(security);
 
-    if(runpath && runpath.indexOf(key) === -1){return false;}
-    if(version){return {version: version};}
-  }catch(ex){}
+    if (runpath && runpath.indexOf(key) === -1) { return false; }
+    if (version){return {version: version}; }
+  }catch(ex){ /* */ }
 }
 
 var ENGINE = [
   ["edgehtml", /edge\/([0-9.]+)/],
   ["trident", re_msie],
-  ["blink", function(ua){
+  ["blink", function(){
     return "chrome" in win && "CSS" in win && /\bapplewebkit[\/]?([0-9.+]+)/;
   }],
   ["webkit", /\bapplewebkit[\/]?([0-9.+]+)/],
   ["gecko", function(ua){
     var match;
-    if (match = ua.match(/\brv:([\d\w.]+).*\bgecko\/(\d+)/)) {
+    if ((match = ua.match(/\brv:([\d\w.]+).*\bgecko\/(\d+)/))) {
       return {
-        version: match[1] + "." + match[2]
-      }
+        version: match[1] + "." + match[2],
+      };
     }
   }],
   ["presto", /\bpresto\/([0-9.]+)/],
   ["androidwebkit", /\bandroidwebkit\/([0-9.]+)/],
   ["coolpadwebkit", /\bcoolpadwebkit\/([0-9.]+)/],
   ["u2", /\bu2\/([0-9.]+)/],
-  ["u3", /\bu3\/([0-9.]+)/]
+  ["u3", /\bu3\/([0-9.]+)/],
 ];
 var BROWSER = [
   // Microsoft Edge Browser, Default browser in Windows 10.
@@ -256,7 +257,7 @@ var BROWSER = [
   // Sogou.
   ["sogou", function(ua){
     if (ua.indexOf("sogoumobilebrowser") >= 0) {
-      return /sogoumobilebrowser\/([0-9.]+)/
+      return /sogoumobilebrowser\/([0-9.]+)/;
     } else if (ua.indexOf("sogoumse") >= 0){
       return true;
     }
@@ -266,29 +267,29 @@ var BROWSER = [
   // 由于裙带关系，TheWorld API 与 360 高度重合。
   // 只能通过 UA 和程序安装路径中的应用程序名来区分。
   // TheWorld 的 UA 比 360 更靠谱，所有将 TheWorld 的规则放置到 360 之前。
-  ["theworld", function(ua){
+  ["theworld", function(){
     var x = checkTW360External("theworld");
-    if(typeof x !== "undefined"){return x;}
+    if(typeof x !== "undefined"){ return x; }
     return "theworld";
   }],
   // 360SE, 360EE.
   ["360", function(ua) {
     var x = checkTW360External("360se");
-    if(typeof x !== "undefined"){return x;}
+    if(typeof x !== "undefined"){ return x; }
     if(ua.indexOf("360 aphone browser") !== -1){
       return /\b360 aphone browser \(([^\)]+)\)/;
     }
     return /\b360(?:se|ee|chrome|browser)\b/;
   }],
   // Maxthon
-  ["maxthon", function(ua){
+  ["maxthon", function(){
     try{
       if(external && (external.mxVersion || external.max_version)){
         return {
-          version: external.mxVersion || external.max_version
+          version: external.mxVersion || external.max_version,
         };
       }
-    }catch(ex){}
+    }catch(ex){ /* */ }
     return /\b(?:maxthon|mxbrowser)(?:[ \/]([0-9.]+))?/;
   }],
   ["qq", /\bm?qqbrowser\/([0-9.]+)/],
@@ -298,15 +299,15 @@ var BROWSER = [
     if (ua.indexOf("liebaofast") >= 0){
       return /\bliebaofast\/([0-9.]+)/;
     }
-    if(ua.indexOf("lbbrowser") === -1){return false;}
+    if(ua.indexOf("lbbrowser") === -1){ return false; }
     var version;
     try{
       if(external && external.LiebaoGetVersion){
         version = external.LiebaoGetVersion();
       }
-    }catch(ex){}
+    }catch(ex){ /* */ }
     return {
-      version: version || NA_VERSION
+      version: version || NA_VERSION,
     };
   }],
   ["tao", /\btaobrowser\/([0-9.]+)/],
@@ -365,7 +366,7 @@ var BROWSER = [
   ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
   // Android 默认浏览器。该规则需要在 safari 之前。
   ["android", function(ua){
-    if(ua.indexOf("android") === -1){return;}
+    if(ua.indexOf("android") === -1){ return; }
     return /\bversion\/([0-9.]+(?: beta)?)/;
   }],
   ["blackberry", function(ua){
@@ -378,7 +379,7 @@ var BROWSER = [
   // 如果不能被识别为 Safari，则猜测是 WebView。
   ["webview", /\bcpu(?: iphone)? os (?:[0-9._]+).+\bapplewebkit\b/],
   ["firefox", /\bfirefox\/([0-9.ab]+)/],
-  ["nokia", /\bnokiabrowser\/([0-9.]+)/]
+  ["nokia", /\bnokiabrowser\/([0-9.]+)/],
 ];
 
 // UserAgent Detector.
@@ -388,11 +389,11 @@ var BROWSER = [
 //    返回 null 表示当前表达式未匹配成功。
 function detect(name, expression, ua){
   var expr = isFunction(expression) ? expression.call(null, ua) : expression;
-  if(!expr){return null;}
+  if(!expr){ return null; }
   var info = {
     name: name,
     version: NA_VERSION,
-    codename: ""
+    codename: "",
   };
   var t = toString(expr);
   if(expr === true){
@@ -445,7 +446,7 @@ var parse = function(ua){
     d.device = {
       name: name,
       version: v,
-      fullVersion: version
+      fullVersion: version,
     };
     d.device[name] = v;
   }, d);
@@ -455,7 +456,7 @@ var parse = function(ua){
     d.os = {
       name: name,
       version: v,
-      fullVersion: version
+      fullVersion: version,
     };
     d.os[name] = v;
   }, d);
@@ -476,7 +477,7 @@ var parse = function(ua){
       fullVersion: version,
       mode: parseFloat(mode),
       fullMode: mode,
-      compatible: ieCore ? ieCore.compatible : false
+      compatible: ieCore ? ieCore.compatible : false,
     };
     d.engine[name] = v;
   }, d);
@@ -498,7 +499,7 @@ var parse = function(ua){
       fullVersion: version,
       mode: parseFloat(mode),
       fullMode: mode,
-      compatible: ieCore ? ieCore.compatible : false
+      compatible: ieCore ? ieCore.compatible : false,
     };
     d.browser[name] = v;
   }, d);
@@ -512,9 +513,9 @@ if(typeof process === "object" && process.toString() === "[object process]"){
   // 加载更多的规则。
   var morerule = module["require"]("./morerule");
   [].unshift.apply(DEVICES, morerule.DEVICES || []);
-  [].unshift.apply(OS,      morerule.OS      || []);
+  [].unshift.apply(OS, morerule.OS || []);
   [].unshift.apply(BROWSER, morerule.BROWSER || []);
-  [].unshift.apply(ENGINE,  morerule.ENGINE  || []);
+  [].unshift.apply(ENGINE, morerule.ENGINE || []);
 
 }else{
 
@@ -527,7 +528,6 @@ if(typeof process === "object" && process.toString() === "[object process]"){
   detector = parse(userAgent + " " + appVersion + " " + vendor);
 
 }
-
 
 // exports `parse()` API anyway.
 detector.parse = parse;

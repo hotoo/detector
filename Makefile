@@ -34,7 +34,10 @@ test-npm:
 test-spm:
 	@spm test
 
-test: test-npm test-spm
+lint:
+	@./node_modules/eslint/bin/eslint.js ./detector.js ./tests/ ./bin/detector
+
+test: lint test-npm test-spm
 
 output = _site/coverage.html
 coverage: build-doc

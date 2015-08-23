@@ -13,36 +13,36 @@ module.exports = {
     // [乐Phone](http://www.lephonemall.com/)
     ["lephone", /\blephone[_\- ]+([a-z0-9]+)/],
     // [华硕](https://www.asus.com.cn/Phones/)
-    ['asus', /\basus_([a-z0-9]+)\b/],
-    ['alcatel', /\balcatel\b/],
-    ['一加', /\ba0001 build/],
-    ['蓝米', /\blanmi[_\-]([a-z0-9]+)\b/],
-    ['E派', /\bebest[_\- ]([a-z0-9]+)\b/],
+    ["asus", /\basus_([a-z0-9]+)\b/],
+    ["alcatel", /\balcatel\b/],
+    ["一加", /\ba0001 build/],
+    ["蓝米", /\blanmi[_\-]([a-z0-9]+)\b/],
+    ["E派", /\bebest[_\- ]([a-z0-9]+)\b/],
     // HIKe
-    ['hike', /\bhike[_\- ]([a-z0-9]+)\b/],
-    ['qmi', /\bqmi build/],
-    ['优米', /\bumi[\-]?([a-z0-9]+)/],
-    ['嘉源', /\bcayon ([a-z0-9]+)/],
-    ['intki', /\bintki[_\- ]([a-z0-9]+)/],
-    ['星语', /\bxy[- ]([a-z0-9]+)/],
-    ['欧奇', /\boku([a-z0-9]+)/],
-    ['海派', /\bhaipai ([a-z0-9 ]+) build/],
-    ['广信',
+    ["hike", /\bhike[_\- ]([a-z0-9]+)\b/],
+    ["qmi", /\bqmi build/],
+    ["优米", /\bumi[\-]?([a-z0-9]+)/],
+    ["嘉源", /\bcayon ([a-z0-9]+)/],
+    ["intki", /\bintki[_\- ]([a-z0-9]+)/],
+    ["星语", /\bxy[- ]([a-z0-9]+)/],
+    ["欧奇", /\boku([a-z0-9]+)/],
+    ["海派", /\bhaipai ([a-z0-9 ]+) build/],
+    ["广信",
       function(ua) {
         if (/\bef98 build/.test(ua)) {
           return /\bef98 build/;
         }
         return /\bkingsun[_\- ]([a-z0-9]+)\b/;
-      }
+      },
     ],
 
-    ['神州', /\bhasee ([a-z0-9 ]+) build\b/],
-    ['青橙', /\bgo ([a-z0-9\-]+) build\b/],
-    ['海信',
+    ["神州", /\bhasee ([a-z0-9 ]+) build\b/],
+    ["青橙", /\bgo ([a-z0-9\-]+) build\b/],
+    ["海信",
       function(ua) {
         if (/\bhs[ \-]+([a-z0-9]+)/.test(ua)) {
           return /\bhs[ \-]+([a-z0-9]+)/;
-        } else if (/ (e601m|t980) build/) {
+        } else if (/ (e601m|t980) build/.test(ua)) {
           return / (e601m|t980) build/;
         }
     }],
@@ -55,13 +55,13 @@ module.exports = {
         } else if (/; e6 build/.test(ua)) {
           return /; (e6) build/;
         }
-      }
+      },
     ],
 
     ["eton", /\beton ([a-z0-9]+)/],
     ["bohp", /\bbohp[_\- ]([a-z0-9]+)/],
-    ['小杨树', /; (mm110\d) build/],
-    ['语信',
+    ["小杨树", /; (mm110\d) build/],
+    ["语信",
       function(ua) {
         if (/\byusun ([a-z0-9]+)/.test(ua)) {
           return /\byusun ([a-z0-9]+)/;
@@ -70,101 +70,101 @@ module.exports = {
         } else if (/\bt21 build/.test(ua)) {
           return /\b(t21) build/;
         }
-      }
+      },
     ],
-    ['nubia', /\b(z7|nx\d{3}[a|j]) build/],
-    ['爱讯达', /\bik build/],
-    ['寰宇通', /\bxy\-a3/],
-    ['mofut', /\bmofut ([a-z0-9]+) build/],
+    ["nubia", /\b(z7|nx\d{3}[a|j]) build/],
+    ["爱讯达", /\bik build/],
+    ["寰宇通", /\bxy\-a3/],
+    ["mofut", /\bmofut ([a-z0-9]+) build/],
     // InFocus
-    ['infocus', /\binfocus ([a-z0-9]+) build/],
-    ['大唐',
+    ["infocus", /\binfocus ([a-z0-9]+) build/],
+    ["大唐",
       function(ua) {
         if (/\b(i318)_t3 build/.test(ua)) {
           return /\b(i318)_t3 build/;
         } else if (/\bdatang ([a-z0-9]+)/.test(ua)) {
           return /\bdatang ([a-z0-9]+)/;
         }
-      }
+      },
     ],
-    ['邦华', /\bboway ([a-z0-9]+)/],
-    ['天迈', /\bt\-smart ([a-z0-9]+)/],
-    ['大显', /\bht7100/],
-    ['博瑞', /\bbror ([a-z0-9]+)/],
-    ['lingwin',
+    ["邦华", /\bboway ([a-z0-9]+)/],
+    ["天迈", /\bt\-smart ([a-z0-9]+)/],
+    ["大显", /\bht7100/],
+    ["博瑞", /\bbror ([a-z0-9]+)/],
+    ["lingwin",
       function(ua) {
         if (/\blingwin ([a-z0-9]+)/.test(ua)) {
           return /\blingwin ([a-z0-9]+)/;
         }
         return /lingwin /;
-      }
+      },
     ],
-    ['iusai', /\biusai ([a-z0-9]+)/],
-    ['波导',
+    ["iusai", /\biusai ([a-z0-9]+)/],
+    ["波导",
       function(ua) {
         if (/\bbird ([a-z0-9]+)/.test(ua)) {
           return /\bbird ([a-z0-9]+)/;
         } else if (/\bdoeasy ([a-z0-9]+) build/.test(ua)) {
           return /\bdoeasy ([a-z0-9]+) build/;
         }
-      }
+      },
     ],
-    ['德赛', /\bdesay ([a-z0-9]+)/],
-    ['蓝魔', /\bramos([a-z0-9]+)/],
-    ['美图', /\bmeitu(\d+) build/],
-    ['opsson', /\bopsson ([a-z0-9]+)/],
-    ['benwee', /\bbenwee ([a-z0-9]+)/],
-    ['hosin', /\bhosin ([a-z0-9]+)/],
-    ['smartisan', /\bsmartisan\b/],
-    ['ephone', /ephone ([a-z0-9]+)/],
-    ['佰事讯', /\b(wx9) build/],
-    ['newman', /; newman ([a-z0-9]+) build/],
+    ["德赛", /\bdesay ([a-z0-9]+)/],
+    ["蓝魔", /\bramos([a-z0-9]+)/],
+    ["美图", /\bmeitu(\d+) build/],
+    ["opsson", /\bopsson ([a-z0-9]+)/],
+    ["benwee", /\bbenwee ([a-z0-9]+)/],
+    ["hosin", /\bhosin ([a-z0-9]+)/],
+    ["smartisan", /\bsmartisan\b/],
+    ["ephone", /ephone ([a-z0-9]+)/],
+    ["佰事讯", /\b(wx9) build/],
+    ["newman", /; newman ([a-z0-9]+) build/],
     // 康佳
-    ['konka',
+    ["konka",
       function(ua) {
         if (/ (l823) build/.test(ua)) {
           return / (l823) build/;
         } else if (/\bkonka[_\-]([a-z0-9]+)/.test(ua)) {
           return /\bkonka[_\-]([a-z0-9]+)/;
         }
-      }
+      },
     ],
-    ['haier',
+    ["haier",
       function(ua) {
         if (/\b(?:haier|ht)[_-]([a-z0-9\-]+)\b/.test(ua)) {
           return /\b(?:haier|ht)[_-]([a-z0-9\-]+)\b/;
         }
-      }
+      },
     ],
-    ['moto',
+    ["moto",
       function(ua) {
         if (/\bmot[\-]([a-z0-9]+)/.test(ua)) {
           return /\bmot[\-]([a-z0-9]+)/;
         } else if (/ (xt\d{3}) build/.test(ua)) {
           return / (xt\d{3}) build/;
         }
-      }
+      },
     ],
     // TCL
-    ['tcl',
+    ["tcl",
       function(ua) {
         if (/\btcl[ \-]([a-z0-9]+)/.test(ua)) {
           return /\btcl[ \-]([a-z0-9]+)/;
         } else if (/\btcl([a-z0-9]+)/.test(ua)) {
           return /\btcl([a-z0-9]+)/;
         }
-      }
+      },
     ],
-    ['天语',
+    ["天语",
       function(ua) {
-        if (ua.indexOf('k-touch ') !== -1) {
-          return /\bk\-touch ([a-z0-9 +]+)(?:build|\))/
-        } else if (ua.indexOf('k-touch_') !== -1) {
+        if (ua.indexOf("k-touch ") !== -1) {
+          return /\bk\-touch ([a-z0-9 +]+)(?:build|\))/;
+        } else if (ua.indexOf("k-touch_") !== -1) {
           return /\bk-touch_(a-z0-9)+/;
         } else if (/k[ \-]touch/.test(ua)) {
           return /k[ \-]touch ([a-z0-9]+)\b/;
         }
-      }
+      },
     ],
     // sony.
     ["sonyericsson",
@@ -181,43 +181,43 @@ module.exports = {
           return /\b(x10([a-z0-9]+)) build/;
         }
         return /\bxm\d{2}t/;
-      }
+      },
     ],
-    ['doov', /\bdoov[ _]([a-z0-9]+)/],
-    ['天时达',
+    ["doov", /\bdoov[ _]([a-z0-9]+)/],
+    ["天时达",
       function(ua) {
         if (/\bts(\d+)/.test(ua)) {
           return /\bts(\d+)/;
         } else if (/\b(t5688) /.test(ua)) {
           return /\b(t5688) /;
         }
-      }
-    ]
+      },
+    ],
   ],
   OS: [
-    ['smartisanos', /\bsmartisan os \- ([\d.]+)/],
-    ["meego", /\bmeego\b/]
+    ["smartisanos", /\bsmartisan os \- ([\d.]+)/],
+    ["meego", /\bmeego\b/],
   ],
   BROWSER: [
-    ['micromessenger', /\bmicromessenger\/([\d.]+)/],
-    ['baiduboxapp',
+    ["micromessenger", /\bmicromessenger\/([\d.]+)/],
+    ["baiduboxapp",
       function(ua) {
         var back = 0;
         var a;
         if (/ baiduboxapp\//i.test(ua)) {
-          if (a = /([\d+.]+)_(?:diordna|enohpi)_/.exec(ua)) {
-            a = a[1].split('.');
-            back = a.reverse().join('.');
-          } else if (a = /baiduboxapp\/([\d+.]+)/.exec(ua)) {
+          if ((a = /([\d+.]+)_(?:diordna|enohpi)_/.exec(ua))) {
+            a = a[1].split(".");
+            back = a.reverse().join(".");
+          } else if ((a = /baiduboxapp\/([\d+.]+)/.exec(ua))) {
             back = a[1];
           }
 
           return {
-            version: back
+            version: back,
           };
         }
         return false;
-      }
+      },
     ],
     ["googlebot", /\bgooglebot\/([0-9.]+)/],
     // 百度搜索引擎爬虫：无线、网页搜索
@@ -244,7 +244,7 @@ module.exports = {
 
     // Alexa ia_archiver.
     ["alexabot", /\bia_archiver\b|\balexabot\/([0-9.]+)/],
-    ["curl", /\bcurl\/([0-9.]+)/]
+    ["curl", /\bcurl\/([0-9.]+)/],
   ],
-  ENGINE: []
+  ENGINE: [],
 };
