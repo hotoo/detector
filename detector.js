@@ -363,6 +363,7 @@ var BROWSER = [
       return /\b(?:ucbrowser|uc)\b/;
     }
   }],
+  ["micromessenger", /\bmicromessenger\/([\d.]+)/],
   ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
   // Android 默认浏览器。该规则需要在 safari 之前。
   ["android", function(ua){
