@@ -11,7 +11,7 @@
 [npm-url]: https://www.npmjs.com/package/detector
 [spm-badge]: http://spmjs.io/badge/detector
 [spm-url]: http://spmjs.io/package/detector
-[travis-badge]: https://travis-ci.org/hotoo/detector.svg
+[travis-badge]: https://travis-ci.org/hotoo/detector.svg?branch=master
 [travis-url]: https://travis-ci.org/hotoo/detector
 [coveralls-badge]: https://coveralls.io/repos/hotoo/detector/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/r/hotoo/detector
