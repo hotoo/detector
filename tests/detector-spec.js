@@ -981,6 +981,18 @@ var UAs = [
     browser: "micromessenger/6.0.1;6.0.1;o",
     engine: "webkit/600.1.4;600.1.4;o",
   }],
+  ["Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; M463C Build/KTU84P) AppleWebKit/533.1 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.4 TBS/025440 Mobile Safari/533.1 MicroMessenger/6.2.5.50_r0e62591.621 NetType/WIFI Language/zh_CN", {
+    device: "meizu/463c",
+    os: "android/4.4.4",
+    browser: "micromessenger/6.2.5.50;6.2.5.50;o",
+    engine: "webkit/533.1;533.1;o",
+  }],
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; HUAWEI MT7-CL00 Build/HuaweiMT7-CL00) AppleWebKit/533.1 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.4 TBS/025440 Mobile Safari/533.1 MicroMessenger/6.2.5.51_rfe7d7c5.621 NetType/WIFI Language/zh_CN", {
+    device: "huawei/mt7",
+    os: "android/4.4.2",
+    browser: "micromessenger/6.2.5.51;6.2.5.51;o",
+    engine: "webkit/533.1;533.1;o",
+  }],
 
   // NA
   ["",
