@@ -66,7 +66,7 @@ var DEVICES = [
     return ua.indexOf("meizu") >= 0 ?
       /\bmeizu[\/ ]([a-z0-9]+)\b/
       :
-      /\bm([0-9x]{1,3})\b/;
+      /\bm([0-9cx]{1,4})\b/;
   }],
   ["nexus", /\bnexus ([0-9s.]+)/],
   ["huawei", function(ua){
@@ -292,6 +292,7 @@ var BROWSER = [
     }catch(ex){ /* */ }
     return /\b(?:maxthon|mxbrowser)(?:[ \/]([0-9.]+))?/;
   }],
+  ["micromessenger", /\bmicromessenger\/([\d.]+)/],
   ["qq", /\bm?qqbrowser\/([0-9.]+)/],
   ["green", "greenbrowser"],
   ["tt", /\btencenttraveler ([0-9.]+)/],
@@ -363,7 +364,6 @@ var BROWSER = [
       return /\b(?:ucbrowser|uc)\b/;
     }
   }],
-  ["micromessenger", /\bmicromessenger\/([\d.]+)/],
   ["chrome", / (?:chrome|crios|crmo)\/([0-9.]+)/],
   // Android 默认浏览器。该规则需要在 safari 之前。
   ["android", function(ua){
