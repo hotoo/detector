@@ -167,22 +167,22 @@ module.exports = {
       },
     ],
     // sony.
-    ["sonyericsson",
-      function(ua) {
-        if (/\b([l|s]t\d{2}[i]{1,2}|[s|l]\d{2}h|m\d{2}c) build/.test(ua)) {
-          return /\b([l|s]t\d{2}[i]{1,2}|[s|l]\d{2}h|m\d{2}c)/;
-        } else if (/\bmt([a-z0-9]+)/.test(ua)) {
-          return /\bmt([a-z0-9]+)/;
-        } else if (/ l\d{2}t build/.test(ua)) {
-          return / (l\d{2}t) build/;
-        } else if (/ c6\d{3} /.test(ua)) {
-          return / (c6\d{3}) /;
-        } else if (/\bx10([a-z0-9]+) build/.test(ua)) {
-          return /\b(x10([a-z0-9]+)) build/;
-        }
-        return /\bxm\d{2}t/;
-      },
-    ],
+    //["sonyericsson",
+      //function(ua) {
+        //if (/\b([l|s]t\d{2}[i]{1,2}|[s|l]\d{2}h|m\d{2}c) build/.test(ua)) {
+          //return /\b([l|s]t\d{2}[i]{1,2}|[s|l]\d{2}h|m\d{2}c)/;
+        //} else if (/\bmt([a-z0-9]+)/.test(ua)) {
+          //return /\bmt([a-z0-9]+)/;
+        //} else if (/ l\d{2}t build/.test(ua)) {
+          //return / (l\d{2}t) build/;
+        //} else if (/ c6\d{3} /.test(ua)) {
+          //return / (c6\d{3}) /;
+        //} else if (/\bx10([a-z0-9]+) build/.test(ua)) {
+          //return /\b(x10([a-z0-9]+)) build/;
+        //}
+        //return /\bxm\d{2}t/;
+      //},
+    //],
     ["doov", /\bdoov[ _]([a-z0-9]+)/],
     ["天时达",
       function(ua) {
