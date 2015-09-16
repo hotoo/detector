@@ -1,9 +1,11 @@
 // more rule test.
 
-var expect = require("expect.js");
-var detector = require("../detector");
+"use strict";
 
-var UAs = [
+const expect = require("expect.js");
+const detector = require("../");
+
+const UAs = [
   ["Mozilla/5.0 (MeeGo; NokiaN9) AppleWebKit/534.13 (KHTML%2C like Gecko) NokiaBrowser/8.5.0 Mobile Safari/534.13", {
     device: "nokia/n9",
     os: "meego/-1",
@@ -117,7 +119,7 @@ describe("detector more rule", function() {
   function makeTest(ua, detect, info, k, origin_ua){
     it("ua: " + origin_ua + " » detector " + k + ": " + info[k], function() {
 
-      var ext = "";
+      let ext = "";
       if(k === "browser" || k === "engine"){
         ext = ";" + detect[k].fullMode + ";" + (detect[k].compatible ? "c" : "o");
       }
@@ -127,8 +129,8 @@ describe("detector more rule", function() {
     });
   }
 
-  var nav, ua, info, detect, type, origin_ua;
-  for(var i = 0, l = UAs.length; i < l; i++){
+  let nav, ua, info, detect, type, origin_ua;
+  for(let i = 0, l = UAs.length; i < l; i++){
     nav = UAs[i][0];
     type = Object.prototype.toString.call(nav);
     if (type === "[object String]") {
@@ -142,7 +144,7 @@ describe("detector more rule", function() {
     }
     info = UAs[i][1];
     detect = detector.parse(ua);
-    for(var k in info){
+    for(const k in info){
       if(!info.hasOwnProperty(k)){ continue; }
       makeTest(ua, detect, info, k, origin_ua);
     }

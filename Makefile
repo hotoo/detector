@@ -26,25 +26,28 @@ clean:
 	@rm -fr _site
 
 
-runner = _site/tests/runner.html
+lint:
+	@./node_modules/eslint/bin/eslint.js ./detector.js ./tests/ ./bin/detector
+
+
+test-cli:
+	@mocha -R spec --timeout 5000 tests/cli.test.js
+
 test-npm:
-	@mocha -R spec tests/detector-spec.js
-	@mocha -R spec tests/morerule-test.js
+	@./node_modules/.bin/istanbul cover \
+	./node_modules/.bin/_mocha \
+		-- \
+		--harmony \
+		--reporter spec \
+		--timeout 2000 \
+		--inline-diffs \
+		./tests/*.js
+
 
 test-spm:
 	@spm test
 
-lint:
-	@./node_modules/eslint/bin/eslint.js ./detector.js ./tests/ ./bin/detector
-
 test: lint test-npm test-spm
-
-output = _site/coverage.html
-coverage: build-doc
-	@rm -fr _site/src-cov
-	@jscoverage --encoding=utf8 src _site/src-cov
-	@mocha-browser ${runner}?cov -S -R html-cov > ${output}
-	@echo "Build coverage to ${output}"
 
 
 .PHONY: build-doc publish-doc server clean test coverage

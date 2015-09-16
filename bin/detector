@@ -1,7 +1,10 @@
 #!/usr/bin/env node
-var commander = require("commander");
-var colors = require("colors");
-var detector = require("../detector");
+
+"use strict";
+
+const commander = require("commander");
+const colors = require("colors");
+const detector = require("../lib/node-detector");
 
 colors.setTheme({
   label: "white",
@@ -23,11 +26,11 @@ if (commander.args.length === 0) {
   commander.help();
 }
 
-var tan = detector.parse(commander.args.join(" "));
-var device = tan.device.name.info + "@".red + tan.device.fullVersion.info;
-var os = tan.os.name.info + "@".red + tan.os.fullVersion.info;
-var browser = tan.browser.name.info + "@".red + tan.browser.fullVersion.info;
-var engine = tan.engine.name.info + "@".red + tan.engine.fullVersion.info;
+const tan = detector.parse(commander.args.join(" "));
+const device = tan.device.name.info + "@".red + tan.device.fullVersion.info;
+const os = tan.os.name.info + "@".red + tan.os.fullVersion.info;
+const browser = tan.browser.name.info + "@".red + tan.browser.fullVersion.info;
+const engine = tan.engine.name.info + "@".red + tan.engine.fullVersion.info;
 
 console.log();
 console.log("   Device: ".label, device);

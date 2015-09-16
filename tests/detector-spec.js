@@ -1,13 +1,14 @@
+"use strict";
 
-var expect = require("expect.js");
-var detector = require("../detector");
-var global = this;
+const expect = require("expect.js");
+const detector = require("../");
+const win = typeof window === "undefined" ? global : window;
 
 function isBlinkEngine(){
-  return "chrome" in global && "CSS" in global;
+  return "chrome" in win && "CSS" in win;
 }
 
-var UAs = [
+const UAs = [
   // Windows 10, Edge browser.
   ["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10162", {
     device: "pc/-1",
@@ -860,15 +861,13 @@ var UAs = [
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.4;537.4;o",
   }],
 
-  ["Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 AliApp(AP/2.3.4) AlipayClient/2.3.4",
-  {
+  ["Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 AliApp(AP/2.3.4) AlipayClient/2.3.4", {
     device: "iphone/-1",
     os: "ios/7.0",
     browser: "ali-ap/2.3.4;2.3.4;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.51.1;537.51.1;o",
   }],
-  ["Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML,  like Gecko) Mobile/11D201 AlipayClient/8.0.0.0110",
-  {
+  ["Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML,  like Gecko) Mobile/11D201 AlipayClient/8.0.0.0110", {
     device: "iphone/-1",
     os: "ios/7.1.1",
     browser: "ali-ap/8.0.0.0110;8.0.0.0110;o",
@@ -876,62 +875,54 @@ var UAs = [
   }],
 
   //安卓opera
-  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-CN; MI 3W Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Oupeng/10.0.1.82018 Mobile Safari/537.36",
-  {
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-CN; MI 3W Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Oupeng/10.0.1.82018 Mobile Safari/537.36", {
     device: "mi/3w",
     os: "android/4.4.2",
     browser: "oupeng/10.0.1.82018;10.0.1.82018;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.36;537.36;o",
   }],
   //安卓搜狗
-  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; MI 3W Build/KVT49L) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 SogouMSE,SogouMobileBrowser/3.1.2",
-  {
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; MI 3W Build/KVT49L) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 SogouMSE,SogouMobileBrowser/3.1.2", {
     device: "mi/3w",
     os: "android/4.4.2",
     browser: "sogou/3.1.2;3.1.2;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/534.30;534.30;o",
   }],
   //安卓猎豹极速
-  ["Mozilla/5.0 (Linux; Android 4.4.2; MI 3W) AppleWebKit/535.19 (KHTML, like Gecko) Version/4.0 LieBaoFast/2.10.0 Mobile Safari/535.19",
-  {
+  ["Mozilla/5.0 (Linux; Android 4.4.2; MI 3W) AppleWebKit/535.19 (KHTML, like Gecko) Version/4.0 LieBaoFast/2.10.0 Mobile Safari/535.19", {
     device: "mi/3w",
     os: "android/4.4.2",
     browser: "liebao/2.10.0;2.10.0;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/535.19;535.19;o",
   }],
   //百度安卓
-  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; MI 3W Build/KVT49L) AppleWebKit/534.24 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.24 T5/2.0 baidubrowser/5.2.3.0 (Baidu; P1 4.4.2)",
-  {
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; MI 3W Build/KVT49L) AppleWebKit/534.24 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.24 T5/2.0 baidubrowser/5.2.3.0 (Baidu; P1 4.4.2)", {
     device: "mi/3w",
     os: "android/4.4.2",
     browser: "baidu/5.2.3.0;5.2.3.0;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/534.24;534.24;o",
   }],
   //小米3 遨游
-  ["Mozilla/5.0 (iPad; CPU OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D201 Safari/9537.53 MxBrowser/4.3.1.2000",
-  {
+  ["Mozilla/5.0 (iPad; CPU OS 7_1_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Version/7.0 Mobile/11D201 Safari/9537.53 MxBrowser/4.3.1.2000", {
     device: "ipad/-1",
     os: "ios/7.1.1",
     browser: "maxthon/4.3.1.2000;4.3.1.2000;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.51.2;537.51.2;o",
   }],
   // UC桌面浏览器
-  ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 UBrowser/2.0.1288.1 Safari/537.36",
-  {
+  ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 UBrowser/2.0.1288.1 Safari/537.36", {
     device: "pc/-1",
     os: "windows/6.1",
     browser: "uc/2.0.1288.1;2.0.1288.1;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.36;537.36;o",
   }],
-  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-CN; MI 3W Build/KVT49L) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 UCBrowser/9.9.2.467 U3/0.8.0 Mobile Safari/533.1",
-  {
+  ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-CN; MI 3W Build/KVT49L) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 UCBrowser/9.9.2.467 U3/0.8.0 Mobile Safari/533.1", {
     device: "mi/3w",
     os: "android/4.4.2",
     browser: "uc/9.9.2.467;9.9.2.467;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/533.1;533.1;o",
   }],
-  ["Mozilla/5.0 (iPad; CPU OS 7_1_2 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) BaiduHD/2.6.2 Mobile/10A406 Safari/8536.25",
-  {
+  ["Mozilla/5.0 (iPad; CPU OS 7_1_2 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) BaiduHD/2.6.2 Mobile/10A406 Safari/8536.25", {
     device: "ipad/-1",
     os: "ios/7.1.2",
     browser: "baidu/2.6.2;2.6.2;o",
@@ -939,22 +930,19 @@ var UAs = [
   }],
 
   // Blackberry
-  ["Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+",
-  {
+  ["Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+", {
     device: "blackberry/-1",
     os: "blackberry/10.1.0.4633",
     browser: "blackberry/10.1.0.4633;10.1.0.4633;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.10+;537.10+;o",
   }],
-  ["Mozilla/5.0 (BlackBerry; U; BlackBerry 9810; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.912 Mobile Safari/534.11+",
-  {
+  ["Mozilla/5.0 (BlackBerry; U; BlackBerry 9810; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.912 Mobile Safari/534.11+", {
     device: "blackberry/9810",
     os: "blackberry/7.1.0.912",
     browser: "blackberry/7.1.0.912;7.1.0.912;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/534.11+;534.11+;o",
   }],
-  ["BlackBerry9000/5.0.0.93 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/179",
-  {
+  ["BlackBerry9000/5.0.0.93 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/179", {
     device: "blackberry/9000",
     os: "blackberry/5.0.0.93",
     browser: "blackberry/5.0.0.93;5.0.0.93;o",
@@ -995,8 +983,7 @@ var UAs = [
   }],
 
   // NA
-  ["",
-  {
+  ["", {
     device: "na/-1",
     os: "na/-1",
     browser: "na/-1;-1;o",
@@ -1008,7 +995,7 @@ describe("detector", function() {
   function makeTest(ua, detect, info, k, origin_ua){
     it("ua: " + origin_ua + " » detector " + k + ": " + info[k], function() {
 
-      var ext = "";
+      let ext = "";
       if(k === "browser" || k === "engine"){
         ext = ";" + detect[k].fullMode + ";" + (detect[k].compatible ? "c" : "o");
       }
@@ -1018,9 +1005,9 @@ describe("detector", function() {
     });
   }
 
-  var nav, ua, info, detect, type;
-  var origin_ua;
-  for (var i = 0, l = UAs.length; i < l; i++){
+  let nav, ua, info, detect, type;
+  let origin_ua;
+  for (let i = 0, l = UAs.length; i < l; i++){
     nav = UAs[i][0];
     type = Object.prototype.toString.call(nav);
     if (type === "[object String]") {
@@ -1034,7 +1021,7 @@ describe("detector", function() {
     }
     info = UAs[i][1];
     detect = detector.parse(ua);
-    for (var k in info) {
+    for (const k in info) {
       if (!info.hasOwnProperty(k)){ continue; }
       makeTest(ua, detect, info, k, origin_ua);
     }
