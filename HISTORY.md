@@ -3,6 +3,11 @@
 
 ----
 
+## 2.4.1 (2015-09-16)
+
+* fix(micromessenger): micromessenger rule need before qq browser, because
+  micromessenger use qq browser engine in some Android phone. #84, #85.
+
 ## 2.4.0 (2015-08-23)
 
 * feat(micromessenger): move wechat support from node to web. #83
