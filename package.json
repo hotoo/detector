@@ -7,7 +7,7 @@
   "maintainers": [
     "冒顿 <hotoo.cn@gmail.com>"
   ],
-  "main": "detector.js",
+  "main": "./lib/node-detector.js",
   "bin": {
     "detector": "./bin/detector"
   },
@@ -33,26 +33,28 @@
   },
   "license": "MIT",
   "spm": {
-    "main": "detector.js",
+    "main": "./lib/web-detector.js",
     "devDependencies": {
       "jquery": "1.7.2",
       "expect.js": "0.3.1"
     },
-    "tests": "tests/*-spec.js"
+    "tests": "tests/*-spec.js",
+    "build": {
+      "babel": {}
+    }
   },
   "dependencies": {
-    "commander": "~1.1.1",
-    "colors": "0.6.2"
+    "colors": "0.6.2",
+    "commander": "~1.1.1"
   },
   "devDependencies": {
-    "eslint": "^0.24.1",
+    "eslint": "~1.4.3",
     "expect.js": "0.3.1",
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-watch": "0.6.0"
+    "grunt-contrib-watch": "0.6.0",
+    "istanbul": "^0.3.22",
+    "mocha": "^2.3.3"
   },
-  "browser": {
-    "commander": false,
-    "colors": false
-  }
+  "browser": "./web-detector.js"
 }

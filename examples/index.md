@@ -18,7 +18,7 @@ Thank you!
 
 <pre id="ua"></pre>
 
-<script type='text/spm'>
+<script type="text/spm">
 function isObject(obj){
   return Object.prototype.toString.call(obj) === "[object Object]";
 }
@@ -36,7 +36,6 @@ function expandObject(obj){
 
 var $ = require('jquery');
 var detector = require('detector');
-
 
 var OS_ALIAS = {
   // Windows.
