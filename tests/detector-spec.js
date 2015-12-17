@@ -235,6 +235,12 @@ const UAs = [
     browser: "theworld/-1;8.0;o",
     engine: "trident/4.0;4.0;o",
   }],
+  ["Mozilla/5.0 (Windows NT 5.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36 TheWorld 6", {
+    device: "pc/-1",
+    os: "windows/5.2",
+    browser: "theworld/6;6;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.36;537.36;o",
+  }],
   // Maxthon
   ["Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/4.0.5.4000 Chrome/26.0.1410.43 Safari/537.1", {
     device: "pc/-1",
