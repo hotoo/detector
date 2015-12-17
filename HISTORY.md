@@ -3,6 +3,11 @@
 
 ----
 
+## 2.4.2 (2015-12-18)
+
+* fix(theworld): version for the world browser. fixed #90
+* refact(web-node): Web is Web, Node is Node. #87
+
 ## 2.4.1 (2015-09-16)
 
 * fix(micromessenger): micromessenger rule need before qq browser, because
