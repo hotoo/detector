@@ -411,3 +411,7 @@ Not Available information:
 
 * Not Available name will be `na`.
 * Not Available version will be `-1`.
+
+## Releases
+
+https://github.com/hotoo/detector/tree/gh-pages

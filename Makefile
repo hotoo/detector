@@ -7,7 +7,12 @@ install:
 build:
 	@spm build
 
-publish: build publish-doc
+release-web:
+	@spm build --umd detector
+	@ghp-import dist
+	@git push origin gh-pages
+
+publish: build publish-doc release-web
 	@spm publish
 	@npm publish
 	@git tag $(version)
@@ -50,4 +55,4 @@ test-spm:
 test: lint test-npm test-spm
 
 
-.PHONY: build-doc publish-doc server clean test coverage
+.PHONY: build-doc publish-doc server clean test coverage release-web

@@ -50,11 +50,9 @@
   "devDependencies": {
     "eslint": "~1.4.3",
     "expect.js": "0.3.1",
-    "grunt": "~0.4.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-watch": "0.6.0",
     "istanbul": "^0.3.22",
-    "mocha": "^2.3.3"
+    "mocha": "^2.3.3",
+    "spm": "~3.6.12"
   },
   "browser": "./web-detector.js"
 }
