@@ -3,6 +3,10 @@
 
 ----
 
+## 2.4.3 (2016-01-25)
+
+* fix(ReferenceError): name is not defined. fixed #92
+
 ## 2.4.2 (2015-12-18)
 
 * fix(theworld): version for the world browser. fixed #90
