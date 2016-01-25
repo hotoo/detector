@@ -11,11 +11,11 @@ install:
   - npm install spm coveralls
 
 before_script:
-  - node_modules/spm/bin/spm-install
+  - node_modules/spm/bin/spm install
   - npm install
 
 script:
-  - node_modules/spm/bin/spm-test
+  - node_modules/spm/bin/spm test
   - node_modules/.bin/mocha -R spec tests/*.js
 
 after_success:

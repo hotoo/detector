@@ -960,32 +960,32 @@ const UAs = [
     device: "iphone/-1",
     os: "ios/7.0",
     browser: "micromessenger/4.5;4.5;o",
-    engine: "webkit/537.40;537.40;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.40;537.40;o",
   }],
   // 魅族
   ["Mozilla/5.0 (Linux; U; Android 4.0.3; zh-cn; M030 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 MicroMessenger/4.2.191", {
     device: "meizu/030",
     os: "android/4.0.3",
     browser: "micromessenger/4.2.191;4.2.191;o",
-    engine: "webkit/534.30;534.30;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/534.30;534.30;o",
   }],
   ["Mozilla/5.0 (iPhone; CPU iPhone OS 8_1_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12B435 MicroMessenger/6.0.1 NetType/WIFI", {
     device: "iphone/-1",
     os: "ios/8.1.1",
     browser: "micromessenger/6.0.1;6.0.1;o",
-    engine: "webkit/600.1.4;600.1.4;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/600.1.4;600.1.4;o",
   }],
   ["Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; M463C Build/KTU84P) AppleWebKit/533.1 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.4 TBS/025440 Mobile Safari/533.1 MicroMessenger/6.2.5.50_r0e62591.621 NetType/WIFI Language/zh_CN", {
     device: "meizu/463c",
     os: "android/4.4.4",
     browser: "micromessenger/6.2.5.50;6.2.5.50;o",
-    engine: "webkit/533.1;533.1;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/533.1;533.1;o",
   }],
   ["Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; HUAWEI MT7-CL00 Build/HuaweiMT7-CL00) AppleWebKit/533.1 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.4 TBS/025440 Mobile Safari/533.1 MicroMessenger/6.2.5.51_rfe7d7c5.621 NetType/WIFI Language/zh_CN", {
     device: "huawei/mt7",
     os: "android/4.4.2",
     browser: "micromessenger/6.2.5.51;6.2.5.51;o",
-    engine: "webkit/533.1;533.1;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/533.1;533.1;o",
   }],
 
   // NA
