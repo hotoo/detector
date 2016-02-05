@@ -112,6 +112,13 @@ const UAs = [
     browser: "android/4.0;4.0;o",
     engine: "webkit/534.30;534.30;o",
   }],
+
+  ["Mozilla/5.0 (Linux; Android 4.4.2; XT1033 Build/KXB20.25-1.31) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36", {
+    device: "moto/xt1033",
+    os: "android/4.4.2",
+    browser: "chrome/33.0.1750.136;33.0.1750.136;o",
+    engine: "webkit/537.36;537.36;o",
+  }],
 ];
 
 describe("detector more rule", function() {
