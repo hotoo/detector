@@ -3,6 +3,10 @@
 
 ----
 
+## 2.4.4 (2016-02-05)
+
+* fix(moto): fixed moto rule. #95.
+
 ## 2.4.3 (2016-01-25)
 
 * fix(ReferenceError): name is not defined. fixed #92

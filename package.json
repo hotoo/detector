@@ -1,6 +1,6 @@
 {
   "name": "detector",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "The module for detect client-side information.",
   "homepage": "http://spmjs.io/docs/detector/",
   "author": "冒顿 <hotoo.cn@gmail.com>",
