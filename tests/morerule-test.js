@@ -113,6 +113,38 @@ const UAs = [
     engine: "webkit/534.30;534.30;o",
   }],
 
+  // 锤子 T1 手机, Smartisan OS, Chrome 浏览器
+  ["Mozilla/5.0 (Linux; Android 4.4.2; SM705 Build/SANFRANCISCO) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36", {
+    device: "smartisan/705",
+    os: "smartisanos/-1",
+    browser: "chrome/30.0.0.0;30.0.0.0;o",
+    engine: "webkit/537.36;537.36;o",
+  }],
+
+  // 锤子 T1 手机, Smartisan OS, 原生浏览器
+  ["Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; SM-705 Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30", {
+    device: "smartisan/705",
+    os: "smartisanos/-1",
+    browser: "android/4.0;4.0;o",
+    engine: "webkit/534.30;534.30;o",
+  }],
+
+  // 锤子 T1 手机, Smartisan OS, 原生浏览器 (不知道为什么会带上 Chrome 标记)
+  ["Mozilla/5.0 (Linux; Android 4.4.2; SM705 Build/SANFRANCISCO) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.11 Mobile Safari/537.36", {
+    device: "smartisan/705",
+    os: "smartisanos/-1",
+    browser: "chrome/46.0.2490.11;46.0.2490.11;o",
+    engine: "webkit/537.36;537.36;o",
+  }],
+
+  // 锤子 T2 手机, Smartisan OS, 微信浏览器
+  ["Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; SM801 Build/LMY47V) AppleWebKit/533.1 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.4 TBS/025489 Mobile Safari/533.1 MicroMessenger/6.3.13.49_r4080b63.740 NetType/3gnet Language/zh_CN", {
+    device: "smartisan/801",
+    os: "smartisanos/-1",
+    browser: "micromessenger/6.3.13.49;6.3.13.49;o",
+    engine: "webkit/533.1;533.1;o",
+  }],
+
   ["Mozilla/5.0 (Linux; Android 4.4.2; XT1033 Build/KXB20.25-1.31) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.136 Mobile Safari/537.36", {
     device: "moto/xt1033",
     os: "android/4.4.2",
