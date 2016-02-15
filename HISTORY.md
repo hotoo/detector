@@ -3,9 +3,13 @@
 
 ----
 
+## 2.4.5 (2016-02-15)
+
+* fix(smartisan): fixed smartisan device and OS rule. #97.
+
 ## 2.4.4 (2016-02-05)
 
-* fix(moto): fixed moto rule. #95.
+* fix(moto): fixed moto rule. #95, #96.
 
 ## 2.4.3 (2016-01-25)
 
