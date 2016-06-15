@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>detector - Detector Parser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="nico-spm 0.5.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link type="image/x-icon" href="/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="../static/css/normalize.css" />
+    <link rel="stylesheet" href="../static/css/site.css" />
+    <link rel="stylesheet" href="../static/css/site.css" />
+    <link rel="stylesheet" href="../static/css/solarized.css" />
+    <link rel="stylesheet" href="../static/css/codemirror.css" />
+<script>
+if (!location.port) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-50522089-2', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+<script src="../static/js/sea.js?nowrap"></script>
+
+<script>
+  seajs.config({
+    base: "../"
+  });
+</script>
+    <!--[if lt IE 9]>
+    <script src="../static/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body class="spmjs">
+  <script src="../dist/bundle.js?nowrap"></script>
+
+  <div class="body-wrapper">
+      <aside class="sidebar-wrapper">
+      <h1>
+          <a href="../">Detector</a>
+      </h1>
+      <p class="sidebar-version">Version: <a href="http://spmjs.io/package/detector" title="">2.4.5</a></p>
+        <p class="sidebar-description" data-keyword="utility">The module for detect client-side information.</p>
+        <a class="sidebar-source" href="https://github.com/hotoo/detector" target="_blank">View the Project</a>
+        <ul class="sidebar-navigation" role="navigation">
+          <li><a href="../">Doc</a></li>
+          <li><a href="index.html">Demo</a></li>
+          <li><a href="../history.html">History</a></li>
+          <li><a class="test-link" href="../tests/runner.html" target="_blank">Test</a></li>
+          <li><a class="issue-link" href="https://github.com/hotoo/detector/issues" target="_blank">Issues</a></li>
+        </ul>
+        
+<ol class="sidenav">
+  <li><a href="index.html">Example</a></li>
+  <li><a href="index-zh-CN.html">演示文档</a></li>
+  <li><a href="tests.html">Detector Parser</a></li>
+</ol>
+
+        <div class="qrcode-wrapper">
+          <i class="icon">
+            <div class="icon-qrcode">
+              <svg width="1024" height="1024" viewBox="0 0 1024 1024">
+                <g class="transform-group">
+                  <g transform="translate(0, 18) scale(1, -1) scale(0.024, 0.024)">
+                    <path d="M116.8 792.062v0 0zM334.523 138.877v-72.569h-72.569v72.569h72.569zM334.523 574.339v-72.569h-72.569v72.569h72.569zM769.984 574.339v-72.569h-72.569v72.569h72.569zM189.369-5.705h217.723v217.167h-217.723v-217.167zM189.369 429.185h217.723v217.723h-217.723v-217.723zM624.831 429.185h217.723v217.723h-217.723v-217.723zM479.677 284.031v-362.877h-362.877v362.877h362.877zM769.984-6.277v-72.569h-72.569v72.569h72.569zM915.138-6.277v-72.569h-72.569v72.569h72.569zM915.138 284.031v-217.723h-217.723v72.569h-72.569v-217.723h-72.569v362.877h217.723v-72.569h72.569v72.569h72.569zM479.677 719.493v-362.877h-362.877v362.877h362.877zM915.138 719.493v-362.877h-362.877v362.877h362.877z" fill="#666"></path>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="qrcode" id="qrcode"></div>
+          </i>
+        </div>
+        <div class="footer-wrapper"><a target="_blank" href="http://spmjs.io">spmjs.io</a> /
+<a target="_blank" href="https://github.com/spmjs/spm">spm</a> /
+<a target="_blank" href="http://seajs.org">sea.js</a> /
+<a target="_blank" href="http://lab.lepture.com/nico/">nico-spm</a>
+        </div>
+      </aside>
+      <div class="content-wrapper">
+        
+<article class="hentry">
+  <h1 class="entry-title">Detector Parser</h1>
+  <div class="entry-content">
+    <!--filepath:examples/tests.md --> <style>
+table,th,td{border: 1px solid #ccc;}
+</style>
+
+<h2 id="input">INPUT<a href="#input" class="anchor">¶</a></h2><p>Put userAgent strings into following input textarea:
+(per-line an userAgent string.)</p>
+<textarea id="userAgents" style="width:99%;height:200px"></textarea>
+
+<button type="button" id="btn-analytics" style="margin:10px 0; width:100%;">Parse</button>
+
+
+<hr>
+<h2 id="output">OUTPUT<a href="#output" class="anchor">¶</a></h2><p>Markdown:</p>
+<textarea id="output-md" readonly style="width:99%;height:100px"></textarea>
+
+<p>Preview:</p>
+<div id="output-html"></div>
+
+<style>
+.error{background-color:#f33; color:#0f0;}
+</style>
+
+<script >
+  var $ = window['jquery'];
+  var detector = window['detector'];
+  var ua = navigator.userAgent + '\nMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10162';
+  var ipt = $("#userAgents");
+  var btn = $("#btn-analytics");
+  var opt_html = $("#output-html");
+  var opt_md = $("#output-md");
+
+  ipt.val(ua);
+  var o = outputs(parses(ua));
+  opt_html.html(o.html);
+  opt_md.val(o.markdown);
+
+  btn.on("click", function(){
+    var o = outputs(parses(ipt.val()));
+    opt_html.html(o.html);
+    opt_md.val(o.markdown);
+  });
+
+  // parse all userAgent strings.
+  // @param {String} userAgents, each line is a userAgent string.
+  // @return {Array} `[[userAgent, result], ...]`
+  function parses(userAgents){
+    var uas = userAgents.split(/\r\n|\r|\n/);
+    var rst = [];
+    var RE_BLANK = /^\s*$/;
+
+    for(var i=0,ua,l=uas.length; i<l; i++){
+      ua = uas[i];
+      rst[i] = [ua, detector.parse(ua)];
+    }
+
+    return rst;
+  }
+
+  // format output.
+  function outputs(result){
+    var html = '<table><thead><tr><th>userAgent</th>' +
+      '<th>Device</th>'+
+      '<th>OS</th>'+
+      '<th>Browser</th>'+
+      '<th>Engine</th>'+
+      '</tr></thead><tbody>';
+    var md = '| userAgent | Device | OS | Browser | Engine |\n'+
+             '|-----------|--------|----|---------|--------|\n';
+
+    for(var i=0,ua,rst,l=result.length; i<l; i++){
+      ua = result[i][0];
+      rst = result[i][1];
+      var isNA_device = rst.device.name === 'na';
+      var isNA_os = rst.os.name === 'na';
+      var isNA_browser = rst.browser.name === 'na';
+      var isNA_engine = rst.engine.name === 'na';
+
+      html += '<tr><th>' + ua + '</th>';
+      html += '<td' + (isNA_device ? ' class="error"' : '') + '>' + rst.device.name + '<br/>' + rst.device.fullVersion + '</td>';
+      html += '<td' + (isNA_os ? ' class="error"' : '') + '>' + rst.os.name + '<br/>' + rst.os.fullVersion + '</td>';
+      html += '<td' + (isNA_browser ? ' class="error"' : '') + '>' + rst.browser.name + '<br/>' + rst.browser.fullVersion + '</td>';
+      html += '<td' + (isNA_engine ? ' class="error"' : '') + '>' + rst.engine.name + '<br/>' + rst.engine.fullVersion + '</td>';
+      html += '</tr>';
+
+      md += '| ' + ua + ' | ' +
+        rst.device.name + '/' + rst.device.fullVersion + ' | ' +
+        rst.os.name+  '/' + rst.os.fullVersion + ' | ' +
+        rst.browser.name + '/' + rst.browser.fullVersion + ' | ' +
+        rst.engine.name + '/' + rst.engine.fullVersion + ' | ';
+
+    }
+
+    return {
+      html: html,
+      markdown: md
+    };
+  }
+</script>
+
+  </div>
+</article>
+
+      </div>
+      
+    </div>
+  </body>
+  <script src="../static/js/nprogress.js?nowrap"></script>
+  <script>
+  (function() {
+    NProgress.start();
+    window.onload = NProgress.done;
+    var ready = function(fn) {
+      var doc = document;
+      if(doc.addEventListener) {
+        doc.addEventListener('DOMContentLoaded', fn, false);
+      } else {
+        doc.attachEvent('onreadystatechange', fn);
+      }
+    };
+    ready(function() {
+      NProgress.inc(0.6);
+      seajs.use("../static/js/arale-qrcode.js?nowrap", function(QRCode) {
+        var url = location.href;
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+          url = url.replace(location.hostname, '10.15.78.202');
+        }
+        var el = new QRCode({
+          text: url,
+          render: 'canvas',
+          width: 120,
+          height: 120
+        });
+        document.getElementById('qrcode').appendChild(el);
+      });
+    }, false);
+  })();
+  </script>
+</html>

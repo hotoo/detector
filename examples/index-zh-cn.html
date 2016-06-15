@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>detector - 演示文档</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="nico-spm 0.5.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link type="image/x-icon" href="/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="../static/css/normalize.css" />
+    <link rel="stylesheet" href="../static/css/site.css" />
+    <link rel="stylesheet" href="../static/css/site.css" />
+    <link rel="stylesheet" href="../static/css/solarized.css" />
+    <link rel="stylesheet" href="../static/css/codemirror.css" />
+<script>
+if (!location.port) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-50522089-2', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+<script src="../static/js/sea.js?nowrap"></script>
+
+<script>
+  seajs.config({
+    base: "../"
+  });
+</script>
+    <!--[if lt IE 9]>
+    <script src="../static/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body class="spmjs">
+  <script src="../dist/bundle.js?nowrap"></script>
+
+  <div class="body-wrapper">
+      <aside class="sidebar-wrapper">
+      <h1>
+          <a href="../">Detector</a>
+      </h1>
+      <p class="sidebar-version">Version: <a href="http://spmjs.io/package/detector" title="">2.4.5</a></p>
+        <p class="sidebar-description" data-keyword="utility">The module for detect client-side information.</p>
+        <a class="sidebar-source" href="https://github.com/hotoo/detector" target="_blank">View the Project</a>
+        <ul class="sidebar-navigation" role="navigation">
+          <li><a href="../">Doc</a></li>
+          <li><a href="index.html">Demo</a></li>
+          <li><a href="../history.html">History</a></li>
+          <li><a class="test-link" href="../tests/runner.html" target="_blank">Test</a></li>
+          <li><a class="issue-link" href="https://github.com/hotoo/detector/issues" target="_blank">Issues</a></li>
+        </ul>
+        
+<ol class="sidenav">
+  <li><a href="index.html">Example</a></li>
+  <li><a href="index-zh-CN.html">演示文档</a></li>
+  <li><a href="tests.html">Detector Parser</a></li>
+</ol>
+
+        <div class="qrcode-wrapper">
+          <i class="icon">
+            <div class="icon-qrcode">
+              <svg width="1024" height="1024" viewBox="0 0 1024 1024">
+                <g class="transform-group">
+                  <g transform="translate(0, 18) scale(1, -1) scale(0.024, 0.024)">
+                    <path d="M116.8 792.062v0 0zM334.523 138.877v-72.569h-72.569v72.569h72.569zM334.523 574.339v-72.569h-72.569v72.569h72.569zM769.984 574.339v-72.569h-72.569v72.569h72.569zM189.369-5.705h217.723v217.167h-217.723v-217.167zM189.369 429.185h217.723v217.723h-217.723v-217.723zM624.831 429.185h217.723v217.723h-217.723v-217.723zM479.677 284.031v-362.877h-362.877v362.877h362.877zM769.984-6.277v-72.569h-72.569v72.569h72.569zM915.138-6.277v-72.569h-72.569v72.569h72.569zM915.138 284.031v-217.723h-217.723v72.569h-72.569v-217.723h-72.569v362.877h217.723v-72.569h72.569v72.569h72.569zM479.677 719.493v-362.877h-362.877v362.877h362.877zM915.138 719.493v-362.877h-362.877v362.877h362.877z" fill="#666"></path>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="qrcode" id="qrcode"></div>
+          </i>
+        </div>
+        <div class="footer-wrapper"><a target="_blank" href="http://spmjs.io">spmjs.io</a> /
+<a target="_blank" href="https://github.com/spmjs/spm">spm</a> /
+<a target="_blank" href="http://seajs.org">sea.js</a> /
+<a target="_blank" href="http://lab.lepture.com/nico/">nico-spm</a>
+        </div>
+      </aside>
+      <div class="content-wrapper">
+        
+<article class="hentry">
+  <h1 class="entry-title">演示文档</h1>
+  <div class="entry-content">
+    <!--filepath:examples/index-zh-CN.md --> <p>您正在使用：</p>
+<pre id="detector-info"></pre>
+
+<ul>
+<li>如果上面识别的信息不正确，<a id="issues"
+href="https://github.com/hotoo/detector/issues/new"
+target="_blank"><strong>请给我们提 Issues 反馈</strong></a>。</li>
+<li>如果没有 Github 账户，请向我们 <a id="email" href="mailto:hotoo.cn@gmail.com"
+target="_blank"><strong>发送 Email</strong></a>。</li>
+<li>如果点击链接无法发送 Email，请拷贝这个页面的内容手工发送 Email 给 <code>hotoo.cn@gmail.com</code>。</li>
+</ul>
+<pre id="ua"></pre>
+
+<div style="display:none;">
+````javascript+
+require('jquery');
+require('detector');
+````
+</div>
+
+<script>
+function isObject(obj){
+  return Object.prototype.toString.call(obj) === "[object Object]";
+}
+function expandObject(obj){
+  if(!isObject(obj)){return obj;}
+  var s = '{';
+  for(var k in obj){
+    if(obj.hasOwnProperty(k)){
+      s += k + ':' + typeof obj[k] + ',';
+    }
+  }
+  s += '}';
+  return s;
+}
+
+var $ = window['jquery']; // require('jquery');
+var detector = window['detector']; // require('detector');
+
+var OS_ALIAS = {
+  // Windows.
+  "windows/4.0":  "Windows 95",
+  "windows/4.1": "Windows 98",
+  "windows/4.9": "Windows ME",
+  "windows/5.0":  "Windows 2000",
+  "windows/5.1":  "Windows XP",
+  "windows/5.2":  "Windows Server 2003",
+  "windows/6.0":  "Windows Vista",
+  "windows/6.1":  "Windows 7",
+  "windows/6.2":  "Windows 8",
+  "windows/6.3":  "Windows 8.1",
+  // Mac OS X.
+  "macosx/10.0": "Mac OS X Cheetah",
+  "macosx/10.1": "Mac OS X Puma",
+  "macosx/10.2": "Mac OS X Jaguar",
+  "macosx/10.3": "Mac OS X Panther",
+  "macosx/10.4": "Mac OS X Tiger",
+  "macosx/10.5": "Mac OS X Leopard",
+  "macosx/10.6": "Mac OS X Snow Leopard",
+  "macosx/10.7": "Mac OS X Lion",
+  "macosx/10.8": "Mac OS X Mountain Lion",
+  "macosx/10.9": "Mac OS X Mavericks",
+  "macosx/10.10": "Mac OS X Yosemite",
+  "macosx/10.11": "Mac OS X El Capitan",
+  // iOS.
+  "ios/9.0": "iOS 9.0 (Monarch)",
+  // Android.
+  "android/1.5": "Android Cupcake",
+  "android/1.6": "Android Doughnut",
+  "android/2.0": "Android Eclair",
+  "android/2.1": "Android Eclair",
+  "android/2.2": "Android Froyo",
+  "android/2.3": "Android Gingerbread",
+  "android/3.0": "Android Honeycomb",
+  "android/3.1": "Android Honeycomb",
+  "android/3.2": "Android Honeycomb",
+  "android/4.0": "Android Ice Cream Sandwich",
+  "android/4.1": "Android JellyBean",
+  "android/4.2": "Android JellyBean",
+  "android/4.3": "Android JellyBean",
+  "android/4.4": "Android KitKat"
+};
+
+var detectedInfo = [];
+detectedInfo.push("* 硬件设备："+detector.device.name+" "+detector.device.fullVersion);
+var osAlias = OS_ALIAS[detector.os.name+"/"+(detector.os.fullVersion.split(".").slice(0,2).join("."))] || "N/A";
+detectedInfo.push("* 操作系统："+detector.os.name+" "+detector.os.fullVersion + " ("+osAlias+")");
+detectedInfo.push("* 浏览器："+detector.browser.name+" "+detector.browser.fullVersion+
+    (detector.browser.compatible ? "(" + String(detector.browser.fullMode) + " 兼容模式）" : ""));
+detectedInfo.push("* 渲染引擎：" + detector.engine.name + " " + detector.engine.fullVersion +
+    (detector.engine.compatible ? "(" + String(detector.engine.fullMode) + " 兼容模式）" : ""));
+
+document.getElementById("detector-info").innerHTML = detectedInfo.join("<br />");
+
+var ext;
+if(!window.external){
+  ext = "undefined";
+}if(Object.prototype.toString.call(window.external)==="[object Object]"){
+  ext = [];
+  try{
+    for(var k in window.external){
+      ext.push(k+": "+typeof(window.external[k])+
+        (window.external.hasOwnProperty(k)?"":"[prototype]"));
+    }
+  }catch(ex){window.console && console.log("1. "+k+":"+ex.message);}
+  ext = "{"+ext.join(", ")+"}";
+}else{
+  ext = window.external +"["+typeof(window.external)+"]";
+}
+var info = {
+  ua : navigator.userAgent,
+  vendor : navigator.vendor,
+  vendorSub : navigator.vendorSub,
+  platform : navigator.platform,
+  external : ext,
+  appCodeName : navigator.appCodeName,
+  appName : navigator.appName,
+  appVersion : navigator.appVersion,
+  product : navigator.product,
+  productSub : navigator.productSub,
+  screenWidth : screen.width,
+  screenHeight : screen.height,
+  colorDepth : screen.colorDepth,
+  documentMode: document.documentMode,
+  compatMode: document.compatMode
+};
+
+var a = [
+  "| 字段 | 值 |",
+  "|------|----|"
+];
+for(var k in info){
+  if(!info.hasOwnProperty(k)){continue;}
+  try{ // IE10 不支持此属性或方法。
+    a.push("| "+k+" | "+String(info[k])+" |");
+  }catch(ex){window.console && console.log("2. "+k+":"+ex.message);}
+}
+
+var detector_version = $("p.sidebar-version > a").text();
+
+document.getElementById("ua").innerHTML =
+  "detector 版本：" + detector_version + "<br /><br/>" +
+  a.join("<br />");
+
+document.getElementById("email").setAttribute("href",
+  "mailto:hotoo.cn@gmail.com?subject=" +
+    encodeURIComponent("Detector 识别信息") +
+  "&body="+
+  encodeURIComponent(
+    "请修正我们识别错误的信息：\n\n"+
+    "> 注：只需要修改识别错误的部分即可。\n\n"+
+    detectedInfo.join("\n")+
+    "\n\n=========================\n"+
+    "自动识别的原始信息如下（请勿修改）：\n\n" +
+    "detector 版本：" + detector_version + "\n\n" +
+    a.join("\n")
+  ));
+
+document.getElementById("issues").href = "https://github.com/hotoo/detector/issues/new" +
+    "?title=detector%20 识别信息"+
+    "&body=" +
+      encodeURIComponent(
+        "请修正我们识别错误的信息：\n\n"+
+        "> 注：只需要修改识别错误的部分即可。\n\n"+
+        detectedInfo.join("\n") +
+        "\n"+
+        "\n=========================\n"+
+        "自动识别的原始信息如下（请勿修改）：\n\n"+
+        "detector 版本：" + detector_version + "\n\n" +
+        detectedInfo.join("\n")+
+        "\n\n"+
+        a.join("\n")
+      );
+</script>
+
+<p>扫描下面的二维码直接访问当前页面。</p>
+<p><img src="code.png" alt="二维码"></p>
+
+  </div>
+</article>
+
+      </div>
+      
+    </div>
+  </body>
+  <script src="../static/js/nprogress.js?nowrap"></script>
+  <script>
+  (function() {
+    NProgress.start();
+    window.onload = NProgress.done;
+    var ready = function(fn) {
+      var doc = document;
+      if(doc.addEventListener) {
+        doc.addEventListener('DOMContentLoaded', fn, false);
+      } else {
+        doc.attachEvent('onreadystatechange', fn);
+      }
+    };
+    ready(function() {
+      NProgress.inc(0.6);
+      seajs.use("../static/js/arale-qrcode.js?nowrap", function(QRCode) {
+        var url = location.href;
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+          url = url.replace(location.hostname, '10.15.78.202');
+        }
+        var el = new QRCode({
+          text: url,
+          render: 'canvas',
+          width: 120,
+          height: 120
+        });
+        document.getElementById('qrcode').appendChild(el);
+      });
+    }, false);
+  })();
+  </script>
+</html>

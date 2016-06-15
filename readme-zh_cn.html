@@ -1,0 +1,401 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>detector - detector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="nico-spm 0.5.5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link type="image/x-icon" href="/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="./static/css/normalize.css" />
+    <link rel="stylesheet" href="./static/css/site.css" />
+    <link rel="stylesheet" href="./static/css/site.css" />
+    <link rel="stylesheet" href="./static/css/solarized.css" />
+    <link rel="stylesheet" href="./static/css/codemirror.css" />
+<script>
+if (!location.port) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-50522089-2', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+<script src="./static/js/sea.js?nowrap"></script>
+
+<script>
+  seajs.config({
+    base: "./"
+  });
+</script>
+    <!--[if lt IE 9]>
+    <script src="./static/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body class="spmjs">
+  <script src="./dist/bundle.js?nowrap"></script>
+
+  <div class="body-wrapper">
+      <aside class="sidebar-wrapper">
+      <h1>
+          <a href="./">Detector</a>
+      </h1>
+      <p class="sidebar-version">Version: <a href="http://spmjs.io/package/detector" title="">2.4.5</a></p>
+        <p class="sidebar-description" data-keyword="utility">The module for detect client-side information.</p>
+        <a class="sidebar-source" href="https://github.com/hotoo/detector" target="_blank">View the Project</a>
+        <ul class="sidebar-navigation" role="navigation">
+          <li><a href="./">Doc</a></li>
+          <li><a href="examples/">Demo</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a class="test-link" href="tests/runner.html" target="_blank">Test</a></li>
+          <li><a class="issue-link" href="https://github.com/hotoo/detector/issues" target="_blank">Issues</a></li>
+        </ul>
+        
+<ol class="sidenav">
+  <li><a href="HISTORY.html">CHANGELOG</a></li>
+  <li><a href="README-zh_CN.html">detector</a></li>
+</ol>
+
+        <div class="qrcode-wrapper">
+          <i class="icon">
+            <div class="icon-qrcode">
+              <svg width="1024" height="1024" viewBox="0 0 1024 1024">
+                <g class="transform-group">
+                  <g transform="translate(0, 18) scale(1, -1) scale(0.024, 0.024)">
+                    <path d="M116.8 792.062v0 0zM334.523 138.877v-72.569h-72.569v72.569h72.569zM334.523 574.339v-72.569h-72.569v72.569h72.569zM769.984 574.339v-72.569h-72.569v72.569h72.569zM189.369-5.705h217.723v217.167h-217.723v-217.167zM189.369 429.185h217.723v217.723h-217.723v-217.723zM624.831 429.185h217.723v217.723h-217.723v-217.723zM479.677 284.031v-362.877h-362.877v362.877h362.877zM769.984-6.277v-72.569h-72.569v72.569h72.569zM915.138-6.277v-72.569h-72.569v72.569h72.569zM915.138 284.031v-217.723h-217.723v72.569h-72.569v-217.723h-72.569v362.877h217.723v-72.569h72.569v72.569h72.569zM479.677 719.493v-362.877h-362.877v362.877h362.877zM915.138 719.493v-362.877h-362.877v362.877h362.877z" fill="#666"></path>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="qrcode" id="qrcode"></div>
+          </i>
+        </div>
+        <div class="footer-wrapper"><a target="_blank" href="http://spmjs.io">spmjs.io</a> /
+<a target="_blank" href="https://github.com/spmjs/spm">spm</a> /
+<a target="_blank" href="http://seajs.org">sea.js</a> /
+<a target="_blank" href="http://lab.lepture.com/nico/">nico-spm</a>
+        </div>
+      </aside>
+      <div class="content-wrapper">
+        
+<article class="hentry">
+  <h1 class="entry-title">detector</h1>
+  <div class="entry-content">
+    <!--filepath:README-zh_CN.md --> <p><a href="http://badge.fury.io/js/detector"><img src="https://badge.fury.io/js/detector.png" alt="NPM version"></a>
+<a href="http://spmjs.io/package/detector"><img src="http://spmjs.io/badge/detector" alt="spm package"></a>
+<a href="https://travis-ci.org/hotoo/detector"><img src="https://secure.travis-ci.org/hotoo/detector.png?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/r/hotoo/detector"><img src="https://coveralls.io/repos/hotoo/detector/badge.png?branch=master" alt="Coverage Status"></a></p>
+<p>客户端信息识别模块，用于自动识别用户使用的客户端环境。包括：</p>
+<ol>
+<li>硬件设备。</li>
+<li>操作系统。</li>
+<li>浏览器。</li>
+<li>浏览器渲染引擎。</li>
+</ol>
+<p>识别到的信息结构如下：</p>
+<div class="highlight"><pre><code class="javascript">detector = {
+    device: {
+        name: <span class="string">"iphone"</span>,
+        version: -<span class="number">1</span>,
+        fullVersion: <span class="string">"-1"</span>,
+        [iphone]: -<span class="number">1</span>
+    },
+    os: {
+        name: <span class="string">"ios"</span>,
+        version: <span class="number">6.1</span>,
+        fullVersion: <span class="string">"6.1"</span>,
+        [ios]: <span class="number">6.1</span>
+    },
+    browser: {
+        name: <span class="string">"chrome"</span>:
+        version: <span class="number">26.0</span>,
+        fullVersion: <span class="string">"26.0.1410.50"</span>,
+        mode: <span class="number">26.0</span>,
+        fullMode: <span class="string">"26.0.1410.50"</span>,
+        compatible: <span class="literal">false</span>,
+        [chrome]: <span class="number">26.0</span>
+    },
+    engine: {
+        name: <span class="string">"webkit"</span>,
+        version: <span class="number">536.26</span>,
+        fullVersion: <span class="string">"536.26"</span>,
+        mode: <span class="number">523.26</span>,
+        fullMode: <span class="string">"523.26"</span>,
+        compatible: <span class="literal">false</span>,
+        [webkit]: <span class="number">536.26</span>
+    }
+}</code></pre></div><p>备注：上面的 <code>[iphone]</code>, <code>[ios]</code>, <code>[chrome]</code>, <code>[webkit]</code> 是动态的，根据实际识别
+到的信息不同而有所不同。</p>
+<p>注：</p>
+<ul>
+<li>这个版本遵循 CommonJS 规范，同时兼容基于 Node 环境和 Web 浏览器环境运行。</li>
+<li>有些场景只需要简单识别特定的信息，可以参考
+<a href="https://github.com/hotoo/detector/issues/18">识别特定浏览器最佳实践</a>
+而无需使用 detector。</li>
+</ul>
+<h2 id="安装">安装<a href="#安装" class="anchor">¶</a></h2><p>via npm:</p>
+<p>全局安装 (<code>-g</code>) 时，可以在终端使用 <code>detector</code> 命令。</p>
+<pre>npm install detector [-g]</pre><p>via spm@3.x:</p>
+<pre>spm install detector</pre><h2 id="使用说明">使用说明<a href="#使用说明" class="anchor">¶</a></h2><p>一般情况下，常见使用范例：</p>
+<div class="highlight"><pre><code class="javascript"><span class="comment">// 判断浏览器名</span>
+detector.browser.name === <span class="string">"chrome"</span> <span class="comment">// true</span>
+
+<span class="comment">// 判断浏览器名方法 2.</span>
+!!detector.browser.ie <span class="comment">// false</span>
+
+<span class="comment">// 判断老旧浏览器</span>
+<span class="keyword">if</span>(detector.browser.ie &amp;&amp; detector.browser.version &lt; <span class="number">8</span>){
+    alert(<span class="string">"你的浏览器太老了。"</span>);
+}
+
+<span class="comment">// 判断 Trident 4(IE8) 以下版本浏览器引擎</span>
+<span class="keyword">if</span>(detector.engine.trident &amp;&amp; detector.engine.mode &lt; <span class="number">4</span>){
+    <span class="comment">// hack code.</span>
+}
+
+<span class="comment">// 收集客户端详细信息</span>
+detector.browser.name + <span class="string">"/"</span> + detector.browser.fullVersion;</code></pre></div><h2 id="api">API<a href="#api" class="anchor">¶</a></h2><h3 id="string-detector-device-name">{String} detector.device.name<a href="#string-detector-device-name" class="anchor">¶</a></h3><p>设备名称。</p>
+<h3 id="number-detector-device-version">{Number} detector.device.version<a href="#number-detector-device-version" class="anchor">¶</a></h3><p>设备版本号。</p>
+<h3 id="string-detector-device-fullversion">{String} detector.device.fullVersion<a href="#string-detector-device-fullversion" class="anchor">¶</a></h3><p>设备完整版本号。</p>
+<h3 id="number-detector-device-device-name">{Number} detector.device[device_name]<a href="#number-detector-device-device-name" class="anchor">¶</a></h3><p>直接判断设备名。</p>
+<p>可以识别的设备名称为：</p>
+<ul>
+<li><code>pc</code>: Windows PC.</li>
+<li><code>mac</code>: Macintosh PC.</li>
+<li><code>iphone</code>: iPhone.</li>
+<li><code>ipad</code>: iPad.</li>
+<li><code>ipod</code>: iPod.</li>
+<li><code>android</code>: Android.</li>
+<li><code>blackberry</code>: 黑莓 (Blackberry) 手机。</li>
+<li><code>wp</code>: Windows Phone.</li>
+<li><code>mi</code>: 小米。</li>
+<li><code>meizu</code>: 魅族。</li>
+<li><code>nexus</code>: Nexus.</li>
+<li><code>nokia</code>: Nokia.</li>
+<li><code>samsung</code>: 三星手机。</li>
+<li><code>aliyun</code>: 阿里云手机。</li>
+<li><code>huawei</code>: 华为手机。</li>
+<li><code>lenovo</code>: 联想手机。</li>
+<li><code>zte</code>: 中兴手机。</li>
+<li><code>vivo</code>: 步步高手机。</li>
+<li><code>htc</code>: HTC。</li>
+<li><code>oppo</code>: OPPO 手机。</li>
+<li><code>konka</code>: 康佳手机。</li>
+<li><code>sonyericsson</code>: 索尼爱立信手机。</li>
+<li><code>coolpad</code>: 酷派手机。</li>
+<li><code>lg</code>: LG 手机。</li>
+</ul>
+<h5 id="node-only">NODE ONLY<a href="#node-only" class="anchor">¶</a></h5><ul>
+<li><code>noain</code>: <a href="http://www.noain.com.cn/">诺亚信</a></li>
+<li><code>huawei-honor</code>: <a href="http://www.honor.cn/">华为荣耀</a></li>
+<li><code>lephone</code>: <a href="http://www.lephonemall.com/">乐 Phone</a></li>
+<li><code>asus</code>: <a href="https://www.asus.com.cn/Phones/">华硕</a></li>
+<li><code>alcatel</code></li>
+<li><code>一加</code></li>
+<li><code>蓝米</code></li>
+<li><code>E 派</code></li>
+<li><code>hike</code></li>
+<li><code>qmi</code></li>
+<li><del><code>友信达</code>: <a href="http://www.iunistar.com/">友信达</a></del></li>
+<li><code>优米</code></li>
+<li><code>嘉源</code></li>
+<li><code>intki</code></li>
+<li><code>星语</code></li>
+<li><code>欧奇</code></li>
+<li><code>海派</code></li>
+<li><code>广信</code>: <a href="http://www.szkingsun.com/">广信</a></li>
+<li><del><code>nibiru</code>: <a href="http://www.nbru.cn/">nibiru</a></del></li>
+<li><code>神州</code></li>
+<li><code>青橙</code></li>
+<li><code>海信</code></li>
+<li><code>金立</code></li>
+<li><code>eton</code></li>
+<li><code>bohp</code></li>
+<li><code>小杨树</code></li>
+<li><code>语信</code></li>
+<li><code>nubia</code></li>
+<li><code>爱讯达</code></li>
+<li><code>寰宇通</code></li>
+<li><code>mofut</code></li>
+<li><code>infocus</code></li>
+<li><code>大唐</code></li>
+<li><code>邦华</code></li>
+<li><code>天迈</code></li>
+<li><code>大显</code></li>
+<li><code>博瑞</code></li>
+<li><code>lingwin</code></li>
+<li><code>iusai</code></li>
+<li><code>波导</code></li>
+<li><code>德赛</code></li>
+<li><code>蓝魔</code></li>
+<li><code>美图</code></li>
+<li><code>opsson</code></li>
+<li><code>benwee</code></li>
+<li><code>hosin</code></li>
+<li><code>smartisan</code>: <a href="http://www.smartisan.com/">锤子</a>, Smartisan.</li>
+<li><code>ephone</code></li>
+<li><code>佰事讯</code></li>
+<li><code>newman</code></li>
+<li><code>konka</code></li>
+<li><code>haier</code></li>
+<li><code>moto</code></li>
+<li><code>tcl</code></li>
+<li><code>天语</code></li>
+<li><code>doov</code></li>
+<li><code>天时达</code></li>
+</ul>
+<hr>
+<h3 id="string-detector-os-name">{String} detector.os.name<a href="#string-detector-os-name" class="anchor">¶</a></h3><p>操作系统名。</p>
+<h3 id="number-detector-os-version">{Number} detector.os.version<a href="#number-detector-os-version" class="anchor">¶</a></h3><p>操作系统版本号。</p>
+<h3 id="string-detector-os-fullversion">{String} detector.os.fullVersion<a href="#string-detector-os-fullversion" class="anchor">¶</a></h3><p>操作系统完整版本号。</p>
+<h3 id="number-detector-os-os-name">{Number} detector.os[os_name]<a href="#number-detector-os-os-name" class="anchor">¶</a></h3><p>直接判断操作系统。</p>
+<p>可以识别的操作系统包括：</p>
+<ul>
+<li><code>windows</code>: Windows.</li>
+<li><code>macosx</code>: Macintosh.</li>
+<li><code>ios</code>: iOS.</li>
+<li><code>android</code>: Android.</li>
+<li><code>chromeos</code>: Chrome OS.</li>
+<li><code>linux</code>: Linux.</li>
+<li><code>wp</code>: Windows Phone.</li>
+<li><code>windowsce</code>: Windows CE, 包括 Windows Mobile, Smartphone, PPC.</li>
+<li><code>symbian</code>: Symbian OS.</li>
+<li><code>blackberry</code>: Blackberry 操作系统。</li>
+<li><code>yunos</code>: 阿里云系统。</li>
+</ul>
+<h5 id="node-only">NODE ONLY<a href="#node-only" class="anchor">¶</a></h5><ul>
+<li><code>meego</code>: Meego.</li>
+<li><code>smartisan</code>: 锤子，Smartisan.</li>
+</ul>
+<hr>
+<h3 id="string-detector-browser-name">{String} detector.browser.name<a href="#string-detector-browser-name" class="anchor">¶</a></h3><p>浏览器名。</p>
+<h3 id="number-detector-browser-version">{Number} detector.browser.version<a href="#number-detector-browser-version" class="anchor">¶</a></h3><p>浏览器真实版本。兼容模式下浏览器声明自己是某老旧浏览器，但这个属性返回的是
+其真正的版本号。</p>
+<p>适用于收集统计分析客户端信息。</p>
+<p>例如：</p>
+<p>IE9 兼容模式声明自己是 IE7，但是 <code>detector.browser.version</code> 返回 <code>9.0</code></p>
+<h3 id="string-detector-browser-fullversion">{String} detector.browser.fullVersion<a href="#string-detector-browser-fullversion" class="anchor">¶</a></h3><p>浏览器完整的真实版本号。</p>
+<h3 id="number-detector-browser-mode">{Number} detector.browser.mode<a href="#number-detector-browser-mode" class="anchor">¶</a></h3><p>浏览器模式。即浏览器当时使用的模式，IE 兼容模式时，version 和 mode 值不同。</p>
+<h3 id="string-detector-browser-fullmode">{String} detector.browser.fullMode<a href="#string-detector-browser-fullmode" class="anchor">¶</a></h3><p>浏览器模式的完整版本号。</p>
+<h3 id="number-detector-browser-browser-name">{Number} detector.browser[browser_name]<a href="#number-detector-browser-browser-name" class="anchor">¶</a></h3><p>直接判断浏览器。</p>
+<p>可以识别的浏览器为：</p>
+<ul>
+<li><code>ie</code>: Microsoft Internet Explorer.</li>
+<li><code>chrome</code>: Google Chrome.</li>
+<li><code>firefox</code>: Mozilla Firefox.</li>
+<li><code>safari</code>: Apple Safari.</li>
+<li><code>opera</code>: Opera.</li>
+<li><code>360</code>: 包括奇虎 360 安全浏览器和 360 极速浏览器。</li>
+<li><code>maxthon</code>: 傲游浏览器 (Maxthon)。</li>
+<li><code>sogou</code>: 搜狗浏览器 (Sogou)。</li>
+<li><code>theworld</code>: 世界之窗浏览器 (TheWorld)。</li>
+<li><code>green</code>: GreenBrowser.</li>
+<li><code>qq</code>: QQ 浏览器。</li>
+<li><code>tt</code>: TencentTraveler.</li>
+<li><code>liebao</code>: 猎豹浏览器。</li>
+<li><code>tao</code>: 淘宝浏览器。</li>
+<li><code>coolnovo</code>: 枫树浏览器。</li>
+<li><code>saayaa</code>: 闪游浏览器。</li>
+<li><code>uc</code>: UC 浏览器。</li>
+<li><code>mi</code>: 小米浏览器。</li>
+<li><code>baidu</code>: 百度浏览器。</li>
+<li><code>nokia</code>: 诺基亚浏览器。</li>
+<li><code>blackberry</code>: 黑莓默认浏览器，版本号与系统版本相同。</li>
+<li><code>webview</code>: iOS 系统的提供的 WebView。</li>
+<li><code>yandex</code>: Yandex YaBrowser.</li>
+<li><code>micromessenger</code> 微信</li>
+<li><code>ali-ap</code>: 支付宝手机客户端。</li>
+<li><code>ali-ap-pd</code>: 支付宝平板客户端。</li>
+<li><code>ali-am</code>: 支付宝商户客户端。</li>
+<li><code>ali-tb</code>: 淘宝手机客户端。</li>
+<li><code>ali-tb-pd</code>: 淘宝平板客户端。</li>
+<li><code>ali-tm</code>: 天猫手机客户端。</li>
+<li><code>ali-tm-pd</code>: 天猫平板客户端。</li>
+</ul>
+<h5 id="node-only">NODE ONLY<a href="#node-only" class="anchor">¶</a></h5><ul>
+<li><code>googlebot</code>: <a href="wiki/googlebot.html">Googlebot</a> 网络爬虫。</li>
+<li><code>baiduspider</code>: <a href="wiki/baiduspider.html">Baiduspider</a> ，百度无线、网页搜索</li>
+<li><code>baiduspider-image</code>: 百度图片搜索</li>
+<li><code>baiduspider-video</code>: 百度视频搜索</li>
+<li><code>baiduspider-news</code>: 百度新闻搜索</li>
+<li><code>baiduspider-favo</code>: 百度收藏搜索</li>
+<li><code>baiduspider-cpro</code>: 百度联盟</li>
+<li><code>baiduspider-ads</code>: 百度商务搜索</li>
+<li><code>baiduboxapp</code>: 百度手机搜索客户端</li>
+<li><code>bingbot</code>: <a href="wiki/bingbot.html">Bingbot</a> 网络爬虫。</li>
+<li><code>msnbot</code>: <a href="wiki/msnbot.html">MSNBot</a></li>
+<li><code>nuhkbot</code>: <a href="wiki/nuhkbot.html">Nuhkbot</a></li>
+<li><code>alexabot</code>: <a href="wiki/alexabot.html">Alexabot</a>.</li>
+<li><code>curl</code>: curl.</li>
+<li><del><code>slurpbot</code>: Yahoo! <a href="wiki/slurpbot.html">Slurp</a></del></li>
+</ul>
+<h3 id="boolean-detector-browser-compatible">{Boolean} detector.browser.compatible<a href="#boolean-detector-browser-compatible" class="anchor">¶</a></h3><p>浏览器是否处于兼容模式。</p>
+<hr>
+<h3 id="string-detector-engine-name">{String} detector.engine.name<a href="#string-detector-engine-name" class="anchor">¶</a></h3><p>渲染引擎名（又称排版引擎、浏览器内核）。</p>
+<h3 id="number-detector-engine-version">{Number} detector.engine.version<a href="#number-detector-engine-version" class="anchor">¶</a></h3><p>渲染引擎版本号。</p>
+<h3 id="string-detector-engine-fullversion">{String} detector.engine.fullVersion<a href="#string-detector-engine-fullversion" class="anchor">¶</a></h3><p>渲染引擎完整版本号。</p>
+<h3 id="number-detector-engine-mode">{Number} detector.engine.mode<a href="#number-detector-engine-mode" class="anchor">¶</a></h3><p>渲染引擎模式，即 IE 浏览器的文档模式。</p>
+<h3 id="string-detector-engine-fullmode">{String} detector.engine.fullMode<a href="#string-detector-engine-fullmode" class="anchor">¶</a></h3><p>渲染引擎模式完整版本号。</p>
+<h3 id="number-detector-engine-engine-name">{Number} detector.engine[engine_name]<a href="#number-detector-engine-engine-name" class="anchor">¶</a></h3><p>直接判断渲染引擎。</p>
+<p>可以识别的渲染引擎为：</p>
+<ul>
+<li><code>trident</code>: Microsoft Trident.</li>
+<li><code>blink</code>: Google Blink.</li>
+<li><code>webkit</code>: Apple Webkit.</li>
+<li><code>gecko</code>: Mozilla Gecko.</li>
+<li><code>presto</code>: Opera Presto.</li>
+<li><code>androidwebkit</code>: Android Webkit.</li>
+<li><code>coolpadwebkit</code>: Coolpad Webkit.</li>
+<li><code>u2</code>: UC 浏览器渲染引擎 v2</li>
+<li><code>u3</code>: UC 浏览器渲染引擎 v3</li>
+</ul>
+<h3 id="detector-detector-parse-string-ua">{detector} detector.parse(String ua)<a href="#detector-detector-parse-string-ua" class="anchor">¶</a></h3><p>根据 userAgent 字符串识别客户端信息的接口。</p>
+<p>服务端程序可以使用这个接口识别客户端信息，由于服务端程序的特殊性，可以补充
+更完善的检测规则。</p>
+<hr>
+<p>对于不能识别的信息，统一如下：</p>
+<ul>
+<li>所有不能识别的名称均归类为 <code>na</code>，即 Not Available.</li>
+<li>所有不能识别的版本号归类为 <code>-1</code>。</li>
+</ul>
+
+  </div>
+</article>
+
+      </div>
+      
+    </div>
+  </body>
+  <script src="./static/js/nprogress.js?nowrap"></script>
+  <script>
+  (function() {
+    NProgress.start();
+    window.onload = NProgress.done;
+    var ready = function(fn) {
+      var doc = document;
+      if(doc.addEventListener) {
+        doc.addEventListener('DOMContentLoaded', fn, false);
+      } else {
+        doc.attachEvent('onreadystatechange', fn);
+      }
+    };
+    ready(function() {
+      NProgress.inc(0.6);
+      seajs.use("./static/js/arale-qrcode.js?nowrap", function(QRCode) {
+        var url = location.href;
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+          url = url.replace(location.hostname, '10.15.78.202');
+        }
+        var el = new QRCode({
+          text: url,
+          render: 'canvas',
+          width: 120,
+          height: 120
+        });
+        document.getElementById('qrcode').appendChild(el);
+      });
+    }, false);
+  })();
+  </script>
+</html>

@@ -1,0 +1,58 @@
+{
+  "name": "detector",
+  "version": "2.4.5",
+  "description": "The module for detect client-side information.",
+  "homepage": "http://spmjs.io/docs/detector/",
+  "author": "冒顿 <hotoo.cn@gmail.com>",
+  "maintainers": [
+    "冒顿 <hotoo.cn@gmail.com>"
+  ],
+  "main": "./lib/node-detector.js",
+  "bin": {
+    "detector": "./bin/detector"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "keywords": [
+    "utility",
+    "userAgent",
+    "arale",
+    "Browser",
+    "OS",
+    "Operation System",
+    "Device",
+    "Rendering Engine"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hotoo/detector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hotoo/detector/issues"
+  },
+  "license": "MIT",
+  "spm": {
+    "main": "./lib/web-detector.js",
+    "devDependencies": {
+      "jquery": "1.7.2",
+      "expect.js": "0.3.1"
+    },
+    "tests": "tests/*-spec.js",
+    "build": {
+      "babel": {}
+    }
+  },
+  "dependencies": {
+    "colors": "0.6.2",
+    "commander": "~1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "~1.4.3",
+    "expect.js": "0.3.1",
+    "istanbul": "^0.3.22",
+    "mocha": "^2.3.3",
+    "spm": "~3.6.12"
+  },
+  "browser": "./web-detector.js"
+}

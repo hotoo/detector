@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+"use strict";
+
+const commander = require("commander");
+const colors = require("colors");
+const detector = require("../lib/node-detector");
+
+colors.setTheme({
+  label: "white",
+  info: "green",
+});
+
+commander.
+  version(require("../package").version).
+  usage("[options] \"user-agent string.\"").
+  option("-v, --version", "output the version number").
+  parse(process.argv);
+
+if (commander.list) {
+  process.exit();
+}
+
+// output help and exit if no args found
+if (commander.args.length === 0) {
+  commander.help();
+}
+
+const tan = detector.parse(commander.args.join(" "));
+const device = tan.device.name.info + "@".red + tan.device.fullVersion.info;
+const os = tan.os.name.info + "@".red + tan.os.fullVersion.info;
+const browser = tan.browser.name.info + "@".red + tan.browser.fullVersion.info;
+const engine = tan.engine.name.info + "@".red + tan.engine.fullVersion.info;
+
+console.log();
+console.log("   Device: ".label, device);
+console.log("       OS: ".label, os);
+console.log("  Browser: ".label, browser);
+console.log("   Engine: ".label, engine);
+console.log();

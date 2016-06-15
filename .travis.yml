@@ -1,0 +1,22 @@
+os:
+  - linux
+language: node_js
+
+node_js:
+  - "iojs-2"
+  - "iojs-3"
+  - "4"
+
+install:
+  - npm install spm coveralls
+
+before_script:
+  - node_modules/spm/bin/spm install
+  - npm install
+
+script:
+  - node_modules/spm/bin/spm test
+  - node_modules/.bin/mocha -R spec tests/*.js
+
+after_success:
+  - cat coverage/lcov.info | node_modules/.bin/coveralls
