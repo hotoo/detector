@@ -7,22 +7,17 @@ install:
 build:
 	@spm build
 
-release-web:
-	@spm build --umd detector
-	@ghp-import dist
-	@git push origin gh-pages
-
 publish: build publish-doc release-web
-	@spm publish
 	@npm publish
 	@git tag $(version)
 	@git push origin $(version)
 
-build-doc: clean
-	@spm doc build
-
 publish-doc: clean
-	@spm doc publish
+	@spm doc build
+	@spm build --umd detector
+	@cp -r dist _site
+	@ghp-import _site
+	@git push origin gh-pages
 
 watch:
 	@spm doc watch

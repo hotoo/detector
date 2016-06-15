@@ -172,7 +172,3 @@ document.getElementById("issues").href = "https://github.com/hotoo/detector/issu
         a.join("\n")
       );
 </script>
-
-Scan QR code for vist this page.
-
-![QR code](code.png)

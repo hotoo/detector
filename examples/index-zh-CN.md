@@ -176,7 +176,3 @@ document.getElementById("issues").href = "https://github.com/hotoo/detector/issu
         a.join("\n")
       );
 </script>
-
-扫描下面的二维码直接访问当前页面。
-
-![二维码](code.png)
