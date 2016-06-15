@@ -22,7 +22,6 @@ _site
 sea-modules
 .cache/
 .build/
-dist/
 npm-debug.log
 spm_modules/
 coverage/
