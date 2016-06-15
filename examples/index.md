@@ -6,13 +6,13 @@ You're using:
 
 <pre id="detector-info"></pre>
 
-* If detected information incorrect, <a id="issues"
+* If the information displayed is incorrect, <a id="issues"
   href="https://github.com/hotoo/detector/issues/new"
-  target="_blank"><strong>Please put new issue for feedback</strong></a>.
-* If you without Github account, <a id="email" href="mailto:hotoo.cn@gmail.com"
-  target="_blank"><strong>Please send Email to us</strong></a>.
-* if click Email link can't send Email, Please copy this page's information,
-  and send email to `hotoo.cn@gmail.com`.
+  target="_blank"><strong>please open an issue on GitHub</strong></a>;
+* If you do not have a GitHub account, <a id="email" href="mailto:hotoo.cn@gmail.com"
+  target="_blank"><strong>please click here to send an email</strong></a>;
+* If the link does not work, please send the information on this page
+  to `hotoo.cn+detector@gmail.com`.
 
 Thank you!
 

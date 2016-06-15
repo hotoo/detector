@@ -11,7 +11,7 @@
   target="_blank"><strong>请给我们提 Issues 反馈</strong></a>。
 * 如果没有 Github 账户，请向我们 <a id="email" href="mailto:hotoo.cn@gmail.com"
   target="_blank"><strong>发送 Email</strong></a>。
-* 如果点击链接无法发送 Email，请拷贝这个页面的内容手工发送 Email 给 `hotoo.cn@gmail.com`。
+* 如果点击链接无法发送 Email，请拷贝这个页面的内容手工发送 Email 给 `hotoo.cn+detector@gmail.com`。
 
 <pre id="ua"></pre>
 
