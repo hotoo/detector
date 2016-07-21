@@ -142,6 +142,7 @@ var OS_ALIAS = {
   "macosx/10.9": "Mac OS X Mavericks",
   "macosx/10.10": "Mac OS X Yosemite",
   "macosx/10.11": "Mac OS X El Capitan",
+  "macosx/10.12": "macOS Sierra",
   // iOS.
   "ios/9.0": "iOS 9.0 (Monarch)",
   // Android.
@@ -278,7 +279,7 @@ document.getElementById("issues").href = "https://github.com/hotoo/detector/issu
       seajs.use("../static/js/arale-qrcode.js?nowrap", function(QRCode) {
         var url = location.href;
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-          url = url.replace(location.hostname, '10.15.78.202');
+          url = url.replace(location.hostname, '10.15.79.103');
         }
         var el = new QRCode({
           text: url,

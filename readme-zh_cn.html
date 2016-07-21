@@ -385,7 +385,7 @@ detector.browser.name + <span class="string">"/"</span> + detector.browser.fullV
       seajs.use("./static/js/arale-qrcode.js?nowrap", function(QRCode) {
         var url = location.href;
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-          url = url.replace(location.hostname, '10.15.78.202');
+          url = url.replace(location.hostname, '10.15.79.103');
         }
         var el = new QRCode({
           text: url,
