@@ -3,6 +3,10 @@
 
 ----
 
+## 2.5.0 (2016-07-27)
+
+- feat(browser): use package.json:browser field, and babel transfrom to ES5. #105
+
 ## 2.4.5 (2016-02-15)
 
 * fix(smartisan): fixed smartisan device and OS rule. #97.
