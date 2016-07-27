@@ -1,13 +1,12 @@
 version = $(shell cat package.json | grep version | awk -F'"' '{print $$4}')
 
 install:
-	@spm install
 	@npm install
 
 build:
 	@spm build
 
-publish: build publish-doc release-web
+publish: build publish-doc
 	@npm publish
 	@git tag $(version)
 	@git push origin $(version)
@@ -50,4 +49,4 @@ test-spm:
 test: lint test-npm test-spm
 
 
-.PHONY: build-doc publish-doc server clean test coverage release-web
+.PHONY: build-doc publish-doc server clean test coverage
