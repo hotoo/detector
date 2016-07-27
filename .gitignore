@@ -25,3 +25,4 @@ sea-modules
 npm-debug.log
 spm_modules/
 coverage/
+web/
