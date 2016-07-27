@@ -3,14 +3,11 @@
 ---
 
 [![NPM version][npm-badge]][npm-url]
-[![spm version][spm-badge]][spm-url]
 [![Build Status][travis-badge]][travis-url]
 [![Coverage Status][coveralls-badge]][coveralls-url]
 
 [npm-badge]: https://img.shields.io/npm/v/detector.svg?style=flat
 [npm-url]: https://www.npmjs.com/package/detector
-[spm-badge]: http://spmjs.io/badge/detector
-[spm-url]: http://spmjs.io/package/detector
 [travis-badge]: https://travis-ci.org/hotoo/detector.svg?branch=master
 [travis-url]: https://travis-ci.org/hotoo/detector
 [coveralls-badge]: https://coveralls.io/repos/hotoo/detector/badge.svg?branch=master
@@ -83,14 +80,6 @@ terminal.
 ```
 npm install detector [-g]
 ```
-
-
-via spm:
-
-```
-spm install detector
-```
-
 
 ## Usage
 
