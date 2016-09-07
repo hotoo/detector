@@ -41,7 +41,7 @@ if (!location.port) {
       <h1>
           <a href="../">Detector</a>
       </h1>
-      <p class="sidebar-version">Version: <a href="http://spmjs.io/package/detector" title="">2.4.5</a></p>
+      <p class="sidebar-version">Version: <a href="http://spmjs.io/package/detector" title="">2.5.0</a></p>
         <p class="sidebar-description" data-keyword="utility">The module for detect client-side information.</p>
         <a class="sidebar-source" href="https://github.com/hotoo/detector" target="_blank">View the Project</a>
         <ul class="sidebar-navigation" role="navigation">
@@ -279,7 +279,7 @@ document.getElementById("issues").href = "https://github.com/hotoo/detector/issu
       seajs.use("../static/js/arale-qrcode.js?nowrap", function(QRCode) {
         var url = location.href;
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-          url = url.replace(location.hostname, '10.15.79.103');
+          url = url.replace(location.hostname, '10.15.65.42');
         }
         var el = new QRCode({
           text: url,

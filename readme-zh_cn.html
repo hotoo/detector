@@ -41,7 +41,7 @@ if (!location.port) {
       <h1>
           <a href="./">Detector</a>
       </h1>
-      <p class="sidebar-version">Version: <a href="http://spmjs.io/package/detector" title="">2.4.5</a></p>
+      <p class="sidebar-version">Version: <a href="http://spmjs.io/package/detector" title="">2.5.0</a></p>
         <p class="sidebar-description" data-keyword="utility">The module for detect client-side information.</p>
         <a class="sidebar-source" href="https://github.com/hotoo/detector" target="_blank">View the Project</a>
         <ul class="sidebar-navigation" role="navigation">
@@ -83,7 +83,6 @@ if (!location.port) {
   <h1 class="entry-title">detector</h1>
   <div class="entry-content">
     <!--filepath:README-zh_CN.md --> <p><a href="http://badge.fury.io/js/detector"><img src="https://badge.fury.io/js/detector.png" alt="NPM version"></a>
-<a href="http://spmjs.io/package/detector"><img src="http://spmjs.io/badge/detector" alt="spm package"></a>
 <a href="https://travis-ci.org/hotoo/detector"><img src="https://secure.travis-ci.org/hotoo/detector.png?branch=master" alt="Build Status"></a>
 <a href="https://coveralls.io/r/hotoo/detector"><img src="https://coveralls.io/repos/hotoo/detector/badge.png?branch=master" alt="Coverage Status"></a></p>
 <p>客户端信息识别模块，用于自动识别用户使用的客户端环境。包括：</p>
@@ -136,8 +135,7 @@ if (!location.port) {
 </ul>
 <h2 id="安装">安装<a href="#安装" class="anchor">¶</a></h2><p>via npm:</p>
 <p>全局安装 (<code>-g</code>) 时，可以在终端使用 <code>detector</code> 命令。</p>
-<pre>npm install detector [-g]</pre><p>via spm@3.x:</p>
-<pre>spm install detector</pre><h2 id="使用说明">使用说明<a href="#使用说明" class="anchor">¶</a></h2><p>一般情况下，常见使用范例：</p>
+<pre>npm install detector [-g]</pre><h2 id="使用说明">使用说明<a href="#使用说明" class="anchor">¶</a></h2><p>一般情况下，常见使用范例：</p>
 <div class="highlight"><pre><code class="javascript"><span class="comment">// 判断浏览器名</span>
 detector.browser.name === <span class="string">"chrome"</span> <span class="comment">// true</span>
 
@@ -385,7 +383,7 @@ detector.browser.name + <span class="string">"/"</span> + detector.browser.fullV
       seajs.use("./static/js/arale-qrcode.js?nowrap", function(QRCode) {
         var url = location.href;
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-          url = url.replace(location.hostname, '10.15.79.103');
+          url = url.replace(location.hostname, '10.15.65.42');
         }
         var el = new QRCode({
           text: url,

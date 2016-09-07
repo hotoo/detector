@@ -41,7 +41,7 @@ if (!location.port) {
       <h1>
           <a href="./">Detector</a>
       </h1>
-      <p class="sidebar-version">Version: <a href="http://spmjs.io/package/detector" title="">2.4.5</a></p>
+      <p class="sidebar-version">Version: <a href="http://spmjs.io/package/detector" title="">2.5.0</a></p>
         <p class="sidebar-description" data-keyword="utility">The module for detect client-side information.</p>
         <a class="sidebar-source" href="https://github.com/hotoo/detector" target="_blank">View the Project</a>
         <ul class="sidebar-navigation" role="navigation">
@@ -79,7 +79,10 @@ if (!location.port) {
   <h1 class="entry-title">CHANGELOG</h1>
   <div><a href="https://github.com/spmjs/spm/issues/722">Specification</a></div>
   <div class="entry-content">
-    <!--filepath:HISTORY.md --> <h2 id="2-4-5-2016-02-15">2.4.5 (2016-02-15)<a href="#2-4-5-2016-02-15" class="anchor">¶</a></h2><ul>
+    <!--filepath:HISTORY.md --> <h2 id="2-5-0-2016-07-27">2.5.0 (2016-07-27)<a href="#2-5-0-2016-07-27" class="anchor">¶</a></h2><ul>
+<li>feat(browser): use package.json:browser field, and babel transfrom to ES5.<a href="https://github.com/hotoo/detector/issues/105">#105</a></li>
+</ul>
+<h2 id="2-4-5-2016-02-15">2.4.5 (2016-02-15)<a href="#2-4-5-2016-02-15" class="anchor">¶</a></h2><ul>
 <li>fix(smartisan): fixed smartisan device and OS rule.<a href="https://github.com/hotoo/detector/issues/97">#97</a>.</li>
 </ul>
 <h2 id="2-4-4-2016-02-05">2.4.4 (2016-02-05)<a href="#2-4-4-2016-02-05" class="anchor">¶</a></h2><ul>
@@ -241,7 +244,7 @@ seajs.use('jquery/jquery/1.7.2/jquery', function($) {
       seajs.use("./static/js/arale-qrcode.js?nowrap", function(QRCode) {
         var url = location.href;
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-          url = url.replace(location.hostname, '10.15.79.103');
+          url = url.replace(location.hostname, '10.15.65.42');
         }
         var el = new QRCode({
           text: url,

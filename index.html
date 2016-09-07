@@ -41,7 +41,7 @@ if (!location.port) {
       <h1>
           <a href="./">Detector</a>
       </h1>
-      <p class="sidebar-version">Version: <a href="http://spmjs.io/package/detector" title="">2.4.5</a></p>
+      <p class="sidebar-version">Version: <a href="http://spmjs.io/package/detector" title="">2.5.0</a></p>
         <p class="sidebar-description" data-keyword="utility">The module for detect client-side information.</p>
         <a class="sidebar-source" href="https://github.com/hotoo/detector" target="_blank">View the Project</a>
         <ul class="sidebar-navigation" role="navigation">
@@ -79,7 +79,6 @@ if (!location.port) {
   <h1 class="entry-title">detector</h1>
   <div class="entry-content">
     <!--filepath:README.md --> <p><a href="https://www.npmjs.com/package/detector"><img src="https://img.shields.io/npm/v/detector.svg?style=flat" alt="NPM version"></a>
-<a href="http://spmjs.io/package/detector"><img src="http://spmjs.io/badge/detector" alt="spm version"></a>
 <a href="https://travis-ci.org/hotoo/detector"><img src="https://travis-ci.org/hotoo/detector.svg?branch=master" alt="Build Status"></a>
 <a href="https://coveralls.io/r/hotoo/detector"><img src="https://coveralls.io/repos/hotoo/detector/badge.svg?branch=master" alt="Coverage Status"></a></p>
 <p><a href="./README-zh_CN.html">中文文档</a></p>
@@ -135,8 +134,7 @@ to <a href="https://github.com/hotoo/detector/issues/18">#18</a>, without <code>
 <h2 id="installation">Installation<a href="#installation" class="anchor">¶</a></h2><p>via npm:</p>
 <p>Installation to global (with <code>-g</code> argument), you can use <code>detector</code> command in
 terminal.</p>
-<pre>npm install detector [-g]</pre><p>via spm:</p>
-<pre>spm install detector</pre><h2 id="usage">Usage<a href="#usage" class="anchor">¶</a></h2><p>Some examples in common use:</p>
+<pre>npm install detector [-g]</pre><h2 id="usage">Usage<a href="#usage" class="anchor">¶</a></h2><p>Some examples in common use:</p>
 <div class="highlight"><pre><code class="javascript"><span class="comment">// Detect browser name.</span>
 detector.browser.name === <span class="string">"chrome"</span> <span class="comment">// true</span>
 
@@ -389,7 +387,7 @@ is different.</p>
       seajs.use("./static/js/arale-qrcode.js?nowrap", function(QRCode) {
         var url = location.href;
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-          url = url.replace(location.hostname, '10.15.79.103');
+          url = url.replace(location.hostname, '10.15.65.42');
         }
         var el = new QRCode({
           text: url,

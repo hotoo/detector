@@ -6,16 +6,15 @@ node_js:
   - "iojs-2"
   - "iojs-3"
   - "4"
+  - "5"
 
 install:
-  - npm install spm coveralls
+  - npm install coveralls
 
 before_script:
-  - node_modules/spm/bin/spm install
   - npm install
 
 script:
-  - node_modules/spm/bin/spm test
   - node_modules/.bin/mocha -R spec tests/*.js
 
 after_success:
