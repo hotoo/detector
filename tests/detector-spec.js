@@ -987,6 +987,30 @@ const UAs = [
     browser: "micromessenger/6.2.5.51;6.2.5.51;o",
     engine: (isBlinkEngine() ? "blink" : "webkit") + "/533.1;533.1;o",
   }],
+  ["Mozilla/5.0 (Linux; Android 7.0; E6683 Build/32.3.A.0.376) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/35.0.1916.138 Mobile Safari/537.36 T7/7.4 baiduboxapp/8.4 (Baidu; P1 7.0)", {
+    device: "android/-1",
+    os: "android/7.0",
+    browser: "baiduboxapp/8.4;8.4;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.36;537.36;o",
+  }],
+  ["Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E304 baiduboxapp/0_01.0.4.8_enohpi_4331_057/1.3.01_1C2%259enohPi/1099a/5H651T3G1F97R4K26P7L7NDG6035130273SB73A96IJVT01J9UY/1", {
+    device: "iphone/-1",
+    os: "ios/10.3.1",
+    browser: "baiduboxapp/8.4.0.01;8.4.0.01;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/603.1.30;603.1.30;o",
+  }],
+  ["Mozilla/5.0 (Linux; U; Android 7.0; zh-CN; E6683 Build/32.3.A.0.376) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 Quark/1.6.8.909 Mobile Safari/537.36", {
+    device: "android/-1",
+    os: "android/7.0",
+    browser: "quark/1.6.8.909;1.6.8.909;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.36;537.36;o",
+  }],
+  ["Mozilla/5.0 (Linux; U; Android 6.0.1; zh-cn; OPPO R9s Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/38.0.0.0 Mobile Safari/537.36 OppoBrowser/4.2.8", {
+    device: "oppo/r9s",
+    os: "android/6.0.1",
+    browser: "oppobrowser/4.2.8;4.2.8;o",
+    engine: (isBlinkEngine() ? "blink" : "webkit") + "/537.36;537.36;o",
+  }],
 
   // NA
   ["", {
