@@ -15,7 +15,7 @@
 3. 浏览器。
 4. 浏览器渲染引擎。
 
-识别到的信息结构如下：
+识别返回的“detector 对象”信息结构如下：
 
 ```javascript
 detector = {
@@ -74,9 +74,14 @@ npm install detector [-g]
 
 ## 使用说明
 
-一般情况下，常见使用范例：
+### Web 端使用
 
-```javascript
+在浏览器场景下，一般常见使用示例如下：
+
+```js
+// 引入 “detector 对象”
+const detector = require('detector');
+
 // 判断浏览器名
 detector.browser.name === "chrome" // true
 
@@ -97,6 +102,15 @@ if(detector.engine.trident && detector.engine.mode < 4){
 detector.browser.name + "/" + detector.browser.fullVersion;
 ```
 
+### Node.js 端使用
+
+```js
+const detector = require('detector');
+
+// 变量 `d` 是一个 “detector 对象”
+const d = detector.parse(userAgent);
+d.browser.name === "chrome";
+```
 
 ## API
 

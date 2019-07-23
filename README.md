@@ -15,14 +15,14 @@
 
 [中文文档](./README-zh_CN.md)
 
-Client information detector, for auto detect user agent, include:
+Client information detector by user agent, detect information include:
 
 1. Device.
 2. Operation System (OS).
 3. Browser.
 4. Rendering Engine.
 
-Detected information data structure like:
+Detected information is a "detector object", data structure like:
 
 ```javascript
 detector = {
@@ -83,9 +83,14 @@ npm install detector [-g]
 
 ## Usage
 
+### for Web Browser
+
 Some examples in common use:
 
-```javascript
+```js
+// import detector, variable detector is "detector object".
+const detector = require('detector');
+
 // Detect browser name.
 detector.browser.name === "chrome" // true
 
@@ -106,6 +111,15 @@ if(detector.engine.trident && detector.engine.mode < 4){
 detector.browser.name + "/" + detector.browser.fullVersion;
 ```
 
+### for Node.js
+
+```js
+const detector = require('detector');
+
+// variable `d` is a "detector object"
+const d = detector.parse(userAgent);
+d.browser.name === "chrome";
+```
 
 ## API
 
